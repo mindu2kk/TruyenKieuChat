@@ -1,14 +1,12 @@
 # app/orchestrator.py
 # -*- coding: utf-8 -*-
-from __future__ import annotations
 from typing import Dict, Any, List, Tuple, Optional
 from router import route_intent, parse_poem_request
 from rag_pipeline import answer_question
 from generation import generate_answer_gemini
 from faq import lookup_faq
 from cache import get_cached, set_cached
-
-from poem_tools import poem_ready, get_opening, get_range  # poem mode
+from poem_tools import poem_ready, get_opening, get_range, preview_numbered, total_lines
 
 SMALL_TALK_SYS = "Bạn là một trợ lý thân thiện. Trả lời rất ngắn (≤ 2 câu), lịch sự."
 GENERIC_SYS    = "Bạn là một trợ lý kiến thức tổng quát. Trả lời chính xác, ngắn gọn, dễ hiểu."
@@ -19,6 +17,14 @@ def _wrap_user_prompt(system: str, user: str) -> str:
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
 
+def _sources_from_ctx(ctx: List[dict]) -> str:
+    seen = []
+    for c in ctx or []:
+        src = (c.get("meta") or {}).get("source")
+        if src and src not in seen:
+            seen.append(src)
+    return "; ".join(seen)
+
 def _history_to_text(history: Optional[List[Tuple[str,str]]], max_turns=6) -> str:
     if not history: return ""
     h = history[-max_turns:]
@@ -28,13 +34,17 @@ def _history_to_text(history: Optional[List[Tuple[str,str]]], max_turns=6) -> st
         lines.append(f"[{role}]\n{txt}")
     return "\n\n".join(lines)
 
+def _wants_analysis(q: str) -> bool:
+    qs = (q or "").lower()
+    # nếu có các từ khóa này thì kèm phân tích sau khi trích
+    return any(k in qs for k in ["phân tích","bình giảng","cảm nhận","giải thích","bình luận"])
+
 def answer_with_router(
     query: str,
     k: int = 4,
     gemini_model: str = "gemini-2.0-flash",
     history: Optional[List[Tuple[str,str]]] = None,
     long_answer: bool = False,
-    max_tokens: int | None = None,      # UI có thể truyền để tăng độ dài
 ) -> Dict[str, Any]:
 
     qkey = _norm_key(query)
@@ -48,28 +58,27 @@ def answer_with_router(
     hit = lookup_faq(query)
     if hit:
         ans = hit["answer"]
-        # KHÔNG nối 'Nguồn' để tiết kiệm token
         set_cached(qkey, ans)
-        return {"intent": "faq", "answer": ans, "sources": []}
+        return {"intent": "faq", "answer": ans, "sources": hit.get("sources", [])}
 
-    # 2) định tuyến
+    # 2) route
     intent = route_intent(query)
 
     # chitchat
     if intent == "chitchat":
         prompt = _wrap_user_prompt(SMALL_TALK_SYS, query)
-        ans = generate_answer_gemini(prompt, model=gemini_model, max_output_tokens=(max_tokens or 1024))
+        ans = generate_answer_gemini(prompt, model=gemini_model)
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
-    # generic factual
+    # generic
     if intent == "generic":
         prompt = _wrap_user_prompt(GENERIC_SYS, query)
-        ans = generate_answer_gemini(prompt, model=gemini_model, max_output_tokens=(max_tokens or 1024))
+        ans = generate_answer_gemini(prompt, model=gemini_model)
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
-    # poem mode — trích NGUYÊN VĂN theo số dòng/khoảng
+    # poem mode (trích chắc chắn + tùy chọn phân tích)
     if intent == "poem":
         if not poem_ready():
             msg = "Kho thơ chưa sẵn sàng (cần data/interim/poem/poem.txt, mỗi câu 1 dòng)."
@@ -78,71 +87,86 @@ def answer_with_router(
 
         spec = parse_poem_request(query)
         if spec and spec[0] == "opening":
-            n = max(1, min(int(spec[1]), 500))
+            n = max(1, min(int(spec[1]), 600))  # cho phép tới 600 câu đầu
             lines = get_opening(n)
-            txt = "\n".join(f"{i+1:>4}: {ln}" for i, ln in enumerate(lines))
-            ans = f"**{n} câu đầu Truyện Kiều:**\n\n{txt}"
+            if len(lines) != n:
+                total = total_lines()
+                ans = (
+                    f"**{n} câu đầu Truyện Kiều (chỉ trích được {len(lines)}/{n} câu; tổng {total} câu trong kho):**\n\n"
+                    + preview_numbered(1, lines)
+                )
+                set_cached(qkey, ans)
+                return {"intent": "poem", "answer": ans, "sources": ["poem"]}
+
+            block = preview_numbered(1, lines)
+            if _wants_analysis(query):
+                # phân tích dựa TRỰC TIẾP khối thơ (grounded)
+                sys = (
+                    "Bạn là giáo viên Ngữ văn, phân tích ngắn gọn, mạch lạc, có dẫn chứng (trích đúng từng câu trong KHỐI THƠ). "
+                    "Không được bịa câu thơ; chỉ trích trong khối thơ đã cho."
+                )
+                prompt = f"[SYSTEM]\n{sys}\n\n[KHỐI THƠ]\n{block}\n\n[USER]\nPhân tích nội dung và nghệ thuật của đoạn thơ trên (≤ 12 gạch đầu dòng)."
+                analysis = generate_answer_gemini(prompt, model=gemini_model)
+                ans = f"**{n} câu đầu Truyện Kiều:**\n\n{block}\n\n---\n\n{analysis}"
+            else:
+                ans = f"**{n} câu đầu Truyện Kiều:**\n\n{block}"
             set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": []}
+            return {"intent": "poem", "answer": ans, "sources": ["poem"]}
 
         if spec and spec[0] == "range":
             a, b = int(spec[1]), int(spec[2])
-            if a > b: a, b = b, a
             lines = get_range(a, b)
-            txt = "\n".join(f"{a+i:>4}: {ln}" for i, ln in enumerate(lines))
-            ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}"
-            set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": []}
+            got = len(lines)
+            block = preview_numbered(a, lines)
+            if got != (b - a + 1):
+                total = total_lines()
+                ans = (
+                    f"**Các câu {a}–{b} (chỉ trích được {got}/{b-a+1} câu; tổng {total} câu trong kho):**\n\n"
+                    + block
+                )
+                set_cached(qkey, ans)
+                return {"intent": "poem", "answer": ans, "sources": ["poem"]}
 
-        if spec and spec[0] == "single":
-            n = int(spec[1])
-            lines = get_range(n, n)
-            if not lines:
-                ans = f"Không tìm thấy câu {n}."
+            if _wants_analysis(query):
+                sys = (
+                    "Bạn là giáo viên Ngữ văn, phân tích ngắn gọn, mạch lạc, có dẫn chứng (trích đúng từng câu trong KHỐI THƠ). "
+                    "Không được bịa câu thơ; chỉ trích trong khối thơ đã cho."
+                )
+                prompt = f"[SYSTEM]\n{sys}\n\n[KHỐI THƠ]\n{block}\n\n[USER]\nGiải thích và bình giảng các câu trên (≤ 12 gạch đầu dòng)."
+                analysis = generate_answer_gemini(prompt, model=gemini_model)
+                ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{block}\n\n---\n\n{analysis}"
             else:
-                ans = f"**Câu {n} trong Truyện Kiều:**\n\n{n:>4}: {lines[0]}"
-            set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": []}
+                ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{block}"
 
-        if spec and spec[0] == "compare":
-            a, b = int(spec[1]), int(spec[2])
-            if a > b: a, b = b, a
-            la = get_range(a, a)
-            lb = get_range(b, b)
-            body = []
-            if la: body.append(f"{a:>4}: {la[0]}")
-            if lb: body.append(f"{b:>4}: {lb[0]}")
-            quote = "\n".join(body) if body else "Không trích được hai câu."
-            ans = f"**So sánh câu {a} và câu {b}:**\n\n{quote}\n\n- Gợi ý bình giảng: đối chiếu hình ảnh, nhịp điệu, trường từ vựng và sắc thái cảm xúc."
             set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": []}
+            return {"intent": "poem", "answer": ans, "sources": ["poem"]}
 
         # không parse được — hỏi lại ngắn
         prompt = _wrap_user_prompt(
-            "Bạn giúp người dùng trích thơ theo số câu hoặc khoảng câu (ví dụ: '10 câu đầu', 'câu 241–260'). Nếu họ chưa nêu rõ, hãy hỏi lại rất ngắn.",
+            "Bạn giúp người dùng trích thơ theo số câu hoặc khoảng câu (vd: '20 câu đầu', 'câu 241–260', 'câu 11'). Nếu họ chưa nêu rõ, hãy hỏi lại rất ngắn.",
             query
         )
-        ans = generate_answer_gemini(prompt, model=gemini_model, max_output_tokens=768)
+        ans = generate_answer_gemini(prompt, model=gemini_model)
         set_cached(qkey, ans)
         return {"intent": "poem", "answer": ans, "sources": []}
 
-    # 3) Domain → RAG (phân tích/nghị luận)
+    # 3) Domain → RAG
     hist_text = _history_to_text(history, max_turns=8)
     pack = answer_question(
         query,
         k=k,
         synthesize="single",
         gen_model=gemini_model,
+        force_quote=True,           # cố gắng chèn trích dẫn trong phần RAG
         long_answer=long_answer,
         history_text=hist_text,
     )
-
     ans = pack.get("answer")
     if ans:
         set_cached(qkey, ans)
-        return {"intent": "domain", "answer": ans, "sources": []}
+        return {"intent": "domain", "answer": ans, "sources": pack.get("contexts", [])}
 
-    # 4) fallback — dùng prompt đã build
-    ans = generate_answer_gemini(pack["prompt"], model=gemini_model, max_output_tokens=(4096 if long_answer else 2048))
+    # 4) fallback
+    ans = generate_answer_gemini(pack["prompt"], model=gemini_model)
     set_cached(qkey, ans)
-    return {"intent": "domain", "answer": ans, "sources": []}
+    return {"intent": "domain", "answer": ans, "sources": pack.get("contexts", [])}

@@ -30,7 +30,7 @@ st.markdown("<h1 class='smallcaps'>📚 Kiều Bot</h1>", unsafe_allow_html=True
 with st.sidebar:
     st.header("Thiết lập")
     k = st.slider("Top-k ngữ cảnh", 3, 8, 5)
-    model = st.selectbox("Gemini model", ["gemini-2.0-flash", "gemini-2.0-flash-lite"], index=0)
+    model = st.selectbox("Gemini model", ["gemini-2.0-flash"], index=0)
     long_ans = st.toggle("Trả lời dài (nghị luận hơn)", value=True)
     max_tok = st.slider("Giới hạn tokens đầu ra", 512, 6144, 3072, step=256)
 
