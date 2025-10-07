@@ -1,221 +1,184 @@
 # app/ui_chat.py
 # -*- coding: utf-8 -*-
 """
-UI chat “đẹp hơn” cho Kiều Bot
-- Bong bóng chat + chip nguồn
-- Gợi ý prompt khi chưa có hội thoại
-- Nút xóa lịch sử + tải transcript
-- Tự động truyền history nếu orchestrator hỗ trợ; fallback nếu không
+Kiều Bot – Chat UI (RAG + định tuyến + nhớ ngữ cảnh ngắn hạn an toàn)
+- Không dùng value= cho st.chat_input (tránh TypeError trên Streamlit Cloud).
+- Sidebar: chỉnh k, chọn model, bật/tắt trả lời dài, nút xoá hội thoại.
+- Hiển thị lịch sử dạng bong bóng, có đồng hồ latency, và nguồn tham khảo (expander).
+- Gợi ý nhanh bằng nút (không cần prefill chat_input).
+- Tự động fallback nếu orchestrator.answer_with_router chưa hỗ trợ history=...
 """
 
-import time, json, io
-from datetime import datetime
-from pathlib import Path
+from __future__ import annotations
+import os
+import time
 import streamlit as st
 
-# ====== nhập orchestrator ======
-from orchestrator import answer_with_router  # hàm điều phối
-
-# ====== cấu hình trang & CSS ======
+# ====== App setup ======
 st.set_page_config(page_title="Kiều Bot", page_icon="📚", layout="centered")
 
-CUSTOM_CSS = """
-<style>
-/* nền nhẹ */
-.stApp { background: #0b1020; }
-.block-container { max-width: 860px; padding-top: 1.5rem; }
+# ====== Import orchestrator an toàn ======
+try:
+    from orchestrator import answer_with_router  # điều phối theo intent
+except Exception as e:
+    st.error(f"Không import được orchestrator: {e}")
+    st.stop()
 
-/* tiêu đề */
-.kieu-title {
-  font-size: 28px; font-weight: 700; color: #e8ecff;
-  display:flex; gap:.6rem; align-items:center;
-}
+# ====== Helpers ======
+def ensure_state():
+    if "chat" not in st.session_state:
+        st.session_state.chat = []  # list[(role, text, meta)]
+    if "cfg" not in st.session_state:
+        st.session_state.cfg = {
+            "k": 4,
+            "model": "gemini-2.0-flash",
+            "long_answer": False,
+        }
 
-/* card trạng thái nhỏ */
-.status-bar {
-  display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.3rem; margin-bottom:.8rem;
-  opacity:.9;
-}
-.badge {
-  background: #1a2140; color:#cfd6ff; border:1px solid #2a3366;
-  padding: .22rem .5rem; border-radius: 999px; font-size: 12px;
-}
+def push_msg(role: str, text: str, meta: dict | None = None):
+    st.session_state.chat.append((role, text, meta or {}))
 
-/* khung chat */
-.chat-bubble {
-  padding: .8rem 1rem; border-radius: 14px; line-height: 1.55;
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 4px 14px rgba(0,0,0,.25);
-}
-.user {
-  background: linear-gradient(180deg,#17224a,#121a38);
-  color: #e6ebff;
-}
-.assistant {
-  background: #0f1733;
-  color: #ecf1ff;
-}
-.meta-line { font-size: 12px; color: #9fb0ff; margin-top: .5rem; }
+def render_message(role: str, text: str):
+    avatar = "🧑‍💻" if role == "user" else "📚"
+    with st.chat_message(role, avatar=avatar):
+        st.markdown(text)
 
-/* chip nguồn */
-.src-chips { display:flex; gap:.4rem; flex-wrap: wrap; margin-top:.5rem; }
-.src-chip {
-  font-size: 11px; padding: .18rem .5rem; border-radius: 999px;
-  border: 1px dashed #3a4aa0; color:#d8deff; background: rgba(48,66,160,.18);
-}
-
-/* hộp gợi ý */
-.hints {
-  display:grid; grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:.5rem; margin-top:.6rem;
-}
-.hint {
-  border:1px solid #304090; color:#dbe2ff; background: rgba(48,64,144,.18);
-  border-radius:12px; padding:.6rem .7rem; cursor:pointer; user-select:none;
-}
-.hint:hover { background: rgba(48,64,144,.30); }
-
-/* thanh divider tinh tế */
-hr.soft { border:none; height:1px; background: linear-gradient(90deg, transparent, #2f3a66, transparent); margin:1.1rem 0; }
-</style>
-"""
-st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
-
-# ====== header ======
-st.markdown(f"""
-<div class="kieu-title">📚 Kiều Bot <span style="font-size:16px;font-weight:400;opacity:.8">— Trợ lý Truyện Kiều</span></div>
-<div class="status-bar">
-  <span class="badge">RAG</span>
-  <span class="badge">Router</span>
-  <span class="badge">Poem mode</span>
-  <span class="badge">Short-term Memory</span>
-</div>
-""", unsafe_allow_html=True)
-st.markdown("<hr class='soft'/>", unsafe_allow_html=True)
-
-# ====== sidebar ======
-with st.sidebar:
-    st.header("⚙️ Thiết lập")
-    k = st.slider("Top-k ngữ cảnh", 3, 8, 4)
-    model = st.selectbox("Model", ["gemini-2.0-flash", "gemini-2.0-flash-lite"], index=0)
-    long_ans = st.toggle("Trả lời theo văn nghị luận (dài hơn)", value=False)
-    st.caption("Kho tri thức: chỉ dữ liệu bạn đã nạp.")
-    st.markdown("---")
-
-    # tác vụ
-    colA, colB = st.columns(2)
-    with colA:
-        if st.button("🧹 Xóa hội thoại", use_container_width=True):
-            st.session_state.chat = []
-            st.toast("Đã xóa lịch sử.")
-            st.rerun()
-    with colB:
-        # tải transcript
-        def _export_chat() -> bytes:
-            lines = []
-            for role, text, meta in st.session_state.get("chat", []):
-                lines.append(f"{role.upper()}:\n{text}\n")
-            return "\n".join(lines).encode("utf-8")
-        st.download_button("⬇️ Tải transcript", data=_export_chat(),
-                           file_name=f"kieu_bot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
-                           mime="text/plain", use_container_width=True)
-    st.markdown("---")
-    st.caption("Mẹo: Dùng câu như “trích 30 câu đầu”, “câu 241–260”, hoặc câu hỏi phân tích (“giải thích tả cảnh ngụ tình…”)")
-
-# ====== state ======
-if "chat" not in st.session_state:
-    # mỗi item: (role, text, meta_dict)
-    st.session_state.chat = []
-
-# ====== helpers ======
-def _get_source_chips(ret) -> list[str]:
-    """Lấy danh sách nguồn hiển thị đẹp."""
-    chips = []
-    srcs = ret.get("sources") or []
-    # orchestrator của bạn có 2 kiểu: list ctx dicts hoặc list string
-    seen = set()
-    for s in srcs:
-        if isinstance(s, dict):
-            src = (s.get("meta") or {}).get("source")
+def render_sources(sources):
+    if not sources:
+        return
+    # hỗ trợ cả string lẫn list
+    if isinstance(sources, str):
+        src_list = [s.strip() for s in sources.split(";") if s.strip()]
+    elif isinstance(sources, list):
+        # nếu list là contexts (dict), ta gắng trích meta.source
+        if sources and isinstance(sources[0], dict):
+            tmp = []
+            for c in sources:
+                src = (c.get("meta") or {}).get("source")
+                if src and src not in tmp:
+                    tmp.append(src)
+            src_list = tmp
         else:
-            src = str(s)
-        if src and src not in seen:
-            seen.add(src)
-            chips.append(src)
-    # fallback: cố đọc từ text “**Nguồn:** …”
-    if not chips and isinstance(ret.get("answer"), str) and "**Nguồn:**" in ret["answer"]:
-        tail = ret["answer"].split("**Nguồn:**", 1)[-1].strip()
-        for token in [t.strip() for t in tail.split(";")]:
-            if token and token not in seen:
-                seen.add(token); chips.append(token)
-    return chips
+            src_list = [str(s) for s in sources]
+    else:
+        src_list = []
+    if not src_list:
+        return
 
-def _render_message(role: str, text: str, chips: list[str] | None = None):
-    css_class = "user" if role == "user" else "assistant"
-    with st.chat_message(role, avatar="🧑‍💬" if role=="user" else "🤖"):
-        st.markdown(f"<div class='chat-bubble {css_class}'>"+text+"</div>", unsafe_allow_html=True)
-        if chips:
-            st.markdown(
-                "<div class='src-chips'>" + "".join([f"<span class='src-chip'>{st.session_state.get('src_prefix','')}</span>".replace(
-                    st.session_state.get('src_prefix',''), ch) for ch in chips]) + "</div>",
-                unsafe_allow_html=True
-            )
+    with st.expander("Nguồn / tham chiếu"):
+        for s in src_list:
+            st.markdown(f"- `{s}`")
 
-def _call_router(query: str, *, k: int, model: str, long_ans: bool, history):
-    """Gọi answer_with_router; nếu signature cũ, tự fallback không truyền history."""
-    try:
-        return answer_with_router(query, k=k, gemini_model=model, long_answer=long_ans, history=history)
-    except TypeError:
-        # orchestrator cũ chưa nhận history → gọi không có history
-        return answer_with_router(query, k=k, gemini_model=model, long_answer=long_ans)
+def render_header():
+    st.markdown(
+        """
+        <div style="text-align:center; margin-bottom: 0.6rem;">
+            <h1 style="margin:0;">📚 Kiều Bot</h1>
+            <p style="color:#666; margin:0.25rem 0 0;">
+                Hỏi–đáp về <em>Truyện Kiều</em> (RAG + trích thơ).
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-# ====== hiển thị lịch sử ======
-for role, text, meta in st.session_state.chat:
-    _render_message(role, text, chips=(meta.get("chips") if meta else None))
+def render_suggestions():
+    st.caption("Gợi ý nhanh:")
+    cols = st.columns(3)
+    examples = [
+        "Cho tôi 10 câu đầu Truyện Kiều",
+        "So sánh Thúy Vân và Thúy Kiều",
+        "Ý nghĩa câu “Chữ tâm kia mới bằng ba chữ tài”",
+    ]
+    fired = None
+    for i, (c, s) in enumerate(zip(cols, examples)):
+        if c.button(s, key=f"suggest_{i}"):
+            fired = s
+    return fired
 
-# ====== gợi ý khi trống ======
-if not st.session_state.chat:
-    st.info("Gợi ý nhanh (bấm để chèn):")
-    c1, c2 = st.columns(2)
-    with c1:
-        if st.button("Trích 20 câu đầu"):
-            st.session_state.pending = "Cho tôi 20 câu đầu Truyện Kiều"
-            st.rerun()
-        if st.button("Giải thích tả cảnh ngụ tình trong Cảnh ngày xuân"):
-            st.session_state.pending = "Giải thích tả cảnh ngụ tình trong Cảnh ngày xuân"
-            st.rerun()
-    with c2:
-        if st.button("So sánh vẻ đẹp Thúy Vân – Thúy Kiều"):
-            st.session_state.pending = "So sánh vẻ đẹp Thúy Vân và Thúy Kiều trong đoạn Chị em Thúy Kiều"
-            st.rerun()
-        if st.button("Ý nghĩa 'Chữ tâm kia mới bằng ba chữ tài'"):
-            st.session_state.pending = "Ý nghĩa câu 'Chữ tâm kia mới bằng ba chữ tài'"
-            st.rerun()
+# ====== Main UI ======
+ensure_state()
 
-# ====== input ======
-default_prefill = st.session_state.pop("pending", None)
-user_msg = st.chat_input("Hỏi về Truyện Kiều…", key="chat_input", value=default_prefill or "")
+with st.sidebar:
+    st.header("Thiết lập")
+    st.session_state.cfg["k"] = st.slider("Top-k ngữ cảnh", 3, 6, st.session_state.cfg["k"])
+    st.session_state.cfg["model"] = st.selectbox(
+        "Gemini model",
+        ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
+        index=0 if st.session_state.cfg["model"] == "gemini-2.0-flash" else 1,
+    )
+    st.session_state.cfg["long_answer"] = st.toggle("Trả lời dài hơn (nhập vai luận văn)", value=st.session_state.cfg["long_answer"])
+    if st.button("🗑️ Xoá hội thoại"):
+        st.session_state.chat = []
+        st.rerun()
+
+    # cảnh báo thiếu API key cho Gemini
+    if not os.getenv("GOOGLE_API_KEY"):
+        st.warning("Thiếu GOOGLE_API_KEY trong môi trường. Hãy bổ sung để sinh câu trả lời.", icon="⚠️")
+
+render_header()
+
+# Hiển thị lịch sử hội thoại
+for role, text, _meta in st.session_state.chat:
+    render_message(role, text)
+
+# Gợi ý nhanh
+preset = render_suggestions()
+
+# Ô nhập (KHÔNG dùng value= ...)
+user_msg = st.chat_input("Hỏi về Truyện Kiều…", key="chat_input")
+
+# Nếu bấm gợi ý nhanh thì ưu tiên dùng gợi ý
+if preset and not user_msg:
+    user_msg = preset
 
 if user_msg:
-    # hiển thị người dùng
-    st.session_state.chat.append(("user", user_msg, {}))
-    _render_message("user", user_msg)
+    # Hiển thị tin người dùng
+    push_msg("user", user_msg)
+    render_message("user", user_msg)
 
-    # gom history ngắn hạn: chỉ text
-    short_hist = [(r, t) for (r, t, _) in st.session_state.chat[-12:]]
-    # gọi router
-    with st.chat_message("assistant", avatar="🤖"):
+    # Lấy history ngắn hạn (cuối 12 message ~ 6 lượt)
+    history_pairs = [(r, t) for (r, t, _m) in st.session_state.chat[-12:]]
+
+    # Gọi orchestrator
+    with st.chat_message("assistant", avatar="📚"):
         t0 = time.time()
-        # typing spinner
-        with st.spinner("Đang suy nghĩ…"):
-            ret = _call_router(user_msg, k=k, model=model, long_ans=long_ans, history=short_hist)
-        answer = ret.get("answer", "Xin lỗi, mình chưa trả lời được.")
-        # hiển thị
-        chips = _get_source_chips(ret)
-        st.markdown(f"<div class='chat-bubble assistant'>{answer}</div>", unsafe_allow_html=True)
-        if chips:
-            st.markdown("<div class='src-chips'>" + "".join([f"<span class='src-chip'>{ch}</span>" for ch in chips]) + "</div>", unsafe_allow_html=True)
-        st.caption(f"⏱️ {(time.time() - t0)*1000:.0f} ms")
+        k = st.session_state.cfg["k"]
+        model = st.session_state.cfg["model"]
+        long_ans = st.session_state.cfg["long_answer"]
 
-    # lưu
-    st.session_state.chat.append(("assistant", answer, {"chips": chips}))
+        # Ưu tiên gọi với history; nếu hàm chưa hỗ trợ -> fallback
+        try:
+            ret = answer_with_router(
+                user_msg,
+                k=k,
+                gemini_model=model,
+                long_answer=long_ans,
+                history=history_pairs,  # có thể không được hỗ trợ ở phiên bản cũ
+            )
+        except TypeError:
+            # orchestrator cũ chưa có tham số 'history'
+            ret = answer_with_router(
+                user_msg,
+                k=k,
+                gemini_model=model,
+                long_answer=long_ans,
+            )
+        except Exception as e:
+            st.error(f"Lỗi gọi orchestrator: {e}")
+            ret = {"answer": "Xin lỗi, mình gặp sự cố khi xử lý yêu cầu.", "sources": []}
+
+        elapsed = (time.time() - t0) * 1000.0
+
+        ans_text = ret.get("answer") or "Xin lỗi, mình chưa có câu trả lời phù hợp."
+        render_message("assistant", ans_text)
+
+        # Nguồn / contexts
+        render_sources(ret.get("sources"))
+
+        # Thông tin phụ (latency + intent)
+        intent = ret.get("intent", "?")
+        st.caption(f"⏱️ {elapsed:.0f} ms • intent: `{intent}`")
+
+    # Lưu trả lời
+    push_msg("assistant", ans_text, {"intent": ret.get("intent"), "sources": ret.get("sources")})
