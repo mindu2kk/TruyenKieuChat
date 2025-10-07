@@ -17,22 +17,20 @@ def generate_answer_gemini(
     _setup()
     generation_config = {}
     if max_tokens:
-        # Theo SDK Gemini: khóa là max_output_tokens
         generation_config["max_output_tokens"] = int(max_tokens)
 
-    # Tăng tính mạch lạc khi long_answer=True
     if long_answer:
         prompt = f"""{prompt}
 
 [PHONG CÁCH]
-- Viết mạch lạc, có mở–thân–kết.
-- Ưu tiên lập luận chặt chẽ, có dẫn chứng ngắn gọn (nếu NGỮ CẢNH cung cấp).
+- Văn phong nghị luận có mở–thân–kết, mạch lạc.
+- Ưu tiên: luận điểm → dẫn chứng (thơ nếu có) → phân tích → tiểu kết.
+- Tránh lặp ý; câu ngắn vừa phải, rõ ý.
 """
 
     gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
     res = gm.generate_content(prompt)
 
-    # Trích text an toàn theo nhiều phiên bản SDK
     try:
         return res.text
     except Exception:

@@ -5,8 +5,6 @@ from rag_pipeline import answer_question
 from generation import generate_answer_gemini
 from faq import lookup_faq
 from cache import get_cached, set_cached
-
-# poem tools
 from poem_tools import poem_ready, get_opening, get_range
 
 SMALL_TALK_SYS = "Bạn là một trợ lý thân thiện. Trả lời rất ngắn (≤ 2 câu), lịch sự."
@@ -23,7 +21,7 @@ def _history_to_text(history: Optional[List[Tuple[str,str]]], max_turns=6) -> st
     h = history[-max_turns:]
     lines = []
     for role, txt in h:
-        role = "USER" if role=="user" else "ASSISTANT"
+        role = "USER" if role == "user" else "ASSISTANT"
         lines.append(f"[{role}]\n{txt}")
     return "\n\n".join(lines)
 
@@ -33,7 +31,7 @@ def answer_with_router(
     gemini_model: str = "gemini-2.0-flash",
     history: Optional[List[Tuple[str,str]]] = None,
     long_answer: bool = False,
-    max_tokens: Optional[int] = None,   # <— THÊM
+    max_tokens: Optional[int] = None,
 ) -> Dict[str, Any]:
 
     qkey = _norm_key(query)
@@ -43,13 +41,12 @@ def answer_with_router(
     if cached:
         return {"intent": "cache", "answer": cached, "sources": []}
 
-    # 1) FAQ
+    # 1) FAQ (không hiển thị nguồn)
     hit = lookup_faq(query)
     if hit:
         ans = hit["answer"]
-        # ẨN Nguồn theo yêu cầu để dành token cho trả lời
         set_cached(qkey, ans)
-        return {"intent": "faq", "answer": ans, "sources": hit.get("sources", [])}
+        return {"intent": "faq", "answer": ans, "sources": []}
 
     # 2) định tuyến
     intent = route_intent(query)
@@ -68,7 +65,7 @@ def answer_with_router(
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
-    # 2.c) poem mode
+    # 2.c) poem mode – trích NGUYÊN VĂN, không gọi RAG
     if intent == "poem":
         if not poem_ready():
             msg = "Kho thơ chưa sẵn sàng (cần data/interim/poem/poem.txt, mỗi câu 1 dòng)."
@@ -82,7 +79,7 @@ def answer_with_router(
             txt = "\n".join(f"{i+1:>4}: {ln}" for i, ln in enumerate(lines))
             ans = f"**{n} câu đầu Truyện Kiều:**\n\n{txt}"
             set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": ["poem"]}
+            return {"intent": "poem", "answer": ans, "sources": []}
 
         if spec and spec[0] == "range":
             a, b = int(spec[1]), int(spec[2])
@@ -91,9 +88,8 @@ def answer_with_router(
             txt = "\n".join(f"{a+i:>4}: {ln}" for i, ln in enumerate(lines))
             ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}"
             set_cached(qkey, ans)
-            return {"intent": "poem", "answer": ans, "sources": ["poem"]}
+            return {"intent": "poem", "answer": ans, "sources": []}
 
-        # không parse được — hỏi lại ngắn
         prompt = _wrap_user_prompt(
             "Bạn giúp người dùng trích thơ theo số câu hoặc khoảng câu (ví dụ: '10 câu đầu', 'câu 241–260'). Nếu họ chưa nêu rõ, hãy hỏi lại rất ngắn.",
             query
@@ -102,25 +98,25 @@ def answer_with_router(
         set_cached(qkey, ans)
         return {"intent": "poem", "answer": ans, "sources": []}
 
-    # 3) Domain → RAG
+    # 3) Domain → RAG + Prompt Engineering
     hist_text = _history_to_text(history, max_turns=8)
     pack = answer_question(
         query,
         k=k,
         synthesize="single",
         gen_model=gemini_model,
-        force_quote=True,           # cố gắng chèn dẫn chứng thơ nếu phù hợp
-        long_answer=long_answer,    # viết dài hơn khi cần
+        force_quote=True,           # ưu tiên chèn 1–2 câu thơ nếu có trong context
+        long_answer=long_answer,    # văn phong luận khi bật
         history_text=hist_text,     # giữ ngữ cảnh ngắn hạn
-        max_tokens=max_tokens,      # <— THÊM
+        max_tokens=max_tokens,      # dồn token cho câu trả lời
     )
 
     ans = pack.get("answer")
     if ans:
         set_cached(qkey, ans)
-        return {"intent": "domain", "answer": ans, "sources": pack.get("contexts", [])}
+        return {"intent": "domain", "answer": ans, "sources": []}
 
     # 4) fallback — dùng prompt đã build
     ans = generate_answer_gemini(pack["prompt"], model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
     set_cached(qkey, ans)
-    return {"intent": "domain", "answer": ans, "sources": pack.get("contexts", [])}
+    return {"intent": "domain", "answer": ans, "sources": []}
