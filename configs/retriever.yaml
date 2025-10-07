@@ -1,0 +1,10 @@
+embedding_model: ${EMBEDDING_MODEL}
+dense:
+  num_candidates: 200
+  limit: 50
+filters:
+  default:
+    meta.type: [poem, analysis]
+chunking:
+  max_words: 220
+  overlap_lines: 2

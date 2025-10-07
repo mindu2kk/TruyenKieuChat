@@ -1,0 +1,5 @@
+exact_ttl_sec: 604800
+semantic:
+  enabled: true
+  threshold: 0.92
+  ttl_sec: 259200
