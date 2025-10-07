@@ -1,35 +1,22 @@
-# app/generation.py
 # -*- coding: utf-8 -*-
+"""
+Wrapper gọi Gemini. Cần env: GOOGLE_API_KEY
+"""
+from __future__ import annotations
 import os
-from dotenv import load_dotenv
-load_dotenv()  # nạp .env từ thư mục gốc repo
-
 import google.generativeai as genai
 
-def _configure_gemini():
-    api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        raise RuntimeError(
-            "GOOGLE_API_KEY/GEMINI_API_KEY chưa được thiết lập. "
-            "Hãy đặt vào .env hoặc biến môi trường hệ thống."
-        )
-    genai.configure(api_key=api_key)
+API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+if API_KEY:
+    genai.configure(api_key=API_KEY)
 
-def generate_answer_gemini(prompt: str, model: str = "gemini-2.0-flash",
-                           max_output_tokens: int = 4096,
-                           long_answer: bool = False) -> str:
-    _configure_gemini()
+def generate_answer_gemini(prompt: str, model: str = "gemini-2.0-flash") -> str:
+    if not API_KEY:
+        # Fallback an toàn khi chạy local không có key
+        return "Chưa cấu hình GOOGLE_API_KEY nên không thể sinh câu trả lời bằng Gemini. Vui lòng đặt biến môi trường GOOGLE_API_KEY."
     gm = genai.GenerativeModel(model)
-    # nếu bạn muốn cho phép trả lời dài hơn UI mặc định:
-    if long_answer:
-        max_output_tokens = max(2048, max_output_tokens)
-
-    res = gm.generate_content(
-        prompt,
-        generation_config={"max_output_tokens": max_output_tokens, "temperature": 0.3}
-    )
-    # xử lý kết quả & lỗi nhẹ
     try:
-        return res.text.strip()
-    except Exception:
-        return str(res)
+        res = gm.generate_content(prompt)
+        return (res.text or "").strip() if hasattr(res, "text") else ""
+    except Exception as e:
+        return f"Đã lỗi khi gọi Gemini: {e}"
