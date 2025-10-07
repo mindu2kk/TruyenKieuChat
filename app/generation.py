@@ -1,68 +1,45 @@
-# app/generation.py
 # -*- coding: utf-8 -*-
-"""
-Gateway gọi Gemini với cấu hình linh hoạt:
-- Tăng max_output_tokens để trả lời dài.
-- Prompt sạch, kiểm soát nhiệt độ.
-"""
-
-from __future__ import annotations
-import os, textwrap
-from dotenv import load_dotenv
-
-load_dotenv()
+import os
 import google.generativeai as genai
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-if GOOGLE_API_KEY:
-    genai.configure(api_key=GOOGLE_API_KEY)
-
-# Mặc định ổn cho luận văn ngắn: 0.6 / 0.9
-DEFAULT_GENCFG = dict(
-    temperature=0.6,
-    top_p=0.9,
-    top_k=40,
-    candidate_count=1,
-    max_output_tokens=2048,  # bạn có thể đẩy lên 4096/6144, model sẽ tự giới hạn nếu vượt
-)
+def _setup():
+    api_key = os.getenv("GOOGLE_API_KEY")
+    if not api_key:
+        raise RuntimeError("GOOGLE_API_KEY không tồn tại trong môi trường.")
+    genai.configure(api_key=api_key)
 
 def generate_answer_gemini(
     prompt: str,
     model: str = "gemini-2.0-flash",
-    max_output_tokens: int | None = None,
-    temperature: float | None = None,
-    top_p: float | None = None,
     long_answer: bool = False,
+    max_tokens: int | None = None,
 ) -> str:
-    if not GOOGLE_API_KEY:
-        return "⚠️ Chưa cấu hình GOOGLE_API_KEY."
+    _setup()
+    generation_config = {}
+    if max_tokens:
+        # Theo SDK Gemini: khóa là max_output_tokens
+        generation_config["max_output_tokens"] = int(max_tokens)
 
-    gen_cfg = DEFAULT_GENCFG.copy()
-    if max_output_tokens: gen_cfg["max_output_tokens"] = int(max_output_tokens)
-    if temperature is not None: gen_cfg["temperature"] = float(temperature)
-    if top_p is not None: gen_cfg["top_p"] = float(top_p)
+    # Tăng tính mạch lạc khi long_answer=True
+    if long_answer:
+        prompt = f"""{prompt}
 
-    # Nếu bật long_answer, nới rộng thêm 1 chút
-    if long_answer and gen_cfg["max_output_tokens"] < 3072:
-        gen_cfg["max_output_tokens"] = 3072
+[PHONG CÁCH]
+- Viết mạch lạc, có mở–thân–kết.
+- Ưu tiên lập luận chặt chẽ, có dẫn chứng ngắn gọn (nếu NGỮ CẢNH cung cấp).
+"""
 
+    gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
+    res = gm.generate_content(prompt)
+
+    # Trích text an toàn theo nhiều phiên bản SDK
     try:
-        gm = genai.GenerativeModel(model_name=model, generation_config=gen_cfg)
-        res = gm.generate_content(prompt)
-        # SDK mới: .text luôn gom chuỗi tiện dụng
-        txt = getattr(res, "text", None)
-        if txt: 
-            return txt.strip()
-        # Fallback (các version cũ)
-        if hasattr(res, "candidates") and res.candidates:
-            parts = []
-            for c in res.candidates:
-                ct = getattr(getattr(c, "content", None), "parts", [])
-                for p in ct or []:
-                    s = getattr(p, "text", "")
-                    if s: parts.append(s)
-            if parts:
-                return "\n".join(parts).strip()
-        return "⚠️ Không nhận được nội dung từ mô hình."
-    except Exception as e:
-        return f"⚠️ Lỗi gọi mô hình: {e}"
+        return res.text
+    except Exception:
+        try:
+            return "".join(
+                (part.text or "") for part in res.candidates[0].content.parts
+                if hasattr(part, "text")
+            ).strip()
+        except Exception:
+            return str(res)
