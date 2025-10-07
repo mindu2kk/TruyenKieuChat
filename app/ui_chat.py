@@ -29,10 +29,10 @@ st.markdown("<h1 class='smallcaps'>📚 Kiều Bot</h1>", unsafe_allow_html=True
 
 with st.sidebar:
     st.header("Thiết lập")
-    k = st.slider("Top-k ngữ cảnh", 3, 6, 4)
+    k = st.slider("Top-k ngữ cảnh", 3, 8, 5)
     model = st.selectbox("Gemini model", ["gemini-2.0-flash", "gemini-2.0-flash-lite"], index=0)
-    long_ans = st.toggle("Trả lời dài hơn (dạng nghị luận)", value=False)
-    st.caption("Poem mode hoạt động khi có data/interim/poem/poem.txt.")
+    long_ans = st.toggle("Trả lời dài (nghị luận hơn)", value=True)
+    max_tok = st.slider("Giới hạn tokens đầu ra", 512, 6144, 3072, step=256)
 
 if "chat" not in st.session_state:
     st.session_state.chat = []  # list[(role, text)]
@@ -55,12 +55,13 @@ if user_msg:
     with st.chat_message("assistant"):
         t0 = time.time()
         ret = answer_with_router(
-            user_msg,
-            k=k,
-            gemini_model=model,
-            history=history,
-            long_answer=long_ans,
-        )
+        user_msg,
+        k=k,
+        gemini_model=model,
+        history=history,
+        long_answer=long_ans,
+        max_tokens=max_tok,     # <— thêm dòng này
+    )
         ans = (ret or {}).get("answer", "Không có phản hồi.")
         st.markdown(ans)
         st.caption(f"⏱ {(time.time()-t0)*1000:.0f} ms")

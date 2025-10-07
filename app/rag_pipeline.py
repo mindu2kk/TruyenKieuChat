@@ -1,18 +1,21 @@
 # app/rag_pipeline.py
 # -*- coding: utf-8 -*-
 """
-RAG pipeline (single-shot), có chèn 'trích thơ' từ poem_tools khi force_quote=True.
+RAG pipeline (single-shot synthesis).
+- retrieve_context từ scripts/04_retrieve.py
+- rerank theo env (none/jina/cohere/bge)
+- prompt được tối ưu cho Văn (Việt), có yêu cầu dẫn chứng thơ khi phù hợp.
+- KHÔNG tự động chèn 'Nguồn:' để dành token cho câu trả lời.
 """
-from typing import List, Dict, Any, Optional
+
+from __future__ import annotations
+from typing import List, Dict, Any
 import importlib.util, sys
 from pathlib import Path
 from rerank import rerank
 from generation import generate_answer_gemini
 
-# poem quote
-from poem_tools import search_lines_by_keywords, search_lines_by_span
-
-# dynamic import scripts/04_retrieve.py
+# ==== dynamic import scripts/04_retrieve.py ====
 ROOT = Path(__file__).resolve().parents[1]
 retr_path = ROOT / "scripts" / "04_retrieve.py"
 spec = importlib.util.spec_from_file_location("retrieve_mod", retr_path)
@@ -22,100 +25,92 @@ assert spec and spec.loader
 spec.loader.exec_module(retrieve_mod)  # type: ignore
 retrieve_context = retrieve_mod.retrieve_context
 
-SYNTH_SINGLE_TMPL = """[LỊCH SỬ HỘI THOẠI]
-{history}
+# ---- Prompt template: bản ngắn và bản luận văn
+SYNTH_SINGLE_TEMPLATE = """[SYSTEM]
+Bạn là trợ lý học Văn (tiếng Việt). Trả lời mạch lạc, có mở–thân–kết ngắn, dùng thuật ngữ ngữ văn vừa phải, tránh liệt kê khô cứng.
 
 [NGỮ CẢNH]
 {ctx}
 
-[TRÍCH THƠ THAM CHIẾU]
-{quotes}
-
-[HƯỚNG DẪN]
-- Trả lời câu hỏi: "{query}" bằng 1 đoạn ngắn gọn, mạch lạc (mở–thân–kết).
-- Ưu tiên dẫn chứng NGUYÊN VĂN từ phần TRÍCH THƠ (ghi số câu nếu có).
-- Chỉ dùng thông tin trong NGỮ CẢNH + TRÍCH THƠ; nếu thiếu căn cứ, nói 'chưa đủ căn cứ'.
-- Tránh liệt kê khô cứng; lập luận gọn, có liên kết ý.
+[CHỈ DẪN]
+- Trả lời cho câu hỏi: "{query}".
+- Chỉ dùng thông tin trong NGỮ CẢNH và hiểu biết văn học cơ bản; nếu thật sự thiếu căn cứ, nói ngắn gọn 'chưa đủ căn cứ'.
+- Nếu câu hỏi cần minh hoạ: trích 1–3 câu thơ NGẮN gọn, đặt blockquote (> ...) và giải thích ngay sau trích dẫn.
+- Không thêm mục 'Nguồn' hoặc danh sách link.
+- Độ dài: 160–240 từ, tối đa 12 câu.
 """
 
-def _merge_ctx(ctx_list: List[Dict[str,Any]]) -> str:
-    return "\n\n---\n\n".join(c["text"] for c in ctx_list)
+SYNTH_LONG_TEMPLATE = """[SYSTEM]
+Bạn là giảng viên Ngữ văn viết đáp án nghị luận ngắn (tiếng Việt), lập luận mạch lạc, có chuyển ý tự nhiên, ưu tiên dẫn chứng thơ chính xác và phân tích nghệ thuật (tả cảnh ngụ tình, ước lệ, so sánh, điển cố...).
 
-def _format_sources(ctx_list: List[Dict[str, Any]]) -> str:
-    srcs = []
-    for c in ctx_list:
-        s = c.get("meta", {}).get("source")
-        if s and s not in srcs:
-            srcs.append(s)
-    return "; ".join(srcs)
+[NGỮ CẢNH]
+{ctx}
 
-def _pick_quotes(query: str, contexts: List[Dict[str,Any]], top=4):
-    """Chọn vài câu thơ liên quan:
-       - Từ chính câu hỏi
-       - Từ đoạn ngữ cảnh top-2 (nếu có) để lấy từ khoá
-    Trả về: list[(lineno, line)]
-    """
-    picks = []
-    # 1) theo query
-    for ln, s, sc in search_lines_by_keywords(query, top=top+2):
-        picks.append((ln, s, sc))
-    # 2) theo ngữ cảnh top-2
-    for c in (contexts or [])[:2]:
-        span = c.get("text","")
-        for ln, s, sc in search_lines_by_span(span, top=2):
-            picks.append((ln, s, sc*0.9))
-    # unique theo lineno, lấy score cao
-    best = {}
-    for ln, s, sc in picks:
-        if ln not in best or sc > best[ln][1]:
-            best[ln] = (s, sc)
-    ranked = sorted([(ln, ss[0], ss[1]) for ln, ss in best.items()], key=lambda x:(-x[2], x[0]))[:top]
-    return [(ln, s) for ln, s, _ in ranked]
+[CHỈ DẪN]
+- Trả lời cho câu hỏi: "{query}".
+- Dẫn chứng thơ: trích 1–3 câu phù hợp (nếu chắc chắn), đặt blockquote (> ...); giải thích nghệ thuật và ý nghĩa.
+- Không thêm mục 'Nguồn'.
+- Bố cục: 1) Đặt vấn đề (1–2 câu)  2) Bình giảng/so sánh (3–6 câu)  3) Kết luận (1–2 câu).
+- Độ dài mục tiêu: 280–420 từ.
+"""
+
+def _merge_ctx(ctx_list: List[Dict[str, Any]]) -> str:
+    if not ctx_list: 
+        return "(trống)"
+    return "\n\n---\n\n".join(c.get("text", "") for c in ctx_list if c.get("text"))
+
+def _build_prompt(query: str, ctx_list: List[Dict[str, Any]], long_answer: bool) -> str:
+    merged_ctx = _merge_ctx(ctx_list)
+    tpl = SYNTH_LONG_TEMPLATE if long_answer else SYNTH_SINGLE_TEMPLATE
+    return tpl.format(ctx=merged_ctx, query=query)
 
 def answer_question(
     query: str,
     k: int = 4,
-    filters: Optional[Dict[str, Any]] = None,
+    filters: Dict[str, Any] | None = None,
     num_candidates: int = 100,
     synthesize: str | bool = "single",
     gen_model: str = "gemini-2.0-flash",
-    force_quote: bool = True,
-    long_answer: bool = False,       # (chưa dùng ở đây, bạn có thể mở rộng thêm prompt)
-    history_text: str = "",
+    force_quote: bool = True,          # không dùng trong mã này, nhưng giữ tham số cho tương thích
+    long_answer: bool = False,
+    history_text: str | None = None,   # có thể chèn vào ctx nếu muốn
 ) -> Dict[str, Any]:
-
     if filters is None:
-        filters = {"meta.type": {"$in": ["analysis", "summary", "bio", "poem"]}}
+        filters = {"meta.type": {"$in": ["analysis", "poem", "summary", "bio"]}}
 
-    # 1) retrieve
+    # 1) Retrieve rộng vừa đủ
     hits = retrieve_context(query, k=max(k, 10), filters=filters, num_candidates=num_candidates)
     if not hits:
-        ctx_txt = ""
-        quotes = _pick_quotes(query, [], top=4) if force_quote else []
+        prompt = _build_prompt(query, [], long_answer)
+        return {"query": query, "prompt": prompt, "contexts": []}
+
+    # 2) Độ tin cậy nhanh
+    avg_score = sum(h.get("score", 0.0) for h in hits) / max(1, len(hits))
+    if avg_score < 0.2:
+        prompt = _build_prompt(query, [], long_answer)
+        return {"query": query, "prompt": prompt, "contexts": []}
+
+    # 3) Rerank theo env rồi lấy top-k
+    hits = rerank(query, hits, top_k=k)
+
+    # 4) (tuỳ chọn) ghép history ngắn hạn vào cuối ctx để giữ mạch đối thoại
+    if history_text:
+        hits = hits + [{"text": f"[LỊCH SỬ HỘI THOẠI]\n{history_text}"}]
+
+    # 5) Synthesize
+    prompt = _build_prompt(query, hits, long_answer)
+    result = {"query": query, "prompt": prompt, "contexts": hits}
+
+    if synthesize and synthesize != "mapreduce":
+        ans = generate_answer_gemini(prompt, model=gen_model, max_output_tokens=(4096 if long_answer else 2048), long_answer=long_answer)
+    elif synthesize == "mapreduce":
+        # (Nếu muốn, bạn có thể cài synthesis.mapreduce ở đây)
+        ans = generate_answer_gemini(prompt, model=gen_model, max_output_tokens=(4096 if long_answer else 2048), long_answer=long_answer)
     else:
-        # 2) độ tin cậy nhanh
-        avg_score = sum(h.get("score", 0.0) for h in hits) / max(1, len(hits))
-        if avg_score < 0.2:
-            hits = []
-        ctx_txt = _merge_ctx(hits)
-        quotes = _pick_quotes(query, hits, top=4) if force_quote else []
+        ans = None
 
-    quotes_txt = "\n".join([f"{n:>4}: {s}" for n, s in quotes]) if quotes else "(không có)"
-
-    prompt = SYNTH_SINGLE_TMPL.format(
-        history=history_text or "(trống)",
-        ctx=ctx_txt or "(trống)",
-        quotes=quotes_txt,
-        query=query
-    )
-    result = {"query": query, "prompt": prompt, "contexts": hits, "quotes": quotes}
-
-    if synthesize:
-        ans = generate_answer_gemini(prompt, model=gen_model)
-        if ans:
-            srcs = _format_sources(hits)
-            if srcs:
-                ans = f"{ans}\n\n**Nguồn:** {srcs}"
-            result["answer"] = ans
+    if ans:
+        # KHÔNG chèn “Nguồn: …” để dành token cho nội dung
+        result["answer"] = ans
 
     return result
