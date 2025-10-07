@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Kieu-Bot
 Chatbot RAG + (tùy chọn) LoRA cho Truyện Kiều.
 
@@ -9,6 +9,4 @@ Chatbot RAG + (tùy chọn) LoRA cho Truyện Kiều.
 4) `python scripts/02_embed_and_index_mongo.py`
 5) Tạo Vector Search Index trong Atlas (paste `scripts/03_create_mongo_vector_index.js`)
 6) `streamlit run app/ui_streamlit.py`
-=======
-# TruyenKieuChat
->>>>>>> a3e4ba69b10705b6e880090b1480a010d4de89e2
+
