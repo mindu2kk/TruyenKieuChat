@@ -1,31 +1,28 @@
-# app/cache.py
 # -*- coding: utf-8 -*-
-import hashlib
-from datetime import datetime, timezone
-import os
-from dotenv import load_dotenv
-from pymongo import MongoClient, ASCENDING
+from collections import OrderedDict
+import time
 
-load_dotenv()
-client = MongoClient(os.getenv("MONGO_URI"))
-col = client[os.getenv("MONGO_DB", "kieu_bot")]["cache"]
+class LRUCacheTTL:
+    def __init__(self, cap=256, ttl=3600):
+        self.cap = cap
+        self.ttl = ttl
+        self.store = OrderedDict()
 
-# TTL index trên trường datetime (bắt buộc dùng BSON Date)
-try:
-    col.create_index([("created_at", ASCENDING)], expireAfterSeconds=7*24*3600)
-except Exception:
-    pass
+    def get(self, k):
+        t = time.time()
+        if k in self.store:
+            v, exp = self.store.pop(k)
+            if exp > t:
+                self.store[k] = (v, exp)
+                return v
+        return None
 
-def _key(s: str) -> str:
-    return hashlib.sha1(s.encode("utf-8")).hexdigest()
+    def set(self, k, v):
+        t = time.time()
+        self.store[k] = (v, t + self.ttl)
+        if len(self.store) > self.cap:
+            self.store.popitem(last=False)
 
-def get_cached(query: str) -> str | None:
-    doc = col.find_one({"_id": _key(query)})
-    return doc["answer"] if doc else None
-
-def set_cached(query: str, answer: str):
-    col.replace_one(
-        {"_id": _key(query)},
-        {"_id": _key(query), "answer": answer, "created_at": datetime.now(timezone.utc)},
-        upsert=True
-    )
+_cache = LRUCacheTTL(cap=256, ttl=2*3600)
+def get_cached(k): return _cache.get(k)
+def set_cached(k, v): _cache.set(k, v)
