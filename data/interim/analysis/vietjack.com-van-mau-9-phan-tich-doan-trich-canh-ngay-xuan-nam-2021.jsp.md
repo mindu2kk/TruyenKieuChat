@@ -1,0 +1,1017 @@
+<!-- source: https://vietjack.com/van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp -->
+
+# Top 20 Phân tích Cảnh ngày xuân (điểm cao)
+
+  * [ HOT Sale 40% sách cấp tốc Toán - Văn - Anh vào 10 ngày 25-09 trên Shopee mall ](https://s.shopee.vn/1LRLjS5DCj)
+
+[__Trang trước](../van-mau-9/index.jsp)
+
+[Trang sau __](../van-mau-9/index.jsp)
+
+Phân tích Cảnh ngày xuân trích Truyện Kiều của Nguyễn Du hay nhất, ngắn gọn gồm dàn ý chi tiết, sơ đồ tư duy và các bài văn mẫu được tổng hợp và chọn lọc từ những bài văn hay đạt điểm cao của học sinh lớp 9.
+
+  * [Phân tích Cảnh ngày xuân – mẫu 1](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau1)
+  * [Dàn ý Phân tích Cảnh ngày xuân](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#dany)
+  * [Sơ đồ tư duy Phân tích Cảnh ngày xuân](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#sodo)
+  * [Phân tích Cảnh ngày xuân – mẫu 2](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau2)
+  * [Phân tích Cảnh ngày xuân – mẫu 3](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau3)
+  * [Phân tích Cảnh ngày xuân – mẫu 4](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau4)
+  * [Phân tích Cảnh ngày xuân – mẫu 5](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau5)
+  * [Phân tích Cảnh ngày xuân – mẫu 6](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau6)
+  * [Phân tích Cảnh ngày xuân – mẫu 7](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau7)
+  * [Phân tích Cảnh ngày xuân – mẫu 8](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau8)
+  * [Phân tích Cảnh ngày xuân – mẫu 9](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau9)
+  * [Phân tích Cảnh ngày xuân (mẫu khác)](../van-mau-9/phan-tich-doan-trich-canh-ngay-xuan-nam-2021.jsp#vanmau10)
+
+## Top 20 Phân tích Cảnh ngày xuân (điểm cao)
+
+Quảng cáo
+
+**Phân tích Cảnh ngày xuân - Cô Lê Minh Nguyệt (Giáo viên VietJack)**
+
+### **Phân tích Cảnh ngày xuân – mẫu 1**
+
+Không chỉ là một nhà văn tài ba trong nghệ thuật tả người, Nguyễn Du còn tỏ ra là người vô cùng xuất sắc trong nghệ thuật miêu tả thiên nhiên. Bức tranh nào dưới ngòi bút của ông cũng trở nên có thần, có hồn gửi gắm bao cảm xúc của nhân vật. Cảnh ngày**** xuân là bức tranh thiên nhiên như vậy, bức tranh ấy không chỉ đẹp, hài hòa về màu sắc mà còn thể hiện những cung bậc tình cảm khác nhau của chị em Thúy Kiều. Câu thơ mở đầu là khung cảnh mùa xuân tuyệt mĩ:
+
+_“Ngày xuân con én đưa thoi_
+
+_Thiều quang chín chục đã ngoài sáu mươi.”_
+
+Những cánh én trao nghiêng, bay lượn trên bầu trời tựa như những cái thoi đưa, Nguyễn Du đã lựa chọn hình ảnh thật tiêu biểu, thật đặc sắc. Lúc này, mùa xuân đã ở cuối tháng ba, vào thời điểm viên mãn, tròn đầy, đẹp đẽ nhất. Đó là không gian tràn ngập ánh sáng, rực rỡ, huy hoàng. Nhưng ẩn đằng sau niềm vui sướng còn cho thấy sự nuối tiếc của chị em Thúy Kiều vì cảnh xuân, ngày xuân, sắc xuân đã trôi qua quá nhanh. Hai câu thơ không chỉ đơn thuần thông báo thời gian mùa xuân đã “ngoài sáu mười” mà còn cho thấy một mùa xuân ấm áp, ngọt ngào. Trước vẻ đẹp đó không khỏi làm lòng người xao xuyến, vui tươi và cũng có chút nuối tiếc, ngậm ngùi về sự chảy trôi của thời gian.Hai câu thơ tiếp theo, bằng vài nét bút chấm phá, Nguyễn Du đã vẽ nên một bức tranh mùa xuân tuyệt tác:
+
+Quảng cáo
+
+_“Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa”_
+
+Bức tranh tràn ngập màu xanh tươi non, mỡ màng của cỏ, màu xanh ấy ngập đầy khắp không gian, kéo dài đến tận chân trời, cho thấy sức sống mạnh mẽ, căng tràn của mùa xuân. Như để làm nổi bật bức tranh mùa xuân Nguyễn Du “điểm” một vài bông hoa lê vào bức tranh ấy. Hoa lê trắng tinh khôi, dù tác giả không miêu tả mùi hương, nhưng có lẽ người đọc cũng có thể tưởng tượng được hương thơm thanh nhã, dịu dàng, tinh khiết như chính màu sắc của loài hoa đó. Thành công của Nguyễn Du ấy là khiến cho bức tranh trở nên sống động, như đang cựa quậy tràn đầy nhựa sống khi sử dụng động từ “điểm”, khiến bức tranh không tĩnh như trong thơ cổ Trung Quốc “Phương thảo liên thiên bích/ Lê chi sổ điểm hoa” mà sinh động, tràn đầy sức sống. Bức tranh đẹp đẽ là sự hòa quyện tinh tế của hai sắc xanh và trắng, khiến cho không gian vừa mang nét tươi tốt, tròn đầy lại vừa mang sự trong trẻo, tinh khiết. Trong khung cảnh mùa xuân đẹp đẽ là hình ảnh đoàn người nối nhau đi chảy hội: “Thanh minh trong tiết tháng ba/ Lễ là tảo mộ, hội là đạp thanh”. Tác giả sử dụng tiểu đối cùng với nghệ thuật tách từ “lễ” và “hội” làm hai vế giúp tác giả diễn tả hai hoạt động diễn ra trong hội xuân: lễ tảo mộ và hội đạp thanh. Câu thơ cho thấy nét văn hóa đẹp đẽ của dân tộc ta tưởng nhớ về công ơn của những người đã mất. Đó là truyền thống tốt đẹp của dân ta “Uống nước nhớ nguồn”, lối sống ân tình, trân trọng và biết ơn ông cha, tổ tiên: “Ngổn ngang gò đống kéo lên/ Thoi vào vó rắc, tro tiền giấy bay”. Không chỉ vậy câu thơ còn khái lược về nét văn hóa khác của dân tộc ta đó là du xuân đầu năm. Đây là dịp để những nam thanh nữ tú gặp gỡ nhau, cùng nhau thưởng thức vẻ đẹp của mùa xuân. Không khí lễ hội diễn ra vô cùng náo nức, tươi vui. Tác giả sử dụng liên tiếp các từ hai âm tiết: gần xa, yến anh, chị em,… cùng với các từ láy: nô nức, dập dìu,.. đã cho thấy tâm trạng náo nức, vui vẻ của lòng người trong lễ hội mùa xuân. Để tăng thêm không khí nhộn nhịp đó, Nguyễn Du còn sử dụng hình ảnh ẩn dụ “nô nức yến anh”, một mặt gợi hình ảnh đoàn người nhộn nhịp đi du xuân, mặt khác gợi lên những tiếng xôn xao, những cuộc trò chuyện, gặp gỡ, làm quen của những đôi uyên ương trong lần đầu gặp gỡ. Không chỉ rộn ràng mà không gian còn vô cùng đông đúc: “Ngựa xe như nước, áo quân như nêm”. Qua tám câu thơ tiếp, thi nhân không chỉ khắc họa thành công nét đẹp văn hóa của dân tộc ta mà đằng sau đó còn là không gian tạo nên cuộc gặp gỡ định mệnh giữa nàng Kiều tuyệt sắc giai nhân và chàng Kim nho nhã, phong lưu.Trời dần về chiều, lễ và hội cũng đã dần vơi dần, bớt dần, chị em Thúy Kiều thơ thẩn ra về, không gian có gì đó hiu quạnh, gợi nên nỗi buồn man mác trong lòng người đi hội, đặc biệt là trong lòng cô Kiều đa sầu đa cảm:
+
+Quảng cáo
+
+_“Bước dần theo ngọn tiểu khê_
+
+_Lần xem phong cảnh có bề thanh thanh_
+
+_Nao nao dòng nước uốn quanh_
+
+_Dịp cầu nho nhỏ cuối ghềnh bắc ngang”_
+
+Những hình ảnh “tiểu khê”, “nho nhỏ” thể hiện một không gian bé nhỏ, đi vào chiều sâu, dường như mọi sự vật đều nhỏ dần, nhạt dần, phảng phất nỗi buồn, nỗi tiếc nuối vào khoảnh khắc ngày tàn. Trong đoạn thơ tác giả sử dụng ba từ láy “thanh thanh”, “nao nao”, “nho nhỏ” vừa giàu giá trị tạo hình vừa giàu giá trị biểu cảm. Đặc biệt từ “nao nao” không chỉ gợi tả về dòng nước đang chảy mà còn thể hiện tâm trạng xao xuyến, bồi hồi, đầy tâm tình của nhân vật. Tất cả những từ láy này khiến cho khung cảnh nhuốm đầy màu sắc tâm trạng. Đó là cảm giác bâng khuâng, xao xuyến, nuối tiếc và một nỗi buồn nhẹ nhàng. Với nghệ thuật tả cảnh ngụ tình, Nguyễn Du không chỉ miêu tả bức tranh mùa xuân mà còn thể hiện được tâm hồn nhạy cảm, trong sáng của những người thiếu nữ.Để tạo nên sự thành công cho bức tranh mùa xuân, Nguyễn Du đã vận dụng tài tình bút pháp tả cảnh ngụ tình: không chỉ cho thấy một mùa xuân đẹp đẽ, khung cảnh du xuân nhộn nhịp mà cho cho thấy những rung cảm tinh tế, sâu sắc của nhân vật. Ngôn ngữ thơ phong phú, đa dạng: sử dụng các từ láy, từ ghép giàu giá trị tạo hình và biểu cảm. Nhịp thơ biến đổi linh hoạt biểu hiện được cảm xúc của nhân vật.
+
+Quảng cáo
+
+Trích đoạn Cảnh ngày xuân đã cho ta thấy ngòi bút thiên tài của Nguyễn Du. Bằng những nét chấm phá có hồn đã dựng lên trước mắt người đọc bức tranh thiên nhiên và lễ hội mùa xuân rực rỡ, vui tươi. Và qua đó cũng cho thấy tầm hồn nhạy cảm, tinh tế của những con người trẻ tuổi mà ở đây là Thúy Kiều.
+
+### Dàn ý Phân tích Cảnh ngày xuân
+
+**1\. Mở bài**
+
+\- Giới thiệu tác giả Nguyễn Du và tác phẩm Truyện Kiều
+
+\+ Nguyễn Du (1766 – 1820), là tác gia lớn của nền văn học Việt Nam.
+
+\+ Truyện Kiều viết về cuộc đời của nhân vật Thúy Kiều, là sáng tác viết bằng chữ Nôm xuất sắc nhất của Nguyễn Du.
+
+\- Giới thiệu đoạn trích Cảnh ngày xuân
+
+\+ Đoạn trích này được viết sau đoạn tả tài sắc của chị em Thúy Kiều.
+
+\+ Đoạn trích này tả cảnh ngày xuân trong tiết Thanh minh và cảnh du xuân của chị em Thúy Kiều.
+
+**2\. Thân bài**
+
+**_a. Khung cảnh mùa xuân_**
+
+\- Không gian khoáng đạt: cảnh ngày xuân trong trẻo, tinh khôi và tràn đầy sức sống.
+
+\+ Chim én đưa thoi
+
+\+ Thiều quang chín chục, đã ngoài sáu mươi
+
+\+ Màu cỏ non xanh rợn đến chân trời: gợi lên không gian khoáng đạt.
+
+\+ Cành lê trắng: gợi sự thanh khiết, trong trẻo.
+
+\- Bút pháp miêu tả, gợi, từ ngữ gợi hình: cảnh ngày xuân hiện ra tinh khôi, mới mẻ và tràn đầy sức sống.
+
+**_b. Cảnh lễ hội trong tiết Thanh minh_**
+
+\- Lễ tảo mộ: ngày tựu trung đến viếng, dọn dẹp, sửa sang và thắp hương phần mộ của người thân.
+
+\- Hội đạp thanh.
+
+\- Sử dụng những từ ngữ gợi tả:
+
+\+ Gần xa, nô nức (tính từ): tâm trạng náo nức.
+
+\+ Yến anh, tài từ, giai nhân, chị em (danh từ): gợi sự đông vui náo nhiệt.
+
+\+ Sắm sửa, dập dìu (động từ): không khí rộn ràng, nhộn nhịp.
+
+\- Không khí cảnh lễ hội rộn ràng, náo nức, cùng những nghi thức trang nghiêm khi viếng mộ.
+
+**c. Cảnh chị em Thúy Kiều ra về**
+
+\- Bóng ngả về tây: thời gian, không gian chuyển sang chiều tối
+
+\- Cảnh vật và người trở nên thưa vắng.
+
+\- Từ láy: thanh thanh, nao nao, thơ thẩn.
+
+\- Tâm trạng bâng khuâng, xao xuyến, lặng buồn và dự cảm một điều sắp xảy ra.
+
+**3\. Kết bài**
+
+\- Nội dung: miêu tả bức tranh thiên nhiên mùa xuân tươi đẹp.
+
+\- Nghệ thuật: Ngôn ngữ giàu hình ảnh, nhịp điệu, diễn tả tinh tế tâm trạng của nhân vật.
+
+### Sơ đồ tư duy Phân tích Cảnh ngày xuân
+
+### **Phân tích Cảnh ngày xuân – mẫu 2**
+
+Nếu như trong đoạn trích "Chị em Thúy Kiều", người đọc thấy được tài năng nghệ thuật tả người của Nguyễn Du trong việc khắc họa bức chân dung duyên dáng, sắc tài toàn vẹn của hai chị em Vân - Kiều thì đến với đoạn trích "Cảnh ngày xuân", người đọc một lần nữa lại thấy được nghệ thuật tả cảnh, tả tình độc đáo của Nguyễn Du trong bức tranh mùa xuân thấm đượm tâm hồn con người.
+
+Đoạn trích "Cảnh ngày xuân" nằm ngay sau đoạn tả tài, tả sắc của chị em Thúy Kiều. Qua đoạn thơ, Nguyễn Du dựng lên bức tranh thiên nhiên và lễ hội mùa xuân trong tiết Thanh minh thật tươi sáng, sống động. Đây là đoạn thơ tiền đề, dẫn dắt hoàn cảnh để rồi trong cuộc du xuân của Kiều, Kim – Kiều đã gặp nhau rồi tự do đính ước...Trước hết, bốn câu thơ mở đầu, với nghệ thuật chấm phá độc đáo tả ít gợi nhiều, Nguyễn Du đã tạo nên một bức tranh thiên nhiên mùa xuân tươi đẹp, giàu sức xuân:
+
+_“Ngày xuân con én đưa thoi_
+
+_Thiều quang chín chục đã ngoài sáu mươi_
+
+_Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa.”_
+
+Hai câu thơ đầu vừa có sức gợi về thời gian, lại vừa có sức gợi về không gian. Ngày xuân thấm thoát trôi qua thật nhanh như thoi đưa. Cả mùa xuân có chín mươi ngày thì nay đã qua tháng giêng, tháng hai và bước sang tháng thứ ba. Ánh sáng của ngày xuân nhẹ nhàng, trong veo, lan tỏa, trải dài khắp muôn nơi.Trên nền trời cao là những đàn chim én mùa xuân đang chao nghiêng bay lượn. Dưới mặt đất là một thềm cỏ xanh non bất tận chạy ra xa tít tắp. Động từ “tận” làm cho không gian mùa xuân như đang giãn nở, ngày càng mở rộng ra biên độ và bao trùm cả không gian xuân là một màu xanh biếc của cỏ lá. Trên nền cỏ xanh tươi ấy là những bông hoa lê điểm vài sắc trắng gợi lên sự tinh khôi, mới mẻ.
+
+Biện pháp đảo ngữ có tác dụng tô đậm thêm và làm nổi bật hơn sức trắng của hoa lê trên nền cỏ mùa xuân. Chỉ bằng bốn câu thơ ngắn gọn nhưng dưới ngòi bút và cách miêu tả thần tình, Nguyễn Du đã tạo nên một bức tranh xuân tinh khôi, trong trẻo, thanh khiết và giàu sức sống, mang đậm hơi thở của hồn xuân đất Việt.
+
+Tám câu thơ tiếp theo, là khung cảnh lễ - hội trong tiết thanh minh mùa xuân. Ở hai câu thơ đầu, tác giả đã giới thiệu khái quát về hai hoạt động chính của mùa xuân: Lễ tảo mộ và hội đạp thanh trong tiết tháng ba mùa xuân.
+
+_“Thanh minh trong tiết tháng ba_
+
+_Lễ là tảo mộ, hội là đạp thanh”_
+
+Lễ tảo mộ là một nét đẹp văn hóa, biểu trưng cho đạo lí biết ơn, tri ân tiên tổ bằng việc sửa sang phần mộ của gia đình người thân đã khuất. Sau khi lễ hội tảo mộ diễn ra xong thì đây cũng là cơ hội cho những trai tài gái sắc được gặp gỡ, hẹn hò, giao duyên trong lễ hội đạp thanh. Không khí tưng bừng, nhộn nhịp và tấp nập trong những ngày lễ hội mùa xuân đã được Nguyễn Du miêu tả qua hệ thống những từ ngữ giàu tính tạo hình và biểu cảm:
+
+_“Gần xa nô nức yến anh_
+
+_Chị em sắm sửa bộ hành chơi xuân_
+
+_Dập dìu tài tử giai nhân_
+
+_Ngựa xe như nước áo quần như nêm.”_
+
+Từ ghép (gần xa, yến anh, chị em, ngựa xe, áo quần) kết hợp với các từ láy (nô nức, dập dìu, sắm sửa) có tác dụng gợi nên không khí hội xuân hết sức đông vui, rộn ràng. Hình ảnh ẩn dụ: “nô nức yến anh” gợi lên hình ảnh từng đoàn người nhộn nhịp đi du xuân như chim én, chim oanh xôn xao, náo nức, tình tứ. Hình ảnh so sánh: “Ngựa xe như nước; áo quần như nêm" miêu tả những đoàn người trong hội xuân rất nhộn nhịp; từng đoàn, từng đoàn người chen vai ních cánh đi trẩy hội, đông vui, rộn ràng.Bằng việc sử dụng các biện pháp tu từ ẩn dụ, so sánh, kết hợp với hệ thống những từ ngữ giàu tính chất tạo hình và biểu cảm, nhà thơ đã gợi lên một không khí mùa xuân vừa đông vui, tấp nập; lại vừa tình tự và duyên dáng khi có sự góp mặt của các nam thanh nữ tú, trai tài, gái sắc.
+
+Nếu Hội đạp thanh hiện lên với không khí hết sức tươi vui, rộn rã, náo nức thì Lễ tảo mộ lại gợi một chút đượm buồn và hướng tới đạo lí tốt đẹp ở đời qua hành động rắc thoi vàng và đốt vàng mã cho người đã khuất. Đó là truyền thống “Uống nước nhớ nguồn” và lối sống ân nghĩa, thủy chung tốt đẹp của văn hóa dân tộc.Qua tám câu thơ, tác giả đã khắc họa thành công truyền thống văn hóa lễ hội mùa xuân của dân tộc. Đồng thời, đây cũng là một dụng ý nghệ thuật sâu sắc của tác giả: mượn ngày hội lớn làm bối cảnh, tiền đề để miêu tả cuộc gặp gỡ đặc biệt giữa Thúy Kiều và Kim Trọng.Đến sáu câu thơ cuối, bằng nghệ thuật "tả cảnh ngụ tình", Nguyễn Du đã miêu tả thời điểm kết thúc của ngày hội xuân thấm đượm hồn người một chút buồn xao xuyến. Đó là khung cảnh chị em Kiều du xuân trở về
+
+_“Tà tà bóng ngả về tây_
+
+_Chị em thơ thẩn dan tay ra về_
+
+_Bước dần theo ngọn tiểu khê_
+
+_Lần xem phong cảnh có bề thanh thanh_
+
+_Nao nao dòng nước uốn quanh_
+
+_Dịp cầu nho nhỏ cuối ghềnh bắc ngang.”_
+
+Cảnh vẫn mang cái dịu nhẹ, êm đềm của ngày xuân nhưng bóng dương đã “tà tà ngả về tây”. Khung cảnh náo nức, tưng bừng của ngày hội xuân cũng đã kết thúc. Trong lòng người xen lẫn những xúc cảm bâng khuâng xao xuyến. Cảnh vật không gian đã được co gọn lại trong bước chân của người ra về, của dòng nước tiểu khê và chiếc cầu nho nhỏ.Những từ láy: “nao nao, tà tà, thơ thẩn, thanh thanh” không chỉ có tác dụng miêu tả trạng thái của cảnh vật mà còn biểu lộ tâm trạng của con người: lưu luyến, bịn rịn, bâng khuâng hoàn toàn đối lập với không khí với ngày lễ hội mùa xuân vào buổi sáng sớm. Đồng thời gieo vào lòng người đọc những linh cảm về một điều sắp sửa xảy ra, như là sự dự báo trước cuộc gặp gỡ nấm mồ Đạm Tiên và sự gặp gỡ của hai con người trai tài gái sắc: Thúy Kiều – Kim Trọng.
+
+Tóm lại, với bút pháp tả cảnh ngụ tình, kết hợp với việc sử dụng hệ thống những từ láy, hình ảnh giàu tính tạo hình và biểu cảm, tác giả đã khắc họa bức tranh chiều tà trong ngày hội xuân thấm đượm tâm trạng của con người nhân vật. Qua đó cho thấy được tài năng miêu tả tâm trạng con người của Nguyễn Du.Nếu như trong "Kim Vân Kiều truyện" của Thanh Tâm Tài Nhân, tác giả chỉ có đúng một câu dẫn dắt "một hôm nhằm vào tiết Thanh minh..." để rồi sau đó kể về cuộc gặp gỡ nấm mồ Đạm Tiên và Kim Trọng nhưng Nguyễn Du đã dựa vào đó vẽ lên một bức tranh xuân thắm bằng thơ, với vẻ đẹp riêng, mang đậm cảnh xuân đất trời nước Việt.Như vậy, qua đoạn trích "Cảnh ngày xuân", chúng ta thấy được tài năng nghệ thuật "tả cảnh ngụ tình" hết sức độc đáo của Đại thi hào Nguyễn Du. Dưới ngòi bút sáng tạo thần tình, cùng những rung cảm nghệ thuật độc đáo về mùa xuân, Nguyễn Du đã phác họa thành công một bức tranh thiên nhiên, lễ hội mùa xuân tươi đẹp, trong sáng và sống động, thấm đượm lòng người.
+
+### **Phân tích Cảnh ngày xuân – mẫu 3**
+
+Trong thơ xưa, thiên nhiên không chỉ là trung tâm của cái đẹp mà còn là nơi gửi gắm tâm tình của con người. Và trong “Truyện Kiều” bất hủ đại thi hàoNguyễn Du đã dành tới 222 câu thơ miêu tả cảnh thiên nhiên. Trong đó đoạn trích "Cảnh ngày xuân” có thể coi là một bức tranh đẹp vào loại bậc nhất.Chỉ với 18 câu thơ hàm súc, Nguyễn Du đã gieo vào lòng người đọc sức sống tràn trề của mùa xuân. Đồng thời, giúp ta nhận được sự tinh tế trong bút pháp miêu tả giàu chất tạo hình của Nguyễn Du. Đoạn thơ đã mở ra trước mắt ta một khung cảnh mùa xuân trong tiết thanh minh, qua bốn câu thơ đầu:
+
+_"Ngày xuân con én đưa thoi_
+
+_Thiều quang chín chục đã ngoài sáu mươi_
+
+_Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa”_
+
+Nguyễn Du vẽ lên bức tranh xuân thật đẹp, đặc biệt nhà thơ đã lựa chọn chi tiết tiêu biểu mang nét đặc trưng của ngày xuân để khắc họa bức tranh ấy. Đọc hai câu thơ đầu, ta cảm nhận được cách tính thời gian khá độc đáo, nghệ thuật miêu tả ước lệ bộc lộ rõ đã tái hiện hình ảnh báo hiệu mùa xuân ”chim én”, ”thiều quang” gợi sự ấm áp, dịu dàng, khẳng định mùa xuân đang ở độ đẹp nhất, chín nhất, sung mãn nhất.Qua đó câu thơ thứ hai đã chỉ rõ ngày xuân trôi qua nhanh như con thoi dệt cửa, đã qua tháng giêng, tháng hai, bây giờ là tháng ba, tiết trời trong xanh, những con én rộn ràng chao liệng như nhịp thoi đưa trên bầu trời, gợi ra một không gian, thoáng đãng cao rộng gợi lên nhịp trôi chảy của thời gian và nhịp điệu sôi động của mùa xuân, đồng thời còn tỏ ý tiếc nuối thời gian trôi qua nhanh của Nguyễn Du, để rồi, thiên nhiên đẹp hơn bởi sắc “xanh” của cỏ non, sắc "trắng” của "một vài bông hoa” lác đác.
+
+_“Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa”_
+
+Đây mới thực sự là bức tranh tuyệt mĩ. Tác giả sử dụng biện pháp chấm phá tái hiện bức tranh xuân tươi tắn, sống động gợi liên tưởng về sự sinh sôi nảy mở. Màu xanh của cỏ non gợi sức sống mạnh mẽ, bất diệt, không gian mênh mông, thoáng đạt, trong trẻo. Trên nền xanh ấy có điểm xuyến một vài bông hoa lê trắng. Văn cổ thi Trung Quốc được Nguyễn Du học tập một cách sáng tạo ”Phương thảo niên bích/ Lê chi sổ điểm hoa”. Nếu hai câu thơ Trung Quốc dùng hình ảnh ”phương thảo” (cỏ thơm) thiên về mùi vị thì Nguyễn Du thay bằng ”cỏ non” thiên về màu sắc: màu xanh nhạt pha với màu vàng chanh tươi thắm hợp với màu xanh lam của nền trời làm thành gam nền cho bức tranh. Trên đó điểm xuyến sắc trắng thanh khiết, tinh khôi của hoa lê tạo thành bức tranh đẹp hài hòa, tươi mát, mới mẻ.Chữ ”trắng” được Nguyễn Du thêm vào và đảo lên trước càng gây ấn tượng mạnh, Chữ "điểm” làm cho cảnh vật trở nên có hồn, sinh động chứ không tĩnh lại hay gợi lên bàn tay họa sĩ – thi sĩ vẽ lên thơ lên họa như bàn tay tạo hóa điểm tô cảnh xuân tươi khiến cho bức tranh càng trở nên sinh động.Ngòi bút của Nguyễn Du tài hoa, nghệ thuật phối sắc tài tình, giàu chất tạo hình ngôn ngữ biểu cảm, gợi tả thể hiện tâm hồn người tươi vui, phấn chấn qua cái nhìn thiên nhiên trong trẻo hồn nhiên, nhạy cảm tha thiết với vẻ đẹp thiên nhiên. Bốn câu thơ lục bát nhẹ nhàng – một không gian thoáng đãng mà ấm áp của mùa xuân, một màu sắc tinh khôi mãi để lại dấu ấn trong lòng độc giả.
+
+Mùa xuân là mùa khởi đầu trong một năm là mùa cây cối đâm chồi nảy lộc, tâm hồn con người phơi phới, mùa xuân cũng là mùa có nhiều lễ hội diễn ra nhiều nhất, trong thơ của Nguyễn Du, đó là khung cảnh lễ hội trong tiết thanh minh, tám câu thơ tiếp theo tả cảnh trẩy hội tưng bừng, náo nhiệt: ”Lễ là tảo mộ hội là đạp thanh”.Tác giả đã đưa ta về với lễ nghi phong tục tập quán của người phương Đông, lễ tảo mộ là hướng về cội nguồn, tổ tiên, truyền thống văn hóa tâm linh tri ân với quá khứ. Đi tảo mộ là đi sửa sang, thắp hương để tưởng nhớ người đã khuất, còn ”hội đạp thanh” là cuộc du xuân là cuộc vui chơi trên đồng cỏ xanh của những trai tài, gái sắc, nam thanh nữ tú, hội đạp thanh còn là cuộc sống hiện tại và có thể tìm đến những sợi tơ hồng cho mai sau.Ở bốn câu thơ tiếp theo, tác giả đã gợi tả không khí lễ hội bằng một loạt các từ ngữ giàu sắc thái biểu cảm như từ láy "nô nức”, ”dập dìu” ”sắm sửa” và từ ghép, từ Hán Việt: “tài tử”, ”giai nhân”, “bộ hành”, “ngựa xe”, "gần xa”, ”yến anh” kết hợp với các biện pháp nghệ thuật như ẩn dụ, so sánh đã khắc họa thật sinh động cảnh đông vui, tưng bừng, náo nhiệt đang diễn ra ở khắp nơi nơi mọi miền đất nước.
+
+_"Dập dìu tài tử giai nhân_
+
+_Ngựa xe như nước áo quần như nêm”_
+
+Lễ thanh minh – lễ hội điển hình vào tháng ba, từng đôi lứa "tài tử giai nhân” ”dập dìu” du xuân, gặp gỡ hò hẹn. Trong dòng người “nô nức” đó có ba chị em Thúy Kiều cũng sắm sửa hòa nhập vào cái đẹp, cái tưng bừng của tuổi trẻ. Hình ảnh so sánh thật giản dị "ngựa xe như nước, áo quần như nêm”, gợi tả không khí náo nức của lễ hội, từng đoàn người nhộn nhịp đi chơi xuân trong bộ áo quần đẹp đẽ, tươi thắm màu sắc.Họ như từng đàn chim én, chim hoàng anh ríu rít bay về hội tụ trong lễ hội. Tác giả còn miêu tả một nét đẹp của nền văn hóa lâu đời của Việt Nam chúng ta trong ngày Tết thanh minh. Đó là sắc thoi vàng, đốt giấy tiền để tưởng nhớ người thân đã khuất:
+
+_"Ngổn ngang gò đống kéo lên_
+
+_Thoi vàng vó rắc tro tiền giấy bay”_
+
+Nhịp điệu thơ 2/4 và 4/4 thoáng ra một nét buồn. Phải chăng đó là trái tim đầy tình thương sẻ chia của đại thi hào Nguyễn Du đối với những người đã khuất. Cái tâm thánh thiện, niềm tin phác thực dân gian, đầy ắp nghĩa tình. Dưới ngòi bút miêu tả tinh tế của nhà thơ, lễ và hội trong tiết thanh minh là một sư giao hòa độc đáo, chứng tỏ nhà thơ rất trân trọng vẻ đẹp và giá trị truyền thống văn hóa của dân tộc.Nếu như những dòng thơ trên phác họa khung cảnh nhộn nhịp, đông vui của lễ hội thì sáu câu thơ cuối tạo nên một nhịp điệu trữ tình man mác buồn theo từng bước chân của chị em Thúy Kiều:
+
+_“Tà tà bóng ngả về tây,_
+
+_Chị em thơ thẩn dan tay ra về_
+
+_Bước dần theo ngọn tiểu khê_
+
+_Lần xem phong cảnh có bề thanh thanh_
+
+_Nao nao dòng nước uốn quanh_
+
+_Dịp cầu nho nhỏ cuối ghềnh bắc ngang”_
+
+Hội tan sao chẳng buồn? Có thể nói sáu câu trên đã diễn tả sâu sắc cảnh chị em Thúy Kiều trên đường trở về với một khung cảnh yên ả, dường như đối lập với cảnh lễ hội lúc trước. Cảnh mang nét thanh thanh, dìu dịu của buổi chiều xuân với nắng nhạt, khe nước nhỏ, nhịp cầu bắc ngang như nhuộm màu tâm trạng. Bóng dương đã chênh chếch xế tà, ”tà tà bóng ngả về tây” nhưng đây không phải là hoàng hôn của cảnh vật mà dường như con người cũng chìm vào cảm giác bâng khuâng, khó tả.Buổi chiều tà thường gợi lên một cảm giác buồn khó tả. Ở đây, cuộc vui đã tàn, lễ hội tưng bừng náo nhiệt đã hết, tâm hồn con người cũng "chuyển điệu” cùng cảnh vật. Dưới cái tài miêu tả của Nguyễn Du, không khí lễ hội lúc tan không ảm đạm, buồn bã mà có phần thanh dịu, lặng lẽ mơ mộng, không gian thu hẹp lại, thời gian trôi chậm hơn, cảnh vật như nhạt dần, nhạt dần, lặng lẽ theo bước chân thơ thẩn trên dặm đường về, phảng phất nỗi tiếc nuối, lưu luyến của lòng người. Mọi chuyển động nhẹ nhàng đều đều thể hiện qua tâm trạng giai nhân đa sầu, đa cảm bằng hàng loạt các từ láy ”tà tà”, ”thanh thanh”, ”nao nao”, ”nho nhỏ” vừa gợi tả cảnh, vừa gợi tâm trạng bâng khuâng, xao xuyến từ dư âm ngày vui xuân vừa như đã dự báo, linh cảm về điều sắp xảy ra trong tâm hồn nhạy cảm của Thúy Kiều.Và đúng như vậy, Thúy Kiều đã gặp nấm mồ bất hạnh ”Đạm Tiên” – một ca nhi tài sắc mà mệnh yểu và cả sự ngẫu nhiên gặp chàng nho sinh ”phong tư tài mạo tót vời” - Kim Trọng, để rồi "tình trong như đã mặt ngoài còn e” như một định mệnh tiền duyên, rõ ràng cảnh đã nhuốm màu tâm trạng của nhân vật.
+
+Như vậy sáu câu thơ cuối của đoạn trích với việc sử dụng từ láy đặc biệt là bút pháp tả cảnh ngụ tình - cảnh gắn với tình – cảnh tình tương hợp đã làm cho lòng người hòa vào cảnh vật như đang lắng lại cùng cảnh vật. Từ đó, ta thấy được tâm trạng nhạy cảm cùng niềm vui cuộc sống của tác giả.Tóm lại, bằng cách sử dụng hệ thống từ ghép, từ láy giàu chất tạo hình, giàu sức gợi tả, đoạn trích ”Cảnh ngày xuân” xứng đáng là bức tranh đẹp vào loại bậc nhất, tạo nên sức hấp dẫn cho tác phẩm ”Truyện Kiều”. Đồng thời, với cây bút miêu tả thiên nhiên tài tình của Nguyễn Du, cảnh vật hiện lên tươi đẹp, trong sáng và còn nhuộm màu tâm trạng, đây là yếu tố tạo nên thành công của đoạn trích và đưa tên tuổi của đại thi hào Nguyễn Du đến gần với bạn đọc khắp năm châu ở mọi thế kỷ.
+
+### **Phân tích Cảnh ngày xuân – mẫu 4**
+
+Nguyễn Du sinh năm 1820, là một người con của làng quê Tiên Điền, Hà Tĩnh. Vốn là con của một gia đình có truyền thống văn học qua bao đời nên Nguyễn Du được thừa hưởng khả năng văn học từ gia đình cùng với tấm lòng gắn bó, yêu thương với con người đã mang đến màu sắc nhân đạo đặc sắc trong thơ Nguyễn Du. Sống trong thời kỳ xã hội loạn lạc, từng đến nhiều nơi và có trải nghiệm gắn bó với cuộc sống của người dân nên ông hiểu hơn ai hết những vất vả, khổ cực mà những người dân phải gánh chịu, vì lẽ đó là lòng ông luôn hướng về những người khốn khổ, thương cảm và dành họ họ sự yêu thương, cảm thông sâu sắc.
+
+Truyện Kiều là kiệt tác của Nguyễn Du viết về cuộc đời và số phận của người con gái tài hoa bạc mệnh Thúy Kiều, không chỉ xuất sắc trong việc khắc họa chân dung, số phận của nàng Kiều mà Nguyễn Du còn có tài năng miêu tả thiên nhiên bậc thầy, ta có thể thấy rõ điều này qua đoạn trích Cảnh ngày xuân.Không chỉ thành công trong việc khắc hoạ nhân vật, Nguyễn Du còn mang đến cho ta những câu thơ viết về thiên nhiên đầy gợi cảm, xinh đẹp và êm đềm. Đoạn trích "Cảnh ngày xuân" là một trong những đoạn trích miêu tả cảnh thiên nhiên hay và mượt mà nhất của tác phẩm. "Cảnh ngày xuân" nằm sau đoạn miêu tả chị em Thúy Kiều, được mở đầu bằng bốn câu thơ mượt mà giới thiệu cảnh xuân:
+
+_"Ngày xuân con én đưa thoi_
+
+_Thiều quang chín chục đã ngoài sáu mươi_
+
+_Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa"_
+
+Nếu hè đến có phượng thắm ve kêu, đông sang có tuyết rơi, bàng trơ trọi lá thì khi xuân về có cánh én chao nghiêng. Chim én chính là đại diện của mùa xuân, đại diện của đất trời ngày xuân. Lúc này đây, trời những áng mây trời xanh thẳm, có "thiều quang" - bầu ánh sáng diệu kỳ, đẹp tươi và ấm áp, có cánh én bay lượn giữa không gian.
+
+_"Cỏ non xanh tận chân trời_
+
+_Cành lê trắng điểm một vài bông hoa"_
+
+Những bãi cỏ non xanh kéo dài như những thảm, xa tít "chân trời" mở ra một không gian rộng lớn, màu xanh mang sức sống mới, mang cả niềm hy vọng của sự an bình, của may mắn và niềm thương. Nếu trên mây trời có bóng dáng những nàng chim én yêu kiều thì dưới chân trời có những thảm cỏ xanh tươi, bát ngát.Và còn đây nữa cánh hoa lê trắng tinh khôi, được điểm xuyết tự nhiên mà hài hòa nên nền xanh của lá, sắc trắng hoa lê mang nét gợi cảm đầy hấp dẫn, thu hút. Trong thơ cổ Trung Quốc cũng có những câu thơ miêu tả xuân tiết tháng ba bằng những câu thơ rất hay: "Phương thảo niên bích Lê chỉ số điểm hoa".Nguyễn Du trong tác phẩm này cũng đã vận dụng một cách đầy sáng tạo để viết về nét xuân của dân tộc, nét xuân của Việt Nam, thiên nhiên mang cả hồn đất Việt. Nếu câu thơ cổ gợi xuân bằng hương vị, đường nét, trong thơ Nguyễn Du không chỉ có màu sắc, đường nét và còn thấy cả cái nhịp vận động khẽ khàng nhưng đầy tinh tế của những cánh hoa lê qua nghệ thuật đảo ngữ, đẩy "trắng" lên trước từ "điểm", khiến cho hoa lê như đang bừng nở trong không khí mùa xuân.Có thể thấy, chỉ bốn câu thơ đầu ấy thôi, mà Nguyễn Du đã vẽ nên một bức hoạ , vừa khoáng đạt, thanh bình lại vừa sinh động, tươi vui. Dường như, lòng người cũng đang thư thái hạnh phúc xốn xang tận hưởng thứ thiên nhiên tuyệt diệu lúc này.Mùa xuân là mùa của niềm vui sum họp, của những cuộc dạo chơi, những lễ hội vui tươi. Ở Việt Nam, vào tiết tháng ba âm lịch, có lễ hội đạp thanh, tảo mộ truyền thống. Nguyễn Du cũng đã tái hiện lại khung cảnh của lễ hội này qua những câu thơ:
+
+_"Thanh minh trong tiết tháng ba_
+
+_Lễ là tảo mộ, hội là đạp thanh"_
+
+Hội đạp thanh là nơi diễn ra cuộc du xuân của mọi người, đặc biệt là những chàng trai, cô gái đang độ xuân thì, đó là những ngày vui mà người ta háo hức mong đợi nhất. Lễ tảo mộ là dịp mà mọi người trong gia đình trở về, cùng nhau ra dọn dẹp mộ ông bà, thắp lên những ngôi mộ nén hương để tưởng nhớ những người quá cố như một sự biết ơn, tri ân sâu sắc. Nguyễn Du bằng sự cảm nhận tinh tế, đã tái hiện lại khung cảnh lễ hội này qua những câu thơ tiếp:
+
+_"Gần xa nô nức yến anh_
+
+_Chị em sắm sửa bộ hành chơi xuân_
+
+_Dập dìu tài tử giai nhân_
+
+_Ngựa xe như nước, áo quần như nêm"_
+
+Nghệ thuật ngôn từ được sử dụng một cách tài tình qua sự kết hợp hệ thống các tính từ láy và danh từ ghép để vẽ nên khung cảnh đi hội thật vui tươi, phấn chấn, háo hức. " Chị em" ai cũng sắm sửa cho mình những bộ cánh áo thật đẹp để dự hội, gần xa nô nức những" giai nhân, tài tử " dắt tay nhau đi chơi, rủ nhau hò hẹn, trên đường là những "ngựa xe" đông đúc, trên những quần áo lộng lẫy, họ ríu rít như những đàn chim bay về nơi vui chơi tụ họp.Và đâu đây, ta thấy có bóng hình chị em nàng Kiều tuyệt sắc trong đó, họ cũng đang hòa mình trong niềm vui, sức sống của tuổi trẻ, của những đẹp đẽ thanh xuân lúc này. Sau phần hội vui chơi là đến phần lễ đầy thiêng liêng, long trọng:
+
+_"Ngổn ngang gò đống kéo lên_
+
+_Thoi vàng vó rắc tro tiền giấy bay”_
+
+Đứng trước linh hồn của những người đã khuất, lòng người cũng không khỏi buồn thương, nhung nhớ, những " ngổn ngang" sâu thẳm tâm hồn. Nhịp thơ chầm chậm buồn như để bày tỏ sự sẻ chia, nỗi niềm của người nơi chốn trần gian vẫn luôn cầu nguyện, mong những điều an ổn nhất gửi đến tổ tiên mình.Rồi cuộc vui nào cũng đến lúc phải kết thúc, cuộc gặp gỡ nào cũng có lúc chia xa, mời vừa sớm bình minh còn vui chơi, cười nói thì giờ cũng đã thấm thoắt chiều tà, mọi người phải ra về trong niềm tiếc nuối, nỗi bâng khuâng:
+
+_"Tà tà bóng ngả về tây,_
+
+_Chị em thơ thẩn dan tay ra về_
+
+_Bước dần theo ngọn tiểu khê_
+
+_Lần xem phong cảnh có bề thanh thanh_
+
+_Nao nao dòng nước uốn quanh_
+
+_Dịp cầu nho nhỏ cuối ghềnh bắc ngang”_
+
+Khi ánh chiều buông cũng là lúc lòng người nhiều những tâm trạng ưu tư. Nếu không gian xuân ở những câu đầu được mở rộng, khoáng đạt thì lúc này đây, không gian dường như bị thu hẹp hơn, cảnh êm đềm có chút buồn vương nhè nhẹ. Chị em Kiều lòng "thơ thẩn" dắt nhau về mà lòng còn tiếc nuối cuộc vui.Cảnh xuân khi chiều xuống nhẹ nhàng, yên ả nhưng không vui tươi và sinh động như trước. Những từ láy "nhỏ nhỏ", " thanh thanh" ,"nao nao" lại càng gợi cảm giác xuyến xao, lưu luyến. Trong đoạn cuối này, tác giả đã sử dụng nghệ thuật "tả cảnh ngụ tình" đầy độc đáo, cảnh mang màu của tâm trạng, gợi tâm trạng của người về lúc bấy giờ.Thơ hay không chỉ đẹp thôi đâu mà nó còn có tình trong đó. Thơ hay đâu chỉ nói lên giấc mộng, nỗi lòng người thi sĩ mà còn nói lên khát khao, mơ ước của những người thưởng thức. Đoạn trích "Cảnh ngày xuân" đã cho thấy một tâm hồn nhạy cảm, tinh tế và tài năng xuất chúng của đại thi hào dân tộc Nguyễn Du.
+
+### **Phân tích Cảnh ngày xuân – mẫu 5**
+
+Mùa xuân là mùa của hoa thơm cỏ lạ, mùa của lễ hội văn hóa dân gian, mùa xuân đã hơn một lần đi vào thơ ca của Nguyễn Trãi, Trần Nhân Tông, Hàn Mặc Tử… Đến với bức tranh mùa xuân xinh đẹp của Nguyễn Du trong “Cảnh ngày xuân”, mùa xuân của lễ hội góp thêm một hương sắc mới.
+
+Từ trên đồi cao, mùa xuân mở ra trước mắt chúng ta là một không gian bất tận trong ánh nắng ban mai ấm áp của đất trời. Lúc này đã vào tháng ba bầu trời chưa hẳn trong xanh như trời thu nhưng cũng đủ in hình những cánh én rộn ràng bay lượn:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi”.
+
+Cái “thoi đưa” của cánh én hay chính thời gian mùa xuân trôi đi đến mau lẹ. Trên nền không gian bao la ấy một bức tranh chấm phá về mùa xuân đẹp như một bức họa dệt gấm thêu hoa:
+
+“Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Màu xanh của cỏ làm nền cho bức tranh màu trắng của hoa lê tô điểm cho bức tranh thêm trong sáng tinh khôi, nhẹ nhàng mà quyến rũ. Nguyễn Du đã chọn đúng hai gam chủ đạo để đặc tả mùa xuân, một mùa xuân trang nhã đến thế là cùng. Ta đã từng bắt gặp cái hồn của mùa xuân trong thơ Nguyễn Trãi:
+
+“Cỏ xanh như khói bến xuân tươi
+Lại có mưa xuân nước vỗ trời”
+
+Hay đây là hình ảnh mùa xuân ở một sườn đồi trong thơ Hàn Mặc Tử: “Sóng cỏ xanh tươi gợn tới trời”. Và đây là cảnh trẩy hội đông vui tưng bừng náo nhiệt:
+
+“Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”.
+
+Biết bao “tài tử giai nhân”, “dập dìu” vai sánh vai, chân nối chân theo nhịp bước dòng người cứ tấp nập, ngựa xe cứ cuồn cuộn, áo quần đẹp đẽ tươi thắm sắc màu. Cách nói ẩn dụ “nô nức yến anh” gợi hình ảnh đoàn người du xuân nhộn nhịp ríu rít vui tươi như chim oanh chim én.
+
+Nhưng đẹp nhất và lộng lẫy nhất vẫn là những nam thanh nữ tú, họ là hồn của bức tranh xuân. Không khí lễ hội được đại thi hào của chúng ta miêu tả rất tỉ mỉ cụ thể. Đó là một nét đẹp văn hóa lâu đời của người phương Đông. Đồng thời cũng thể hiện cái “phong lưu” của chị em Thúy Kiều. Trời đã về chiều, mặt trời đã gác núi:
+
+“Tà tà, bóng ngả về tây
+Chị em thơ thẩn dan tay ra về”
+
+Nhịp thơ chậm rãi như bước chân nhè nhẹ như nỗi lòng man mác lưu luyến của con người khi hội đã tan. Cảnh vẫn thanh vẫn nhẹ nhưng tất cả đều chuyển động từ từ. Mặt trời ngả bóng dần về tây bước chân của con người thì “thơ thẩn”, dòng nước uốn lượn nhẹ nhàng. Nhưng không còn cái không khí rộn ràng của lễ hội nữa.
+
+Cái “nao nao” của dòng nước hay chính cái bâng khuâng xao xuyến của dòng người. Rõ ràng cảnh mùa xuân vào lúc xế chiều đã nhuốm màu tâm trạng. Đại thi hào hình như đang dự báo linh cảm một điều sắp xảy ra rồi sẽ xảy ra. Chỉ ít phút nữa thôi Kiều sẽ gặp mộ Đạm Tiên, sẽ gặp chàng thư sinh hào hoa Kim Trọng.
+
+Bằng tài năng quan sát tinh tế, bằng sự nhạy cảm của một tâm hồn thơ, cách sử dụng từ ngữ hình ảnh sinh động, Nguyễn Du đã hết lòng tâm huyết vẽ nên bức tranh về mùa xuân thật đẹp, có hồn và độc đáo. Chính tình yêu thiên nhiên đất nước con người đã tạo nên nguồn cảm hứng để ông say sưa với đời, lưu giữ trong kho tàng thi ca Việt Nam một bức tranh mùa xuân thật đặc biệt.
+
+### **Phân tích Cảnh ngày xuân – mẫu 6**
+
+Nguyễn Du sinh ra và lớn lên trong một gia đình đại quý tộc với nhiều đời làm quan. Ông học rộng tài cao là một nhà nho chân chính và còn là một đại thi hào lớn của nền văn học Việt Nam. Tác phẩm Truyện Kiều của nguyễn Du không chỉ nổi tiếng trong nước mà còn vươn xa ra thế giới. Đoạn trích “Cảnh ngày xuân” thuộc phần đầu Truyện Kiều miêu tả cảnh ngày xuân và cảnh chị em Thúy Kiều đi du xuân.
+
+“Cảnh ngày xuân” chính là bức tranh mùa xuân sinh động và đặc sắc với đầy đủ âm thanh, ánh sáng,.. mà Nguyễn Du thể hiện sinh động trong Truyện Kiều. Ngày xuân ấy làm con người ta phơi phới được thể hiện qua bức tranh thiên nhiên ngày xuân
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Ngày xuân chim chóc muôn loài cũng nô nức bay lượn. Và con chim én là loài chim đại diện mùa xuân cũng không ngoại lệ. Chim én bay đi bay lại như thoi đưa. Câu thơ vừa tả cảnh, vừa ngụ ý ngày xuân qua nhanh quá. Ngoài ra Nguyễn Du còn tài năng trong việc sử dụng những từ ngữ miêu tả như: “thiều quang”,”cỏ non”,”cành lê trắng”,…
+
+Từ những từ ngữ gợi tả mà Nguyễn Du đã phát họa nên một khung cảnh xuân khiến bao người mê mẩn thèm thuồng được một lần chim ngưỡng. Một ánh sáng chói lóa, một bầu trời xuân xanh ngát, một vài bông hoa nhẹ nhẹ đong đưa. Ôi! Khung cảnh ấy làm người ta say đắm! Từ đó tạo nên một bức tranh ngày xuân tràn đầy sức sống.
+
+Cảnh thiên nhiên vừa đẹp vừa thơ mộng vừa tràn đầy sức sống như thế ấy. Và phong cảnh lễ hội trong tiết thanh minh cũng nhộn nhộn nhịp không kém. Tấp nập người nô đùa qua lại góp phần cho tiết thanh minh không đơn độc lạnh lẽo như mọi người thường nghĩ.
+
+“Thanh minh trong tiết tháng ba
+Lễ là tảo mộ hội là đạp thanh
+Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân”
+
+Nhắc đến ngày tiết thanh minh không thể nào không nhắc đến hai lễ hội: “tảo mộ”,”đạp thanh”. Hai lễ hội thể hiện sự nghiêm trang long trọng của cảnh ngày xuân mà đặc biệt là tiết thanh minh. Nguyễn Du sử dụng những động từ tính từ để thể hiện hành động của những người đi chơi hội cũng rất náo nhiệt và tấp nập.
+
+Bên cạnh đó Nguyễn Du còn sử dụng từ ngữ gợi tả “yến anh”-chỉ loài chim én, chim oanh về mùa xuân thường ríu rít bay từng đàn, đây là ngụ ý cảnh người người tấp nập đi chơi xuân. Làm nổi bật không khí rất rộn ràng nhộn nhịp và đông vui.
+
+“Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm
+Ngổn ngang gò đống kéo lên
+Thoi vàng vó rắc tro tiền giấy bay”
+
+Ngày tết qua ngòi bút của Nguyễn Du là “dập dìu tài tử giai nhân”. Trai tài gái sắc yêu nhau chỉ mong đến ngày xuân để có dịp đi chơi cùng nhau. Đó cũng là lẽ thường tình. Ai ai cũng muốn sắm sửa quần áo thật đẹp thật lộng lẫy để đi trẩy hội mà chính vì thế Nguyễn Du sử dụng cụm từ gợi tả”áo quần như nêm”.
+
+Người người đi lại tấp nập chật cứng như nêm. Lo sắm sửa bản thân nhưng cũng không quên thể hiện lòng thành đối với người đã khuất “thoi vàng vó rắc tro tiền giấy bay”. Đây là hành động tâm linh thể hiện tấm lòng đối với người đã khuất. Qua ngòi bút uyên bác của Nguyễn Du khung cảnh lễ hội trong tiết thanh minh rộn ràng nhộn nhịp, người người đông vui, thiên nhiên tươi sáng trong lành và bầu trời xanh cao.
+
+Tiệc vui nào cũng đến lúc tàn, cảnh tàn tiệc ấy luôn gợi cho người ta cảm giác hụt hẫng và buồn bã. Phần cuối đoạn trích chính là cảnh chị em Thúy Kiều vui xuân trở về.
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dang tay ra về
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang.”
+
+Việc dùng từ láy “tà tà” nhằm gợi tả và nhấn mạnh một buổi chiều tà. Buổi chiều ấy, đâu bao giờ để diễn tả niềm vui mà đặc biệt là lúc con người ta đang háo hức du xuân thế này. Đoạn cuối là đoạn thơ mà Nguyễn Du sử dụng rất nhiều từ láy như:” thanh thanh”,”nao nao”nho nhỏ”,… đó đều là những từ láy thể hiện tâm trạng cảm xúc thầm kín và sâu sắc của Thúy Kiều.
+
+Chân trời cảnh sắc xuân mà lòng buồn mang mác. Hay đó là điềm dự báo trước mà Nguyễn Du đặc biệt ưu ái dành cho Thúy kiều. Dự cảm về một người con gái đẹp, tài năng nhưng bạc phận. Màu “thanh thanh” là một màu sắc trầm buồn mà ở đây Nguyễn Du đặc biệt miêu tả cũng rất ấn tượng.
+
+“Nao nao dòng nước” cũng đầy tâm trạng, mượn cảnh tả tình là thế ấy, mượn cảnh thiên nhiên để nói lên cảm xúc con người. Khung cảnh lễ hội trong tiết thanh minh rộn ràng nhộn nhịp người qua lại. Nhưng đâu đó trong thâm tâm Thúy Kiều vẫn chất chứa nỗi tâm sự thầm kín về dự cảm số phận của bản thân nàng.
+
+Qua đoạn trích “Cảnh ngày xuân” của Nguyễn Du đã cho thấy được tài năng miêu tả thiên nhiên và nội tâm nhân vật rất đặc sắc của nhà văn. Sử dụng nhiều từ láy, hình ảnh gợi tả giàu chất tạo hình làm nổi bật cảnh ngày xuân đầy màu sắc sinh động tươi mới. Từ đó thấy được bức tranh thiên nhiên và lễ hội mùa xuân tươi đẹp đầy sức sống mà cũng chất chứa nhiều tâm trạng mà Nguyễn Du thể hiện ở phần đầu tác phẩm Truyện Kiều.
+
+### **Phân tích Cảnh ngày xuân – mẫu 7**
+
+Nguyễn Du, đại thi hào dân tộc, người đã để lại cho nền văn học Việt Nam một khối lượng tác phẩm đồ sộ. Trong đó, truyện Kiều được coi là “thiên truyện”, kể về cuộc đời nàng Kiều hồng nhan bạc mệnh. Đoạn trích cảnh ngày xuân là một trong số những đoạn nổi bật nhất, vừa tả cảnh thiên nhiên đặc sắc, vừa mở ra những nốt thấp quan trọng trong cuộc đời Thúy Kiều.
+
+Đoạn trích ở phần đầu của tác phẩm, sau khi giới thiệu gia cảnh và miêu tả vẻ đẹp của hai chị em Thúy Kiều, Thúy Vân. Tác giả tả cảnh ngày xuân, chị em đi chơi hội và khung cảnh lễ hội tươi vui, náo nhiệt.
+
+Bốn câu thơ đầu gợi tả khung cảnh thiên nhiên mùa xuân:
+
+Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa.
+
+Hai câu thơ đầu đề cập đến thời gian và không gian của mùa xuân. Hình ảnh “chim én đưa thoi” không chỉ muốn thể hiện tiết xuân ấm áp, muôn chim bay về mà còn muốn khắc họa thời gian trôi qua quá nhanh, như con thoi quay vòng khi dệt vải. Mùa xuân có ba tháng, nay đã là tháng ba. Trong những ngày cuối cùng của mùa xuân, những cánh chim én vẫn dập dìu bay liệng giữa bầu trời cao rộng. Hai câu thơ sau là bức tranh tuyệt đẹp về cảnh sắc mùa xuân với những hình ảnh hài hòa.
+
+Thảm cỏ non trải rộng đến tận chân trời làm nền cho bức tranh xuân tươi tắn bất tận. Trên cái nền màu xanh mát mắt đó, điểm xuyết nhẹ nhàng những bông hoa lấy chồng thanh khiết. Tác giả sử dụng nghệ thuật đảo ngữ “trắng” lên trước động từ “điểm” nhầm khắc họa một cách nổi bật vẻ đẹp trắng muốt tinh khôi của hoa xuân. Cái hồn riêng của mùa xuân hiện ra trong một không gian bao la rộng lớn. Hoa cỏ vô tri vô giác, nhưng chữ “điểm” dùng đúng lúc làm cho cánh hoa lê trở nên có hồn, có tình.
+
+Tám câu thơ tiếp theo là khung cảnh lễ hội trong tiết Thanh Minh
+
+Thanh Minh trong tiết tháng ba
+Lễ là tảo mộ, hội là đạp thanh
+Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước, áo quần như nêm
+Ngổn ngang, gò đống kéo lên
+Thoi vàng vó rắc, tro tiền giấy bay
+
+Vào ngày Thanh Minh, tiết đầu tháng ba, mùa xuân khí trời mát mẻ, người ta đi tảo mộ để sửa sang lại phần mộ của người đã mất như một cách tri ân. Mùa xuân cũng là dịp để đi chơi, đi lễ hội mừng năm mới. Được gặp gỡ lẫn nhau sau một năm làm việc đã trở thành một tục lệ tốt của văn hóa Việt Nam. Sau phần lễ là tảo mộ sẽ đến phần hội, gọi là hội đạp thanh, là dịp gặp gỡ bạn bè, người thân.
+
+Những câu thơ này của Nguyễn Du gợi tả một không khí lễ hội bằng hàng loạt những từ ngữ liên tiếp thể hiện sự đông đúc, vui tươi như “yến anh, chị em, tài tử giai nhân” cùng các tính từ “nô nức, sắm sửa, gần xa, dập dìu”. Hình ảnh những trai thanh gái lịch quần áo là lượt đi chơi hội xuân như những đàn chim ríu rít. Người ta thấy được sức sống, thấy được sự tươi mới, trẻ trung bao phủ lên toàn cảnh vật.
+
+Cụm từ “nô nức yến anh” và “ngựa xe như nước, áo quần như nêm” giúp người đọc hình dung cảnh này hội vô cùng náo nhiệt người với người nối nhau như dòng nước bất tận, mặc những trang phục đẹp đẽ nhất. Trong lễ tảo mộ, người ta rắc những thỏi vàng, những xấp tiền giấy hàng mã để tưởng nhớ người đã khuất nên mới có cảnh “thoi vàng vó rắc, tro tiền giấy bay”.
+
+Sáu câu thơ cuối, tác giả tập trung gọi tả khung cảnh chị em Thúy Kiều chơi xuân:
+
+Tà tà, bóng ngả về tây
+Chị em thơ thẩn, dan tay ra về
+Bước dần theo ngọn tiểu khê,
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang
+
+Buổi chiều, mặt trời từ từ là bóng về Tây. Ngày lễ hội đã đi qua, chị em Thúy Kiều dắt tay nhau đi về. Cảnh chiều xuân được miêu tả một cách dịu dàng, thanh khiết: nắng về chiều tà tà, nhịp cầu nhỏ bắc ngang khe nước. Mọi hoạt động cũng trở nên chậm rãi hơn như mặt trời tranh chấp nhà bóng, bước chân người trở nên thơ thẩn, ung dung. Cảnh vẫn đẹp, nhưng đã nhuộm màu tâm trạng, một tâm trạng bâng khuâng xao xuyến mà người ta vẫn thường có sau những buổi vui.
+
+Nhưng đâu chỉ có thế, những từ này như tà tà, thanh thanh không chỉ béo đa sắc thái của cảnh vật mà còn bộc lộ tâm trạng của con người. Từ láy “nao nao” gợi lên một nét buồn, nỗi buồn chỉ con người mới có thể cảm nhận được. Dường như, câu thơ này là một dự cảm cho những sự việc tiếp theo, khi nàng Kiều gặp chàng Kim Trọng và những biến cố sắp ập đến cuộc đời nàng. Có lẽ vì vậy, chính bản thân tác giả cũng thấy nao lòng, tiếc thương cho một số phận hồng nhan bạc mệnh.
+
+Với bút pháp nghệ thuật và khả năng tả cảnh đặc sắc, sử dụng những từ ngữ đắt giá, những từ láy đúng lúc đúng chỗ, Nguyễn Du đã gợi ra một bức tranh sinh động về cảnh sắc thiên nhiên mùa xuân, con người như hoà vào bức tranh tươi vui, náo nhiệt ấy. Người đọc có thể cảm nhận được cảnh ngày xuân hiện lên với vẻ đẹp trong sáng, tươi tắn, là sự hòa hợp giữa con người và thiên nhiên.
+
+### **Phân tích Cảnh ngày xuân – mẫu 8**
+
+Trong nền văn học Việt Nam, “Truyện Kiều” được biết đến là một tác phẩm xứng tầm kiệt tác. Điều này được tạo nên bởi ngòi bút điêu luyện của đại thi hào Nguyễn Du trong việc sử dụng ngôn ngữ. Không chỉ được đánh giá cao ở mặt nội dung mà tác phẩm còn để lại nhiều dấu ấn trong lòng độc giả về mặt nghệ thuật, đặc biệt là nghệ thuật miêu tả thiên nhiên. Nằm trong dòng chảy đó, trích đoạn “Cảnh ngày xuân” là một minh chứng tiêu biểu cho tài năng của tác giả trong việc miêu tả thiên nhiên.
+
+Trước hết, tác giả đã miêu tả bức tranh thiên nhiên thông qua khung cảnh mùa xuân tươi đẹp và tràn trề sức sống:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Bút pháp miêu tả thiên nhiên dưới ngòi bút của nhà thơ lại hiện lên đậm chất tạo hình và hội họa với những hình ảnh, đường nét, màu sắc phối hợp tinh tế, nhẹ nhàng. Khung cảnh mùa xuân quen thuộc được miêu tả thông qua hình ảnh những cánh én sải cánh chao liệng trên bầu trời cao rộng, gợi lên bước đi không ngừng nghỉ của dòng thời gian. Ánh nắng mùa xuân được miêu tả qua cụm từ “thiều quang” gợi sắc màu tươi mới, dịu nhẹ, vừa ấm áp vừa rực rỡ của tiết trời xuân.
+
+Bức họa thiên nhiên tiếp tục được làm nổi bật bởi những gam màu mang đậm tính chất hội họa. Sắc xanh tươi của cỏ non trải dài đến tận cuối chân trời tạo nên một không gian bao la, rộng lớn ngút ngàn và khoáng đạt.
+
+Sự xuất hiện của một vài bông hoa lê điểm xuyết sắc trắng trong sự kết hợp giữa biện pháp đảo ngữ, sử dụng cách nói “trắng điểm” thay cho “điểm trắng” để làm nổi bật màu sắc tinh khôi, sáng trong cùng bút pháp chấm phá quen thuộc trong thơ ca trung đại đã gợi liên tưởng đến những câu thơ cổ trong nền văn học Trung Quốc:
+
+“Phương thảo liên thiên bích
+Lê chi sổ điểm hoa”
+(Cỏ thơm liền với trời xanh
+Trên cành lê có mấy bông hoa)
+
+Nếu trong những câu thơ trên, người viết miêu tả hình ảnh “cỏ thơm” gợi hương vị thì tác giả Nguyễn Du lại sử dụng màu sắc “Cỏ xanh” với sự non tươi mơn mởn để gợi lên sức xuân và sắc xuân tràn trề, đồng thời tạo nên sự hài hòa trong vẻ đẹp vừa tươi mới, vừa tinh khôi.
+
+Và rồi sự chuyển động của thời gian cũng khiến cho lễ hội kết thúc, đồng thời ánh “thiều quang” không còn và thay vào đó là không gian buồn bã của bóng tà dương trong buổi xế chiều:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dang tay ra về
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang”
+
+Khung cảnh thiên nhiên vẫn mang vẻ đẹp dịu nhẹ của mùa xuân thông qua hình ảnh “bóng tả về tây” gợi ánh nắng nhạt dần và mặt trời đang lặn xuống cùng những chi tiết về khe nước nhỏ – nơi mà con người bước đi cùng sự chậm rãi, “thơ thẩn” và dòng nước uốn quanh “nao nao” để gợi lên không gian bé nhỏ, thân thuộc khác với không gian rộng lớn, bát ngát ở khổ thơ đầu. Tác giả Nguyễn Du đã sử dụng hàng loạt từ láy giàu giá trị gợi hình, gợi cảm để miêu tả không gian tĩnh lặng trong tâm trạng buồn bã, bâng khuâng và tiếc nuối.
+
+Nghệ thuật miêu tả thiên nhiên trong đoạn thơ vô cùng đặc sắc thông qua việc tác giả đã sử dụng thành công hệ thống từ láy và bút pháp tả cảnh ngụ tình. Các từ láy thường được đảo lên đầu câu thơ để nhấn mạnh tâm trạng của con người – dụng ý của nhà thơ.
+
+Đặc biệt, qua cách sử dụng từ láy “nao nao”, sắc thái của cảnh vật hiện lên qua vẻ đẹp lững lờ trôi xuôi của dòng nước trong bóng chiều tà; đồng thời đó còn là sự “nao nao” trong tâm trạng của con người. Đó là sự bâng khuâng, luyến tiếc, xao xuyến về một buổi du xuân trong cảm xúc của người con gái “đa sầu đa cảm” Thúy Kiều, đó còn là sự linh cảm về những điều sắp xảy ra – Kiều sẽ gặp nấm mộ Đạm Tiên, gặp Kim Trọng.
+
+Như vậy, thông qua trích đoạn “Cảnh ngày xuân”, chúng ta có thể thấy được tài năng của tác giả Nguyễn Du trong việc miêu tả thiên nhiên. Để phác họa bức tranh mùa xuân tươi đẹp, sáng trong và bức tranh lặng lẽ buổi chiều tà, đại thi hào dân tộc đã lựa chọn những hình ảnh thơ đặc sắc và miêu tả trong sự hài hòa giữa màu sắc, đường nét và hình khối.
+
+Đặc biệt, tác giả đã vận dụng thành công bút pháp “tả cảnh ngụ tình” để làm nổi bật dòng tâm trạng của con người ẩn chứa sau cảnh vật, thể hiện sự thống nhất giữa “cảnh” và “tình” giống như ông đã từng khẳng định:
+
+“Cảnh nào cảnh chẳng đeo sầu
+Người buồn cảnh có vui đâu bao giờ”
+
+### **Phân tích Cảnh ngày xuân – mẫu 9**
+
+Truyện Kiều là một trong những tác phẩm nổi tiếng của nền văn học Việt Nam trung đại. Nổi bật trong tác phẩm là đoạn trích “Cảnh ngày xuân”, gợi lên một bức tranh xuân trong sáng, tươi đẹp mà còn gợi lên không khí lễ hội rộn ràng và tưng bừng.
+
+Đoạn trích được Nguyễn Du xây dựng theo kết cấu của trình tự thời gian, rất phù hợp với diễn biến tâm trạng của con người trong cuộc du xuân: bốn câu đầu tả khung cảnh ngày xuân, tám câu tiếp tả cảnh lễ hội trong tiết Thanh minh, sáu câu cuối là cảnh chị em Kiều ra về.
+
+Đầu tiên là những cảm nhận về một bức tranh thiên nhiên thật sống động, tươi đẹp mà đầy sức xuân:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi”
+
+Tác giả đã khéo léo sử dụng kể và tả. Hai câu đầu vừa nói thời gian, vừa gợi không gian mùa xuân. Ngày xuân thấm thoát trôi mau đã qua “sáu mươi ngày” bước sang tháng ba. Câu đầu bài thơ tả cảnh ngày xuân có những cánh chim én bay đi bay lại rộn ràng giữa bầu trời trong xanh như con thoi đưa. Nếu như trong bài thơ “Mùa xuân chín”, thi sĩ Hàn Mặc Tử viết: “Sóng cỏ xanh tươi gợn tới trời” thì Nguyễn Du lại miêu tả khác: “Cỏ non xanh tận chân trời”.
+
+Ở đây, nhà thơ muốn thể hiện sắc cỏ vừa non xanh vừa mỡ màng, ngọt ngào trải rộng tới chân trời càng khẳng định sự ảnh hưởng sâu sắc của Nguyễn Du với thi sĩ Hàn Mặc Tử. Bức tranh xuân được dệt nên từ những màu sắc tinh tế, quý phái phối màu hài hòa giữa hai gam màu xanh và trắng; giữa màu vàng và màu đỏ tạo sự ấm áp mà không chói chang. Đường nét, hình khối mà nhà thơ chọn tã đều thanh mảnh ở mọi góc nhìn. Cánh én chao liệng, người đi trẩy hội khiến bức tranh trở nên ấm áp; làm cho cảnh vật “nửa như thực, nửa như mơ”.
+
+Tiếp đến là khung cảnh lễ hội:
+
+“Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước, áo quần như nêm”
+
+Chị em Thúy Kiều hòa mình giữa dòng người tấp nập như chim yến anh để dự lễ tảo mộ ở vùng đồng quê. Họ vừa đi, vừa thong thả ngắm cảnh chốn đồng quê thanh bình rồi thả thoi tiền giấy bay trong gió. Sử dụng một loạt các từ ghép, từ láy là tính từ, động từ như: “gần xa, nô nức, tài tử, giai nhân, dập dìu, hình ảnh so sánh “ngựa xe như nước”, “áo quần như nêm”.
+
+Nguyễn Du đã miêu tả cuộc du xuân của chị em Kiều trong không khí lễ hội thật rộn ràng, tấp nập. Thông qua cuộc du xuân của chị em Kiều, Nguyễn Du đã khắc họa một nét truyền thống văn hóa xa xưa.
+
+Cuối cùng khi kết thúc lễ hội, chị em Thúy Kiều “thơ thẩn ra về”:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dan tay ra về
+Bước dần theo ngọn phong khê
+Lần xem phong cảnh có bề thanh thanh”
+
+Cảnh vật toát lên vẻ vương vấn khi cuộc du xuân đã hết. Các từ láy “tà tà, thơ thẩn, thanh thanh, nao nao, nho nhỏ” vừa gợi tả sắc thái cảnh vật vừa gợi ra tâm trạng con người. Dường như có cái gì đó đang mơ hồ xâm lấn, cảnh vật đã nhuốm sắc thái vương vấn, man mác của tâm trạng con người.
+
+Đoạn trích “Cảnh ngày xuân” là một bức tranh xuân trong sáng và tươi đẹp, một bức tranh “thi trung hữu họa”. Người đọc có thể cảm nhận được bức tranh thiên nhiên trong thơ của Nguyễn Du thật đẹp được tạo nên từ hồn thơ nhạy cảm và ngòi bút tài hoa của nhà đại thi hào dân tộc.
+
+### **Phân tích Cảnh ngày xuân – mẫu 10**
+
+Trong thơ xưa, thiên nhiên không chỉ là trung tâm của cái đẹp mà còn là nơi gửi gắm tâm tình của con người. Và trong “Truyện Kiều”bất hủ đại thi hào Nguyễn Du đã dành tới 222 câu thơ miêu tả cảnh thiên nhiên. Trong đó đoạn trích”cảnh ngày xuân”có thể coi là một bức tranh đẹp vào loại bậc nhất của “Truyện Kiều”. Chỉ với 18 câu thơ hàm súc, Nguyễn Du đã gieo vào lòng người đọc sức sống tràn trề của mùa xuân. Đồng thời, giúp ta nhận được sự tinh tế trong bút pháp miêu tả giàu chất tạo hình của Nguyễn Du.
+
+Đoạn thơ đã mở ra trước mắt ta một khung cảnh mùa xuân trong tiết thanh minh, qua bốn câu thơ đầu:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Nguyễn Du vẽ lên bức tranh xuân thật đẹp, đặc biệt nhà thơ đã lựa chọn chi tiết tiêu biểu mang nét đặc trưng của ngày xuân để khắc họa bức tranh ấy. Đọc hai câu thơ đầu, ta cảm nhận được cách tính thời gian khá độc đáo, nghệ thuật miêu tả ước lệ bộc lộ rõ đã tái hiện hình ảnh báo hiệu mùa xuân “chim én”, “thiều quang”gợi sự ấm áp, dịu dàng, khẳng định mùa xuân đang ở độ đẹp nhất, chín nhất, sung mãn nhất.
+
+Qua đó câu thơ thứ hai đã chỉ rõ ngày xuân trôi qua nhanh như con thoi dệt cửa, đã qua tháng giêng, tháng hai, bây giờ là tháng ba, tiết trời trong xanh, những con én rộn ràng chao liệng như nhịp thoi đưa trên bầu trời, gợi ra một không gian, thoáng đãng cao rộng gợi lên nhịp trôi chảy của thời gian và nhịp điệu sôi động của mùa xuân, đồng thời còn tỏ ý tiếc nuối thời gian trôi quá nhanh của Nguyễn Du, để rồi, thiên nhiên đẹp hơn bởi sắc “xanh”của cỏ non, sắc “trắng”của “một vài bông hoa”lác đác.
+
+” Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Đây mới thực sự là bức tranh tuyệt mĩ. Tác giả sử dụng biện pháp chấm phá tái hiện bức tranh xuân tươi tắn, sống động gợi liên tưởng về sự sinh sôi nảy nở. Màu xanh của cỏ non gợi sức sống mạnh mẽ, bất diệt, không gian mênh mông, thoáng đạt, trong trẻo. Trên nền xanh ấy có điểm xuyết một vài bông hoa lê trắng. Văn cổ thi Trung Quốc được Nguyễn Du học tập một cách sáng tạo “Phương thảo niên bích/ Lê chi sổ điểm hoa”.
+
+Nếu hai câu thơ Trung Quốc dùng hình ảnh “phương thảo”( cỏ thơm) thiên về mùi vị thì Nguyễn Du thay bằng “cỏ non”thiên về màu sắc: màu xanh nhạt pha với màu vàng chanh tươi thắm hợp với màu xanh lam của nền trời làm thành gam nền cho bức tranh. Trên đó điểm xuyết sắc trắng thanh khiết, tinh khôi của hoa lê tạo thành bức tranh đẹp hài hòa, tươi mát, mới mẻ.
+
+Chữ “trắng”được Nguyễn Du thêm vào và đảo lên trước càng gây ấn tượng mạnh, Chữ “điểm”làm cho cảnh vật trở nên có hồn, sinh động chứ không tĩnh lại hay gợi lên bàn tay họa sĩ – thi sĩ vẽ lên thơ lên họa như bàn tay tạo hóa điểm tô cảnh xuân tươi khiến cho bức tranh càng trở nên sinh động.
+
+Ngòi bút của Nguyễn Du tài hoa, nghệ thuật phối sắc tài tình, giàu chất tạo hình ngôn ngữ biểu cảm, gợi tả thể hiện tâm hồn người tươi vui, phấn chấn qua cái nhìn thiên nhiên trong trẻo hồn nhiên, nhạy cảm tha thiết với vẻ đẹp thiên nhiên. Bốn câu thơ lục bát nhẹ nhàng – một không gian thoáng đãng mà ấm áp của mùa xuân, một màu sắc tinh khôi mãi để lại dấu ấn trong lòng độc giả.
+
+Mùa xuân là mùa khởi đầu trong một năm là mùa cây cối đâm chồi nảy lộc, tâm hồn con người phơi phới, mùa xuân cũng là mùa có nhiều lễ hội diễn ra nhiều nhất, trong thơ của Nguyễn Du, đó là khung cảnh lễ hội trong tiết thanh minh, tám câu thơ tiếp theo tả cảnh trẩy hội tưng bừng, náo nhiệt:
+
+“Lễ là tảo mộ hội là đạp thanh”
+
+Tác giả đã đưa ta về với lễ nghi phong tục tập quán của người phương Đông, lễ tảo mộ là hướng về cội nguồn, tổ tiên, truyền thống văn hóa tâm linh tri ân với quá khứ. Đi tảo mộ là đi sửa sang, thắp hương để tưởng nhớ người đã khuất, Còn “hội đạp thanh”là cuộc du xuân là cuộc vui chơi trên đồng cỏ xanh của những trai tài, gái sắc, nam thanh nữ tú, hội đạp thanh còn là cuộc sống hiện tại và có thể tìm đến những sợi tơ hồng cho mai sau.
+
+Ở bốn câu thơ tiếp theo, tác giả đã gợi tả không khí lễ hội bằng một loạt các từ ngữ giàu sắc thái biểu cảm như từ láy “nô nức”, “dập dìu””sắm sửa”và từ ghép, từ Hán Việt: “tài tử”, “giai nhân”, “bộ hành”, “ngựa xe””gần xa”, “yến anh”kết hợp với các biện pháp nghệ thuật như ẩn dụ, so sánh đã khắc họa thật sinh động cảnh đông vui, tưng bừng, náo nhiệt đang diễn ra ở khắp nơi nơi mọi miền đất nước.
+
+“Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”
+
+Lễ thanh minh – lễ hội điển hình vào tháng ba, từng đôi lứa “tài tử giai nhân””dập dìu”du xuân, gặp gỡ hò hẹn. Trong dòng người “nô nức”đó có ba chị em Thúy Kiều cũng sắm sửa hòa nhập vào cái đẹp, cái tưng bừng của tuổi trẻ.
+
+Hình ảnh so sánh thật giản dị “ngựa xe như nước, áo quần như nêm”, gợi tả không khí náo nức của lễ hội, từng đoàn người nhộn nhịp đi chơi xuân trong bộ áo quần đẹp đẽ, tươi thắm màu sắc, họ như từng đàn chim én, chim hoàng anh ríu rít bay về hội tụ trong lễ hội. Tác giả còn miêu tả một nét đẹp của nền văn hóa lâu đời của Việt nam chúng ta trong ngày Tết thanh minh. Đó là sắc thỏi vàng, đốt giấy tiền để tưởng nhớ người thân đã khuất:
+
+“Ngổn ngang gò đống kéo lên
+Thoi vàng vó rắc tro tiền giấy bay”
+
+Nhịp điệu thơ 2/4 và 4/4 thoáng ra một nét buồn. Phải chăng đó là trái tim đầy tình thương sẻ chia của đại thi hào Nguyễn Du đối với những người đã khuất. Cái tâm thánh thiện, niềm tin phác thực dân gian, đầy ắp nghĩa tình. Dưới ngòi bút miêu tả tinh tế của nhà thơ, lễ và hội trong tiết thanh minh là một sự giao hòa độc đáo, chứng tỏ nhà thơ rất trân trọng vẻ đẹp và giá trị truyền thống văn hóa của dân tộc.
+
+Nếu như những dòng thơ trên phác họa khung cảnh nhộn nhịp, đông vui của lễ hội thì sáu câu thơ cuối tạo nên một nhịp điệu trữ tình man mác buồn theo từng bước chân của chị em Thúy Kiều:
+
+“Tà tà bóng ngả về tây,
+Chị em thơ thẩn dang tay ra về
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang”
+
+Hội tan sao chẳng buồn? có thể nói sáu câu trên đã diễn tả sâu sắc cảnh chị em Thúy Kiều trên đường trở về với một khung cảnh yên ả, dường như đối lập với cảnh lễ hội lúc trước. Cảnh mang nét thanh thanh, dìu dịu của buổi chiều xuân với nắng nhạt, khe nước nhỏ, nhịp cầu bắc ngang như nhuộm màu tâm trạng. Bóng dương đã chênh chếch xế tà, “tà tà”bóng ngả về tây”nhưng đây không phải là hoàng hôn của cảnh vật mà dường như con người cũng chìm vào cảm giác bâng khuâng, khó tả.
+
+Buổi chiều tà thường gợi lên một cảm giác buồn khó tả. Ở đây, cuộc vui đã tàn, lễ hội tưng bừng náo nhiệt đã hết, tâm hồn con người cũng “chuyển điệu”cùng cảnh vật, Dưới cái tài miêu tả của Nguyễn Du, không khí lễ hội lúc tan không ảm đạm, buồn bã mà có phần thanh ịu, lặng lẽ mơ mộng, không gian thu hẹp lại, thời gian trôi chậm hơn, cảnh vật như nhạt dần, nhạt dần, lặng lẽ theo bước chân thơ thẩn trên dặm đường về, phảng phất nỗi tiếc nuối, lưu luyến của lòng người.
+
+Mọi chuyển động nhẹ nhàng đều đều thể hiện qua tâm trạng giai nhân đa sầu, đa cảm bằng hàng loạt các từ láy “tà tà”, “thanh thanh”, “nao nao””nho nhỏ”vừa gợi tả cảnh, vừa gợi tâm trạng bâng khuâng, xao xuyến từ dư âm ngày vui xuân vừa như đã dự báo, linh cảm về điều sắp xảy ra trong tâm hồn nhạy cảm của Thúy Kiều.
+
+Và đúng như vậy, Thúy Kiều đã gặp nấm mồ bất hạnh “Đạm Tiên”– một ca nhi tài sắc mà mệnh yểu và cả sự ngẫu nhiên gặp chàng nho sinh “phong tư tài mạo tót vời”- Kim Trọng, để rồi “tình trong như đã mặt ngoài còn e”như một định mệnh tiền duyên, rõ ràng cảnh đã nhuốm màu tâm trạng của nhân vật.
+
+Như vậy sáu câu thơ cuối của đoạn trích với việc sử dụng từ láy đặc biệt là bút pháp tả cảnh ngụ tình- cảnh gắn với tình – cảnh tình tương hợp đã làm cho lòng người hòa vào cảnh vật như đang lắng lại cùng cảnh vật. Từ đó, ta thấy được tâm trạng nhạy cảm cùng niềm vui cuộc sống của tác giả.
+
+Tóm lại, bằng cách sử dụng hệ thống từ ghép, từ láy giàu chất tạo hình, giàu sức gợi tả, đoạn trích “cảnh ngày xuân”xứng đáng là bức tranh đẹp vào loại bậc nhất, tạo nên sức hấp dẫn cho tác phẩm “Truyện Kiều”. Đồng thời, với cây bút miêu tả thiên nhiên tài tình của Nguyễn Du, cảnh vật hiện lên tươi đẹp, trong sáng và còn nhuộm màu tâm trạng, đây là yếu tố tạo nên thành công của đoạn trích và đưa tên tuổi của đại thi hào Nguyễn Du đến gần với bạn đọc khắp năm châu ở mọi thế kỷ.
+
+### **Phân tích Cảnh ngày xuân – mẫu 11**
+
+Nhắc đến đại thi hào dân tộc Nguyễn Du, người ta không thể nào quên được tác phẩm Truyện Kiều – kiệt tác của nền văn học trung đại Việt Nam nói chung và của tác giả nói riêng. Tác phẩm được viết lên bằng ngòi bút tài hoa, bút pháp ước lệ cùng cảm hứng nhân đạo sâu sắc của nhà thơ. Trong số đó, đoạn trích “Cảnh ngày xuân” là một đoạn trích nói lên rõ nét tài năng nghệ thuật của nhà thơ này.
+
+Mở đầu đoạn trích, Nguyễn Du mở ra trước mắt người đọc một bức tranh thiên nhiên cảnh ngày xuân:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi”
+
+Hình ảnh những cánh én chao đi chao lại, dập dìu như thoi đưa cho thấy một bức tranh thiên nhiên thật sinh động. Nhà thơ Nguyễn Du bằng bút pháp miêu tả cảnh vật giàu chất gợi hình, đã mở ra cả không gian và thời gian của mùa xuân ở hai câu thơ đầu. Lúc này, mùa xuân đang ở vào thời điểm cuối tháng ba “ngoài sáu mươi”, là thời điểm viên mãn nhất, tròn đầy nhất với những ánh sáng rực rỡ trên bầu trời “Thiều quang”.
+
+Thiều quang miêu tả thứ ánh sáng của mùa xuân, đó là ánh sáng ấm áp, hồng hào của nắng xuân êm dịu. Đứng trước vẻ đẹp đó, con người ta không khỏi xao xuyến, bâng khuâng và nuối tiếc về sự trôi chảy của thời gian. Hai câu thơ sau là một nét chấm phá độc đáo của nhà thơ:
+
+“Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Mùa xuân, mùa đầu tiên trong năm, hứa hẹn mở ra một năm mới tràn đầy rực rỡ và thành công. Chính vì vậy mà mùa xuân là một mùa ngập tràn sức sống, cây cỏ tươi tốt, đơm hoa kết trái. Bức tranh thiên nhiên lúc này ngập tràn màu xanh, một màu xanh non mơn mởn của sự vật kéo dài đến tận chân trời.
+
+Trên nền bức tranh tuyệt đẹp đó điểm một vài bông hoa lê trắng, từ “điểm cho thấy sự tinh tế của nhà thơ khi miêu tả sự vật. Tóm lại, qua bốn câu thơ đầu, Nguyễn Du đã mở ra trước mắt người đọc một bức tranh thiên nhiên cao, rộng, thoáng đạt, cùng với cảm xúc xao xuyến, bâng khuâng của con người trước cảnh đẹp của đất trời khi vào xuân. Từ bức tranh thiên nhiên tươi đẹp ấy, nhà thơ bắt đầu miêu tả những hoạt động của con người:
+
+“Thanh minh trong tiết tháng ba
+Lễ là tảo mộ, hội là đạp thanh”
+
+Trong tiết thanh minh đầu tháng ba, mọi người rủ nhau đi tảo mộ và thắp nén hương cho người đã khuất. Câu thơ cho thấy tục lệ cũng như nét truyền thống tốt đẹp của dân tộc ta, đó là truyền thống “Uống nước nhớ nguồn”. Dù có đi đâu xa thì đến ngày giỗ của Tổ tiên, con cháu xa gần đều tụ họp lại để tưởng nhớ đến người thân của mình. Cùng với truyền thống đó là ngày hội mùa xuân. Mọi người, từ lớn đến nhỏ đều háo hức, tấp nập đi chơi xuân:
+
+“Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”.
+
+Trong bốn câu thơ này, nhà thơ đã sử dụng một loạt những tính từ: “gần xa, yến anh, chị em, tài tử, giai nhân, nô nức,….” cho thấy sự đông đúc, không khí rộn ràng, náo nhiệt của lễ hội. Người người, nhà nhà đi chơi hội, đông đúc như chim yến, chim oanh, hình ảnh “nô nức yến anh” cho thấy ngòi bút miêu tả tài hoa của Nguyễn Du. Các từ láy “sắm sửa, dập dìu” khắc họa lên những hoạt động vui tươi, nhộn nhịp của con người.
+
+Khung cảnh ấy đông đến mức nhà thơ so sánh ngựa xe nhiều như nước, áo quần nhiều như nêm. Những nam thanh, nữ tú đang tuổi cập kê như chị em Thúy Kiều, Thúy Vân chính là tâm điểm của lễ hội. Họ kéo tay nhau, tưng bừng háo hức trước vẻ đẹp của mùa xuân, cũng là háo hức trước mùa xuân cuộc đời mình. Trong sự tươi vui ấy, con người vẫn không quên những người đã khuất với việc làm lại thể hiện lên phong tục, tập quán của người Việt:
+
+“Ngổn ngang gò đống kéo lên
+Thoi vàng vó rắc tro tiền giấy bay”
+
+Họ đốt giấy vàng gửi cho người đã khuất với mong muốn ở Thế giới bên kia, những người đã khuất cũng sẽ được sống đủ đầy, hạnh phúc. Hai câu thơ cuối là tâm trạng của chị em Thúy Kiều khi lễ hội kết thúc:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dan tay ra về”
+
+Cuộc vui nào cũng có lúc tàn, là lúc mọi người trở về với cuộc sống bình thường của họ. Chị em Thúy Kiều cũng như vậy, bóng đã ngả về tây, trời đã bắt đầu tối, mọi người phải trở về nhà thôi. Cảnh hoàng hôn lúc này được miêu tả thật đẹp nhưng cũng thật buồn. Hình ảnh chị em Kiều “thơ thẩn” ra về cho thấy một cảm xúc nuối tiếc, một nỗi buồn man mác khi chứng kiến lễ hội mùa xuân kết thúc. Đặc biệt là trong tâm hồn đa sầu, đa cảm của Kiều thì bức tranh chiều tà khép lại càng buồn hơn:
+
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang
+
+Những sự vật ngày càng trở nên nhỏ bé, không gian hẹp lại cũng đồng nghĩa với việc bức tranh thiên nhiên mùa xuân tươi đẹp phải khép lại rồi. Trong bốn câu thơ cuối, có đến ba câu nhà thơ sử dụng từ láy “thanh thanh”, “nao nao”, nhỏ nhỏ”. Tất cả gợi lên một bức tranh thiên nhiên trầm lắng, không còn mơn mởn, đầy sức sống như ở đầu bài thơ.
+
+Nó cũng phù hợp với những chuyển biến trong tâm trạng của Kiều, sau những niềm vui, nàng không biết được điều gì đang đón đợi ở phía trước. Bốn câu thơ cũng như dự cảm chẳng lành của Kiều đối với cuộc đời nàng sau này, một “nhịp cầu nho nhỏ” bắc ngang có chăng là lời dự đoán cuộc đời Kiều sẽ rẽ sang một hướng khác? Qua đó, ta mới thấy được tài năng miêu tả cũng như khắc họa tâm trạng của nhân vật thông qua bức tranh thiên nhiên của đại thi hào dân tộc Nguyễn Du.
+
+Đoạn trích Cảnh ngày xuân – một đoạn trích tuy ngắn nhưng lại rất đầy đủ khi nêu lên cả ngòi bút tả cảnh và tả tâm trạng nhân vật khéo léo của nhà thơ. Qua đó, ta được một bức tranh thiên nhiên thật đẹp, gợi mở sự tò mò của người đọc đối với cuộc đời Thúy Kiều ở phía trước.
+
+### **Phân tích Cảnh ngày xuân – mẫu 12**
+
+Nguyễn Du – một trong những tác giả tiêu biểu của nền văn học dân tộc. Đoạn trích “Cảnh ngày xuân” trích Truyện Kiều đã đem đến cho người đọc cảm nhận về bức tranh ngày xuân hiện lên với những nét đẹp tươi mới, tràn đầy sức sống nhất.
+
+Mùa xuân là đề tài bất tận trong thi ca, khơi nguồn cảm hứng cho rất nhiều nghệ sĩ. Mỗi người đều có một cảm nhận riêng về mùa xuân. Đối với Nguyễn Du, mùa xuân gắn với cảnh vật và con người, với những ngày lễ truyền thống của dân tộc Việt Nam. Bao trùm lên cả đoạn thơ này là một bức tranh thiên nhiên đẹp, hữu tình nhưng có nhuốm màu buồn khi ngày đã ngả về chiều hôm.
+
+Những câu thơ mở đầu được sử dụng với chất liệu ngôn ngữ đẹp như tranh, sự mượt mà của câu chữ đã tạo nên sự mượt mà của cảnh sắc thiên nhiên khi xuân về:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh rợn chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Thiên nhiên ngày xuân hiện lên với một không gian thơ mộng biết bao. Sự rộng lớn của đất trời khi mùa xuân về được diễn tả một cách tinh tế và tràn ngập niềm vui. Cánh én – biểu tượng của mùa xuân đã trở về gợi lên sự ấm áp, sự sống căng đầy và niềm vui trọn vẹn. Cùng với đó là từ “đưa thoi” vừa gợi lên khung cảnh bầu trời tràn ngập cánh én, vừa diễn tả sự trôi đi quá nhanh của thời gian.
+
+Chỉ với hai nét đơn giản nhưng Nguyễn Du như vẽ lên trang giấy một bức tranh thiên nhiên mùa xuân đẹp tuyệt vời. Nghệ thuật điểm xuyết chấm phá đã được sử dụng dứt điểm, khiến cho câu thơ trở nên mềm mại và căng tràn sức sống hơn. Màu xanh của cỏ non tạo nên sự tươi mới và tinh khiết của đất trời.
+
+Từ “rợn” vừa tả cái xa, vừa gợi cái rộng lớn của mùa xuân, của cảnh vật khi xuân về. Nó làm cho câu thơ như được ngân dài ra, bừng sáng lên sức sống tràn đầy. Trên nền xanh của cỏ, của bầu trời có điểm xuyết “một vài bông hoa” trắng tinh khiết. Với bốn câu thơ đầu, Nguyễn Du đã cho gợi ra trước mắt người đọc một bức tranh thật hài hòa.
+
+Không chỉ là cảnh sắc thiên nhiên, với Nguyễn Du không khí mùa xuân còn thể hiện qua những lễ hội truyền thống của dân tộc:
+
+“Thanh minh trong tiết tháng ba
+Lễ là tảo mộ, hội là đạp thanh”
+
+Khung cảnh lễ hội diễn ra cùng với sự xuất hiện của con người như tô điểm thêm bức tranh ngày xuân tươi đẹp đó:
+
+“Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”
+
+Mùa xuân là dịp để “tài tử giai nhân” được vui chơi, giãi bày tâm sự với nhau. Cũng là thời điểm thích hợp cho chuyện tình yêu nảy nở. Ở đây hình ảnh “ngựa xe”, “áo quần” gợi lên sự tấp nập, nhộn nhịp và huyên náo. Nguyễn Du đã rất tài tình khi sử dụng một loạt hình ảnh có tính chất gợi hình ảnh khiến cho người đọc có cảm giác như đang bước vào không khí của mùa xuân.
+
+“Ngổn ngang gò đống kéo lên
+Thoi vàng vó rắc tro tiền giấy bay”
+
+Những nét văn hóa truyền thống được Nguyễn Du vẽ lên chân thực và mộc mạc. Đó chính là tấm lòng thành kính hướng về quá khứ với một sự biết ơn chân thành nhất. Hai câu thơ này thực sự khiến người đọc xúc động khi nhớ về những người đã khuất, những người tạo dựng nên cuộc sống hiện nay của chúng ta.
+
+Cảnh vật ở cuối đoạn trích lại hiện lên thoáng chút buồn:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dan tay ra về
+Bước dần theo ngọn phong khê
+Lần xem phong cảnh có bề thanh thanh”
+
+Nhịp thơ ở đây bỗng trở nên nhẹ nhàng, trầm bổng khiến cho tâm trạng của con người trở nên nặng nề và buồn rầu hơn. Với từ láy “tà tà” đã phần nào gợi tả thời gian đã xế chiều và không gian dường như tĩnh mịch và ảm đạm hơn. Mỗi bước chân cũng trở nên nặng nề hơn khi màn đêm sắp buông xuống, con người cũng cảm nhận được một nỗi buồn nào đó len vào trong trái tim. Tâm sự của con người như nhuốm vào cảnh sắc thiên nhiên, khiến cho nó trở nên tiêu điều và xơ xác hơn.
+
+Tóm lại, đoạn trích “Cảnh ngày xuân” đã cho ta những cảm nhận về một bức tranh ngày xuân vui tươi, rộn ràng, náo nức và có chút buồn phiền. Nguyễn Du quả là một nhà văn kiệt xuất của dân tộc.
+
+### **Phân tích Cảnh ngày xuân – mẫu 13**
+
+Tuyệt tác “Truyện Kiều” của Nguyễn Du không chỉ mang những giá trị xã hội sâu sắc mà còn làm say lòng người đọc ở những đoạn thơ tả cảnh tuyệt bút. Một trong số đó là đoạn trích “Cảnh ngày xuân”.
+
+Đoạn trích nằm ở phần đầu của tác phẩm. Vào ngày Tết Thanh minh, chị em Thúy Kiều đi tảo mộ. Thiên nhiên và con người ngày xuân hiện lên tươi tắn, xinh đẹp đông vui nhộn nhịp dưới đôi mắt “xanh non biếc rờn” của những chàng trai, cô gái tuổi đôi tám.
+
+Bốn câu thơ đầu gợi lên khung cảnh mùa xuân tươi đẹp, trong sáng:
+
+” Ngày xuân con én đưa thoi,
+Thiều quan chín chục đã ngoài sáu mươi.
+Cỏ non xanh tận chân trời,
+Cành lê trắng điểm một vài bông hoa”…
+
+Không gian mùa xuân được gợi nên bởi những hình ảnh những cánh én đang bay lượn rập rờn như thoi đưa. Sự mạnh mẽ, khỏe khắn của những nhịp cánh bay cho thấy rằng mùa xuân đang độ viên mãn tròn đầy nhất. Quả có vậy: “Thiều quang chín chục đã ngoài sáu mươi” có nghĩa là những ngày xuân tươi đẹp đã qua đi được sáu chục ngày rồi, như vậy bây giờ đang là thời điểm tháng ba.
+
+Nền cảnh của bức tranh thiên nhiên được hoạ nên bởi màu xanh non, tươi mát của thảm cỏ trải ra bao la: “Cỏ non xanh tận chân trời”, sắc cỏ tháng ba là sắc xanh non, tơ nõn mềm mượt êm ái. Huống chi cái sắc ấy trải ra “tận chân trời” khiến ta như thấy cả một biển cỏ đang trải ra rập rờn, đẹp mắt. Có lẽ chính hình ảnh gợi cảm ấy đã gợi ý cho Hàn Mặc Tử hơn một thế kỉ sau viết nên câu thơ tuyệt bút này: “Sóng cỏ xanh tươi gợn tới trời”.
+
+Trên nền xanh tươi, trong trẻo ấy điểm xuyết sắc trắng tinh khôi của vài bông hoa lê. Chỉ là “vài bông” bởi những bông hoa lê đang thì chúm chím chưa muốn nở hết. Hoa như xuân thì người thiếu nữ còn đang e ấp trong ngày xuân. Chữ điểm có tác dụng gợi vẻ sinh động, hài hoà. ở đây, tác giả sử dụng bút pháp hội hoạ phương Đông, đó là bút pháp chấm phá.
+
+Hai câu thơ tả thiên nhiên ngày xuân của Nguyễn Du có thể khiến ai đó liên tưởng đến hai câu thơ cổ của Trung Quốc: hương thơm của cỏ non, màu xanh mướt của cỏ tiếp nối với màu xanh ngọc của trời, cành lê có điểm một vài bông hoa. Nhưng cảnh trong hai câu thơ này đẹp mà tĩnh tại. Trong khi đó gam màu nền cho bức tranh mùa xuân trong hai câu thơ của Nguyễn Du là thảm cỏ non trải rộng tới tận chân trời.
+
+Trên cái màu xanh của cỏ non ấy điểm xuyết một vài bông lê trắng (câu thơ cổ Trung Quốc không nói tới màu sắc của hoa lê). Sắc trắng của hoa lê hoà hợp cùng màu xanh non mỡ màng của cỏ chính là nét riêng trong hai câu thơ của Nguyễn Du. Nói gợi được nhiều hơn về xuân: vừa mới mẻ, tinh khôi, giàu sức sống lại vừa khoáng đạt, trong trẻo, nhẹ nhàng và thanh khiết.
+
+Thiên nhiên trong sáng, tươi tắn và đầy sức sống, con người cũng rộn ràng, nhộn nhịp để góp phần vào những chuyển biến kì diệu của đất trời.
+
+Sáu câu thơ tiếp của bài thơ tái hiện phong tục tảo mộ (viếng mộ, sửa sang phần mộ của người thân) và du xuân (hội đạp thanh) trong tiết Thanh minh. Không khí rộn ràng của lễ hội mùa xuân được gợi lên bởi hàng loạt các từ ghép tính từ, danh từ, động từ: yến anh, chị em, tài tử, giai nhân, sắm sửa, dập dìu, gần xa, nô nức. Chúng được đặt cạnh nhau dồn dập gợi nên không khí đông đúc, vui tươi sôi nổi. Đó không chỉ là không khí lễ hội mà còn mang đậm màu sắc tươi tắn, trẻ trung của tuổi trẻ:
+
+“Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”.
+
+Nhưng hội họp rồi hội phải tan. Sau những giây phút sôi nổi, chị em Thúy Kiều phải rời buổi du xuân trở về:
+
+“Tà tà bóng ngả về tây,
+Chị em thơ thẩn dan tay ra về.
+Bước lần theo ngọn tiểu khê,
+Lần xem phong cảnh có bề thanh thanh.
+Nao nao dòng nước uốn quanh,
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang” …
+
+Bên cạnh vẻ thanh thoát, dịu nhẹ của mùa xuân như ở những câu thơ trước, khung cảnh mùa xuân đến đây đã mang một sắc thái khác với bức tranh lễ hội rộn ràng, nhộn nhịp. Cảnh vật toát lên vẻ vương vấn khi cuộc du xuân đã hết. Các từ láy tà tà, thơ thẩn, thanh thanh, nao nao, nho nhỏ vừa gợi tả sắc thái cảnh vật vừa gợi ra tâm trạng con người.
+
+Dường như có cái gì đó đang mơ hồ xâm lấn, cảnh vật đã nhuốm sắc thái vương vấn, man mác của tâm trạng con người, ở đây, Nguyễn Du đã sử dụng bút pháp tả cảnh ngụ tình để mượn cảnh vật mà diễn tả những rung động tinh tế trong tâm hồn những người , thiếu nữ. Những từ láy được sử dụng trong đoạn thơ đểu là những từ láy có tính giảm nhẹ.
+
+“Tà tà” diễn tả bóng chiều đang từ từ nghiêng xuống; “thơ thẩn” lại diễn tả tâm trạng bâng khuâng dịu nhẹ không rõ nguyên nhân (nó gần với nỗi buồn “tôi buồn không hiểu vì sao tôi buồn” của Xuân Diệu sau này) “thanh thanh” vừa có ý nghĩa là sắc xanh nhẹ nhàng vừa có ý nghĩa là thanh thoát, thanh mảnh; từ “nao nao” trong câu thơ diễn tả thế chảy của dòng nước nhưng đồng thời diễn tả tâm trạng nao nao buồn và từ “nho nhỏ” gợi dáng nhỏ xinh xắn, vừa vặn với cảnh với tình.
+
+Khung cảnh thiên nhiên cũng theo đó mà nhỏ đi để phù hợp với tâm trạng con người: “ngọn tiểu khê” – dòng suối nhỏ, phong-cảnh thanh thoát, dịp cầu “nho nhỏ” lại nằm ở “cuối ghềnh” ở phía xa xa,… Cảnh và người như có sự tương liên để giao hòa trong bầu không khí bâng khuâng, lưu luyến, khe khẽ sầu lay. Có thể mớ hồ cảm nhận được cảnh vật đang tạo ra dự cảm về những sự việc sắp xảy ra.
+
+Đoạn trích Cảnh ngày xuân có bố cục cân đối, hợp lí. Mặc dù không thật rõ ràng nhưng cũng có thể nói đến kết cấu ba phần: mở đầu, diễn biến và kết thúc. Nguyễn Du đã cho thấy một nghệ thuật miêu tả thiên nhiên điêu luyện, sắc sảo. Trong đoạn trích, mặc dù chủ yếu là miêu tả cảnh ngày xuân nhưng vẫn thấy sự kết hợp với biểu cảm và tự sự (diễn biến cuộc tảo mộ, du xuân của chị em Thúy Kiều, dự báo sự việc sắp xảy ra).
+
+“Cảnh ngày xuân” là một trong những đoạn thơ tả cảnh hay nhất trong “Truyện Kiều” của Nguyễn Du. Đọc đoạn trích, người đọc không chỉ trầm trồ về bức tranh thiên nhiên trong sáng vô ngần mà còn cảm nhận được vẻ đẹp trong một lễ hội truyền thống đầy ý nghĩa của cha ông: tiết Thanh minh. Và qua đây, Nguyễn Du cũng thể hiện nét tài hoa trong việc dựng lên một bức tranh tả cảnh ngụ tình tinh tế,… Với những điều đó, “Cảnh ngày xuân” sẽ luôn sống lại trong lòng người yêu thơ vào mỗi dịp đầu năm khi chúa xuân về với đất trời.
+
+### **Phân tích Cảnh ngày xuân – mẫu 14**
+
+Truyện Kiều là một tuyệt tác trong văn học Việt Nam và được nhiều người biết đến. Trong chương trình học cấp hai và cấp ba thì có rất nhiều đoạn trích trong Truyện Kiều được đưa vào để giảng dạy và giới thiệu đến học sinh. Tiêu biểu nhất là đoạn trích Cảnh ngày xuân.
+
+Đoạn trích năm ở phần đầu của tác phẩm và là đoạn thơ thiên về tả cảnh. Cảnh ngày xuân bao gồm mười tám câu thơ và từ câu 39 đến câu 56 trong tác phẩm Truyện Kiều. Bài thơ tả cảnh những “nam thanh nữ tú” đang nô nức du xuân mà hình ảnh trung tâm trong bài thơ này chính là chị em Thúy Kiều. Mở đầu đoạn trích tác giả đã viết:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Với bút pháp chấm phá tiêu biểu trong văn chương cổ thì Nguyễn Du đã phác họa nên một bức tranh mùa xuân khoáng đạt, nhiều màu sắc. Ngày xuân gắn liền với những cánh én đang di cư về sau thời gian đi tránh đông giá rét. Nắng xuân mang lại sự ấm áp, tươi mới xua tan đi những u ám của ngày đông.
+
+Trên mặt đất chính là thảm cỏ non trải dài và được tô điểm bởi những cành hoa lê trắng. Chúng ta có thể tưởng tượng được khung cảnh ấy tươi đẹp và mĩ lệ đến nhường nào. Nhiều màu sắc từ của nắng, cánh én đến màu của hoa cỏ như đang hòa quyện vào nhau tạo nên sự hài hòa, bắt mắt cho cảnh vật. Thiên nhiên rực rỡ trong cái nắng xuân, trong cái mùa xuân đương độ chín mọng.
+
+Sau khi miêu tả khung cảnh ngày xuân thì đến tám câu thơ tiếp theo nhà thơ đã miêu tả cảnh lễ hội trong tiết Thanh minh:
+
+“Thanh minh trong tiết tháng ba
+Lễ là tảo mộ, hội là đạp thanh
+Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân,
+Ngựa xe như nước, áo quần như nêm
+Ngổn ngang gò đống kéo lên
+Thỏi vàng vó rắc tro tiền giấy bay”
+
+Qua đoạn thơ chúng ta có thể dễ dàng nhận thấy lễ hội mùa xuân bao gồm hai hoạt động chính diễn ra cùng lúc đó là tảo mộ và đạp thanh. Tảo mộ là một phong tục lâu đời của dân tộc ta. Cứ dịp Thanh minh thì mọi người lại đi dọn dẹp mộ phần của tổ tiên, người thân đã khuất và rắc “thỏi vàng vó” hay “đốt tiền giấy” để tưởng nhớ, cầu nguyện những gì tốt đẹp.
+
+Nhưng bên cạnh đó trong dịp đất trời tươi đẹp nhuốm màu xuân sắc này thì cũng là dịp mà những lễ hội, những cuộc vui chơi diễn ra. Tại đó có rất nhiều những thanh niên trai gái chưa có gia đình, họ gặp gỡ, trò chuyện du xuân với hi vọng tìm được nửa kia của đời mình.
+
+Trong đoạn thơ trên tác giả đã sử dụng hàng loạt những từ gợi tả để miêu tả không khí nhộn nhịp, rộn ràng của dịp Thanh minh. Trong dòng người đông đúc ấy có những chị em, tài tử, giai nhân với những ngựa xe, trang phục được chuẩn bị kĩ càng. Và giữa dòng người đông đúc đó có ba chị em Thúy Kiều được Nguyễn Du đặc biệt quan tâm và miêu tả. Câu thơ “Chị em sắm sửa bộ hành chơi xuân” chính là sự ẩn chứa cho sự xuất hiện của chị em Thúy Kiều ở sáu câu thơ cuối:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dan tay ra về
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Nhịp cầu nho nhỏ cuối ghềnh bắc ngang”
+
+Cảnh ngày xuân quả thực là một bài thơ thuần tả cảnh. Tên chị em Thúy Kiều không được nhắc đến trực tiếp nhưng người đọc vẫn có thể mường tượng được cảnh đi du xuân của ba chị em. Đây cũng là sự kiện mở đầu cho cuộc đời của Thúy Kiều trong phần “gặp gỡ”. Đoạn cuối miêu tả cảnh về chiều và chị em Kiều phải trở về nhà. Mới đây thôi khung cảnh còn náo nhiệt ấy vậy mà đã đến lúc kết thúc và phải trở về nhà.
+
+Tâm trạng của hai chị em là “thơ thẩn” bởi lẽ đang vui chơi ngày hội tan thì có ai vui bao giờ. Trên đường trở về chính là khung cảnh cũng trở nên yên ả hơn. Không còn nhiều người tấp nập, không khí cũng không còn nhộn nhịp như trước nữa. cảnh vật thanh thanh, dịu dàng dưới ánh nắng xuân của chiều tà. Nhưng cả ngày Thúy Kiều đã gặp được nấm mồ bất hạnh “Đạm Tiên” và cả sư vô tình gặp gỡ với chàng thư sinh Kim Trọng. Một cuộc gặp gỡ định mệnh và còn dây dưa đến tận sau này.
+
+Với bút pháp tả cảnh ngụ tình cùng với ngôn ngữ giàu tính tạo hình, gợi tả khiến cho bức tranh về cảnh ngày xuân trở nên đẹp đẽ và cuốn hút. Đây đồng thời là một trong những khung cảnh đẹp nhất của tác phẩm Truyện Kiều.
+
+Sau khi giới thiệu gia cảnh Vương viên ngoại và giới thiệu vẻ đẹp của chị em Thúy Kiều, Nguyễn Du miêu tả khung cảnh ngày xuân trong tiết Thanh minh, ba chị em Kiều rủ nhau đi dạo chơi xuân. Kết cấu đoạn thơ theo trình tự thời gian. Bốn câu đầu tả cảnh mùa xuân. Tám câu tiếp tả tiết Thanh minh.
+
+Sáu câu cuối là cảnh chị em Kiều du xuân trở về. Bức tranh thiên nhiên mùa xuân tươi đẹp được dệt nên bằng những hình ảnh tiêu biểu, từ ngữ chọn lọc và nghệ thuật miêu tả tinh tế của Nguyễn Du:
+
+Ngày xuân con én đưa thoi,
+Thiều quang chín chục đã ngoài sáu mươi.
+Cỏ non xanh tận chân trời,
+Cành lê trắng điểm một vài bông hoa.
+
+Thời gian thấm thoắt tựa thoi đưa. Vừa mới giêng, hai, nay đã bước sang tháng ba. Trên không trung bao la, những cánh én vẫn rộn ràng bay liệng.Chỉ bằng hai câu: cỏ non xanh tận chân trời, Cành lê trắng điểm một vài bông hoa, Nguyễn Du đã thể hiện được thần thái của mùa xuân.
+
+Thảm cỏ non trải rộng tới chân trời là màu sắc chủ đạo làm nền cho bức tranh xuân. Trên cái nền xanh bát ngát ấy điểm xuyết một vài bông hoa lê trắng như tuyết. Sự hài hòa tuyệt diệu của màu sắc gợi lên vẻ đẹp mới mẻ, tinh khôi, căng đầy sức sống của mùa xuân.
+
+Tám câu thơ tiếp theo tả khung cảnh lễ hội:
+Thanh minh trong tiết tháng ba,
+Lễ là tảo mộ hội là đạp thanh.
+Gần xa nô nức yến anh,
+Chị em sắm sửa bộ hành chơi xuân.
+Dập dìu tài tử giai nhân,
+Ngựa xe như nước áo quần như nêm
+Ngổn ngang gò đống kéo lên,
+Thoi vàng vó rắc tro tiền giấy bay.
+
+Đầu tháng ba, bầu trời quang đãng khí trời mát mẻ vương chút hơi lạnh của cái rét Nàng Bân khiến cỏ cây, hoa lá tốt tươi. Theo phong tục có từ lâu đời, trong tiết Thanh minh, người ta đi tảo mộ, tức là đi thăm viếng và sửa sang lại phần mộ của người thân để bày tỏ tưởng nhớ và lòng biết ơn..Không khí lễ hội rộn ràng, đông vui.
+
+Những ẩn dụ so sánh: nô nức yến anh, ngựa xe như nước, áo quần như nêm gợi lên hình ảnh từng đoàn người đi chơi xuân như chim én, chim oanh bay ríu rít. Lễ hội mùa xuân tấp nập, nhộn nhịp bởi nam thanh, nữ tú, tài tử, giai nhân từ mọi nơi không ngớt kéo về.
+
+Quanh những ngôi mộ, người ta rắc vàng thoi, bạc giấy, bày cỗ, thắp nến, đốt nhang khấn vái.., Khói bay nghi ngút, hương thơm toả ngát một vùng. Sự cách trở âm dương hầu như đã bị xóa nhòa. Người đã khuất và người còn sống giao hòa trong cõi tâm linh thiêng liêng, giữa khung cảnh thiên nhiên thơ mộng của mùa xuân. Sáu câu thơ cuối tả cảnh chị em Thuý Kiều du xuân trở về:
+
+Là tà bóng ngả về tây,
+Chị em thơ thẩn đan tay ra về.
+Bước dần theo ngọn tiểu khê,
+Lần xem phong cảnh cỏ bề thanh thanh.
+Nao nao dòng nước uốn quanh,
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang.
+
+Khung cảnh vẫn mang nét thanh tú, êm đềm của chiều xuân: nắng nhạt, khe suối nước trong veo, một nhịp cầu nho nhỏ bắc ngang cuối ghềnh. Mọi chuyển động đều hết sức nhẹ nhàng: mặt trời từ từ ngả bóng về tầy bước chân người chầm chậm thơ thẩn, dòng nước róc rách uốn quanh..,
+
+Không gian đang tĩnh lặng dần. Sự nhộn nhịp, rộn ràng của lễ hội không còn nữa. Những từ láy tà tà, thơ thẩn, thanh thanh, nao nao không chỉ biểu đạt sắc thái của cảnh vật mà còn bộc lộ tâm trạng con người. Hai chữ nao nao đã nhuốm màu tâm trang. Cảm xúc tươi vui mà khung cảnh lễ hội mùa xuân mang lại cho mỗi người vừa mới đây thôi, vậy mà dường như Kiều đã linh cảm về một điều, gì đó đáng buồn sắp xảy ra.
+
+Quả nhiên, dòng nước uốn quanh đã dẫn bước chân Kiều đến với nấm mồ hoang lạnh của Đạm Tiên và tiếp sau đó, nàng sẽ gặp chàng thư sinh Kim Trọng có Phong tư tài mạo tuyệt vời.Qua đoạn trích, ta thấy được nghệ thuật miêu tả điêu luyện của Nguyễn Du.
+
+Nhà thơ đã kết hợp khéo léo giữa kể và tả, sử dụng từ ngữ giàu chất tạo hình đế miêu tả cảnh ngày xuân. Bút pháp tả cảnh ngụ tình tinh tế của nhà thơ cũng phản ánh được phần nào tâm trạng của nhân vật mà ông yêu quý.
+
+### **Phân tích Cảnh ngày xuân – mẫu 15**
+
+Trong nền văn học Việt Nam, “Truyện Kiều” của đại thi hào Nguyễn Du xuất hiện như một khúc ca đầy thương xót về thân phận đầy oan khổ của người phụ nữ trong xã hội phong kiến. Điều này đã được thể hiện qua quãng thời gian mười lăm năm lưu lạc của Thúy Kiều.
+
+Tuy nhiên, trước khi đặt bước chân vào quãng đời tủi nhục, truân chuyên đó, nàng từng được sống một cuộc sống êm đềm, hạnh phúc bên cạnh những người thân trong gia đình. Trích đoạn “Cảnh ngày xuân” nằm ở phần đầu “Truyện Kiều” miêu tả cảnh chị em Kiều đi chơi xuân trong tiết Thanh minh là minh chứng tiêu biểu cho điều này.
+
+Thiên nhiên vốn là mảnh đất quen thuộc mà những người nghệ sĩ có thể tập trung bút lực để khai phá và mỗi một nhà thơ lại có những cách miêu tả riêng. Đối với Nguyễn Du, bức tranh thiên nhiên cảnh ngày xuân được miêu tả gắn bó với không gian lễ hội. Trước hết, tác giả đã tái hiện không gian và thời gian một cách sinh động:
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi”
+
+Tiết trời lúc này đã vào tháng ba, những cánh én bay lượn trên bầu trời không chỉ là hình ảnh tả thực gợi lên khung cảnh quen thuộc mang đặc trưng của mùa xuân mà còn mang ý nghĩa tượng trưng cho sự trôi chảy ngừng nghỉ của thời gian: “Thời gian thấm thoắt thoi đưa”. Thời gian cứ thế bước đi âm thầm nhưng vội vã, thoáng chốc đã đến tháng ba của mùa xuân – khi mà những ánh “thiều quang” – những tia nắng xuân lấp lánh, tươi đẹp đua nhau chiếu rọi lên cảnh vật. Trong khung cảnh đó, hai gam màu xanh và trắng xuất hiện:
+
+“Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Không gian mênh mông tràn đầy sức sống và sắc xuân đã được gợi tả thành công qua màu sắc xanh tươi mơn mởn của cỏ non. Tác giả còn vận dụng khéo léo và tài tình bút pháp chấm phá khi điểm xuyết sắc trắng một vài bông hoa lê, sắc xanh và trắng hòa phối với nhau làm cho bức tranh thiên thêm thanh khiết và nhẹ nhàng. Như vậy, chỉ với bốn câu thơ, nhà thơ đã phác họa thành công “cảnh ngày xuân” tràn trề sức sống nhưng vẫn trang nhã, tinh khôi và trong trẻo say đắm lòng người.
+
+Ở tám câu thơ tiếp theo của trích đoạn, đại thi hào Nguyễn Du đã miêu tả khung cảnh lễ hội trong tiết Thanh minh. Trước hết, những nét sơ lược về ngày lễ đã được phác họa thông qua thời điểm: “trong tiết tháng ba” với hai phần chính “Lễ là tảo mộ, hội là đạp thanh”. Và rồi không khí lễ hội mang đậm giá trị truyền thống hiện lên với sự sinh động và đông vui, tấp nập:
+
+“Gần xa nô nức yến anh
+Chị em sắm sửa bộ hành chơi xuân
+Dập dìu tài tử giai nhân
+Ngựa xe như nước áo quần như nêm”
+
+Không gian lễ hội có sự tham gia của “yến anh”, “chị em”, “tài tử”, “giai nhân” cùng những hoạt động phong phú, đa dạng như “sắm sửa”, “dập dìu” đã làm nổi bật sự náo nhiệt cùng tâm trạng náo nức của con người. Tác giả Nguyễn Du đã khéo léo sử dụng những biện pháp tu từ trong sự phối kết hợp linh hoạt, nhuần nhuyễn.
+
+Đó là biện pháp ẩn dụ qua “nô nức yến anh” – hình ảnh gợi lên từng đoàn người, hay từng cặp uyên ương sánh bước bên nhau. Đó là phép so sánh “Ngựa xe như nước áo quần như nêm” để miêu tả dòng người đi trẩy hội tấp nập và đông vui. Bên cạnh đó, tác giả còn miêu tả không gian tĩnh lặng của phần “lễ”:
+
+“Ngổn ngang gò đống kéo lên
+Thoi vàng vó rắc tro tiền giấy bay”
+
+Sự linh thiêng khiến thời gian như tĩnh tại và chùng xuống. Hành động tưởng nhớ đến những người đã khuất đã gợi tả thành công lòng biết ơn đối với quá khứ cùng truyền thống đạo lí “uống nước nhớ nguồn” tốt đẹp của dân tộc.
+
+Cuối cùng, tác giả Nguyễn Du miêu tả cảnh hai chị em Thúy Kiều trở về khi hội tan:
+
+“Tà tà bóng ngả về tây
+Chị em thơ thẩn dang tay ra về
+Bước dần theo ngọn tiểu khê
+Lần xem phong cảnh có bề thanh thanh
+Nao nao dòng nước uốn quanh
+Dịp cầu nho nhỏ cuối ghềnh bắc ngang”
+
+Cảnh lễ hội kết thúc khi bầu trời đã xế chiều, khung cảnh ngập ánh hoàng hôn khi mặt trời “đã ngả về tây”. Bức tranh thiên nhiên vẫn mang sắc xuân quen thuộc qua những hình ảnh nắng đã nhạt phai, khe nước nhỏ cùng chiếc cầu nhỏ bắc ngang. Dòng thời gian và nhịp thơ không còn rộn ràng mà chững lại, và khoan thai khi miêu tả mặt trời từ từ lặn xuống ở phía tây, con người ra về cùng bước chân thơ thẩn và dòng nước chậm rãi uốn quanh.
+
+Tác giả Nguyễn Du đã sử dụng hàng loạt từ láy như “tà tà”, “thanh thanh”, “nho nhỏ”, nao nao” để miêu tả cảnh vật, đồng thời cũng là sự vận dụng bút pháp “tả cảnh ngụ tình” vô cùng tinh tế và khéo léo; vừa gợi lên sự tĩnh lặng, buồn vắng của cảnh vật, vừa diễn tả thành công tâm trạng nuối tiếc, bâng khuâng, lưu luyến của lòng người, đặc biệt là hình ảnh “dòng nước uốn quanh” trong sự “nao nao”. Cảnh vật trong đoạn thơ vì thế cũng phảng phất một nỗi buồn và mang nặng tâm trạng của con người.
+
+Như vậy, thông qua trích đoạn “Cảnh ngày xuân”, tác giả Nguyễn Du đã miêu tả thành công bức tranh thiên nhiên mùa xuân tươi đẹp, tràn trề sức sống cũng như không gian lễ hội tấp nập, đông vui mang đậm đà bản sắc văn hóa dân tộc. Điều này đã được tạo nên bởi sự kết hợp nhuần nhuyễn giữa các bút pháp quen thuộc mang đặc trưng của nền văn học trung đại như bút pháp chấm phá, tả cảnh ngụ tình,….
+
+### **Phân tích Cảnh ngày xuân – mẫu 16**
+
+Tác phẩm “Truyện Kiều” của đại thi hào Nguyễn Du không chỉ để lại ấn tượng sâu sắc trong lòng độc giả bởi số phận truân chuyên, chìm nổi của Thúy Kiều – người phụ nữ tài hoa bạc mệnh trong xã hội phong kiến mà còn chứa đựng những giá trị nghệ thuật đặc sắc, đặc biệt là nghệ thuật miêu tả thiên nhiên. Điều này đã được thể hiện rõ qua trích đoạn “Cảnh ngày xuân”. Thông qua bốn câu thơ đầu của tác phẩm, chúng ta có thể thấy được bức tranh mùa xuân hiện lên tươi đẹp, thanh khiết và tràn trề sức sống dưới ngòi bút tài hoa của tác giả.
+
+“Ngày xuân con én đưa thoi
+Thiều quang chín chục đã ngoài sáu mươi
+Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Ở hai câu thơ đầu tiên, tác giả đã phác họa bức tranh mùa xuân dựa trên hai phương diện về không gian và thời gian. Vào thời điểm tháng ba, những cánh én đua nhau chao liệng trên bầu trời trong xanh và cao vời vợi. Hình ảnh “con én đưa thoi” còn là một ẩn dụ đặc sắc, khiến bước đi nhanh vội và sự trôi chảy trừu tượng, vô hình của thời gian hiện lên một cách cụ thể như những cánh chim vụt bay đi trên bầu trời, đồng thời gợi liên tưởng đến những câu ca dao quen thuộc trong nền văn học dân gian:
+
+“Thời gian thấm thoắt thoi đưa
+Nó đi đi mãi có chờ đợi ai”
+
+Khung cảnh ngày xuân tiếp tục được làm nổi bật ở sắc màu rực rỡ của những ánh nắng ban mai tháng ba – “thiều quang”. Đây là thời điểm sắc xuân đạt đến độ rực rỡ và tươi sáng nhất nhớ những tia nắng lấp lánh. Như vậy, tác giả đã miêu tả bức tranh thiên nhiên sinh động qua chuyển động của những cánh én và vẻ đẹp của những tia nắng. Dường như ẩn sau bức tranh đó là tâm trạng tiếc nuối của con người trước bước đi của thời gian.
+
+Trên nền không gian đó, một bức tranh thiên nhiên tuyệt đẹp tiếp tục được phác họa qua những gam màu sắc nổi bật là xanh và trắng:
+
+“Cỏ non xanh tận chân trời
+Cành lê trắng điểm một vài bông hoa”
+
+Hai câu thơ của Nguyễn Du gợi lên những câu thơ quen thuộc trong thơ cổ Trung Quốc:
+
+“Phương thảo liên thiên bích
+Lê chi sổ điểm hoa”
+
+(Cỏ thơm liền với trời xanh
+Trên cành lê có mấy bông hoa)
+
+Tuy nhiên, nếu hai câu thơ cổ nhấn mạnh sắc thơm của cỏ thì Nguyễn Du chỉ tiếp thu ý thơ và nhấn mạnh vào sắc xanh của cỏ cùng bổ sung vào bức tranh thiên nhiên sắc trắng của hoa lê. Hai gam màu chủ đạo xuất hiện trong mối quan hệ hài hòa qua bút pháp chấm phá. Giữa không gian ngập tràn sắc xanh của cỏ non đến “tận chân trời” xa tít tắp, những cành hoa lê trắng xuất hiện. Nếu như màu xanh non của cỏ làm nổi bật sức xuân và sắc xuân mơn mởn thì sắc trắng của hoa lê tô điểm cho bức tranh xuân vẻ tinh khôi, thanh khiết.
+
+Đặc biệt, tác giả đã vận dụng linh hoạt biện pháp đảo ngữ, đưa tính từ “trắng” lên trước động từ “điểm” để tái hiện sự sống động của bức tranh xuân, khiến cảnh vật hiện lên trong trạng thái vận động. Như vậy, dù miêu tả không nhiều, nhưng với những đường nét tạo hình mang tính chọn lọc và hết sức mềm mại, hài hòa, đại thi hào Nguyễn Du đã tái hiện thành công một bức tranh thiên nhiên với vẻ đẹp riêng và tràn trề sức sống.
+
+Qua những câu thơ trên, chúng ta có thể thấy được tình yêu đối với thiên nhiên, cỏ cây của nhà thơ. Đồng thời, đoạn thơ còn thể hiện tài năng của tác giả Nguyễn Du trong việc sử dụng từ ngữ, lựa chọn hình ảnh, thi liệu và sử dụng các biện pháp nghệ thuật để tạo dựng một bức tranh thiên nhiên tươi đẹp với những sắc màu, đường nét mang đậm tính hội họa.
+
+  * [**Cảm nhận nghệ thuật miêu tả thiên nhiên trong Cảnh ngày xuân**](../van-mau-9/cam-nhan-nghe-thuat-mieu-ta-thien-nhien-trong-canh-ngay-xuan-nam-2021.jsp)
+
+  * [**Phân tích đoạn trích Kiều ở lầu Ngưng Bích**](../van-mau-9/phan-tich-doan-trich-kieu-o-lau-ngung-bich-nam-2021.jsp)
+
+  * [**Cảm nhận đoạn trích Kiều ở lầu Ngưng Bích**](../van-mau-9/cam-nhan-doan-trich-kieu-o-lau-ngung-bich-nam-2021.jsp)
+
+  * [**Cảm nhận về 8 câu thơ cuối trong Kiều ở lầu Ngưng Bích**](../van-mau-9/cam-nhan-ve-8-cau-tho-cuoi-trong-kieu-o-lau-ngung-bich-nam-2021.jsp)
+
+  * [**Kể về một lần trót xem trộm nhật kí của bạn**](../van-mau-9/ke-ve-mot-lan-trot-xem-trom-nhat-ki-cua-ban-nam-2021.jsp)
+
+  * [ HOT Học hè online Toán, Văn, Anh ... lớp 1-12 tại VietJack với hơn 1 triệu bài tập có đáp án (từ 50k/ 1 tháng) ](https://khoahoc.vietjack.com/)
+
+### Tủ sách VIETJACK luyện thi vào 10 cho 2k10 (2025):
+
+  * [ **Giải mã đề thi vào 10 theo đề Hà Nội, Tp. Hồ Chí Minh (300 trang - từ 99k/1 cuốn)**](https://s.shopee.vn/1LRLjS5DCj)
+  * [ **Bộ đề thi thử 10 chuyên (120 trang - từ 99k/1 cuốn)**](https://s.shopee.vn/1LRLjS5DCj)
+  * [ **Cấp tốc 7,8,9+ Toán Văn Anh thi vào 10 (400 trang -từ 119k)**](https://s.shopee.vn/1LRLjS5DCj)
+
+  * [**Hơn 20.000 câu trắc nghiệm Toán,Văn, Anh lớp 9 có đáp án**](https://khoahoc.vietjack.com/trac-nghiem/Lop-9/mon-Toan?type=test)
+
+### TÀI LIỆU CLC DÀNH CHO GIÁO VIÊN VÀ PHỤ HUYNH LỚP 9
+
+\+ Bộ giáo án, bài giảng powerpoint, đề thi file word có đáp án 2025 tại [**https://tailieugiaovien.com.vn/**](https://tailieugiaovien.com.vn/)
+
+\+ Hỗ trợ zalo: [**VietJack Official**](https://zalo.me/3800062780558660756)
+
+\+ Tổng đài hỗ trợ đăng ký : **084 283 45 85**
+
+##### [Đề thi vào 10 các sở Hà Nội, Tp. Hồ Chí Minh.. ( **45** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=on-vao-10&loai=de-thi&q=)
+
+##### [Đề thi giữa kì, cuối kì 9 ( **120** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=de-thi&q=)
+
+##### [Bài giảng Powerpoint Văn, Sử, Địa 9.... ( **36** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=giao-an-powerpoint&q=)
+
+##### [Giáo án word 9 ( **76** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=giao-an,giao-an-powerpoint&q=)
+
+##### [Chuyên đề dạy thêm Toán, Lí, Hóa ...9 ( **77** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=chuyen-de&q=)
+
+##### [Đề thi HSG 9 ( **9** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=de-thi,de-thi-hsg&q=)
+
+[xem tất cả](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9)
+
+Đã có app VietJack trên điện thoại, giải bài tập SGK, SBT Soạn văn, Văn mẫu, Thi online, Bài giảng....miễn phí. Tải ngay ứng dụng trên Android và iOS.
+
+[](https://apps.apple.com/vn/app/vietjack/id1490262941?l=vi&mt=8)
+
+[](https://play.google.com/store/apps/details?id=com.jsmile.android.vietjack)
+
+Theo dõi chúng tôi miễn phí trên mạng xã hội facebook và youtube:
+
+Loạt bài 500 bài văn hay lớp 9 được chọn lọc, tổng hợp từ những bài văn đạt điểm cao của học sinh lớp 9 trên cả nước nhằm mục đích giúp học sinh viết văn lớp 9 hay hơn.
+
+Nếu thấy hay, hãy động viên và chia sẻ nhé! Các bình luận không phù hợp với **[nội quy bình luận trang web](https://vietjack.com/lien-he/quy-dinh-binh-luan.jsp)** sẽ bị cấm bình luận vĩnh viễn.
+
+[__Trang trước](../van-mau-9/index.jsp) [Trang sau __](../van-mau-9/index.jsp)
+
+* * *
+
+Giải bài tập lớp 9 sách mới các môn học
+
+  * [Giải Tiếng Anh 9 Global Success](https://vietjack.com/tieng-anh-9-moi/tieng-anh-9-global-success.jsp)
+  * [Giải sgk Tiếng Anh 9 Smart World](https://vietjack.com/tieng-anh-9-ilearn/index.jsp)
+  * [Giải sgk Tiếng Anh 9 Friends plus](https://vietjack.com/tieng-anh-9-ct/index.jsp)
+  * [**Lớp 9 Kết nối tri thức**](https://vietjack.com/series/sach-lop-9-ket-noi-tri-thuc.jsp)
+  * [Soạn văn 9 (hay nhất) - KNTT](https://vietjack.com/soan-van-lop-9-kn/index.jsp)
+  * [Soạn văn 9 (ngắn nhất) - KNTT](https://vietjack.com/soan-van-9-kn/index.jsp)
+  * [Giải sgk Toán 9 - KNTT](https://vietjack.com/toan-9-kn/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - KNTT](https://vietjack.com/khoa-hoc-tu-nhien-9-kn/index.jsp)
+  * [Giải sgk Lịch Sử 9 - KNTT](https://vietjack.com/lich-su-9-kn/index.jsp)
+  * [Giải sgk Địa Lí 9 - KNTT](https://vietjack.com/dia-li-9-kn/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - KNTT](https://vietjack.com/giao-duc-cong-dan-9-kn/index.jsp)
+  * [Giải sgk Tin học 9 - KNTT](https://vietjack.com/tin-hoc-9-kn/index.jsp)
+  * [Giải sgk Công nghệ 9 - KNTT](https://vietjack.com/cong-nghe-9-kn/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - KNTT](https://vietjack.com/hoat-dong-trai-nghiem-9-kn/index.jsp)
+  * [Giải sgk Âm nhạc 9 - KNTT](https://vietjack.com/am-nhac-9-kn/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - KNTT](https://vietjack.com/mi-thuat-9-kn/index.jsp)
+  * [**Lớp 9 Chân trời sáng tạo**](https://vietjack.com/series/sach-lop-9-chan-troi-sang-tao.jsp)
+  * [Soạn văn 9 (hay nhất) - CTST](https://vietjack.com/soan-van-lop-9-ct/index.jsp)
+  * [Soạn văn 9 (ngắn nhất) - CTST](https://vietjack.com/soan-van-9-ct/index.jsp)
+  * [Giải sgk Toán 9 - CTST](https://vietjack.com/toan-9-ct/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - CTST](https://vietjack.com/khoa-hoc-tu-nhien-9-ct/index.jsp)
+  * [Giải sgk Lịch Sử 9 - CTST](https://vietjack.com/lich-su-9-ct/index.jsp)
+  * [Giải sgk Địa Lí 9 - CTST](https://vietjack.com/dia-li-9-ct/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - CTST](https://vietjack.com/giao-duc-cong-dan-9-ct/index.jsp)
+  * [Giải sgk Tin học 9 - CTST](https://vietjack.com/tin-hoc-9-ct/index.jsp)
+  * [Giải sgk Công nghệ 9 - CTST](https://vietjack.com/cong-nghe-9-ct/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - CTST](https://vietjack.com/hoat-dong-trai-nghiem-9-ct/index.jsp)
+  * [Giải sgk Âm nhạc 9 - CTST](https://vietjack.com/am-nhac-9-ct/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - CTST](https://vietjack.com/mi-thuat-9-ct/index.jsp)
+  * [**Lớp 9 Cánh diều**](https://vietjack.com/series/sach-lop-9-canh-dieu.jsp)
+  * [Soạn văn 9 Cánh diều (hay nhất)](https://vietjack.com/soan-van-lop-9-cd/index.jsp)
+  * [Soạn văn 9 Cánh diều (ngắn nhất)](https://vietjack.com/soan-van-9-cd/index.jsp)
+  * [Giải sgk Toán 9 - Cánh diều](https://vietjack.com/toan-9-cd/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - Cánh diều](https://vietjack.com/khoa-hoc-tu-nhien-9-cd/index.jsp)
+  * [Giải sgk Lịch Sử 9 - Cánh diều](https://vietjack.com/lich-su-9-cd/index.jsp)
+  * [Giải sgk Địa Lí 9 - Cánh diều](https://vietjack.com/dia-li-9-cd/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - Cánh diều](https://vietjack.com/giao-duc-cong-dan-9-cd/index.jsp)
+  * [Giải sgk Tin học 9 - Cánh diều](https://vietjack.com/tin-hoc-9-cd/index.jsp)
+  * [Giải sgk Công nghệ 9 - Cánh diều](https://vietjack.com/cong-nghe-9-cd/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - Cánh diều](https://vietjack.com/hoat-dong-trai-nghiem-9-cd/index.jsp)
+  * [Giải sgk Âm nhạc 9 - Cánh diều](https://vietjack.com/am-nhac-9-cd/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - Cánh diều](https://vietjack.com/mi-thuat-9-cd/index.jsp)
+
+> [Học cùng VietJack](https://www.facebook.com/hoc.cung.vietjack/)
+
+[ ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=on-vao-10&loai=de-thi&q=)

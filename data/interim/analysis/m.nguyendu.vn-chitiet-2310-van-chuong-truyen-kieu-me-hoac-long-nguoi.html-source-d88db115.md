@@ -1,0 +1,192 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=2310&van-chuong-truyen-kieu-me-hoac-long-nguoi.html -->
+
+* [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+
+# Văn chương truyện kiều mê hoặc lòng người
+
+26/09/2022
+
+HNTĐ
+
+##  Truyện Kiều đã khiến hàng nghìn, hàng vạn người phải động bút. Những cuộc tranh luận của các học giả kéo dài suốt hơn hai trăm năm cho đến nay vẫn không dứt. Tuy vậy mọi người đều thống nhất ở một điểm là Truyện Kiều hay ở văn chương. Những học giả tầm cỡ, có ảnh hưởng rộng đều thốt lên những lời khen đầy khâm phục và dùng những từ ngữ tuyệt vời nhất dành cho Truyện Kiều.
+
+Tiên Phong Mộng Liên Đường chủ nhân, tức Nguyễn Đăng Tuyển trong lời tựa Truyện Kiều có câu nói nổi tiếng “Lời văn tả ra hình như máu chảy ở đầu ngọn bút, nước mắt thấm ở trên tờ giấy”. “Tố Như tử dụng tâm đã khổ, tự sự đã khéo, tả cảnh đã hệt, đàm tình đã thiết, nếu không phải có con mắt trông thấu cả sáu cõi, tấm lòng nghĩ suốt cả nghìn đời, thì tài nào có cái bút lực ấy”.
+
+
+
+
+
+
+
+Nguyễn Du là một bậc thầy về ngôn ngữ. Ông đã nâng tầm ngôn ngữ tiếng Việt lên một đỉnh cao sáng chói. Và chính ngôn ngữ thơ đã làm nên giá trị bất hủ của Truyện Kiều.
+
+Không ở đâu, tiếng Việt lại dồi dào mà chính xác, tinh vi mà trong trẻo, truyền đúng cái thần của sự vật và sự việc như ở đây.
+
+
+
+1\. Nguyễn Du đã sáng tạo chữ “lầm” cực kỳ đa dạng
+
+1007\. Cũng là lỡ một lầm hai
+
+Lầm ở đây là lầm lỡ, sai lầm, lỡ là một lầm là hai. Mụ Tú Bà muốn an ủi Kiều nói Kiều do “lỡ” mà vào đây, do “lầm” lẫn không biết mà vào đây.
+
+1429\. Một sân lầm cát đã đầy
+
+Kiều bị đánh giẫy giụa, lăn lộn làm cho cái sân “lầm” lên đầy cát bụi.
+
+Nhưng chữ “lầm” ở câu 3194 sau đây mới kỳ lạ, kỳ thú:
+
+3193\. Nàng rằng: “Vì mấy đường tơ,
+
+3194\. Lầm người cho đến bây giờ mới thôi!
+
+Trong khung cảnh nói với Kim Trọng, ở đây “lầm người” là Kiều muốn nói “người lầm” tức là mình đã “lầm” lẫn đi theo con đường đàn hát “vì mấy đường tơ” nên “Lầm người cho đến bây giờ mới thôi”. “Ăn năn thì sự đã rồi”, ăn năn thì mọi sự cũng đã xẩy ra rồi. Đến bây giờ mới bỏ được mấy tiếng tơ đàn ấy. Vì có tài đàn hát – “vì chút nghề chơi”, nên mới gặp nhiều trắc trở hoạn nạn. Cái khúc đau lòng đứt ruột – đoạn trường ấy đã “hại người” tức hại Kiều bấy lâu nay. Cái thiên “Bạc mệnh” do Kiều soạn ra “phổ vào đàn ấy những ngày còn thơ”, đã ứng nghiệm với cuộc đời Kiều, lúc nàng gảy khúc “Bạc mệnh” cho Hồ Tôn Hiến nghe. Thúy Kiều nói với Kim Trọng:
+
+3211\. Nàng rằng: “Vì chút nghề chơi,
+
+Đoạn trường tiếng ấy hại người bấy lâu!
+
+Một phen tri kỷ cùng nhau,
+
+Cuốn dây từ đấy về sau cũng chừa.
+
+Từ nay tỉnh ngộ, cuốn dây không chơi đàn nữa
+
+Một nghĩa khác nữa là Kiều đã nhìn “lầm người”, nên đã bị mắc lừa, mắc vào nhiều vòng oan nghiệt, cho đến bây giờ mới hiểu ra. Ngoài ra “lầm người” ở đây còn có ý là làm ô uế, bẩn thỉu con người mình. Nên Kiều nói với Kim Trọng câu:
+
+3181: Thân tàn gạn đục khơi trong,
+
+Là nhờ quân tử khác lòng người ta.
+
+
+
+2\. Câu thơ 1880 cũng rất kỳ lạ:
+
+1880\. Gỡ cho ra nợ còn gì là duyên.
+
+Câu thơ này sau màn ghen kỳ lạ kiểu Hoạn Thư mà Kiều phải thốt lên:
+
+1873\. Bây giờ mới rõ tăm hơi,
+
+Máu ghen đâu có lạ đời nhà ghen.
+
+Tức là Hoạn Thư ghen cả với người nhà là chồng và hành hạ Thúc Sinh “nhà ghen”.
+
+Sau màn ghen, Hoạn Thư không xử Thúy Kiều, mà “gỡ cho ra” nhưng cho “nợ”, để đấy, hành hạ tiếp. Và như thế thì Kiều chẳng còn hy vọng gì có thể trở thành vợ bé của Thúc Sinh nữa, cái “nợ” còn đấy thì “còn gì là duyên” với tình nữa. Duyên ở đây còn có nghĩa là xuân sắc, tuổi xuân, sắc đẹp, Hoạn Thư muốn giam cầm Kiều cho đến già. Cũng là “duyên” và “nợ”, nhưng duyên nợ ở đây khác với duyên nợ ta vẫn thường dùng.
+
+
+
+
+
+Văn chương Nguyễn Du trong Truyện Kiều viết như thật đến nỗi người Trung Quốc cho Truyện Kiều là viết về Trung Quốc, còn người Việt Nam lại cho rằng Truyện Kiều viết về Việt Nam.
+
+
+
+3\. Thơ Kiều ẩn chứa nhiều nội dung, mang nhiều ý nghĩa, chỉ riêng bốn câu thơ Nguyễn Du tả Thúy Kiều tắm thôi đã có nhiều cách hiểu khác nhau:
+
+1309\. Buồng the phải buổi thong dong,
+
+Thang lan rủ bức trướng hồng tắm hoa.
+
+Rõ ràng trong ngọc trắng ngà,
+
+1312\. Dày dày sẵn đúc một tòa thiên nhiên.
+
+Người cho rằng Kiều tắm ở trong phòng ngủ có màn the, người cho rằng câu 1309 là chỉ chủ thể Thúy Kiều gặp buổi “thong dong” rỗi việc, và tắm ở buồng tắm có rủ bức trướng hồng. “Tắm hoa” người cho là chỉ người đẹp Thúy Kiều tắm. Người cho là Kiều tắm bằng nước sắc bằng hoa lan. Người cho rằng Kiều tắm bằng nước có ngâm hoa thơm.
+
+Hai câu thơ 1311 – 1312 là hai câu tuyệt hay tả vẻ đẹp cơ thể của nàng Kiều. Thân thể nàng Kiều lồ lộ đẹp như ngọc như ngà. Tạo hóa đã “đúc” ra con người, đã tạo ra con người, thiên nhiên, tự nhiên đã tạo ra một tuyệt phẩm là nàng Kiều, trải qua hàng triệu năm tiến hóa đã tạo ra một công trình, “một tòa thiên nhiên”, một cơ thể đàn bà tuyệt mỹ. Một tòa thiên nhiên, một tác phẩm kiến trúc diễm lệ có một không hai trong tự nhiên, chính là cơ thể con người.
+
+
+
+4\. Câu thơ:
+
+906\. Đùng đùng gió giục mây vần,
+
+Một xe trong cõi hồng trần như bay
+
+Một câu thơ tuyệt hay vừa có âm thanh, vừa có hình ảnh, vừa có chuyển động, vừa có trời, vừa có đất, vừa có sấm chớp, bão tố. Hình ảnh một cỗ xe phóng “như bay” trong cõi “hồng trần”, ám chỉ một cuộc ra đi tới nơi đầy sống gió, bão táp, một cuộc sống tương lai đầy bất trắc, hiểm nguy đang chờ đón nàng Kiều – Một cô gái trẻ ngây thơ, lần đầu trong đời bước vào một nơi lạ nước lạ non, một thân một mình, thân cô, thế cô.
+
+
+
+5\. Nén chặt câu thơ là đặc trưng điển hình của thơ Nguyễn Du. Câu thơ sau đây:
+
+915\. Dặm khuya ngất tạnh mù khơi
+
+Là câu thơ đã được nén chặt đến mức tuyệt đối. “Dặm khuya” là dặm đường khuya khoắt, “ngất tạnh” là bầu trời cao ngất, khí hậu tạnh ráo, “mù khơi” là mù mịt xa khơi. Đây là đoạn Nguyễn Du tả Mã Giám Sinh đang trên đường đưa Thúy Kiều về Lâm Tri. Câu thơ chỉ vẻn vẹn có 6 chữ mà tả được một cuộc đi vào đêm khuya dặm trường, dưới bầu trời đêm cao vời vợi, không khí khô ráo, xa xa mù mịt sương khói. Một cuộc đi đưa Thúy Kiều đến một nơi xa khơi, vô định, tương lai mù mịt. Câu thơ ngắn mà hàm chứa một lượng thông tin rất lớn, thể hiện sự uyên thâm, từng trải của Nguyễn Du. Cao Bá Quát đã có lời nhận xét chí lý “Kim Vân Kiều là lời nói hiểu đời”.
+
+
+
+6\. Nguyễn Du là bậc thầy về sáng tạo từ mới, những từ ngữ sáng tạo hết sức độc đáo vẫn làm cho bạn đọc ngày nay ngỡ ngàng, như “thoi thót” (“chim hôm thoi thót về rừng”), “tõi” (“cắt người tìm tõi đưa tờ nhắn nhe”), “áy” (“một vùng cỏ áy bóng tà”), “dàu dàu” (dàu dàu ngọn cỏ nửa vàng nửa xanh”), “dàu” (“giận dàu ra dạ thế thường, cười dàu mới thật khôn lường hiểm sâu”), “sòng” (“đến nhà trước liệu nói sòng cho minh”) vân vân. Sau đây xin nêu một ví dụ điển hình là từ “ngậm gương”:
+
+1091\. Chim hôm thoi thót về rừng,
+
+Đóa trà mi đã ngậm gương nửa vành
+
+Chữ “thoi thót” cho đến nay chưa có ai dùng. Hai câu thơ trên Nguyễn Du tả thời khắc Thúy Kiều đợi Sở Khanh đến đón đi trốn khỏi lầu Ngưng Bích.
+
+“Thoi thót” chỉ sự vội vã, lẻ tẻ, rời rạc từng con, từng đôi chim đang gấp gáp bay về tổ. “Thoi thót” chỉ buổi chiều hôm chập choạng, ánh ngày sắp tắt, đêm tối sắp ập đến. Kiều đợi Sở Khanh từ lúc hoàng hôn, đến lúc trăng mọc và lên cao dần. Trước mắt Kiều là một khóm trà mi, một bông trà mi nhô lên cao, đến một lúc mắt Kiều, đóa trà mi và vầng trăng hạ huyền nằm trên một đường thẳng, lúc này Thúy Kiều nhìn thấy “đóa trà mi đã” nằm lọt trong “gương nửa vành”, tức đóa trà mi đã che khuất một phần ánh sáng của trăng nửa vành. Nguyễn Du dùng từ “ngậm gương” với nghĩa là che khuất ánh sáng.
+
+1119\. Đêm thâu khắc lậu canh tàn,
+
+Gió cây trút lá trăng ngàn ngậm gương.
+
+“Trăng ngàn ngậm gương” là trăng đã bị rừng núi “ngậm gương”, tức là trăng đã bị rừng núi che khuất, hay trăng đã lặn xuống dưới núi rừng.
+
+425\. Ngày vui ngắn chẳng đầy gang,
+
+Trông ra ác đã ngậm gương non đoài.
+
+Ác là mặt trời. Mặt trời đã lặn xuống dãy núi phía tây, hay dãy núi phía tây đã che khuất ánh sáng mặt trời.
+
+1370\. Ngoài hiên thỏ đã non đoài ngậm gương.
+
+Thỏ là mặt trăng. Mặt trăng đã lặn xuống dãy núi phía tây, hay dãy núi phía tây đã che khuất ánh sáng mặt trăng.
+
+Ngôn từ của Nguyễn Du uyên thâm, sắc sảo, hàm súc. Đặc sắc trong nghệ thuật dùng từ của Nguyễn Du là một trong những yếu tố quan trọng mang lại thành công rực rỡ cho Truyện Kiều.
+
+
+
+Truyện Kiều đã làm rạng rỡ cho nền văn chương nước ta với thế giới.
+
+Nhà văn hóa Phạm Quỳnh có câu nói nổi tiếng: “Truyện Kiều còn, tiếng ta còn. Tiếng ta còn, nước ta còn”.
+
+Truyện Kiều là kiệt tác văn học. Nguyễn Du bậc là Đại thi hào dân tộc, được Unesco vinh danh là danh nhân văn hóa thế giới. Sống mãi với thời gian Truyện Kiều đã trở thành bất tử
+
+Trải qua bao cuộc khen chê
+
+Hai trăm năm vẫn đi về nhân gian.
+
+
+
+Hà Nội ngày 8.4.2020
+
+LÊ THANH LONG
+
+Nguồn: http://hoikieuhoc.com/
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+### [Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+  * [ ](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+### [Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+  * [ ](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+### [Nghìn năm sau nhớ Nguyễn Du](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+  * [ ](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+### [Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+  * [ ](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")
+
+### [Vẻ đẹp của Hoạn Thư trong truyện Kiều](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")

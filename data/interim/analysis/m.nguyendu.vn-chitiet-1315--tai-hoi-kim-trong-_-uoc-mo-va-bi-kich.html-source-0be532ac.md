@@ -1,0 +1,432 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=1315&-tai-hoi-kim-trong-_-uoc-mo-va-bi-kich.html -->
+
+* [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+
+# " Tái hồi Kim Trọng" - ước mơ và bi kịch
+
+14/07/2022
+
+HNTĐ
+
+##  Như nhiều tâm hồn vĩ đại xưa kia, Nguyễn Du băn khoăn đi tim một giải đáp cho câu hỏi đớn đau của cuộc sống con người bị áp bức.
+
+Thông qua kết cục vận mệnh Thúy Kiều, đoạn "Tái hồi Kim Trọng" bộc lộ một phần quan trọng những tư tưởng, quan niệm phức tạp của một tâm hồn nghệ sĩ đứng trước các vấn đề của cuộc sống: những quan niệm đạo đức và những cách lý giải thế sự, những ước mơ hạnh phúc và những ràng buộc của cuộc đời. Kết thúc đó mang yếu tố công thức ước lệ hay màu sắc hiện thực chủ nghĩa, biểu hiện lý tưởng lạc quan của quần chúng là sự minh họa cho triết lý Phật giáo cao siêu, cho tính chất khắc nghiệt của Khổng, Mạnh và cho cả màu sắc không tưởng của Lão Trang ?
+
+
+
+
+
+Có thể dễ dàng thống nhất là kết thúc sáng tươi của vận mệnh cô Tấm mồ côi, của chàng Sọ Dừa dị dạng v.v... đã ảnh hưởng đến phương thức kết thúc "có hậu " trong tất cả các " truyện Nôm: Tống Trân Cúc Hoa, Lý Công, Hoa tiền.,, và cả cuốn Lâm tuyền kỳ ngộ vay mượn cốt truyện Trung- hoa, cũng gạt bỏ phần kết thúc buồn thảm thay thế vào đó cảnh « đoàn viên phúc lộc » của gia đình Bạch Viên Tôn Các. Trong Sơ kính tân trang, khát vọng hạnh phúc sâu xa và mạnh mẽ đến mức ngược lại với thực tại đớn đau, Phạm Thái đã đề Phạm Kim gặp lại Quỳnh Thư tái thể qua nhân vật Thụy Chau, cảm hứng nghệ thuật ấy tác động đến cả những khúc ngâm bi lụy như Cung oán, Chinh phụ. Và hưởng theo truyền thống, Nguyễn Du sẵn sàng tiếp nhận Kiều kết thúc.
+
+
+
+Thiện ác đảo đầu chung hữu bảo Tài tử giai nhân đại đoàn viên trong Kim Vân Kiều truyện của Thanh Tâm tài nhân.
+
+
+
+Tuy nhiên, kết thúc Truyện Kiều rất công thức mà cũng rất mới mẻ, rất quen thuộc nhưng cũng khá bất ngờ. "Tái hồi Kim Trọng » không chỉ là câu chuyện « song phụng đoàn viên » của loại tiều thuyết tài tử giai nhân trong văn học Trung-quốc. Đây cũng không hoàn toàn là cái khuôn sáo đại đoàn viên trọn vẹn, hoàn hảo, viên mãn đến mức phát chán lên như trong một vài truyện Nôm kiều Hoa tiên Nhị độ mai... "Tái hồi Kim Trọng » cũng có nhiều điểm khác biệt so với kết thúc của các truyện cổ dân gian. Nhìn nhận đúng mức sự thống nhất giữa cách tân và truyền thống, giữa sáng tạo và liếp thu ở một cây bút thiên tài cũng là một phương hướng đóng góp được ít nhiều cho cách đánh giá màn "Tái hồi Kim Trọng ».
+
+
+
+Như đã nói ở trên, vì đi theo truyền thống — Truyện Kiều có một kết cấu quen thuộc, quen thuộc đến mức trở nên nghèo nàn, đơn điệu : « Hội ngộ -- Tai biến — Đoàn tụ». Nó thiểu hẳn cái hấp dẫn kích thích trí tò mò xét đoán của loại tiểu thuyết lịch sử. Người đọc không cần phải « xin xem hồi sau phân giải » cũng đã cỏ thê đoán định một cách chắc chắn: cô Kiều sẽ gặp lại cha mẹ, hai em, chàng Kim và cả gia đình cùng được hương vinh hoa phú quý. Lối kết thúc ấy đưa đến một sự rập khuôn từ sự việc,- tinh tiết, tâm lý, tinh cách nhân vật và cả ở ngôn ngữ tự sự trong hầu hết các truyện Nôm:
+
+Một nhà phúc lộc gồm hai,
+
+Nghìn năm dằng dặc quát giai làn lần.
+
+(Truyện Kiều)
+
+
+
+Một nhà hòe quế đầy sân
+
+Lâu dài phúc lộc thiên xuân thọ í ràng
+
+(Tống Trân - Cúc Họa)
+
+
+
+Vinh hoa phú quý ai bì,
+
+Công khanh nối gót quế hòe đầy sân
+
+(Phương Hoa)
+
+
+
+
+
+Hai nhà phúc hậu vẹn mười,
+
+Thung thăng cõi thọ, dửng ngồi xuân
+
+
+
+(Nhị độ mai)
+
+
+
+Điều đó chứng tỏ những ý kiến xưa nay phê phán tinh chất ước lệ công thức của màn « Tái hồi Kim Trọng » hiển nhiên là có căn cứ xác đáng.
+
+
+
+Nhưng vì sao, trái ngược với bản chất chứa chan sức sống của tác phẩm, Nguyễn Du lại viết nên ở đây những đoạn văn nhạt nhẽo như những câu đối chúc tụng tâm thường trong các gia đình quyền quý xưa kia? Vì sao kết thúc ấy có mặt giống với kết thúc « người lương thiện được đền bù » trong cấc truyện cổ dân gian, nhưng trái tim người đọc không chấp nhận nó với mức độ đồng cảm sâu xa, sôi nổi như với kết thúc truyện Tấm Cám, Ại mua hành tôi, Cây tre trăm đốt v.v... ?
+
+
+
+Phải chăng vì kết thúc truyện cồ dân gian được tắm mình trong cái tươi mát, cái rạng rỡ chung của tình thần lạc quan quần chúng, của cái tập thề những người lao động hình như vẫn có ý thức mình sẽ bất diệt và thế nào cũng sẽ thắng tất cả mọi lực lượng thù địch như Mác xít Goóc- ki đã nhận xét?... Trong nhiều truyện cả dân gian Việt-nam, tư tưởng "nhân quả" của Phật giáo đã bị tước mất phần siêu hình (kiếp sau được đền bù) và màu sắc siêu giai cấp (chủ nghĩa từ bi dung hòa đấu tranh, chờ đợi sự giải quyết của Trời, Phật). Nó cũng không có cái tư tưởng tuần hoàn "bĩ cực thái lai" tiêu cực của Nho gia.
+
+
+
+Ước mơ hạnh phúc ở một số truyện Nôm và Truyện Kiều, ngược lại, có phần được thề bội thông qua nhãn quan của một nghệ sĩ còn mang dấu vết của thế giới quan phong kiến. Nguyễn Du thương xót nhưng chưa tìm được một lối thoát thỏa đáng cho "nỗi đau nhân tình". Nguyễn Du chưa thể đi đến tinh thần chống đối trật tự phong kiến mạnh mẽ như trong các truyện cổ dân gian và một vài truyện Nôm. Kết thúc vận mệnh Thúy Kiều, vì thế, có phần chưa vượt khỏi được khuôn sáo của quan niệm hạnh phúc phong kiến : người lương thiện nện được đền bi trên một cơ sở trật tự không bị đảo lộn (khác với trật tự giữa Tấm và mẹ con Cám) ; Hồ Tôn Hiến vẫn « bình chân như vại» và Kim Trọng, Vương Quan được trọng nhậm, Thúy Kiều, Thúy Vân được hưởng « phong lưu phú,quý ai bì», v.v... Nguyễn Du không thề đi đến con đường " phản nghịch", "quyết xoay bạch ốc lại lâu đài" như Cao Bá Quát. Lý giải của Nguyễn Du có phần chưa vượt khỏi quan Diệm trật tự và quan niệm hạnh phúc phong kiến. Cách giải quyết vận mệnh nhân vật ấy phù hợp với lời bình luận trực tiếp của tác giả.
+
+
+
+
+
+
+
+Gẫm hay muốn sự tại trời,
+
+Trời kia đã bắt làm người có thân.
+
+Bắt phong trần phải phong trân
+
+Cho thanh cao mới được phần thanh cao.
+
+
+
+
+
+Điểm này cũng chứng tỏ không phải trong toàn bộ Truyện Kiều, hình tượng nghệ thuật nào cũng đều đối lập với lời bình luận ngoại đề của tác giả ; đều đối lập với không phải luôn luôn có một Nguyễn Du nghệ sĩ tiến bộ và một Nguyễn Du triết gia siêu hình... Có lúc, có đoạn, kể cả những phần hình tượng nghệ thuật mang ý nghĩa tiến bộ khá sâu sắc, đã có sự phù "hợp khả chặt chẽ giữa hai yếu tố tư duy linh tượng và bình, luận trữ tình trong tác phẩm (màn Vương ông mắc oan, màn Thúy Kiều báo ân báo oán... là những dẫn chứng).
+
+
+
+Nhưng, tuyệt đỉnh hạnh phúc theo quan niệm phong kiến nói trên cũng chẳng đủ sức chinh phục một tâm hồn nghệ sĩ như Nguyễn Du. Hoàng kim thời đại » với minh quân, lương thần đã trở thành câu chuyện dĩ vãng... vả chăng bản chất khô cằn, tàn héo của cuộc sống "phúc lộc" theo quan niệm phong kiến, có gì khác ngoài những công thức quan giai », cõi thọ », "quế hòe" " công khanh"... đề có thể ánh lên tia sáng muôn màu trong văn chương nghệ thuật ? Không phải ngẫu nhiên mà hầu hết các truyện cổ dân gian và các truyện Nôm đều dừng lại ở chỗ tên vua bạc ác bị trừng trị, cặp thanh niên nam nữ lên địa vị cao sang... Màu sắc sáng tươi lành mạnh trong kết thúc các truyện cổ dân gian không thể "tái sinh » ở màn tái bợp chính vì nhiều lý do phức tạp 11ói trên. Và ở đây không hề có những câu thơ tả tình, tả cảnh, biểu hiện sự rung động sâu sắc của Thúy Kiều, của Nguyễn Du vời thứ hạnh phúc phú quý thọ khang ninh ». Trong phần nhược điểm của Nguyễn Du âu cũng có điểm đáng "chiếu cố » bởi lẽ đó.
+
+
+
+Nhưng thiên tài bao giờ cũng vượt lên trên sự ràng buộc của công thức ước lệ. Nguyễn Du đã đi vào con đường mới mẻ của nghệ thuật trên 80 cơ sở một cảm xúc đúng đắn về cuộc sống. Từ bút pháp tự sự đêm hợp hôn, trong đó quá khứ chia phôi được gợi lại nhiều hơn hiện tai sum họp, từ ngôn ngữ (lối thoại mang yếu tố hiện thực chủ nghĩa (bên cạnh yếu tố ước lệ công thức) đến cách xử lý bất ngờ của hai nhân vật chính... tất cả đều chứng tỏ quả khứ đã tàn phá biện tại. Vì, được tra về "cố hương", sống trong đôi cánh che chở của cha mẹ già cũng là một niềm an ủi lớn khả dĩ xoa dịu thân thế "Nửa đời nếm trải mọi mùi đắng cay» nhưng đấy không thể là hạnh phúc trọn vẹn của một nàng Kiều sôi nổi đã từng " Vì hoa nên phai đánh đường tìm hoa» ! Một vài nhà nghiên cứu đã băn khoăn: Dáng Kiều ba mươi tuổi không chồng, không con sẽ sống sao đây? Cái tâm trạng:
+
+
+
+Sự đời đã tắt lửa lòng!
+
+Còn chen vào chốn bụi hồng làm chi ?
+
+
+
+
+
+chưa phải là cái "hư tâm » (rửa sạch trái tim, rửa sạch dục vọng) tự giác triệt đề của tín đồ Phật giáo nhìn cuộc đời — nhìn hạnh phúc cũng như khổ đau—lạnh lùng thanh thản như Vạn Hạnh thiền sư:
+
+
+
+Nhậm vặn thịnh suy vô bố úy
+
+Thịnh suy như lộ thảo đầu phô.
+
+(Thịnh suy việc đời không nên sợ,
+
+Thịnh suy như giọt sương đọng trên ngọn cỏ)
+
+
+
+
+
+Trong Truyện Kiều sự gắng gượng chôn chặt khát khao tình ái ở Quan âm các :
+
+
+
+Phật tiền thảm lấp sầu vùi
+
+Ngày pho thả tự đêm nồi tâm hương.
+
+
+
+hay nhịp điệu trắc trở nặng nề của câu . thơ ( Đã tu — tu trót — qua thì — thì thôi » cũng như cái (< Tắt lửa lòng » trong màn « Tái hồi Kim Trọng » nảy sinh do sự dồn ép của hoàn cảnh đều chỉ là sự tự phủ định không tự giác. Truyện Kiều thiếu hẳn niềm tin vào hạnh. phúc cõi Nát bàn như Quan âm Thị kinh;
+
+Siêu thăng thoát cả một nhà,
+
+Từ đây phúc đẳng hà sa vô cùng !
+
+
+
+Tâm trạng tu hành bất đắc chí đó bắt nguồn từ lịch sử sụy tàn của giai cấp phong kiểu và lịch, sử vùng dậy của quần chúng nông dân đương thời. Con người của thế kỷ thứ XVIII đẵ bừng tỉnh giấc mê tôn giáo đề phân biệt ánh sáng với đêm đen, niềm vui và đau khổ. Khi luồng tư tưởng nhân đạo chủ nghĩa đã trỗi dậy thì chốn Phật đài sáng láng cũng chẳng còn đủ sức lôi cuốn lồng người trần tục:
+
+
+
+Ở đây mến cảnh mến thầy
+
+Tuy vui đạo Phật, chưa nguôi lòng người.
+
+
+
+Cũng có ý kiến cho rằng dường như Thúy Kiều đã tìm được một lối thoát trong sự thanh thoát bao la và trong lặng như phảng phất màu lạc quan của Lão tử muốn thực hiện một sự hài hòa giữa tinh thần con người và ban chất vũ trụ» . Theo ý chúng tôi, nếu như trong một số bài thơ chữ Hán nào đỏ, Nguyễn Du có nói đến phần siêu hình học của Phật giáo , có nói đến triết lý bản thể, triết lý phỏng nhiệm của Lão Trang thì ở Truyện Kiều bầu như chỉ xuất hiện phần triết học nhân sinh ít nhiều đã được quần chủng hỏa của Phật giáo và thứ Bạo giáo với hình thái tướng sĩ, đạo cô chẳng qua cũng là « đồng cốt quàng xiên ») mà thôi. Nó hoàn toàn xa lạ với triết lý bản thể có màu sắc biện chứng nhưng cũng khá trừu tượng, khó hiểu của Lão Trang. Đoạn tả tiếng đàn của Kiều trong màn "Tái bồi Kim Trọng» chính là một sự "tập cô », ít nhiều không tránh khỏi tính chất hình thức chủ nghĩa và do đỏ, thiếu sự thuần nhất về nội dung cam xúc. Ở đây, điển "Trang sinh mê hồ điệp" đã mang một ý nghĩa đi quá xa với khởi nguyên của nó trong thiên "Tề vật luận" của Trang tử.
+
+
+
+Khúc đâu đầm ấm dương hòa
+
+Ấy là hồ điệp hay là Trang sinh
+
+Khúc đâu đầm ấm xuân tinh
+
+Ấy hồn Thục đế hay. mình đỗ quyên
+
+Trong sao châu nhỏ duềnh quyên ?
+
+Ấm sao hạt ngọc Lam-điền mỏi đổng.
+
+
+
+Có thể nói về cơ bẳn tiếp thu tử thơ trong bài "Gầm sắt» (Đàn cầm sắt) của nhà thơ nổi tiếng Lý Thương Ẩn (813 — 838) đời Đường:
+
+
+
+Cẩm sắt vô đoan ngũ thập huyền
+
+Nhất huyền nhất trụ tứ hoa niên...
+
+Trang sinh hiểu mộng mê hồ điệp,
+
+Thục để xuân tâm thác đỗ quyên.
+
+Thương hải nguyệt minh chấu hữu lệ
+
+Lam-điền nhật noãn ngọc sinh yên
+
+Thử tinh khả đãi thành truy ức
+
+Chỉ thị đương thời dĩ võng nhiên.
+
+
+
+Dịch nghĩa:
+
+
+
+Đàn cằm sắt không rồ vì sao cỏ năm mươi dây,  Mỗi dây (là) một trục để ghi nhớ tuổi xanh
+
+Trang sinh mơ thành bướm trong giấc mơ mai
+
+Thục đế gửi tắm lòngxuân nai chim đỗ quyên
+
+
+
+Biển xanh lúc trăng sáng hạt châu cỏ ngấn lệ
+
+Đất Lam-điền khi nắng ấm hại ngọc bốc khói
+
+Mối tình nàng đáng ghi nhớ mãi mãi
+
+Chỉ vì lúc đó đã quá mơ màng.
+
+Hai câu thơ này chỉ biểu hiện tâm trạng thanh thản của Thúy Kiều. Vả chăng, nhạc khúc cuối cùng của hồ cầm cũng là nhạc khúc cuối cùng của đời Kiều vì khi từ bỏ cuộc sống (với ý nghĩa trọn vẹn nhất) Thúy Kiều sẽ từ bỏ nghệ thuật.
+
+Đó là ỷ nghĩa cơ bản của cừ chỉ "Cuốn dây từ đấy về sau xin chừa».
+
+Điểm này có khác với Kim Vân Kiều truyện: Sau khi đàn xong, Thúy Kiều nói:
+
+
+
+Chàng có chức trách việc quan, thiếp có khuôn phép của đàn bà, từ nay về sau, không thể nghe được nữa đâu.
+
+
+
+Kim Trọng nói:
+
+
+
+Nghệ thuật cao diệu đến thế, bảo quên sao được ?
+
+
+
+Thúy Kiều nói:
+
+
+
+Chàng không quên thiếp, thì thiếp xỉn trình bày nghệ thuật khác đề đối vị cho chàng.
+
+
+
+Bèn bảo thị nữ đem nghiên bút ra rồi đề luôn mười bài thơ.
+
+
+
+Tóm lại, có thề nói những ngả đường triết lý tôn giáo quen thuộc đế giải thích, đề đi đến địa hạt của hạnh phúc đều không thể được chấp nhận bởi một tâm hồn như Thúy Kiều, một trái tim như Nguyễn Du...
+
+
+
+Còn lại một ngả cuối cùng: người em trung hậu vô tư và người tình chung thủy muốn đưa Kiều trở về vói hạnh phúc trần tục nhưng Kiều từ chối. Cách xử lý "đem tình cầm sắt đổi ra cầmm cờ » kia xem như có vẻ « lãng mạn » và « không tưởng ». Nhưng đây chính là điềm độc đáo của Kim Vân Kiều truyện và Truyện Kiều. Độc đáo và phù hợp với lô-gíc của cuộc sống. Bởi vì vận mệnh Thúy Kiều trước chặng đường này khác xa vận mệnh các nhân vật khác trong tât cả các truyện Nôm : Hầu hết các thiếu nữ kia đều đã mây trôi bèo nôi thiếu gì lả nơi», có người sa vào tay các bạo chúa như Trang vương (Phạm Tải Ngọc Hoa), Hung nô vương (Lý Công), vào tay bọn lưu manh (Phù dang tân truyện), cỏ người thân cở thế yếu lưu lạc quê người công chúa trong Hoàng Trừu, Hạnh Nguyên trong Nhị độ mai), nhưng thật kỳ lạ, bao giờ họ cũng vẫn bảo toàn trọn vẹn được cụ thể xác lẫn tinh thần. Thúy Kiều không có hoàn cảnh và vận mệnh nặng màu sắc lý tưởng phi hiện thực ấy. Nàng đa trải qua cuộc sống "Đưa người cửa trước, rước người cửa sau». Tiếp thu yếu tố giàu màu sắc biện thực chủ nghĩa ấy ở tác phẩm nguồn gốc, Nguyễn Du đã đưa sự thực cuộc sống ạ gái thanh lâu » vào nội dung và cả ngôn ngữ nghệ thuật của một tác phẩm thơ tự sự (dãi giỏ dầm mưa, ong qua bướm lại, gió táp mưa sa ...). Chúng ta không thể đòi hỏi Nguyễn Du nhắc đến quá khứ nhơ bẩn của Thúy Kiều bằng một ngôn ngữ tả thực hơn thể nữa. Vì ngôn ngữ thỉ ca phải là tinh chắt của ngôn ngữ hằng ngày. Và đối với một số phương diện nào đó của cuộc sống, cả hai loại ngôn ngữ đều không thê rơi vào chủ nghĩa tự nhiên. Tất nhiên giữa những câu thành ngữ dân gian nói về gái thanh lâu với những lời thơ của Nguyễn Du cũng có một khoảng cách nhất định, nhưng cho đến ngày nay, cuộc đời kỹ nữ cũng chỉ có thể biểu hiện dưới hình thức ngôn ngữ ẩn dụ bên cạnh ít nhiều ngôn ngữ hiện thực chủ nghĩa:
+
+
+
+Trời ơi em biết khi mô,
+
+Thân em hết nhục dày vò năm canh ?
+
+Tình ơi gian dối là tình,
+
+Thuyền em rách nát còn lành được không?
+
+(Tố Hữu — Tiếng hát Sông Hương)
+
+
+
+Ngoài nguyên nhân đặc trưng của bút pháp ước lệ cô điển, hiện thực sinh hoạt cũng không cho phép Nguyễn Du miêu tả cụ thê hơn nữa. Tuy nhiên, rõ ràng khó tìm thấy một ngôn ngữ nhân vật như ngôn ngữ Thúy Kiều ở cửa miệng Bạch Hoa, Ngọc Hoa... Còn như khi thuyết phục Kim Trọng nghe theo cách xử lý « đem tinh căm sắt đôi ra cầm cờ », Nguyễn Du đã dùng ngôn ngữ thuần Nôm để biểu hiện tâm trạng ê chề đau khổ của Kiều :"mặt dạn, mày dầy », dơ duốc bầy trò », "còn tình đâu nữa .mà thù đấy thôi... ».Cảm quan hiện thực đã phá vỡ khuôn khổ ước lệ công thức phong kiến trong ngôn ngữ thi ca. cảm xúc nhân vật ở đây cũng cho phép sử dụng ngôn ngữ hiện thực như vậy. Với màn Tái hồi Kim Trọng», nội đung tác phẩm (khám phá tâm lý, khám phá cuộc sống), là cơ sở phát triển yếu tố hiện thực chủ nghĩa trong hình thức nghệ thuật-
+
+
+
+Trở lại vận mệnh Thúy Kiều, ta thấy Nguyễn Du, Kim Trọng và cả Thúy Kiều nữa, đều đã khẳng đinh phần chất của nàng, nhưng cuộc đời thanh, lâu vẫn là một thực tế không thề chối cãi. Và bên cạnh đó, sừng sững một quan niệm vô cùng cứng nhắc, cực-đoan về chữ Trinh. Quan niệm của giai cấp phong kiến và quan niệm xã hội chịu ảnh hưởng tư tưởng chinh thống của thời đại. Nó chặn đứng quyền sống, quyền làm lại cuộc đời của những nạn nhân xã hội. Thúy Kiều không phải là cô gái sông Hương đề cổ thề cùng vói cách mạng rũ sạch quá khứ khổ đau, bước vào tương lai tươi sáng:
+
+
+
+...Răng không cô gái trên sông,
+
+Ngày mai cô sẽ từ trong tới ngoài
+
+Thơm như hương nhụy hoa nhài
+
+Sạch như nước suối ban mai giữa rừng...
+
+(Tố Hữu)
+
+
+
+Có thể nói Nguyễn Du đã xây dưng một màn "đoàn viên" có hậu trên cơ sở "thí nghiệm » về nhiều ngả đường hạnh phúc. Con đường tiên tiến với quan niệm mới mẻ về chữ trinh chỉ là lý tưởng. Vinh hoa phú quý của nho gia hay giọt nước cành dương cửa Phật giáo chẳng đù sức thuyết phục một trái tim nồng nhiệt như Thúy Kiều. Bủng như Thúy Kiều đã nói : Đã xong thân thế còn toan nỗi nào ». Mọi ngả đường đi đến hạnh phúc đã bị ngăn chặn. Màn đoàn viên « có hậu » về cơ bản cũng chỉ là " một cung gió thầm mưa sầu ». Hiện tại sum họp chẳng đủ sức xua tan bóng đen của quá khứ đang hiện diện phũ phàng. Và chính giá trị của đoạn "Tái bồi Kim Trọng» là ở chỗ nó nhất quán với cảm hửng chủ đạo của toàn bộ Truyện Kiều: con người không thề vươn tới hạnh phúc thực tế. "Châu về Hợp phố» nhưng "nước đã trôi xuôi»; "Đoạn trường số tút tên ra» nhưng « bạc mệnh cầm chung oản hậu trường». Nguyễn Du đã không thi vị hoa những đắng cay của cuộc đời, đúng như Xuân Diệu gọi, đây chỉ là "Bản cáo trạng cuối cùng trong Truyện Kiều". Hiểu ở phương diện ấy, màn "Tái hồi Kim Trọng» vẫn chứa chan yếu tố nhân đạo chủ nghĩa, vì đậm đà màu sắc hiện thực chủ nghĩa. Hạnh phúc giả tạo, siêu hình không thề đánh lừa một "tấm lòng thơ với tình đời thiết tha » như Nguyễn Du.
+
+
+
+Nhưng như vậy, phải chăng đó chỉ là một khúc đoạn trường trọng cung đàn bạc mệnh, một kết thúc đầy bi kịch?Đâu là ước mơ và hy vọng, đâu là ánh sáng và ngày mai ? Còn chút gì có thể gọi là "có hậu" trong buổi đoàn viên tàn tạ này?
+
+
+
+Không, Nguyễn Du có đau đớn và bi quan nhưng Nguyễn Du vẫn có niềm tin và lý tưởng. Giữa "đêm trường dạ tối tăm trời đất" — ngoài phần hạnh phúc đoàn tụ với gia đình của Kiều — Nguyễn Du đã đem đến cho người đọc niềm rung cảm, niềm hy vọng đối với cuộc sống: đầy là niềm tin vào phẩm chất đẹp đẽ trang sáng của con người.
+
+
+
+Nguyễn Văn Thắng định đánh đòn Thúy Vân, nhưng thực ra nhân vật này tuy có vô tư nhưng không vô tâm, phần nào có đơn giản nhung thật là trung hậu. Và phẩm chất Kim Trọng càng vượt xa phẩm chất Kim Thiên Lý trong Kim Vân Kiều truyện.
+
+
+
+Trong cuộc đời thực có thể đã tồn tại một chàng Kim nhưng lịch sử chẳng nhắc tên và truyện ngắn của Dư Hoài cũng không nói tới. Trong Kim Vân Kiều truyện của Thanh Tâm tài nhân, chàng là một nhân vật chính diện nhưng chỉ dưới ngòi bút Nguyễn Du, Kim Trọng mới trở nên vô cùng khả ái. Trong chủ đề tình yêu của văn học cổ, Kim Trọng chính là một con người lý tưởng.
+
+
+
+Ngoài quan niệm đánh giá vè chữ Trinh và thái độ cảm thông trận trọng cửa chàng đối vói phẩm giá, nguyện vọng của người yêu, Kim Trọng còn có một mối chân tình hết sức vị tha trong xã hội phong kiến đầy rẫy dục vọng vị kỷ.
+
+
+
+Bất lực trước sức tàn phá của hoàn cảnh (Chàng rằng gần bỏ một lời, Bỗng không cá nước chim trời lỡ nhau), chàng đã đau đớn khá nhiều (Nghe tưởng ngành ngọn tiều hao, Lòng riêng chàng luống lao đao thẫn thờ) nhưng chàng còn thấu hiểu nhiều hơn nữa đến đau khổ của người yêu:
+
+
+
+Xót người lưu lạc bấy lâu,
+
+Tưởng thề thốt nặng cũng đau đớn nhiều.
+
+
+
+Và cách xử lý nối lại tinh xưa của chàng chủ yểu xuất phát từ ý nghĩ vị tha chứa chan yếu tố nhân đạo chủ nghĩa:
+
+
+
+Chừng xuân tơ liễu còn xanh
+
+Nghĩ rằng chưa thoát khỏi vành ải ân...
+
+
+
+Trong toàn bộ màn đoàn viên, Kim Trọng chỉ "vị kỷ " có một điều: mong mỏi người yêu thấu hiểu cho tấm lòng chung thủy của chàng:
+
+
+
+...Thương nhau sinh tử đã từng
+
+Gặp nhau còn chút bấy nhiêu là lình.
+
+...Bấy lâu đày biển mò kim
+
+Là nhiều vàng đá, phải tìm trăng hoa.
+
+
+
+Cho nên lời đùa cợt của Nguyễn Khuyến :
+
+
+
+Không trách chàng Kim đeo đẳng mãi,
+
+Khăng khăng vớt lấy mỗi phần đuôi.
+
+
+
+Có thể nói là lạc lãng đối với bản chất trong sáng của Kim Trọng. Đúng chăng, chỉ là với chàng Kim trong tác phẩm của Thanh Tâm tài nhân :
+
+
+
+"Kim Trọng vốn định bụng vỗ về âu yếm đến lúc tình nồng rồi sẽ đi đến một tham vọng khác, không dè Thúy Kiều đối với sự ân ái thì như keo sơn nhưng hễ nghe tới chuyện giao hoan thì lại cự tuyệt». Sau đó Thúy Kiều dọa sẽ tự tử, Kim Trọng phải thốt lên : « Té ra hiền thê không phải là đàn bà con gái mà chỉnh là một bậc hào kiệt. Nay nàng đã tự liệt mình vào liệt phụ nghìn xưa, thì Kim Trọng này không dám đòi hỏi xằng xiên gì nữa » (9).
+
+
+
+Kim Trọng của Nguyễn Du đáng yêu trong hàu hết mọi tình huống, đắm đuối nồng nàn đến mức "Xem trong âu yếm có chiều lả lơi » nhưng vẫn không sỗ sàng đáng ghét, khiêm nhường mà chẳng tự ty (Rằng nghe nhi tiếng cầm đài, Nước non nuống những lặng tai Chung Kỳ)... Kim Trọng màng một màu sắc hết sức lý tương và cũng hết sức nhân đạo. Nổi bật hơn cả là mối tình đắm say chung thủy, giàu tinh, chất vị tha, it màu sắc vị kỷ của chàng. Giai cấp phong kiến chỉ có nghĩa vụ không có tình yêu, chỉ có vị kỷ không có vị tha, nói gì đến bình đẳng và tôn trọng lẫn nhau trong quan niệm hôn nhân và tình ái. Trong xã hội ẩy, một tấm lòng, một tình yêu, một xử sự như Kim Trọng đem lại cho con ngựời niềm tin vào quan hệ chân chính giữa nam nữ thanh niên.
+
+
+
+Còn Thúy Kiều? "từ ngộ biến đến giờ » nàng đã mắt mát khá nhiều nhưng đồng thời đó vẫn là nàng Kiều của « những từ sen ngổ đào tơ» như Vũ Trinh (10) nói «nhất trinh tự như " - Kiều có một tâm hồn trong trắng thuộc về bản chất. Và vị tha cũng là một nét tính cách cơ bản cùa nàng'. Thúy Kiều của hiện thực khổ đau cũng là Thúy Kiều của lý tưởng đạo đức.
+
+
+
+Dưới hình thức khái niệm triết lý Nho giáo : Kinh và Quyền, Biến và Thường, Nguyễn Du đã chiêu tuyết » cho Thúy Kiều. Đây không phải là chữ Trinh cứng nhắc và cực đoan của Tống Nho, nhưng cũng chẳng phối là cái Quyền biến » tùy thời cơ hội chủ nghĩa của Nho gia hèn yếu, bất lực đứng trước các «tịnh huống thử thách lương tâm » kẻ sĩ. Càng không phải là chữ "Quyền » vụ lọi của chuột đực trong Trinh thử khỉ hắn ta thuyết lý về "Chữ Trinh linh động". Sự vận dụng linh hoạt những nguyên tắc đạo đức Nho gia:
+
+
+
+Có khi biến có khi thường
+
+Có quyền nào phải một dường chấp kinh.
+
+Như nàng lấy Hiền làm Trinh
+
+Bụi nào cho dục được mình ấy vay !
+
+
+
+Về thực chắt là một cái nhìn tiêu tiến, phi phong kiến : một người phụ nữ có tâm hồn trong trắng _vẫn bảo toàn được phẩm chất cao quý đó cho dù thể xác bị ô nhục. Phạm Quí Thích nói Kiều vẫn có thể nhìn thẳng vào người yêu không chút hổ thẹn"Băng tâm tự khả đối Kim lang») là cũng chính vi lẽ đó. Mặc dầu có điểm khác xa với Bạch Hoa, Ngọc Hoa, Hạnh Nguyên v.v... (thể xác bị ô nhục) Kiều vẫn là hình ảnh tượng trưng cho những tấm lòng như tuyết như băng của người phụ nữ Việt-nam xưa kia..- Cái nhìn động đầy tinh thần nhân đạo chủ nghĩa ấy đi ngược lại cái nhìn tĩnh, phi lý và bặt công của giai cấp phong kiến đối với chữ Trinh của người phụ nữ... Bằng cách xử lý vộ tư đơn giản của Thúy Vân, bằng lời lẽ có tinh có lý của Kim Trọng và bằng cả lời tự khẳng định của nhân vật chính (Chữ Trinh còn một chút này... Thân tàn gạn đạc khơi trong) Nguyễn Du đã xác nhận phẩm chất trong sạch của Thúy Kiều. Thúy Kiều không thề nối lại tình xưa vì nàng còn có một tấm lòng vị tha. Trước kia, nàng đã quy lỗi cho mình xâm phạm vào hạnh phúc của Hoạn Thư thì ngày nay Kiều cũng không thề chấp nhận kiều hạnh phúc «trai năm thê bảy thiếp » như Ờ Hoa tiên, Phạm Công Cúc Hoa v.v...
+
+Tóm lại, với màn "Tái hồi Kim Trọng", Nguyễn Du đã vạch rõ những sự thực chua xót của một con người tuy đã "cải mệnh » (Đoạn trường rút tên ra) nhưng hạnh phúc toàn vẹn đã bị trôi đi, đồng thời Nguyễn Du cũng vẫn đem đến cho chúng ta một niềm tin vào phẩm chất đẹp đẽ của con người.
+
+Thực chất của lối "kết thúc có hậu » là quan niệm « ở hiền gặp lành, ở ác gặp dữ» nhưng nội dung cụ thề và phương thức biểu hiện của quan niệm này cũng muộn màu muôn vẻ tùy theo bộ phận văn bọc (dân gian hay bác học »), tùy theo tác phẩm cụ (Phạm Tài Ngọc Hoa khác Quan âm Thị Kinh, Lâm tuyền kỳ ngộ hay Bích câu kỳ ngộ...). Đấy có thể là lý tưởng hạnh phúc mang mầu sắc siêu hình của tôn giáo và cũng có thể là lý tương hạnh phức chứa chan niềm vui trần tục... Con người lương thiện cỏ thề vươn đến hạnh phúc trên cơ sở đảo lộn trật tự phong kiến hay trong khuôn khố trật tự phong kiến... Riêng ở Truyện Kiều, màn «kết thúc cò hậu » cổ phần đã vượt khỏi khuôn khổ của truyện, Nguyễn Du không có đôi cảnh lãng mạn của nàng tiên huyền diệu, biến hóa nhà tranh thành điện ngọc, của ông bụt lành hiền đưa cao lương mỹ"vị thay thế cơm hàm cà thiu... Truyện Kiều-không có cái kết thúc bình dị nhưng đầy ý nghĩa lạc quan chiến đấu của một số truyện Nôm chịu ảnh hưởng của văn học dân gian như Phạm Tài Ngọc Hoa, Thạch Sanh, Tông Trán Các Hoa... nhưng Nguyễn Du cũng không hoàn toàn chấp nhận thứ hạnh, phúc bao gồm những phúc lộc, quan giai, quế hòe... Bên cạnh yếu tố lý tương ca ngợi phàm chất Kim Trọng, Thúy Kiều, nhạc khúc cuối cùng của kiệt tác Truyện Kiều
+
+
+
+ĐẶNG THANH LÊ
+
+Nguồn: http://www.nguyendu.com.vn/
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=9322&nhung-tu-lieu-quy-ve-dai-thi-hao-nguyen-du-qua-moc-ban-trieu-nguyen.html "Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn")
+
+### [Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn](?chitiet=9322&nhung-tu-lieu-quy-ve-dai-thi-hao-nguyen-du-qua-moc-ban-trieu-nguyen.html "Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn")
+
+  * [ ](?chitiet=7322&cu-nguyen-du-tung-sinh-song-o-vuon-an-hien-\(thua-thien-_-hue\)-.html "Cụ Nguyễn Du từng sinh sống ở vườn An Hiên \(Thừa Thiên - Huế\)?")
+
+### [Cụ Nguyễn Du từng sinh sống ở vườn An Hiên (Thừa Thiên - Huế)?](?chitiet=7322&cu-nguyen-du-tung-sinh-song-o-vuon-an-hien-\(thua-thien-_-hue\)-.html "Cụ Nguyễn Du từng sinh sống ở vườn An Hiên \(Thừa Thiên - Huế\)?")
+
+  * [ ](?chitiet=2313&tieng-viet-trong-truyen-kieu-_-lung-linh-huong-am-xu-nghe.html "Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ")
+
+### [Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ](?chitiet=2313&tieng-viet-trong-truyen-kieu-_-lung-linh-huong-am-xu-nghe.html "Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ")
+
+  * [ ](?chitiet=2311&mot-so-tu-dia-phuong-nghe-tinh-trong-truyen-kieu.html "Một số từ địa phương Nghệ Tĩnh trong truyện Kiều")
+
+### [Một số từ địa phương Nghệ Tĩnh trong truyện Kiều](?chitiet=2311&mot-so-tu-dia-phuong-nghe-tinh-trong-truyen-kieu.html "Một số từ địa phương Nghệ Tĩnh trong truyện Kiều")
+
+  * [ ](?chitiet=311&70-ky-luc-moi-phat-hien-trong-truyen-kieu.html "70 kỷ lục mới phát hiện trong Truyện Kiều")
+
+### [70 kỷ lục mới phát hiện trong Truyện Kiều](?chitiet=311&70-ky-luc-moi-phat-hien-trong-truyen-kieu.html "70 kỷ lục mới phát hiện trong Truyện Kiều")

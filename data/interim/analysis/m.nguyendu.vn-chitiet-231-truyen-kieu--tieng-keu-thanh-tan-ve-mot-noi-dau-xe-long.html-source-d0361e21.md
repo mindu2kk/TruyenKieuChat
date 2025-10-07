@@ -1,0 +1,274 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=231&truyen-kieu--tieng-keu-thanh-tan-ve-mot-n%E1%BB%97i-dau-xe-long.html -->
+
+* [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+
+# Truyện Kiều: Tiếng kêu thanh tân về một nỗi đau xé lòng
+
+27/06/2021
+
+HNTĐ
+
+##  Truyện Kiều là khúc bi ca về số phận bế tắc của những kiếp người tài hoa bạc mệnh trong xã hội cũ, nơi mà sinh mệnh là cỏ rác và đồng tiền xoay tròn trên lương tâm con người.
+
+Ở thi phẩm này, Nguyễn Du đã bày tỏ vô vàn niềm xót thương đối với phận nữ nhi bạc mệnh, đồng thời ông cũng gửi gắm một ước mơ về công lý nhưng cuối cùng tất cả chỉ còn là cái nhìn bế tắc.
+
+
+
+Truyện Kiều được dệt nên từ tấm lòng nhân đạo của văn nhân tài hoa bậc nhất nước Việt
+
+Nguyễn Du được biết đến như thiên tài thế kỷ của văn chương, đời văn huy hoàng đã ghi tạc tên tuổi ông vào dòng chảy lịch sử, những áng thơ mà đại thi hào viết ra dù trải qua tháng năm đằng đẵng vẫn luôn là ngọn lửa bập bùng cháy trong tim mỗi người con đất Việt.
+
+
+
+Truyện Kiều là kiệt tác lưu danh thiên cổ
+
+
+
+Văn chương bất hủ từ cổ chí kim đều viết bằng huyết lệ, điều làm nên sức sống bền vững ở thơ ca Nguyễn Du không chỉ là sự tài hoa trong các thủ pháp nghệ thuật mà còn nằm ở cảm xúc nhân văn ông đã gửi gắm trong từng câu từ.
+
+
+
+Chính những gian truân mà số phận cay nghiệt sắp đặt đã góp phần hun đúc nên tài năng lớn của thế kỷ, từ những sóng gió khắc nghiệt ấy đã đưa Nguyễn Du đến gần hơn với đời sống nhân dân, thấu cảm cho nỗi đau trăm họ để viết nên tiếng lòng của kiếp người cùng khổ.
+
+
+
+Mỗi tác phẩm mà nhà thơ viết ra đều chứa đựng những nỗi đau không thể thấu rõ, Truyện Kiều cũng không ngoại lệ, đây là thi phẩm lớn nhất mà Nguyễn Du đã dùng cả tấm lòng viết nên, vì vậy mới khiến độc giả cảm nhận được trong mỗi câu từ dường như có cả máu và nước mắt.
+
+
+
+“Tố Như tử dụng tâm đã khổ, tự sự đã khéo, tả tình đã hệt, đàm tình đã thiết, nếu không phải có con mắt trông thấu cả sáu cõi, tấm lòng nghĩ suốt cả nghìn đời thì tài nào có cái bút lực ấy?”
+
+
+
+– Mộng Liên Đường chủ nhân.
+
+
+
+Tấm lòng và tài năng của Nguyễn Du đã vì kiếp người cùng khổ hòa lại làm một, in lên dòng chảy lịch sử một áng thơ tuyệt tác mà đến muôn đời sau, năm tháng vẫn không tài nào bóp chết sức sống của thi phẩm ấy trong sự băng hoại của thời gian.
+
+
+
+Truyện Kiều luôn neo đậu vững chắc trong lòng người qua bao năm tháng
+
+
+
+Danh tác này còn có tên gọi khác là Đoạn trường tân thanh, đó là tiếng kêu thanh tân về một nỗi đau xé lòng của những phận người bạc mệnh còn vang vọng mãi đến hậu thế sau này với tên gọi đơn giản hơn là Truyện Kiều.
+
+
+
+Truyện Kiều là một viên ngọc quý không chút tì vết
+
+
+
+Thi phẩm được viết bằng chữ Nôm và ra đời trong khoảng đầu thế kỷ XIX sau khi Nguyễn Du đi sứ nhà Minh, Truyện Kiều được viết dựa trên theo tiểu thuyết Kim Vân Kiều truyện của Thanh Tâm Tài Nhân song bằng sự tài hoa của mình, nhà thơ đã đưa câu chuyện này lên một tầm cao mới.
+
+
+
+Từ thể loại tiểu thuyết, Nguyễn Du đã biến tấu thành thể thơ lục bát mang đậm phong vị dân tộc bằng tài tình của mình, những câu thơ nhịp nhàng nối tiếp nhau dệt nên một áng thơ bất hủ của văn học Việt.
+
+
+
+“Cảnh nào cảnh chẳng đeo sầu
+
+Người buồn cảnh có vui đâu bao giờ”
+
+
+
+– Truyện Kiều
+
+
+
+Đồng thời, tính cách của các nhân vật trong truyện cũng được cụ Nguyễn khắc họa rõ nét hơn so với với nguyên tác và tính nhân văn cũng được đề cao hơn.Truyện Kiều gồm 3254 câu thơ lục bát và được chia làm ba phần là Gặp gỡ và đính ước, Gia biến và lưu lạc, cuối cùng là Đoàn tụ.
+
+
+
+Tác phẩm xoay quanh cuộc đời của Vương Thúy Kiều, người phụ nữ tài sắc vẹn toàn nhưng lại bị xã hội cường quyền và tiền quyền bức đến cùng đường tuyệt lộ, nàng là biểu trưng cho phần lớn số phận của những người phụ nữ đương thời.
+
+
+
+“Đau đớn thay phận đàn bà
+
+Lời rằng bạc mệnh cũng là lời chung.”
+
+
+
+– Truyện Kiều
+
+
+
+Thi phẩm còn là bức tranh họa lại cuộc sống của xã hội thời bấy giờ, khi đạo đức chỉ là lớp vỏ rỗng để che đậy cho sự hủ lậu của nhân tính và đồng tiền luôn xoay tròn trên lương tâm con người, chính sự suy đồi ấy đã đẩy biết bao kiếp người vào cùng đường tuyệt lộ.
+
+
+
+Hiện thực là mảnh đất màu mỡ để văn học đắm mình mà thăng hoa, vậy nên dù đã qua hơn hai thế kỷ thì thực tại trong tác phẩm vẫn cuồn cuộn sức sống và trở thành cây đại thụ lớn phủ lên tấm lòng của độc giả.
+
+
+
+Tấm lòng nhân đạo của người nghệ sĩ đã làm nên một thi phẩm bất hủ
+
+
+
+Người đọc vừa căm ghét sự hủ lậu của xã hội đương thời vừa xót thương cho thân phận nổi trôi của người phụ nữ, từ đấy cũng thấu rõ hơn về cuộc sống lầm than của nhân dân ta tại thời điểm bấy giờ mà bày tỏ lòng cảm thông sâu sắc.
+
+
+
+Truyện Kiều là một tiếng đàn lạ tràn qua cả ranh giới của thời đại mà vọng về trong tâm tưởng của mỗi người con đất Việt.
+
+
+
+Thi phẩm để chúng ta biết rằng ông cha ta đã từng đi qua những năm tháng đau thương như thế vì sự mục ruỗng của một xã hội sớm đã suy vong nhưng chưa đủ chín mùi để chuyển sang giai đoạn mới.
+
+
+
+Đoạn trường tân thanh là một ước mơ và cũng là một cái nhìn bế tắc
+
+
+
+Truyện Kiều là câu chuyện xoay quanh về cuộc đời Vương Thúy Kiều, người phụ nữ tài sắc vẹn toàn nhưng chính vì thế mà phải đem cả tâm lẫn tình trả nợ cho mười lăm đoạn trường, ấy là số kiếp mà những kẻ tài hoa phải gánh chịu.
+
+
+
+“Lạ gì bỉ sắc tư phong
+
+Trời xanh quen thói má hồng đánh ghen.”
+
+
+
+– Truyện Kiều
+
+
+
+Ở Truyện Kiều, Nguyễn Du đã dùng tài năng của mình để xây dựng hình ảnh người phụ nữ một cách toàn mỹ nhất, ấy là cách để ông ngợi ca cho những con người tài sắc song cuối cùng cũng chính vì vẻ đẹp ấy đã đẩy các nàng vào bãi bể nương dâu.
+
+
+
+Nguyễn Du đã để lại cho nhân vật của mình lời tiên tri về một tương lai đầy sóng gió trong những phân đoạn đầu tiên, khi Thúy Kiều cùng hai em du xuân trở về và vô tình gặp phải mộ Đạm Tiên, một ca nhi nổi danh tài sắc nhưng giờ đây chỉ còn là nấm mộ vô chủ không người viếng thăm.
+
+
+
+Hình bóng Đạm Tiên đã phủ lên đời Kiều những năm tháng đau thương như vòng tuần hoàn không hồi kết của người phụ nữ bạc mệnh trong xã hội cũ, người này ngã xuống lại có người khác nối tiếp.
+
+
+
+Thúy Kiều đã từng mang trong mình tình yêu chân phương với Kim Trọng, yên ấm với Thúc Kì Tâm và đẹp đẽ với Từ Hải nhưng lại không có cuộc tình nào đơm hoa kết trái, hạnh phúc với nàng trong thời đại bấy giờ chỉ là một chiếc chăn hẹp.
+
+
+
+Nguyễn Du đã thổi hồn dân tộc vào từng câu từ trong thi phẩm
+
+
+
+Nàng đã lấy hiếu làm trinh, đem thân mình báo đáp công ơn phụ mẫu và cũng từ biệt đoạn tình cảm trong sáng kia để bước vào đời, làm một thân kỹ nữ để trả nợ đoạn trường.
+
+
+
+Trước khi dứt áo ra đi, Thúy Kiều đã nhờ Thúy Vân nối duyên với Kim Trọng, xem như trả hết nợ ân tình cho chàng nhưng cũng vì thế mà kéo theo một đời đau khổ trong thinh lặng của em gái.
+
+
+
+Những người phụ nữ xuất hiện trong Truyện Kiều đều mang trong mình nỗi đau khổ không ai thấu rõ, hạnh phúc với các nàng quá xa vời và bình yên chỉ còn là những giấc mộng không ngày trở thành hiện thực.
+
+
+
+Họ luôn mong mỏi sẽ có người hiểu cho nỗi lòng mình nhưng trong xã hội nam quyền ấy, liệu có ai sẽ chấp nhận thấu cảm cho những thân phận thấp bé như thế.
+
+
+
+Duy chỉ có Nguyễn Du, người ở gần bùn mà chẳng hôi tanh mùi bùn đã thay những kiếp sống bất hạnh mà lên tiếng giành quyền công bằng.
+
+
+
+Ông ngợi ca, cảm thông và hy vọng tất cả con người tài sắc ấy sẽ được hưởng một cuộc đời ấm no yên ổn nhưng cuối cùng mọi thứ chỉ là ước mơ trên trang giấy ngả vàng mà thôi.
+
+
+
+Kiệt tác Truyện Kiều mang đất nước dệt thành thơ
+
+
+
+Ở thi phẩm trác tuyệt này, dù có không ít lời khen về tấm lòng nhân đạo chủ nghĩa lớn của Nguyễn Du song cũng không thiếu ý kiến trái chiều về nội dung Truyện Kiều, đặt ở bối cảnh thời phong kiến, kỹ nữ vốn là tầng thấp hèn nhất của xã hội, vậy nên việc đại thi hào lên tiếng bênh vực cho số phận nàng Kiều đã làm nổi lên vô số tranh cãi.
+
+
+
+“Bạc mệnh chẳng lầm người tiết nghĩa
+
+Đoạn tường cho đáng kiếp tà dâm
+
+Bán mình trong bấy nhiêu năm
+
+Đố đem chữ hiếu mà lầm được ai
+
+Nghĩ đời mà ngán cho đời.”
+
+
+
+– Nguyễn Công Trứ
+
+
+
+Đồng thời, việc Nguyễn Du để Thúy Kiều báo oán Hoạn Thư đã trở thành chủ đề tranh luận gay gắt đối với cộng đồng ngày nay, bởi Kiều vốn là người thứ ba chen chân vào cuộc hôn nhân của tiểu thư nhà họ Hoạn song cuối cùng lại trở thành người đáng thương chịu oan khuất, mâu thuẫn này đã khiến không ít bạn đọc bất bình.
+
+
+
+Truyện Kiều là tấm gương lớn phản chiếu một quá khứ đầy đau thương của dân tộc
+
+
+
+Mặc dù về mặt nội dung Truyện Kiều vẫn còn một số mâu thuẫn gây tranh cãi nhưng xét về nghệ thuật, không ai có thể tìm được một lỗi sai nào ở kiệt tác này, rất nhiều lời bình phẩm xuất sắc đã được đưa ra từ giới phê bình văn học sau bao nghiên cứu về bút pháp nghệ thuật ở thi phẩm này.
+
+
+
+“Người đọc xưa nay vẫn xem Truyện Kiều như một hòn ngọc quý cơ hồ không thể thay đổi, thêm bớt một tí gì, như một tiếng đàn lạ gần như không một lần lỡ nhịp ngang cung.”
+
+
+
+– Hoài Thanh
+
+
+
+Truyện Kiều được viết nên từ những dòng thơ lục bát mang đậm hồn dân tộc bình dị nhưng lại hàm chứa rất nhiều tín hiệu thẩm mỹ tuyệt diệu qua thủ pháp nghệ thuật đặc sắc, bút pháp ước lệ tượng trưng tài tình và ngôn ngữ bác học trác tuyệt.
+
+
+
+Những dòng thơ ở Truyện Kiều đã bắt rễ từ lòng người và nở hoa nơi từ ngữ, mặc dù câu từ được gọt giũa rất kì công nhưng lại không màu mè và hoa mỹ, ngược lại còn khiến độc giả cảm nhận được vẻ dung dị ở con người và thiên nhiên Việt Nam qua mỗi phân đoạn.
+
+
+
+Giống như một đường chỉ tinh tế trên tấm lụa đào của nền văn học Việt, Truyện Kiều in đậm dấu ấn trong lòng người không chỉ bởi nội dung nhân đạo mà còn ở sự tài hoa của cụ Nguyễn Du, chính trái tim và tài năng ấy đã tạo nên một kiệt tác bất hủ giữ dòng chảy của thời gian.
+
+
+
+Truyện Kiều không chỉ vượt qua sự băng hoại của năm tháng mà còn bước ra khỏi trang sách, hòa mình với nhịp điệu cuộc sống của nhân dân qua những bài vịnh Kiều, bói Kiều hay lẫy Kiều, thi phẩm này đã trở thành món ăn tinh thần độc đáo của người dân đất Việt và là niềm tự hào cho thơ ca của mảnh đất con rồng cháu tiên mãi về sau.
+
+
+
+Diệu Uyển
+
+Nguồn: https://revelogue.com/
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=9322&nhung-tu-lieu-quy-ve-dai-thi-hao-nguyen-du-qua-moc-ban-trieu-nguyen.html "Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn")
+
+### [Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn](?chitiet=9322&nhung-tu-lieu-quy-ve-dai-thi-hao-nguyen-du-qua-moc-ban-trieu-nguyen.html "Những tư liệu quý về Đại thi hào Nguyễn Du qua mộc bản triều Nguyễn")
+
+  * [ ](?chitiet=7322&cu-nguyen-du-tung-sinh-song-o-vuon-an-hien-\(thua-thien-_-hue\)-.html "Cụ Nguyễn Du từng sinh sống ở vườn An Hiên \(Thừa Thiên - Huế\)?")
+
+### [Cụ Nguyễn Du từng sinh sống ở vườn An Hiên (Thừa Thiên - Huế)?](?chitiet=7322&cu-nguyen-du-tung-sinh-song-o-vuon-an-hien-\(thua-thien-_-hue\)-.html "Cụ Nguyễn Du từng sinh sống ở vườn An Hiên \(Thừa Thiên - Huế\)?")
+
+  * [ ](?chitiet=2313&tieng-viet-trong-truyen-kieu-_-lung-linh-huong-am-xu-nghe.html "Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ")
+
+### [Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ](?chitiet=2313&tieng-viet-trong-truyen-kieu-_-lung-linh-huong-am-xu-nghe.html "Tiếng Việt trong Truyện Kiều - Lung linh hương âm Xứ Nghệ")
+
+  * [ ](?chitiet=2311&mot-so-tu-dia-phuong-nghe-tinh-trong-truyen-kieu.html "Một số từ địa phương Nghệ Tĩnh trong truyện Kiều")
+
+### [Một số từ địa phương Nghệ Tĩnh trong truyện Kiều](?chitiet=2311&mot-so-tu-dia-phuong-nghe-tinh-trong-truyen-kieu.html "Một số từ địa phương Nghệ Tĩnh trong truyện Kiều")
+
+  * [ ](?chitiet=1315&-tai-hoi-kim-trong-_-uoc-mo-va-bi-kich.html)
+
+### [" Tái hồi Kim Trọng" - ước mơ và bi kịch](?chitiet=1315&-tai-hoi-kim-trong-_-uoc-mo-va-bi-kich.html)

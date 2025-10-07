@@ -1,0 +1,176 @@
+<!-- source: https://baotanglichsuquocgia.vn/vi/Articles/3098/18842/than-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html?utm_source=chatgpt.com -->
+
+Thứ Ba, 30/09/2025
+
+  * [](/vi)
+  * [](/en)
+  * [](/fr)
+
+[](/vi)
+
+# Bảo tàng Lịch sử Quốc gia
+
+### Vietnam National Museum of History
+
+## Thân thế và sự nghiệp của Đại thi hào Nguyễn Du (1765 -1820)
+
+  1. [Trang chủ](/vi)
+  2. [Nghiên cứu](/vi/Articles/3055/nghien-cuu)
+  3. [Nhân vật lịch sử](/vi/Articles/3098/nhan-vat-lich-su)
+
+ __07/12/2015 __14:34 __9430
+
+Điểm: 5/5 (2 đánh giá)
+
+Nhân kỷ niệm 250 năm ngày sinh của Đại thi hào Nguyễn Du - Danh nhân văn hóa thế giới (1765 - 2015), xin trân trọng giới thiệu về thân thế và sự nghiệp của Đại thi hào Nguyễn Du.
+
+Nguyễn Du tên chữ là Tố Như, hiệu là Thanh Hiên, sinh năm Ất Dậu (1765), niên hiệu Cảnh Hưng triều vua Lê Hiển Tông. Nơi sinh là phường Bích Câu, thành Thăng Long (Hà Nội). Lúc bấy giờ, cha là Nguyễn Nghiễm đang làm tể tướng. Bốn năm trước, người anh cùng mẹ Nguyễn Nễ cũng sinh tại đây. Mẹ đẻ của Nguyễn Du là Trần Thị Tần vợ thứ ba của Nguyễn Nghiễm. Bà là con gái thứ ba của một vị quan nhỏ coi việc sổ sách kế toán (chức Câu Kê) dưới trướng Nguyễn Nghiễm, người xã Hoa Thiều, huyện Đông Ngàn, tỉnh Bắc Ninh (nay thuộc xã Hương Mặc, huyện Từ Sơn). Bà Trần Thị Tần sinh năm Canh Thân (1740) và mất ngày mùng 6 tháng 7 năm Mậu Tuất (1778) thọ 39 tuổi. Năm đó Nguyễn Du mới 13 tuổi. Bà Trần Thị Tần thuộc dòng dõi Trần Phi Chiêu (1549 – 1623), ông đậu tiến sỹ năm Kỷ Sửu (1589) làm quan đến chức thượng thư bộ Hộ, kiêm Đô Ngự Sử, tước Diên Quận công. Bà là một phụ nữ nết na, thông minh, và xinh đẹp, lại sinh ra tại xứ Kinh Bắc vùng quê quan họ. Điều đó ảnh hưởng tốt đến hồn thơ Nguyễn Du từ những ngày còn bé.
+
+_Tượng đài Nguyễn Du trong Khu tưởng niệm._
+
+Theo tộc gia phả của dòng họ Nguyễn Tiên Điền, lên 3 tuổi, Nguyễn Du được tập ấm là Hoàng Tín Đại phu, xuất thân là Thành Môn Vệ Úy, tước Thu Nhạc bá. Với cái hàm ấy, Nguyễn Du đã đứng trong hàng sĩ tịch của triều đình nhà Lê, mặc dù chưa phải là một vị quan tại chức. Nguyễn Du tướng mạo khôi ngô. Lên 6 tuổi bắt đầu đi học chữ Hán, sách vở chỉ cần xem qua một lần là nhớ. Có lần Viện Quận công Hoàng Ngũ Phúc đến dinh thự nhà Nguyễn Nghiễm ở phường Bích Câu chơi. Trông thấy Nguyễn Du có tướng mạo phi thường, lấy làm quý mến bèn tặng ông một thanh Bảo Kiếm.
+
+Năm Tân Mão (1771), Nguyễn Nghiễm thôi chức tể tướng, về trí sĩ ở quê nhà, Nguyễn Du theo cha về quê. Tại bến Giang Đình, ông được chứng kiến cảnh vinh hoa của gia đình mình (sau này ông có nhắc lại trong bài thơ **_Giang Đình hữu cảm_**). Năm Bính Thân (1776) Nguyễn Nghiễm mất, lúc đó Nguyễn Du mới lên 11 tuổi. Trong hơn 10 năm ấy, Nguyễn Du sống bên cạnh cha không nhiều. Năm 1778, bà Trần Thị Tần lâm bệnh rồi mất. Nguyễn Du mồ côi cha mẹ.
+
+Nguyễn Nghiễm có 8 bà vợ, ngoài hai bà ở quê là Đặng Thị Dương (mẹ đẻ Nguyễn Khản) và Đặng Thị Tuyết (mẹ đẻ Nguyễn Điều). Các bà còn lại đều quê ở ngoài Bắc. Bà Trần Thị Tần ít hơn Nguyễn Nghiễm 32 tuổi, các bà khác còn trẻ hơn.
+
+_Đền thờ cụ Nguyễn Nghiễm - thân sinh ra Đại thi hào Nguyễn Du ở Tiên Điền._
+
+Cha mẹ mất, Nguyễn Du về sống với gia đình quan tể tướng tại Tiên Điền. Thủa ấy, dinh cư nhà Nguyễn Nghiễm rất nguy nga, đồ sộ. Thời gian này Nguyễn Du bước vào tuổi trưởng thành, việc ăn học đòi hỏi ngày một nhiều. Sau khi Nguyễn Nghiễm mất, gia cảnh không còn phong lưu như trước. Đời sống cùng việc học hành của Nguyễn Du không được như khi còn cha mẹ. Tuy vậy với địa vị và danh tiếng của gia tộc, Nguyễn Du vẫn là cậu Chiêu bảy được mọi người ngưỡng mộ. Quãng thời gian này, ngoài việc học hành, những khi rỗi rãi, lễ tết, Nguyễn Du thường cùng với bạn trai phường hát Tiên Điền vượt truông Hống đò Cài vào Trường Lưu hát ví và xướng họa thơ phú. Qua những lần đi hát, Nguyễn Du thực sự có cảm tình với o Uy, o Sạ. Đã có lần do mối thâm tình này mà gây ra bất hòa với trai Trường Lưu. Những năm sau này (sau 1786), khi từ Thái Bình về sống tại quê nhà, trở lại Trường Lưu gặp lại người xưa, gặp lại cảm xúc thời trai trẻ, Nguyễn Du đã viết bài **_Văn tế Trường Lưu Nhị Nữ_** nổi tiếng.
+
+Sau sự kiện _Kiêu binh nổi loạn_ (1872), dinh thự Nguyễn Khản tại phường Bích Câu bị đốt cháy. Hoàn cảnh khó khăn, Nguyễn Khản đành xin cho Nguyễn Du làm chức Chánh Phủ Hiệu tỉnh Thái Nguyên vào năm 1786. Cũng trong năm này, Nguyễn Du cưới bà Đoàn Thị Huệ con gái Đoàn Nguyễn Thục, đỗ Tiến sĩ năm Nhâm Thân (1752) đang giữ chức Ngự Sử tại triều, người xã An Hải, huyện Quỳnh Côi, Trấn Sơn Nam (nay là tỉnh Thái Bình).
+
+Năm Đinh Mùi (1787), Tây Sơn tiến quân ra Bắc lấy Bắc Hà. Lê Chiêu Thống chạy sang Trung Quốc, Nguyễn Du chạy theo vua xong không kịp, phải chạy về trốn ở quê vợ tại Thái Bình (ở nhờ nhà anh vợ Đoàn Nguyễn Tuấn). Ông tập hợp hào mục để tính chuyện phục quốc nhưng chí không thành.
+
+Mười năm lưu lạc ăn nhờ ở đậu quê vợ là những năm tháng cô đơn cùng cực của Nguyễn Du, đói không cơm ăn, rét không có áo mặc. Ông gọi quãng thời gian này là _“Mười năm gió bụi_ ” (Thập tải phong trần). Thường ngày ông làm thơ than thở cho cảnh ngộ của mình, chưa làm nên danh vọng gì đã rơi vào cảnh cùng khổ. Những năm này, gia cảnh nhà vợ chẳng có gì khá giả. Đoàn Nguyễn Thục đã mất, con trai lớn cũng mất, Nguyễn Du đành cõng người con trai còn lại là Nguyễn Tứ về quê cha đất tổ ở Tiên Điền. Trở lại quê, nhà cửa tan hoang, anh em lưu tán khắp nơi, ông đã phải thốt lên: “Hồng Lĩnh vô gia huynh đệ tán” (trở về Hồng Lĩnh gia đình không còn anh em lưu lạc khắp nơi).
+
+Tuy vậy, ở Tiên Điền, lúc này bà con thân thuộc, con cháu thì nhiều. Nguyễn Du được bà con gia tộc chia cho mảnh đất ở thôn Thuận Mỹ làm nhà ở. Do được sinh ra và sống trong hoàn cảnh nhung lụa của một gia đình quý tộc nên về quê Nguyễn Du chẳng biết làm gì ngoài đống sách vở thánh hiền. Đêm nằm nghe tiếng gió Bắc thổi qua liếp cửa, tiếng chuột chạy trên đống sách khiến ông càng thêm buồn. Để khuây khỏa Nguyễn Du thường cùng trai làng Tiên Điền lên núi Hồng Lĩnh săn hươu, nai, chồn, xạ hương…và xuống sông Lam bắt cá. Ông tự đặt cho mình biệt hiệu “Hồng Sơn liệp hộ” (Phường săn núi hồng) và “ Nam Hải điếu đồ” (Nhà chài bể Nam).
+
+Mùa đông năm Bính Thìn (1796), Nguyễn Du toan trốn vào Gia Định giúp Nguyễn Ánh. Việc bại lộ, tướng Tây Sơn là quận công Nguyễn Văn Thận bắt giam. May nhờ Nguyễn Văn Thận là bạn thân của anh ruột cùng mẹ là Nguyễn Nễ (hơn nữa cũng tiếc Nguyễn Du là người có tài) nên không nỡ giết, chỉ giam vài tháng rồi cho về. Trong bài My trung mạn hứng ông có ghi lại sự việc này: “ _Bốn bề giói bụi tình nhà việc nước mà rơi lệ_ _/_Mười tuần lao tù nỗi lòng thắc thỏm cái sống chết”.__
+
+Tháng 6 năm Nhâm Tuất (1802), Gia Long ra Bắc Hà có xuống chiếu cho các quan chức cũ của nhà Lê phải ra yết kiến. Nhân dịp đó, Nguyễn Du được vua truyền lệnh theo xa giá ra Bắc Thành và được dùng làm quan. Tháng 8 năm ấy được bổ làm tri huyện Phù Dung (thuộc Khoái Châu, Sơn Nam). Tháng 11 bổ làm tri phủ Thường Tín.
+
+Mùa đông năm Quý Hợi (1803) sứ nhà Thanh phong sắc cho vua Gia Long. Nguyễn Du được cử cùng Tri phủ Thượng Hồng là Lý Trần Chuyên; tri phủ Thiên Trường là Ngô Nguyễn Viên và tri phủ Tiên Hưng là Trần Lân đi Trấn Nam Quan (Hữu Nghị quan ngày nay) nghênh tiếp sứ thần.
+
+Mùa thu năm Giáp Tý (1804) Nguyễn Du lấy cớ bị bệnh xin từ chức về quê. Con đường làm quan với nhà Nguyễn đang hanh thông, nhưng ông vẫn thấy không mặn mà với triều đại này. Về quê chưa được bao lâu thì vua Gia Long có chỉ gọi ông vào Kinh Đô. Mùa xuân năm Ất Sửu (1805) được thăng Đông Các đại học sĩ, tước Du Đức hầu. Đây là một ân sủng lớn mà triều đình giành cho Nguyễn Du. Bởi Nguyễn Du chỉ đỗ Tam Trường (Tú tài) mà thời đó phải đỗ Hương cống (Cử nhân) thì mới được bổ làm quan. Sở dĩ triều đình nhà Nguyễn phong đặc cách cho Nguyễn Du như vậy vì: trước hết Nguyễn Du là một người có tài, hơn nữa ông lại xuất thân trong một gia đình khoa bảng lỗi lạc, một thời gian dài là dường cột của triều đình nhà Lê. Trọng dụng những người như Nguyễn Du có thể tranh thủ được sĩ phu Bắc Hà.
+
+Tuy ra làm quan to với nhà Nguyễn, nhưng Nguyễn Du chẳng lấy làm vui mà lại thêm buồn. Buồn vì thời thế đã thay đổi, lại buồn cho thân phận mình. “Nghĩ mình phận chẳng ra gì”. Những đêm mưa rả rích ở xứ Huế, một mình nhìn về phía Bắc Đào Ngang lòng càng thêm đau xót. Nhà nghèo lại đông con, phải chịu cảnh đói rách:” _T _hập khẩu đề cơ Hoành Lĩnh bắc (Mười miệng đói đang kêu ở Đèo Ngang).__
+
+Tháng 9 năm Đinh Mão (1807), được bổ chức giám khảo trường thi Hương ở Hải Dương. Xong việc, ông xin nghỉ về quê, được vua chấp thuận. Đến mùa Hạ năm Kỷ Tị (1809) vua lại có chỉ bổ ông giữ chức Cai Bạ tỉnh Quảng Bình.
+
+Ông lại buồn thêm cho cảnh cá chậu chim lồng của mình. Lòng luôn hướng núi Hồng, nhớ những buổi đi săn nai, săn hươu, càng muốn được sống cảnh thanh nhàn nơi rừng núi. Vì thế, trong mười chín năm làm quan cho triều Nguyễn, ông sống âm thầm, lặng lẽ, không tấu trình điều gì, chỉ có vâng dạ. Đến nỗi vua Gia Long đã trách cứ Nguyễn Du: _“Nhà nước dùng người, cứ ai hiền tài thì dùng không phân biệt gì Nam với Bắc cả. Nhà ngươi đã làm quan đến chức á Khanh, biết việc gì phải nói để tỏ cái chức trách của mình, có lễ đâu cứ rụt rè sợ hãi, chỉ vâng vâng, dạ dạ hay sao?”_ **(Đại Nam chính biên liệt truyện**)**.**
+
+Những năm làm Cai Bạ tỉnh Quảng Bình, phàm những việc trong hạt như: lính tráng, dân sự, kiện thưa, tiền nong, lương thực và các hạng thuế, ông đều bàn bạc thương thuyết với các quan lưu thư ký mục để thi hành. Nguyễn Du giữ chức Cai Bạ 4 năm, chính sự giản dị không cần tiếng tăm nên được sỹ phu và nhân dân yêu mến. Năm 1811, nghe tin trấn Nghệ An bị hạn hán mất mùa, dân đói kém, ông viết thư gửi Hiệp Trấn Nghệ An Ngô Nhân Tĩnh xin miễn thuế cho dân Nghệ An năm đó và làm thơ cảm tạ: “ _Xa nhìn Hồng Lĩnh ngôi sao đức_ _/_Nâng chén mừng quê khách dặm ngàn”.__
+
+Cùng năm đó, xảy ra vụ án Đặng Trần Thương, Nguyễn Gia Cát và Vũ Quý Đình làm 500 đạo sắc giả bán lấy tiền, càng làm cho Nguyễn Du thêm chán cảnh quan trường, nơi đầy rẫy những kẻ xu thời trục lợi, chỉ thích vơ vét tiền bạc. Đến tháng 9 năm Nhâm Thân (1812) ông xin tạm nghỉ hai tháng về quê xây mộ cho anh là Nguyễn Nễ.
+
+Tháng hai năm Quý Dậu (1813) có chỉ triệu ông về Kinh, thăng hàm Cần Chánh Đại học sĩ, rồi cử đi sứ Trung Quốc với tư cách là Tuế Cống Chánh sứ. Hai phó sứ giúp việc là Thiêm Sự Bộ Lại Trần Văn Đại và Nguyễn Văn Phong.
+
+Trên đường đi sứ sang Trung Quốc, Nguyễn Du lại có dịp trở lại Thăng Long. Bạn bè ở Thăng Long mở tiệc đưa tiễn ở dinh Tuyên phủ, có gọi mấy chục nữ nhạc đến giúp vui. Trong đám nữ nhạc ông nhận ra một người mà 20 năm trước, khi ông từ Thái Bình lên thăm anh là Nguyễn Nễ đã hát cho quân Tây Sơn nghe. Bây giờ dung nhan tiều tụy, ông chạnh lòng nghĩ đến việc thế sự đổi thay, buồn bã thốt lên: “Than ôi! Sao người ấy đến nỗi thế? Tôi bồi hồi không yên, ngẩng lên cúi xuống, ngậm ngùi cho cảnh xưa nay”. Lòng cảm thương vô hạn, ông đã gửi vào bài thơ **_Long thành cầm giả ca._** Ngày 6 tháng 2 năm 1813, đoàn sứ bộ qua ải Nam Quan, đến ngày 4 tháng 10 thì đến Bắc Kinh. Trong thời gian đi sứ, ngoài sứ mệnh bang giao, mỗi khi đi qua đền chùa, các danh thắng nổi tiếng của Trung Quốc, Nguyễn Du thường ghé thăm và làm thơ. Ông ca ngợi Hạng Vũ, Văn Thiên Trường, Tỷ Can… qua sông Mịch La nơi Khuất Nguyên tự tử, Nguyễn Du làm bài thơ **_Phản chiêu hồn_** khuyên Khuất Nguyên đừng trở về dương gian xấu xa, đầy tội ác. Qua tượng vợ chồng Tần Cối, ông chê trách Tần Cối nghe vợ giết trung thần làm Hán gian cho ngoại bang. Đến thăm đền thờ Tiểu Thanh ở Hàng Châu, tỉnh Triết Giang, người con gái tài sắc bạc mệnh, Nguyễn Du làm thơ khóc Tiểu Thanh, ngậm ngùi nghĩ đến thân phận: _“Bất tri tam bách dư niên hậu_ _/_Thiên hạ thùy nhân khấp Tố Như”_ _(Không biết ba trăm năm lẻ nữa_ / _Thiên hạ có ai khóc Tố Như không).__
+
+____
+
+____
+
+_Bằng chứng nhận của Tổ chức Liên minh kỷ lục thế giới năm 2015 cấp cho tác phẩm Truyện Kiều của Đại thi hào Nguyễn Du._
+
+Tháng 4 năm Giáp Tuất (1814) Nguyễn Du trở về nước và có tập thơ **_Bắc hành tạp lục_**. Mùa hạ năm Ất Hợi (1815) Nguyễn Du được phong chức Hữu Tam Tri Bộ Lễ, tước Du Đức hầu (do đó người xưa thường gọi ông là Quan Tham Thúy Kiều)
+
+năm Kỷ Mão (1819) Nguyễn Du được cử làm Đề Điệu trường thi Quảng Nam, ông dâng biểu xin nghỉ được nhà vua chuẩn y. Tháng 8 năm Canh Thìn (1820) vua Gia Long mất, Minh Mạng lên ngôi, có lệnh sai Nguyễn Du đi làm Chánh sứ sang Trung Quốc cầu phong, nhưng ông chưa kịp đi thì mất tại Kinh thành Huế vào ngày 10 tháng 8 niên hiệu Minh Mạng năm đầu (dương lịch 16/9/1820) hưởng thọ 55 tuổi. Sách **_Đại Nam chính biên liệt truyện_** chép: _“Khi bệnh nặng không chịu uống thuốc, bảo người nhà sờ tay chân, nói đã lạnh rồi, ông bảo tốt, nói xong rồi mất không trăn trối lại điều gì về sau”_. Nguyễn Du chết do dịch tả, trận dịch này bắt đầu từ Xiêm La, Chân Lạp rồi lây sang nước ta. Sử nhà Nguyễn chép: _“Vào khoảng tháng 7, tháng 8, bệnh dịch phát sinh từ các tỉnh Hà Tiên, Định Tường rồi lây lan ra khắp nước đến tận Bắc Thành, người chết không biết bao nhiêu mà kể. Thành thị thôn quê đều náo động”._
+
+__
+
+__
+
+_Lễ kỷ niệm 250 năm ngày sinh Đại thi hào Nguyễn Du tại Hà Tĩnh ngày 5-12-2015._
+
+Sự nghiệp văn chương của ông đã để lại cho hậu thế gồm: Thơ chữ Hán tiêu biểu có: **_Thanh Hiên Thi Tập; Nam Trung Tạp Ngâm; Bắc Hành Tạp Lục; Lê Quý kỉ sự_****.** Những tác phẩm bằng chữ Hán của Nguyễn Du rất nhiều, nhưng mãi đến năm 1959 mới được ba nhà nho là: Bùi Kỷ, Phan Võ và Nguyễn Khắc Hanh sưu tầm, phiên dịch, chú thích và giới thiệu tập: Thơ chữ Hán Nguyễn Du (NXB Văn hóa, 1959) chỉ gồm có 102 bài. Đến năm 1965 NXB Văn học đã ra Thơ chữ Hán Nguyễn Du tập mới do Lê Thước và Trương Chính sưu tầm, chú thích, phiên dịch, sắp xếp, gồm 249 bài như sau:
+
+Thanh Hiên thi tập còn gọi là Thanh Hiền tiền hậu tập (Tập thơ của Thanh Hiên) gồm 78 bài thơ trong giai đoạn 1786 - 1804, gồm 10 năm gió bụi, ông sống ở Thái Bình quê vợ, 6 năm trở lại nhà dưới chân núi Hồng, và 2 năm làm chi huyện ở huyện Bắc Hà. Tập thơ là các bài viết chủ yếu trong những năm tháng trước khi làm quan nhà Nguyễn.
+Nam trung tạp ngâm (Ngâm nga lặt vặt lúc ở miền Nam) gồm 40 bài, giai đoạn 1805 - 1812, ông được thăng hàm Đông các đại học sĩ, làm quan ở Kinh Đô 5 năm và làm cai bạ ở Quảng Bình 3 năm. Bắc hành tạp lục (Ghi chép linh tinh trong chuyến đi sang phương Bắc) gồm 131 bài thơ, giai đoạn 1813 - 1814, viết trong chuyến đi sứ sang Trung Quốc.
+
+_Nhà thờ Nguyễn Du ở Tiên Điền có 4 chữ "Địa - linh - nhân - kiệt”._
+
+Thơ chữ Quốc Ngữ (chữ Nôm): có các tập tiêu biểu như: **_Văn tế Thập loại chúng sinh (Văn chiêu hồn); Văn Tế Trường Lưu nhị nữ_****.** Và vĩ đại nhất là **_tập Đoạn trường Tân Thanh_** mà nhân dân ta thường gọi là **_Truyện Kiều_****.** _Đoạn trường tân thanh_ còn có tên gọi khác là **_Kim Vân Kiều truyện_** , (Tiếng kêu mới về nỗi đau đứt ruột. Tên phổ biến là Truyện Kiều), được viết bằng chữ Nôm, gồm 3.254 câu thơ theo thể lục bát. Nội dung của truyện dựa theo tác phẩm Kim Vân Kiều truyện của Thanh Tâm Tài Nhân, Trung Quốc. Nội dung chính của truyện xoay quanh quãng đời lưu lạc sau khi bán mình chuộc cha của Thúy Kiều, nhân vật chính trong truyện, một cô gái có tài sắc. Về thời điểm sáng tác, Từ điển văn học (bộ mới) ghi: "Có thuyết cho rằng Nguyễn Du viết ra sau khi ông đi sứ Trung Quốc (1814-1820), có thuyết nói ông viết trước khi đi sứ, có thể vào khoảng thời gian làm Cai bạ ở Quảng Bình (1804-1809). Thuyết sau được nhiều người chấp nhận hơn”.
+
+Văn chiêu hồn (tức Văn tế thập loại chúng sinh, dịch nghĩa: Văn tế mười loại chúng sinh), còn có tên gọi khác là Văn chiêu hồn, Văn tế chiêu hồn. Tác phẩm hiện chưa rõ thời điểm sáng tác. Trong văn bản do Đàm Quang Thiện hiệu chú có dẫn lại ý của ông Trần Thanh Mại trên “Đông Dương tuần báo” năm 1939, thì Nguyễn Du viết bài văn tế này sau một mùa dịch khủng khiếp làm hằng triệu người chết, khắp non sông đất nước âm khí nặng nề, và ở khắp các chùa, người ta đều lập đàn giải thoát để cầu siêu cho hàng triệu linh hồn. Ông Hoàng Xuân Hãn cho rằng có lẽ Nguyễn Du viết Văn chiêu hồn trước cả Truyện Kiều, khi ông còn làm cai bạ ở Quảng Bình (1802 - 1812). Tác phẩm được làm theo thể song thất lục bát, gồm 184 câu thơ chữ Nôm. Thác lời trai phường nón, 48 câu, được viết bằng thể lục bát. Nội dung là thay lời anh con trai phường nón làm thơ tỏ tình với cô gái phường vải. Văn tế sống Trường Lưu Nhị nữ, 98 câu, viết theo lối văn tế, để bày tỏ nỗi uất hận vì mối tình với hai cô gái phường vải khác. Với những đóng góp trên Nguyễn Du xứng đáng là Đại Thi Hào của dân tộc.
+
+**Minh Vượng**
+
+_Nguồn:_
+
+-“Họ Nguyễn Tiên Điền và khu Di tích Nguyễn Du”, Đinh Sỹ Hồng, Ban quản lý khu di tích Nguyễn Du – NXB Nghệ An- 2005.
+
+\- Báo Hà Tĩnh , Web Nguyễn Du.
+
+Bảo tàng Lịch sử quốc gia
+
+* * *
+
+Chia sẻ: [__](https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbaotanglichsuquocgia.vn%2fvi%2fArticles%2f3098%2f18842%2fthan-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html%3futm_source%3dchatgpt.com "Facebook")[__](https://twitter.com/intent/tweet?text=Th%c3%a2n+th%e1%ba%bf+v%c3%a0+s%e1%bb%b1+nghi%e1%bb%87p+c%e1%bb%a7a+%c4%90%e1%ba%a1i+thi+h%c3%a0o+Nguy%e1%bb%85n+Du+\(1765+-1820\)&url=https%3a%2f%2fbaotanglichsuquocgia.vn%2fvi%2fArticles%2f3098%2f18842%2fthan-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html%3futm_source%3dchatgpt.com "Twitter")[__](https://plus.google.com/share?url=https%3a%2f%2fbaotanglichsuquocgia.vn%2fvi%2fArticles%2f3098%2f18842%2fthan-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html%3futm_source%3dchatgpt.com "Google+")[__](http://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbaotanglichsuquocgia.vn%2fvi%2fArticles%2f3098%2f18842%2fthan-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html%3futm_source%3dchatgpt.com&title=Th%c3%a2n+th%e1%ba%bf+v%c3%a0+s%e1%bb%b1+nghi%e1%bb%87p+c%e1%bb%a7a+%c4%90%e1%ba%a1i+thi+h%c3%a0o+Nguy%e1%bb%85n+Du+\(1765+-1820\)&summary= "LinkedIn")[__](http://www.stumbleupon.com/submit?url=https%3a%2f%2fbaotanglichsuquocgia.vn%2fvi%2fArticles%2f3098%2f18842%2fthan-the-va-su-nghiep-cua-djai-thi-hao-nguyen-du-1765-1820.html%3futm_source%3dchatgpt.com&title=Th%c3%a2n+th%e1%ba%bf+v%c3%a0+s%e1%bb%b1+nghi%e1%bb%87p+c%e1%bb%a7a+%c4%90%e1%ba%a1i+thi+h%c3%a0o+Nguy%e1%bb%85n+Du+\(1765+-1820\) "StumbleUpon")
+
+## Bài nổi bật
+
+#### [Nhà văn, nhà viết kịch Hoàng Công Khanh (1922-2010)](/vi/Articles/3098/70890/nha-van-nha-viet-kich-hoang-cong-khanh-1922-2010.html)
+
+  * 08/07/2019 14:36
+  *  __5860
+
+Duyên nghiệp sử sách cho tôi nhiều dịp may hiếm có, ví như bỗng một ngày, tôi được gặp nhà văn, nhà viết kịch Hoàng Công Khanh ở tọa đàm về cuộc đấu tranh của những người yêu nước và cộng sản ở nhà tù Sơn La do cụ Nguyễn Văn Trân tổ chức vào hè năm 2007. Không thể hình dung được ông nhà văn, nhà viết kịch nổi tiếng, dáng cao manh mảnh, đôi mắt tinh anh, lại đã từng bị tù ở Sơn La cùng với bí thư chi bộ nhà tù Trần Huy Liệu.
+
+[__](/vi/Articles/3098/70841/mot-tri-thuc-tay-hoc-tieu-bieu-giao-su-le-xuan-phuong-1904-1989.html)
+
+### [Một trí thức Tây học tiêu biểu - Giáo sư Lê Xuân Phương (1904-1989)](/vi/Articles/3098/70841/mot-tri-thuc-tay-hoc-tieu-bieu-giao-su-le-xuan-phuong-1904-1989.html)
+
+[__](/vi/Articles/3098/69608/can-bo-djang-vien-chung-ta-can-djem-nhung-gi-tot-djep-nhat-cua-minh-djong-gop-cho-su-nghiep-cach-mang-su-nghiep-cua-djang.html)
+
+### [“ Cán bộ đảng viên chúng ta cần đem những gì tốt đẹp nhất của mình đóng góp cho sự nghiệp cách mạng, sự nghiệp của Đảng”](/vi/Articles/3098/69608/can-bo-djang-vien-chung-ta-can-djem-nhung-gi-tot-djep-nhat-cua-minh-djong-gop-cho-su-nghiep-cach-mang-su-nghiep-cua-djang.html)
+
+[ __](/vi/Articles/3098/69568/pho-bang-hoang-tang-bi-1883-1939-nha-yeu-nuoc-nhiet-thanh-vi-tuc-nho-uyen-tham.html)
+
+### [Phó bảng Hoàng Tăng Bí (1883-1939) - “nhà yêu nước nhiệt thành, vị túc nho uyên thâm”](/vi/Articles/3098/69568/pho-bang-hoang-tang-bi-1883-1939-nha-yeu-nuoc-nhiet-thanh-vi-tuc-nho-uyen-tham.html)
+
+## Bài viết khác
+
+#### [Cụ Phan Kế Toại, Ủy viên Hội đồng Quốc phòng tối cao nước Việt Nam DCCH](/vi/Articles/3098/18792/cu-phan-ke-toai-uy-vien-hoi-djong-quoc-phong-toi-cao-nuoc-viet-nam-dcch.html)
+
+  * 18/11/2015 10:49
+  *  __4463
+
+Trong căn phòng nhỏ ở số nhà 72 Thợ Nhuộm, Hà Nội bộn bề tranh, màu, toan… hoạ sĩ Phan Kế An cho tôi xem những tư liệu về người Cha thân yêu của mình - nhân sĩ yêu nước Phan Kế Toại. Và tôi thật bất ngờ khi được biết cụ đã từng được Chủ tịch Hồ Chí Minh giao phó trọng trách Uỷ viên Hội đồng Quốc phòng tối cao đầu tiên của nước Việt Nam Dân chủ Cộng hòa (VNDCCH).
+
+[__](/vi/Articles/3098/18730/djoi-djieu-ve-hoang-thai-hau-tu-du.html)
+
+### [Đôi điều về Hoàng Thái hậu Từ Dũ](/vi/Articles/3098/18730/djoi-djieu-ve-hoang-thai-hau-tu-du.html)
+
+[ __](/vi/Articles/3098/18716/vai-tro-cua-djong-chi-truong-chinh-trong-thanh-cong-cua-cach-mang-thang-tam-1945.html)
+
+### [Vai trò của đồng chí Trường Chinh trong thành công của Cách mạng tháng Tám 1945](/vi/Articles/3098/18716/vai-tro-cua-djong-chi-truong-chinh-trong-thanh-cong-cua-cach-mang-thang-tam-1945.html)
+
+[ __](/vi/Articles/3098/18643/djo-djoc-djong-hau-djang-tien-djong.html)
+
+### [Đô Đốc Đông Hầu Đặng Tiến Đông](/vi/Articles/3098/18643/djo-djoc-djong-hau-djang-tien-djong.html)
+
+[ __](/vi/Articles/3098/18629/chieu-van-vuong-tran-nhat-duat.html)
+
+### [Chiêu Văn Vương Trần Nhật Duật](/vi/Articles/3098/18629/chieu-van-vuong-tran-nhat-duat.html)
+
+[ __](/vi/Articles/3098/18575/ca-gia-djinh-hi-sinh-cho-su-nghiep-canh-tan-djat-nuoc.html)
+
+### [Cả gia đình hi sinh cho sự nghiệp canh tân đất nước](/vi/Articles/3098/18575/ca-gia-djinh-hi-sinh-cho-su-nghiep-canh-tan-djat-nuoc.html)
+
+[ __](/vi/Articles/3098/18541/giao-su-bac-si-tran-huu-tuoc-1913-1983-nguoi-tri-thuc-tieu-bieu.html)
+
+### [Giáo sư - Bác sĩ Trần Hữu Tước (1913 - 1983) - Người trí thức tiêu biểu](/vi/Articles/3098/18541/giao-su-bac-si-tran-huu-tuoc-1913-1983-nguoi-tri-thuc-tieu-bieu.html)
+
+[ __](/vi/Articles/3098/18512/ton-djuc-thang-mot-con-nguoi-binh-thuong-vi-djai.html)
+
+### [Tôn Đức Thắng - Một con người bình thường - vĩ đại](/vi/Articles/3098/18512/ton-djuc-thang-mot-con-nguoi-binh-thuong-vi-djai.html)
+
+[ __](/vi/Articles/3098/18434/djong-chi-quan-xuan-nam-nguoi-djong-gop-tich-cuc-cho-cuoc-mit-tinh-tai-quang-truong-nha-hat-lon-ngay-17-8-1945.html)
+
+### [Đồng chí Quản Xuân Nam, người đóng góp tích cực cho cuộc mít tinh tại Quảng trường Nhà hát Lớn ngày 17-8-1945](/vi/Articles/3098/18434/djong-chi-quan-xuan-nam-nguoi-djong-gop-tich-cuc-cho-cuoc-mit-tinh-tai-quang-truong-nha-hat-lon-ngay-17-8-1945.html)
+
+[ __](/vi/Articles/3098/18386/djinh-liet-mot-danh-tuong-cong-than-khai-quoc-nha-le-the-ky-xv-1400-1471.html)
+
+### [Đinh Liệt: một danh tướng công thần khai quốc nhà Lê thế kỷ XV (1400-1471)](/vi/Articles/3098/18386/djinh-liet-mot-danh-tuong-cong-than-khai-quoc-nha-le-the-ky-xv-1400-1471.html)

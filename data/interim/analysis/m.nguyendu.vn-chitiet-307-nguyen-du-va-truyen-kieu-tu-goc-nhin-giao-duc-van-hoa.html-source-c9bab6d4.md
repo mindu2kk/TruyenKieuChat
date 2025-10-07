@@ -1,0 +1,478 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=307&nguyen-du-va-truyen-kieu-tu-goc-nhin-giao-duc-van-hoa.html -->
+
+* [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+
+# Nguyễn Du và truyện Kiều từ góc nhìn giáo dục văn hoá
+
+01/03/2022
+
+HNTĐ
+
+##  Giải mã ngôn ngữ trong Truyện Kiều người đọc sẽ cảm nhận, thụ hưởng và khai thác được các giá trị văn hoá đặc sắc nhất của người Việt mà Nguyễn Du đã kí thác trong đứa con tinh thần của mình. Đó là các giá trị làm nên hồn cốt Việt, không thể trộn lẫn, bao gồm: giá trị triết học, giá trị luân lí, giá trị xã hội, giá trị tôn giáo, giá trị văn chương…
+
+TS. Nguyễn Thị Quế Anh
+
+
+
+Đại học Văn hoá Hà Nội
+
+
+
+
+
+1\. Nguyễn Du và Truyện Kiều từ góc nhìn giáo dục
+
+
+
+Nguyễn Du (1765 - 1820) có tên chữ Tố Như, hiệu Thanh Hiên, biệt hiệu là Hồng Sơn lạp hộ, người xã Tiên Điền, huyện Nghi Xuân, tỉnh Nghệ Tĩnh (Hà Tĩnh). Ngay từ nhỏ, Nguyễn Du đã nổi tiếng thông minh, đĩnh ngộ, sớm bộc lộ tài năng sáng tạo văn chương. Kế thừa truyền thống của một gia đình đại quý tộc, nhiều đời làm quan và có nhiều người sáng tác văn chương, kết hợp với những trải nghiệm cuộc đời từng sống sung túc cũng như từng nếm trải thăng trầm, bôn ba vất vả, rồi trải nghiệm của lần đi sứ Trung Quốc, Nguyễn Du đã hoàn thiện và nâng tầm khái quát trong tư tưởng về xã hội và thân phận con người trong các sáng tác văn chương.
+
+
+
+Có thể nói, Nguyễn Du và những tác phẩm văn chương của Nguyễn Du được hình thành không chỉ từ học vấn Nho giáo kết hợp hài hoà với các tri thức văn hoá dân gian; từ bối cảnh xã hội hết sức phức tạp Nguyễn Du từng trải nghiệm trong cuộc đời mà dường như còn được hình thành từ những yếu tố vũ trụ siêu phàm, từ một khoảnh khắc loé sáng kết tinh trầm tích văn hoá của bao số phận con người, của dòng đời, của cả xã hội phong kiến Việt Nam thời đó.
+
+
+
+Nguyễn Du để lại cho hậu thế vốn liếng văn chương gồm ba tập thơ chữ Hán với 249 bài: Thanh Hiên thi tập, Nam trung tạp ngâm và Bắc hành tạp lục; và những sáng tác bằng chữ Nôm tiêu biểu: Văn tế thập loại chúng sinh (Văn chiêu hồn), Văn tế sống hai cô gái Trường Lưu, Thác lời trai Phường Nón và Truyện Kiều (Đoạn trường tân thanh). Toàn bộ các tác phẩm của Nguyễn Du đều chứa chan tình yêu thương đối với con người, đặc biệt là người phụ nữ.
+
+
+
+Truyện Kiều được Nguyễn Du sáng tác dựa trên cốt truyện Kim Vân Kiều truyện của Thanh Tâm Tài Nhân – một tiểu thuyết chương hồi bằng văn xuôi của Trung Quốc. Khi sáng tác, Nguyễn Du đặt tên tác phẩm là Đoạn trường tân thanh với ý nghĩa: tác phẩm là tiếng nói mới về một nỗi đau đứt ruột. Tuy bám sát Kim Vân Kiều truyện từ cốt truyện cho đến những nhân vật, những tình tiết, những biễn nhưng Nguyễn Du đã tạo nên cái đặc sắc, khác biệt cho Truyện Kiều của mình bằng tài hoa của một thiên tài ngôn ngữ; tái tạo, bổ sung và làm mới Kim Vân Kiều của Thanh Tâm Tài Nhân bằng thể thơ lục bát của dân tộc Việt Nam. Nguyễn Du thêm bớt vào cốt truyện cũ, nền của bức tranh cũ độ đậm nhạt, sáng tối khác biệt, tạo ra một thế giới nhân vật vừa đa dạng, rõ nét, vừa mới mẻ đến ngỡ ngàng. Tài năng khắc hoạ tính cách nhân vât, nghệ thuật dẫn truyện, sự tinh tế trong ngôn ngữ văn chương của nghệ sĩ thiên tài Nguyễn Du đã nâng thể loại truyện thơ Nôm Việt Nam lên đỉnh cao chói lọi trong văn đàn thi ca trung đại. Truyện Kiều – tiếng nói mới về một nỗi đau đứt ruột cho người đọc thấy những suy tư, trăn trở, cảm thông, chia sẻ của Nguyễn Du về số phận con người và cuộc đời. Vì thế, Truyện Kiều của Nguyễn Du có sức sống mãnh liệt và chiều sâu trí tuệ mà nguyên tác của Thanh Tâm Tài Nhân không thể có được.
+
+
+
+
+
+Với 3.254 câu thơ lục bát, Truyện Kiều là câu chuyện kể về người con gái bất hạnh Vương Thuý Kiều. Tuy xuất thân trong một gia đình bình thường nhưng Vương Thuý Kiều lại vừa có tài, vừa có sắc. Lớn lên, nàng yêu chàng trai Kim Trọng hào hoa, phong nhã. Tai hoạ bất ngờ ập tới: cha và em trai bị bắt, bị đánh đập, nhà cửa bị cướp sạch sẽ, tan hoang. Để cứu gia đình khỏi cơn nguy khốn, Thuý Kiều, không còn cách nào khác, phải bán mình lấy tiền chuộc cha và em. Từ đó, cuộc đời Thuý Kiều trải qua bao gian truân, tai hoạ. Thuý Kiều bị lừa phải hai lần làm kĩ nữ ở nhà chứa, rồi làm lẽ, đi ở, đi tu… bất hạnh nối bất hạnh, có lúc dồn bức nàng phải tìm tới cái chết…
+
+Truyện Kiều là câu chuyện đời thê lương, bất hạnh về số mệnh của người con gái nhà lành có tài, có sắc trong xã hội phong kiến. Dưới ngòi bút Nguyễn Du, số mệnh của người con gái bất hạnh có sức lan toả và tạo xúc động sâu sắc. Qua nhân vật Thuý Kiều, Nguyễn Du khái quát lên số mệnh của con người nói chung trong xã hội phong kiến bất công, tàn bạo. Hoài Thanh, nhà nghiên cứu và phê bình văn học đã từng cho rằng vấn đề đặt ra trong Truyện Kiều của Nguyễn Du là vấn đề về quyền sống của con người trong xã hội phong kiến. Nhà thơ Chế Lan Viên cũng đã từng kết nối cuộc đời nàng Kiều với “cuộc đời dân tộc”:
+
+
+
+Chạnh thương cô Kiều như đời dân tộc
+
+
+
+Sắc tài sao mà lại lắm truân chuyên…
+
+
+
+Truyện Kiều của Nguyễn Du đã cắt nghĩa những bất hạnh của Thuý Kiều bằng thuyết tài mệnh tương đố của Nho học truyền thống. Nguyễn Du lí giải mọi bất hạnh của Thuý Kiều đều bởi mâu thuẫn giữa tài và mệnh mà ra. Vì Thuý Kiều nhiều tài nên số phận của Thuý Kiều không tránh được bất hạnh dồn gối bất hạnh. Nguyễn Du muốn hoá giải mâu thuẫn ấy cho Kiều bằng chữ tâm. Nguyễn Du cho rằng con người phải thực hiện được chữ tâm, phải “tu tâm”. Truyện Kiều đã được mở đầu bằng hai câu thơ:
+
+
+
+Trăm năm trong cõi người ta
+
+
+
+Chữ tài, chữ mệnh khéo là ghét nhau.
+
+
+
+để rồi khép lại trong phần kết tác phẩm với câu:
+
+
+
+Chữ tâm kia mới bằng ba chữ tài.
+
+
+
+Cắt nghĩa cuộc đời Thuý Kiều bằng thuyết tài mệnh tương đố, tái hiện lại cuộc sống xã hội phong kiến một cách trung thực vào tác phẩm, ngòi bút thiên tài của Nguyễn Du đạt đến ý nghĩa hiện thực, ý nghĩa nhân văn, ý nghĩa giáo dục sâu sắc.
+
+
+
+Xét ở góc độ giáo dục, tìm hiểu Truyện Kiều không chỉ là đi tìm hiểu nội dung một văn bản truyện thơ kế thừa được truyền thống văn hoá fonklore của Việt Nam, qua ca dao, dân ca… mà còn là bắt tay vào tìm hiểu một thể loại văn bản nghệ thuật truyện thơ Nôm với những cách tân mới mẻ, ấn tượng trên các phương diện: Tư tưởng mới mẻ so với tư tưởng phong kiến bảo thủ của thời trung đại; ngôn ngữ thơ mới mẻ bởi kế thừa sáng tạo kho tàng văn hoá fonklore của dân tộc; lòng nhân đạo cao cả đối với con người được thể hiện điển hình qua nhân vật Thuý Kiều…
+
+
+
+Từ góc độ giáo dục, Truyện Kiều không chỉ giúp người đọc hiểu một văn bản truyện thơ lục bát; hiểu một loại văn bản nghệ thuật ngôn từ thấm đẫm hương vị fonklore trong văn thơ Nôm, hiểu xã hội nhiễu nhương, hỗn loạn thời phong kiến mà còn cho người đọc thưởng thức, thụ hưởng một đỉnh cao ngôn ngữ hàm chứa nét riêng trong bản sắc văn hoá, mang hồn cốt dân tộc.
+
+
+
+Chỉ với 3.254 câu thơ lục bát, Nguyễn Du xây dựng hai tuyến nhân vật, tạo được kết cấu chương hồi để từ đó vẽ ra toàn cảnh xã hội Việt Nam thời trung đại. Đọc Truyện Kiều, người đọc thấy một Nguyễn Du trí tuệ, mẫn tiệp về tư tưởng, ngôn từ, cấu tứ và sắp xếp tuyến nhân vật; một Nguyễn Du sáng tạo, uyên bác, độc đáo lạ thường… Cái tài, cái tâm, nỗi niềm đau đời và thương cảm cho số phận con người, nhất là số phận người phụ nữ vốn rất bị xem nhẹ trong xã hội cũ đều bộc lộ rõ nét trong tác phẩm của Nguyễn Du. Truyện Kiều đã khắc đậm lòng thương cảm, tình yêu đối với con người, với thiên nhiên vạn vật và cuộc đời; góp tiếng nói lên án, tố cáo những thế lực tàn bạo chà đạp, vùi dập con người; đồng thời khẳng định, đề cao phẩm chất, tài năng của con người; khẳng định những khát vọng chân chính về quyền sống, quyền hạnh phúc, quyền tự do, khát vọng về công lí, chính nghĩa; đề cao những quan hệ đạo đức, đạo lí tốt đẹp giữa người với người. Khái quát của Nguyễn Du về cuộc đời, về thân phận con người, đặc biệt là thân phận bất hạnh của phụ nữ trong xã hội cũ luôn mang tính triết lí cao và thấm đẫm cảm xúc thương yêu, đồng cảm, chia sẻ:
+
+
+
+Đau đớn thay phận đàn bà
+
+
+
+Rằng lời bạc mệnh cũng là lời chung.
+
+
+
+(Truyện Kiều)
+
+
+
+Đau đớn thay phận đàn bà
+
+
+
+Kiếp sinh ra thế biết là tại đâu.
+
+
+
+(Văn chiêu hồn)
+
+
+
+Có thể thấy, Nguyễn Du là người đầu tiên trong văn học trung đại có cái nhìn nhân đạo sâu sắc và phản ánh một cách tập trung vấn đề thân phận những người phụ nữ có sắc đẹp, có tài năng văn chương nghệ thuật: thơ, hoạ, nhạc… trong xã hội cũ. Nguyễn Du đã đặt ra một vấn đề mới mẻ và quan trọng của chủ nghĩa nhân đạo trong văn học. Đó là xã hội cần trân trọng những giá trị tinh thần, đồng thời cần trân trọng, tôn vinh chủ thể sáng tạo ra những giá trị tinh thần đó. Là tác giả tiêu biểu của trào lưu nhân đạo chủ nghĩa trong văn học, Nguyễn Du đã đề cao hạnh phúc của con người tự nhiên, con người trần thế. Cũng vì vậy, Truyện Kiều còn là bản tình ca ca ngợi, nâng niu, trân trọng vẻ đẹp diệu kì của tình yêu đôi lứa.
+
+
+
+Trong hệ thống giáo dục Việt Nam hiện nay, Truyện Kiều được trích đoạn giảng dạy chính thức trong trường Trung học cơ sở (lớp 9 với các trích đoạn: Chị em Thuý Kiều, Cảnh ngày xuân, Kiều ở lầu Ngưng Bích, Mã Giám Sinh mua Kiều), Trung học phổ thông (lớp 10 với các trích đoạn: Trao duyên, Nỗi thương mình, Chí khí anh hùng, Thề nguyền); trong các trường Đại học khối ngành Xã hội Nhân văn cũng học tác giả và các tác phẩm của Nguyễn Du, trong đó chú trọng Truyện Kiều và một số bài thơ viết bằng chữ Hán. Đây thực sự là một điều rất đáng mừng bởi lớp lớp hậu thế sinh sau đã không quên lịch sử, đã và đang góp phần làm cho tác phẩm và tác giả Truyện Kiều không chỉ sống 300 năm như mong đợi của Nguyễn Du mà chắc chắn sẽ trường tồn mãi mãi trong hồn cốt dân tộc, trong nền văn hoá Việt Nam.
+
+
+
+2\. Truyện Kiều của Nguyễn Du từ góc nhìn văn hoá
+
+
+
+
+
+Trong Truyện Kiều, mỗi câu thơ đều nhuốm một vẻ đẹp u tịch, thấm đẫm triết học, mĩ học của thơ ca phương Đông; hiển hiện những đường nét lung linh của văn hoá
+
+Á Đông, nhẹ nhàng mà sâu sắc. Màu sắc trữ tình kết hợp với những triết lí khái quát trong ngôn ngữ nghệ thuật thơ đã mang đến cho tác phẩm lớp trầm tích văn hoá độc đáo. Ngoài thuyết tài mệnh tương đố, Nguyễn Du dường như đã gửi gắm toàn bộ thế giới quan của mình về xã hội qua các câu thơ nhận xét về cuộc đời lưu lạc của Thuý Kiều:
+
+
+
+Ngẫm hay muôn sự tại trời
+
+
+
+Trời kia đã bắt làm người có thân.
+
+
+
+Bắt phong trần phải phong trần
+
+
+
+Cho thanh cao mới được phần thanh cao.
+
+
+
+Nhìn từ góc độ văn hoá, Truyện Kiều của Nguyễn Du ngoài nội dung câu chuyện đời thê lương, bất hạnh về số mệnh của một người con gái nhà lành có tài, có sắc để khái quát lên số mệnh của con người nói chung trong xã hội phong kiến bất công còn mang nội dung giá trị hiện thực và giá trị nhân đạo sâu sắc. Truyện Kiều là cáo trạng bằng thơ phản ánh sâu sắc hiện thực xã hội Việt Nam cuối thế kỉ XVIII đầu thế kỉ XIX: xã hội kim tiền, xấu xa, đồi bại và đầy rẫy những bất công, thối nát. Ca ngợi nàng Kiều – người con gái tài sắc, thông minh, nhạy cảm, giàu tình yêu thương, giàu đức hi sinh, có ý thức về nhân phẩm, sẵn sàng đấu tranh để bảo vệ phẩm giá nhưng lại luôn bị xã hội phong kiến vùi dập, chà đạp, Nguyễn Du đã đồng cảm sâu sắc với những khát vọng chân chính của Thuý Kiều, cũng như của con người nói chung về quyền sống, về tự do, về công lí, tình yêu, hạnh phúc. Nguyễn Du đề cao hạnh phúc của con người tự nhiên, con người xã hội trần thế cũng như trân trọng những giá trị tinh thần và chủ thể sáng tạo ra những giá trị tinh thần, đặc biệt hơn nếu chủ thể sáng tạo ra giá trị tinh thần lại là người phụ nữ có tài, có sắc:
+
+
+
+Một hai nghiêng nước nghiêng thành
+
+
+
+Sắc đành đòi hoạ một, tài đành đòi hoạ hai.
+
+
+
+Nếu văn hoá được hiểu như cách hiểu của F. Mayor, Tổng Giám đốc UNESCO: “Văn hoá bao gồm tất cả những gì làm cho dân tộc này khác với dân tộc khác, từ những sản phẩm tinh vi hiện đại nhất cho đến tín ngưỡng, phong tục tập quán, lối sống và lao động” thì Nguyễn Du và tác phẩm Truyện Kiều là một minh chứng điển hình cho văn hoá Việt Nam. Nội dung Truyện Kiều phong phú, đa dạng, tầng tầng ý nghĩa, hàm súc, chân xác mà lại vô cùng biến ảo. Nguyễn Du đã vận dụng linh hoạt, sáng tạo các thành ngữ, ca dao, các điển cố, điển tích khiến cho Đoạn trường tân thanh trở thành một tập Đại thành ngôn ngữ của văn học dân tộc. Ngôn ngữ độc thoại được vận dụng tài tình để bộc lộ nội tâm nhân vật. Ngôn ngữ đối thoại thể hiện tinh tế tính cách và hoàn cảnh nhân vật. Ngòi bút ước lệ, ẩn dụ, tượng trưng… kết hợp với việc sử dụng ngôn từ đắc địa đã làm cho các nhân vật, đặc biệt là nhân vật chính – Thuý Kiều thêm rạng ngời, toả sáng, in sâu trong tâm trí người tiếp nhận, từ vẻ đẹp ngoại hình đến nét đẹp nội tâm…
+
+
+
+Văn hoá biểu hiện trong lí tưởng sống, trong các quan niệm về thế giới và nhân sinh, trong tín ngưỡng, trong lao động và đấu tranh, trong tổ chức đời sống, tạo dựng xã hội, trong cách thể hiện lí tưởng thẩm mĩ… Tất cả những điều đó đều hiển hiện trong Truyện Kiều của Nguyễn Du. Con đường khám phá cái hay, cái đẹp, đến với những giá trị nhân văn của một tác phẩm văn chương phải xuất phát từ đặc trưng thể loại và đặc trưng ngôn ngữ. Với Truyện Kiều, người đọc cũng bắt đầu từ việc giải mã ngôn ngữ nghệ thuật của truyện thơ Nôm lục bát để đến với những giá trị nhân văn, giá trị văn hoá đặc sắc của cha ông, của dân tộc, và của nhân loại. Nghiên cứu ngôn ngữ nghệ thuật trong Truyện Kiều từ góc độ văn hoá, giải mã văn hoá là một trong những hướng tiếp cận khá mới mẻ. Thông qua kết cấu tác phẩm, qua bóc tách mã văn hoá trong ngôn ngữ nghệ thuật người đọc có thể lí giải, cắt nghĩa các hiện tượng văn hoá, quan niệm nhân sinh mà Nguyễn Du gửi gắm trong tác phẩm.
+
+
+
+Nhà lí luận phê bình văn học Trần Đình Sử trong Thi pháp Truyện Kiều đã viết “Từ khi ra đời đến nay Truyện Kiều của Nguyễn Du đã trở thành một bộ phận không thể tách rời của đời sống tâm hồn dân tộc Việt Nam nói chung và đời sống văn học nói riêng...” [9, 9]. Thực tế, Truyện Kiều đã trải qua khoảng thời gian hàng trăm năm trong đời sống xã hội nhưng vẫn còn nguyên đó những vấn đề cần khai thác thêm về văn bản, nội dung và thế giới nghệ thuật. Tác phẩm vẫn để lại những khoảng trống mênh mang cần tiếp tục được bổ sung và khai phá trong quá trình đồng sáng tạo của người tiếp nhận, trong quá trình tìm hiểu các mã văn hoá tồn tại trong tác phẩm.
+
+
+
+Nhìn từ góc độ văn hoá, Truyện Kiều có nội dung sâu sắc, nhiều tầng ý nghĩa phong phú, đa dạng, dào dạt như dòng chảy văn hoá suốt chiều dài lịch sử dân tộc, có nghệ thuật biểu hiện nội dung đạt đến thành tựu rực rỡ, đặc biệt là nghệ thuật vận dụng tiếng Việt và thể thơ lục bát của dân tộc. Truyện Kiều đã kết hợp nhuần nhuyễn ngôn ngữ bác học và ngôn ngữ bình dân. Tất cả từ Hán Việt và điển cố lấy trong sách vở với lối diễn đạt đài các, quý phái đều được sử dụng phù hợp, đúng người, đúng cảnh với liều lượng đủ để làm rõ những sắc thái tinh tế của cảnh, của tình, của nhân vật và làm rõ những nét tinh vi, tế nhị trong ma trận tình cảm của con người. Lời ăn tiếng nói hàng ngày của nhân dân lao động, thành ngữ, tục ngữ, cao dao, dân ca được chọn lọc, hài hoà, khéo léo để kết hợp tinh tế, sáng tạo cùng ngôn ngữ bác học đã làm tăng sức biểu cảm cho tác phẩm. Thể thơ lục bát giản dị, dân dã, tinh tế, truyền cảm được Nguyễn Du khai thác triệt để. Bên cạnh đó, nghệ thuật dẫn truyện – tự sự và nghệ thuật miêu tả độc đáo cũng là một trong những thành công lớn của Nguyễn Du. Một vài câu thơ cũng đủ để Nguyễn Du khắc hoạ rõ nét ngoại hình, tính cách của một nhân vật hay vẽ ra một bức tranh phong cảnh hữu tình, sống động, tuyệt mĩ… theo kiểu vẽ mây nẩy trăng, ý tại ngôn ngoại. Nhưng tuyệt chiêu nghệ thuật ngôn từ của Nguyễn Du lại nằm ở nghệ thuật miêu tả nội tâm nhân vật, điển hình là miêu tả nội tâm nhân vật Thuý Kiều. Trong văn học cổ và văn học trung đại, Nguyễn Du chiếm vị trí độc nhất vô nhị trong nghệ thuật miêu tả nội tâm nhân vật.
+
+
+
+Tìm hiểu ngôn ngữ nghệ thuật Truyện Kiều từ góc độ văn hoá là một công việc vô cùng lí thú và hấp dẫn. Thông qua hệ thống ngữ liệu văn hoá, người đọc tác phẩm từng bước bóc tách, khám phá và chiếm lĩnh được nội dung, tư tưởng và phong cách sáng tạo độc đáo của Nguyễn Du. Người đọc hôm nay có thể đi sâu tìm hiểu, khám phá, cắt nghĩa và lí giải thế giới nghệ thuật, bức tranh ngôn ngữ về đời sống xã hội và những cách tân của tác giả trong quá trình chiếm lĩnh hiện thực, phản ánh những trải nghiệm của một nghệ sĩ ngôn từ thiên tài trước những cuộc dâu bể, biến thiên của cuộc đời. Tìm hiểu thế giới ngôn ngữ nghệ thuật trong Truyện Kiều, nhà nghiên cứu Phan Ngọc đã viết: “đối với Nguyễn Du, bản thân sự việc không có giá trị nghệ thuật. Giá trị của nó là cách đánh giá sự việc” [5, 80]. Giá trị đích thực của hệ thống hình tượng nghệ thuật, của bức tranh sống động trong cuộc sống trở nên phong phú và đa dạng hơn thông qua hệ thống ngôn ngữ triết lí, trữ tình của Nguyễn Du. Với cái nhìn tinh tế, tư duy nhạy bén và lăng kính mĩ thuật độc đáo, Nguyễn Du đã thể hiện chiều kích văn hoá phức hợp qua một hệ thống ngôn ngữ đặc sắc giàu tính triết lí, đậm tính trữ tình. Ngôn ngữ ấy giúp Nguyễn Du thành công trong việc khắc hoạ bức tranh tâm lí, những trải nghiệm hiện sinh và tinh thần nhân văn, nhân đạo sâu sắc. Cuộc đời Thuý Kiều là một bài thơ trữ tình về tình yêu nhưng cũng là khái quát của những trầm luân dâu bể trong số phận con người mà Nguyễn Du là người chứng kiến và phản ánh. Mở đầu Truyện Kiều, Nguyễn Du đã khái quát cả một hành trình dài như một sự dự đoán, tiên nghiệm về thiên mệnh:
+
+
+
+Trăm năm trong cõi người ta
+
+
+
+Chữ tài chữ mệnh khéo là ghét nhau.
+
+
+
+Hai câu thơ như gói trọn cả không gian – thời gian trong vũ trụ, dồn nén trong sự vĩnh cửu của loài người. Xã hội mà Thuý Kiếu sống, tài và sắc lại chính là căn nguyên cho toàn bộ cuộc đời trầm luân, bảy nổi ba chìm suốt 15 năm lưu lạc giang hồ. Nguyễn Du thấu hiểu, đồng cảm, chia sẻ và viết ra lời than đau xót:
+
+
+
+Trải qua một cuộc bể dâu
+
+
+
+Những điều trông thấy mà đau đớn lòng.
+
+
+
+Truyện Kiều còn là một triết lí sinh tồn của xã hội thời đó. Hai câu thơ sau mở ra tâm trạng xót xa, thấu hiểu, cảm thông và chia sẻ, bộc lộ tinh thần nhân văn, nhân đạo của Nguyễn Du.
+
+
+
+Lạ gì bỉ sắc tư phong
+
+
+
+Trời xanh quen thói má hồng đánh ghen.
+
+
+
+Giọng điệu cảm thương giàu tính trữ tình, tính khái quát cao làm Truyện Kiều thêm sâu sắc, giàu tính triết lí. Bên cạnh tính triết lí, trữ tình, ngôn ngữ tự sự cũng góp phần gắn kết và làm cho Truyện Kiều trở thành một chỉnh thể trọn vẹn, chặt chẽ, logic. Trong Truyện Kiều, ngôn ngữ nghệ thuật mang tính triết lí trữ tình kết hợp với tự sự đóng vai trò then chốt trong mô tả diễn biến cốt truyện, thể hiện tài năng và sự sáng tạo của tác giả đồng thời biểu lộ vẻ đẹp, chiều sâu thẩm mĩ của một ý thức văn hoá trong quá trình phản ánh đời sống văn hoá của cả một thời đại. Ngôn ngữ tự sự giúp tác giả thể hiện được một cái nhìn, một giọng điệu, một phông văn hoá riêng trước những vấn đề của cuộc sống và nghệ thuật. Ngôn ngữ tự sự mang đến cho nhân vật, không gian và thời gian nghệ thuật của Truyện Kiều những nét đẹp độc đáo, giúp bộc lộ quan điểm, tư duy và khả năng khái quát đời sống của tác giả.
+
+
+
+Với ngôn ngữ tự sự, Nguyễn Du mở ra một không – thời gian văn hoá đặc trưng, điển hình của văn chương trung đại. Đó có thể là không – thời gian của một triều đại, một gia cảnh hay một khung cảnh nên thơ, nơi gặp gỡ, đoàn viên, hay khung cảnh phân đoạn của từng đoạn trường bất hạnh. Nguyễn Du có cách giới thiệu tự sự để bộc lộ điểm nhìn về sự vật, hiện tượng và đánh giá những yếu tố cần miêu tả khiến cho người đọc có thể hiểu được phần nào về gia thế và thời đại của Kiều:
+
+
+
+Rằng năm Gia Tĩnh triều Minh
+
+
+
+Bốn phương phẳng lặng hai kinh vững vàng.
+
+
+
+Có nhà viên ngoại họ Vương
+
+
+
+Gia tư nghỉ cũng thường thường bậc trung.
+
+
+
+Rồi cách Nguyễn Du miêu tả khung cảnh tài tử giai nhân tao ngộ với sự xuất hiện của Kim Trọng trong buổi Thanh minh:
+
+
+
+Ngày xuân con én đưa thoi
+
+
+
+Thiều quang chín chục đã ngoài sáu mươi.
+
+
+
+Cỏ non xanh tận chân trời
+
+
+
+Cành lê trắng điểm, một vài bông hoa
+
+
+
+Thanh minh trong tiết tháng ba
+
+
+
+Lễ là tảo mộ, hội là đạp thanh...
+
+
+
+Tuyết in sắc ngựa câu giòn
+
+
+
+Cỏ pha mầu áo nhuộm non da trời...
+
+
+
+Hài văn dặm bước dặm xanh
+
+
+
+Một vùng như thể cây quỳnh cành dao...
+
+
+
+Bức tranh thiên nhiên và khung cảnh lễ hội đầu xuân được Nguyễn Du phác thảo qua những hình ảnh văn hoá đặc trưng của Việt Nam. Tiết Thanh minh, người người đi sửa sang phần mộ gia tiên và tìm đến những bóng hình trong quá khứ… Tất cả tạo nên một dạng thức của không gian hồi cố trong tâm tưởng. Giáo sư Đặng Thanh Lê trong cuốn Giảng văn Truyện Kiều viết “Nguyễn Du đã chứng tỏ bậc thầy về ngôn ngữ ngay ở câu thơ tự sự ngắn gọn về một sinh hoạt thông thường: ‘Lễ là tảo mộ, hội là đạp thanh’. Nghi lễ và hội hè có thể có mối quan hệ gắn bó mật thiết nhưng đó vẫn là hai hình thức sinh hoạt văn hoá có điểm khác biệt: Hội đạp thanh là cuộc vui chơi trên dặm cỏ xanh của lứa tuổi thanh xuân... Hội đạp thanh là một cuộc sống hiện tại và có thể tìm thấy sợi tơ hồng cho mai sau... trong tiết Thanh minh, có hồi ức, có tưởng niệm (lễ là tảo mộ) nhưng cũng có khát khao và hoài vọng nhìn về phía trước của cuộc đời (hội là đạp thanh)...” [ 4, 33]. Khung cảnh thiên nhiên diễm lệ ấy cũng là nguyên cớ để Nguyễn Du miêu tả bức chân dung hoàn chỉnh về người nho sĩ tài hoa theo quan niệm Nho gia. Nguyễn Du chọn bức tranh của buổi Thanh minh làm nền cho Kim Trọng xuất hiện. Thiên nhiên trở nên đẹp thơ mộng hơn nhờ có hình ảnh con người và hình ảnh con người trở nên sinh động hơn trong mối giao hoà cùng thiên nhiên. Ngôn ngữ miêu tả Kim Trọng được gắn liền với thiên nhiên đẹp đẽ, xuân sắc: áo màu lam (áo nhuộm non da trời), cánh đồng cỏ xanh (dặm xanh) là những chất liệu ngôn ngữ mang tâm thức văn hoá, giúp người tiếp nhận liên tưởng, tưởng tượng phong phú, đa dạng hơn; làm cho ngôn ngữ tự sự đậm chất trữ tình và mang chiều sâu văn hoá. Tuỳ thuộc vào phông văn hoá và tầm đón nhận cá nhân, người đọc sáng tạo sẽ tái tạo cho mình nhiều tầng ý nghĩa riêng trong tâm tưởng.
+
+
+
+Truyện Kiều của Nguyễn Du còn thể hiện một khả năng đối chiếu và tương phản đặc biệt trong ngôn ngữ tự sự, miêu tả. Tuyến nhân vật chính diện được Nguyễn Du xây dựng theo quan điểm tích cực hoá, đạo đức hoá và thẩm mĩ hoá của thi pháp văn học trung đại. Kim Trọng “phong tư tài mạo tót vời”, Thuý Vân “hoa cười, ngọc thốt đoan trang”, Thuý Kiều như “làn thu thuỷ, nét xuân sơn” và Từ Hải với tướng mạo uy nghi, dũng mãnh của bậc hổ tướng “vai năm tấc rộng, thân mười thước cao”. Ngôn ngữ gắn liền với hệ thống nhân vật là những mĩ từ ước lệ, mang tính biểu tượng. Giọt nước mắt của Kiều là “hạt châu”, “giọt hồng” hay “màu hoa lê đã dầm dề hạt mưa”... Ngôn ngữ giàu tính biểu đạt, tượng trưng và mang sắc thái thẩm mĩ cao phù hợp với những nhân vật mang tầm tư tưởng, mang khát vọng và ý nguyện của nhà thơ.
+
+Ở những nhân vật phản diện, Nguyễn Du lại sử dụng loạt từ ngữ thuần Việt một cách đắc địa. Mã Giám Sinh trong cuộc mua bán Thuý Kiều, được miêu tả là người biết người, biết của nhưng cũng bộc lộ rõ bản chất một con buôn: thận trọng, đắn đo, thương lượng. Mọi cử chỉ, ngôn ngữ từ tốn, thể hiện sự cân nhắc tính toán chi li, chặt chẽ của Mã Giám Sinh được miêu tả lịch thiệp với những từ hoa mĩ:
+
+
+
+Rằng: Mua ngọc đến Lam Kiều,
+
+
+
+Sính nghi xin dạy bao nhiêu cho tường...
+
+
+
+đề cao Thuý Kiều (ngọc đến Lam Kiều), coi là việc dẫn cưới hợp lễ, nghiêm túc (sính nghi) và thái độ nhũn nhặn (xin dạy... cho tường) song vẫn không che giấu được bản chất con buôn:
+
+
+
+Cò kè bớt một thêm hai,
+
+
+
+Giờ lâu ngã giá vàng ngoài bốn trăm...
+
+
+
+Bằng ngôn ngữ tự sự trực tả, Nguyễn Du đã lật tẩy mối quan hệ mập mờ, vẻ ngoài chải chuốt, cử chỉ vô học, bản chất con buôn của Mã Giám sinh, đưa Mã Giám Sinh lên màn diễn của sân khấu cuộc đời, một sân khấu đoạn trường mà Thuý Kiều sẽ phải lặn ngụp suốt mười lăm năm đằng đẵng. Có thể nói, ngôn ngữ tự sự của Nguyễn Du đã góp phần giới thiệu một cách trang trọng những bức chân dung, biểu tượng về những đức tính, số phận và hình tượng con người theo quan điểm triết học phương Đông. Nguyễn Du cũng khắc hoạ thành công nhiều bức truyền thần bằng những nét vẽ và chất liệu rút ra từ chính những trải nghiệm cuộc đời mình.
+
+
+
+Trong Truyện Kiều, văn hoá dân tộc lắng đọng sâu trong ngôn ngữ của hai tuyến nhân vật: chính diện và phản diện, góp phần tạo ra hai phong cách, hai giọng điệu Khổng Tước văn và Hải Hạc văn. Tuyên ngôn nghệ thuật, quan điểm nghệ thuật của Nguyễn Du gửi gắm trong ba bài thơ chữ Hán: Khổng Tước vũ, Điệp tử thư trung,
+
+Độc Tiểu Thanh kí. Trong đó, Khổng Tước vũ bàn riêng về phong cách ngôn ngữ:
+
+
+
+Khổng Tước phủ hoài độc,
+
+
+
+Ngô phục bất khả y
+
+
+
+Ngoại lộ văn chương thể
+
+
+
+Trung tàng sát phạt ky.
+
+
+
+(Tạng phủ chim công có chất độc,
+
+
+
+Lỡ ăn nhầm, không có thuốc chữa.
+
+
+
+Bề ngoài có vẻ tốt đẹp,
+
+
+
+Nhưng bên trong giấu chất giết người.)
+
+
+
+Và:
+
+
+
+Hải Hạc diệc hội vũ,
+
+
+
+Bất dữ thế nhân tri.
+
+
+
+(Con hạc biển cũng biết múa,
+
+
+
+Nhưng chẳng để ai thấy.)
+
+
+
+Văn hoá dân tộc lắng đọng trong ngôn ngữ Truyện Kiều qua hai tuyến nhân vật khá rõ nét. Nhân vật chính diện thể hiện sự phong nhã, chân tình, hiếu nghĩa, trọng tình và oai phong lẫm liệt. Thuý Kiều, Kim Trọng, Từ Hải – tạo phong cách và giọng điệu Hải Hạc văn. Nhân vật phản diện thể hiện lời lẽ khoa trương, ồn ào, lộng lẫy nhằm giấu đi mưu mô, thủ đoạn hay những xảo trá, lừa dối, dung tục tầm thường.
+
+Tú Bà, Mã Giám Sinh, Hoạn thư, Thúc Sinh, Bạc Hà, Bạc Hạnh – tạo ra phong cách và giọng điệu Khổng Tước văn.
+
+
+
+Từ góc độ văn hoá, so sánh hai phong cách, hai giọng điệu ngôn ngữ nhân vật Truyện Kiều, người đọc chiêm ngưỡng được vẻ đẹp toàn bích của bức tranh cuộc đời sinh động mà Nguyễn Du đã dày công xây dựng trên nền chất liệu ngôn từ tiếng Việt. Bức tranh ngôn ngữ trong Truyện Kiều được Nguyễn Du khéo léo gợi mở qua một mã văn hoá đặc biệt. Ở đó, có sự vận hành, bổ sung cân đối của thi ca trung đại, cách sử dụng điển cố, thi tứ, tư liệu cổ kết hợp với tiếng nói đại chúng của nhân dân lao động bình dân với nhiều trạng thái, cung bậc cảm xúc sống động khác nhau… Tất cả đọng lại vẹn nguyên các quan niệm, hành vi văn hoá trong sinh hoạt xã hội thời Nguyễn Du sống. Có thể nói, ngôn ngữ nghệ thuật Truyện Kiều đã tạo ra bước đột phá trong ngôn ngữ văn học trung đại và văn học dân tộc. Cũng từ góc độ văn hoá, người đọc
+
+Truyện Kiều thấy vẻ trang nhã, quý phái của hệ thống ngôn ngữ bác học hoà quyện trong vẻ chân chất, mộc mạc của lớp ngôn ngữ bình dân thành một thể thống nhất đa dạng, mẫu mực cho ngôn ngữ văn học một thời. Ngôn ngữ Truyện Kiều đã có đóng góp lớn trong vấn đề dân tộc hoá, đại chúng hoá và thể hiện cá tính sáng tạo của Nguyễn Du, làm cho hệ thống ngữ liệu văn hoá của tác phẩm trở nên gần gũi với các thế hệ, các tầng lớp người đọc Việt Nam và nhân loại. Giải mã ngôn ngữ trong Truyện Kiều người đọc sẽ cảm nhận, thụ hưởng và khai thác được các giá trị văn hoá đặc sắc nhất của người Việt mà Nguyễn Du đã kí thác trong đứa con tinh thần của mình. Đó là các giá trị làm nên hồn cốt Việt, không thể trộn lẫn, bao gồm: giá trị triết học, giá trị luân lí, giá trị xã hội, giá trị tôn giáo, giá trị văn chương…
+
+
+
+Hàng trăm năm trôi qua, Truyện Kiều vẫn luôn tồn tại trong đời sống của dân tộc Việt. Truyện Kiều là một trong số ít các tác phẩm lớn được nhiều người dân đủ mọi tầng lớp học thuộc lòng. Ngôn từ, lời lẽ trong Truyện Kiều được dùng để đối đáp trong sinh hoạt văn hoá của một số cộng đồng người Việt như lẩy Kiều, trò Kiều, vịnh Kiều, tranh Kiều, bói Kiều... hát ví dặm Nghệ An, Hà Tĩnh bằng lời thơ trong Truyện Kiều. Ngày nay, tên một số nhân vật và địa danh trong Truyện Kiều được sử dụng trong đời sống thường nhật với các ý nghĩa hết sức thông dụng: Sở Khanh, Tú Bà, Hoạn thư, Lầu xanh… Qua đó, có thể thấy, Truyện Kiều đã sống một đời sống mãnh liệt, phong phú và đa dạng trong tiến trình phát triển lịch sử ngôn ngữ và văn học Việt Nam, đồng thời hoàn thành sứ mệnh văn hoá cao cả của nó, tạo nên một nền văn hoá Kiều trong dòng chảy văn hoá Việt Nam. Không chỉ thế, trong bối cảnh giao lưu, hội nhập toàn cầu hoá ngày nay, Truyện Kiều còn đến với người đọc Việt Nam và quốc tế trên thế tích hợp liên ngành: ngôn ngữ – văn hoá; ngôn ngữ – giáo dục, văn hoá – giáo dục; tích hợp trong truyền thông – văn hoá – giáo dục – xã hội. Tất cả làm cho thế giới nội dung, nghệ thuật sống động trong Truyện Kiều thông qua mã ngôn ngữ nghệ thuật chạm tới ngưỡng tư duy song trùng hệ hình văn hoá của người đọc. Đây là cơ sở để tác giả và người đọc Truyện Kiều tiệm cận nhau trong quá trình cộng hưởng, đồng sáng tạo để đi đến đích thụ hưởng lớp trầm tích văn hoá nhiều tầng kết tinh trong tác phẩm. Sức ảnh hưởng của Truyện Kiều đã vượt qua giới hạn của không gian và thời gian… Văn học Việt Nam, văn học thế giới ít có tác phẩm nào chinh phục được tình cảm của đông đảo người đọc: từ già đến trẻ, từ trí thức đến quần chúng bình dân như Truyện Kiều. Ngoài nội dung phong phú và sâu sắc, Truyện Kiều còn là một tác phẩm kết tinh được đặc sắc văn hoá Việt và tinh hoa ngôn ngữ dân tộc Việt. Có thể thấy Truyện Kiều của Nguyễn Du đã mang giá trị văn hoá – giáo dục của mọi thời đại bởi nội dung nhân văn và nghệ thuật sử dụng ngôn từ tiếng Việt vô tiền khoáng hậu. 193 năm đã trôi qua, kể từ khi Nguyễn Du qua đời, công lao, sự nghiệp của nhà ngoại giao, nhà văn hoá, nhà ngôn ngữ… bậc thầy lão luyện về ngôn từ – Nguyễn Du – không những được lịch sử Việt Nam, dân tộc Việt Nam, nền văn học, văn hoá Việt Nam ghi nhận, tôn vinh trang trọng mà còn được thế giới vinh danh trong danh sách 93 nhân vật có tầm ảnh hưởng đặc biệt trên thế giới và khu vực. Phiên họp ngày 25/4/2013, hội đồng chấp hành của UNESCO đã thông qua Nghị quyết 191/EX 32: tháng 11/2013, Đại hội đồng UNESCO họp tại Paris, Pháp chính thức ra quyết định vinh danh 93 danh nhân văn hoá thế giới, trong đó có Nguyễn. Nguyễn Du – một nhà thơ, một danh nhân có tinh thần tự hào dân tộc và tình yêu mãnh liệt với tiếng mẹ đẻ, người đã dũng cảm vượt qua rào cản nặng nề hàng ngàn năm của ngôn ngữ Hán để sáng tác bằng chữ Việt. Nguyễn Du và Truyện Kiều sẽ sống mãi, mãi là niềm tự hào vô giá của nhân dân Việt Nam.
+
+
+
+Truyện Kiều và Nguyễn Du giờ đây đã trở thành biểu tượng văn hoá Việt Nam – biểu tượng thấm đẫm hồn cốt dân tộc Việt. Nguyễn Du và tác phẩm Truyện Kiều có ảnh hưởng lớn tới đời sống văn chương, văn hoá và xã hội… Hiện nay, Truyện Kiều đã được dịch ra hơn hai mươi thứ tiếng trên thế giới, những người dân bình thường cho tới những chính khách lớn của thế giới đều cảm nhận được và bị thu hút bởi vẻ đẹp nhân văn của tác phẩm Truyện Kiều, bởi vẻ đẹp nhân đạo, bác ái của tác giả – Nguyễn Du.
+
+
+
+
+
+
+
+
+
+TÀI LIỆU THAM KHẢO
+
+
+
+1\. Đào Duy Anh (1989), Từ điển Truyện Kiều, NXB Khoa học Xã hội, H.
+
+
+
+2\. Nguyễn Phan Cảnh (2006), Ngôn ngữ thơ, NXB Văn học, H.
+
+
+
+3\. Lê Đình Kỵ (1970), Truyện Kiều và chủ nghĩa hiện thực của Nguyễn Du, NXB Khoa học Xã hội, H.
+
+
+
+4\. Đặng Thanh Lê (1999), Giảng văn Truyện Kiều, NXB Giáo dục, H.
+
+
+
+5\. Phan Ngọc (1998), Tìm hiểu phong cách Nguyễn Du qua Truyện Kiều, NXB Thanh niên, H.
+
+
+
+6\. Phạm Đan Quế (2005), Thế giới nhân vật Truyện Kiều, NXB Thanh Niên, H.
+
+
+
+7\. Phạm Đan Quế (2007), Những điển tích hay trong Truyện Kiều, NXB Giáo dục.
+
+
+
+8\. Phạm Đan Quế (2007), Truyện Kiều những bài viết lạ, NXB Giáo dục.
+
+
+
+9\. Trần Đình Sử (2002), Thi pháp Truyện Kiều, NXB Giáo dục, H.
+
+
+
+10\. Trần Ngọc Thêm (1996, 1997, 2001), Tìm về bản sắc văn hoá Việt Nam, NXB Tổng hợp TP. Hồ Chí Minh.
+
+
+
+Post by: Vu Nguyen HNUE
+
+Nguồn: http://nguvan.hnue.edu.vn/
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+### [Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+  * [ ](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+### [Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+  * [ ](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+### [Nghìn năm sau nhớ Nguyễn Du](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+  * [ ](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+### [Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+  * [ ](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")
+
+### [Vẻ đẹp của Hoạn Thư trong truyện Kiều](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")

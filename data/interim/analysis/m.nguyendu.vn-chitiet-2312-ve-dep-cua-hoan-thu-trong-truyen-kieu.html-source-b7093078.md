@@ -1,0 +1,216 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html -->
+
+* [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+
+# Vẻ đẹp của Hoạn Thư trong truyện Kiều
+
+26/09/2022
+
+HNTĐ
+
+##  Cũng như nhiều nhân vật trong Truyện Kiều của Nguyễn Du, Hoạn thư không chỉ được độc giả biết đến trong trang sách, mà đã bước ra cuộc đời, rất quen thuộc với cuộc sống con người Việt Nam. Hiện nay, không còn mấy những ý kiến coi đây là nhân vật tiêu biểu cho sự tàn bạo độc ác. Trong dân gian hầu như chỉ nhìn nhận Hoạn Thư là con người có tính ghen tuông cay nghiệt. Trong tiếng Việt, hoạn Thư được dùng như một tính từ đồng nghĩa với ghen tuông.
+
+Nhưng nếu chỉ đánh giá Hoạn Thư là biểu tượng của sự ghen tuông thì liệu có phiến diện và thiếu công bằng[1]?. Sự thật người vợ của chàng Thúc đa tình còn mang trong lòng biết bao nỗi u buồn bất hạnh, bị sa vào những tình huống bất đắc dĩ, khó chịu nhất của “phận đàn bà” trên thế gian này. Và cũng chính khả năng ứng xử của vị phu nhân “họ Hoạn danh gia” đã tỏa sáng trí tuệ, nhân cách, đủ cho nàng có sức sống trong mọi thời đại. Sau đây, xin bàn luận về những vẻ đẹp lấp lánh của Hoạn Thư trong Truyện Kiều.
+
+
+
+1 Thêm kẻ thứ ba, giữ nhà êm kín
+
+
+
+Cứ theo tiêu chí xưa thì cuộc hôn nhân của Thúc sinh và Hoạn Thư không được “môn đăng hộ đối” lắm. Chàng tuy cũng là dòng dõi học trò (nòi thư hương), rồi bố là một nhà buôn, có ngôi hàng ở Lâm Truy, nhưng sao sánh được với gia thế nhà nàng (dòng họ Hoạn danh gia / Con quan Lại bộ). Họ kết tóc xe tơ chỉ do duyên phận (Duyên Đằng thuận nẻo gió đưa), chứ không phải bắt đầu từ cái nhìn “sét đánh” tiết xuân như mối tình Kim - Kiều, hay trước còn trăng gió sau ra đá vàng như chuyện Thúc – Kiều.
+
+
+
+Trong cuộc hôn nhân này, có lẽ phần “hời” thuộc về chàng Thúc. Anh ta vừa được làm “phò mã”, vừa có người nâng khăn sửa túi, trông coi cửa nhà, giàu có nết na (ở ăn thì nết cũng hay); dù đi xa hàng năm, không bị hờn dỗi hay lên mặt như không ít chàng có vợ tiểu thư “danh gia vọng tộc”.
+
+
+
+Nhưng tất cả những ưu thế hiếm có ấy cũng không đủ để giữ chân người chồng vừa háo sắc vừa quen thói bốc trời. Người vợ “cành vàng lá ngọc”, toàn tâm toàn ý lo việc nhà, bị rơi vào cảnh đối mặt với kẻ “thứ ba”. Từ nghe vườn đã thêm hoa. Câu thơ của cụ Nguyễn hay nhưng với người trong cuộc thì ruột gan sát muối. Đành rằng cảnh chồng đèo bòng thêm bà bé không lạ gì trong xã hội xưa, nhưng chắc được mấy bà cả lấy làm dễ chịu? Tuy nhiên, ngay từ đầu, Hoạn Thư cũng không có ý làm to chuyện. Nàng ý thức về vị thế, lòng bao dung của bề trên, (Cũng dung kẻ dưới mới là lượng trên), và nếu ghen tuông ầm ĩ là thiếu khôn ngoan, dễ mang tiếng xấu, (Dại chi chẳng giữ lấy nền,/ Tốt chi mà rước tiếng ghen vào mình).
+
+
+
+Chỗ này, khi cho rằng “Hoạn Thư ghen không phải vì không muốn cho chồng lấy vợ lẽ mà vì Thúc sinh đã vi phạm cái nền nếp của gia đình quý tộc”[2], là quá coi trọng nguyên nhân giai tầng xã hội. Chẳng nhẽ khi chồng có thêm vợ bé thì người phụ nữ quý tộc thấy vui còn chỉ có người phụ nữ bình dân mới thấy “đau”? Tục ngữ đã từng đúc kết Ớt nào mà ớt chả cay. Tình cảnh miệng người thì lắm tin nhà thì không: chồng phản bội, lừa dối; gia đình chồng lại xuôi chiều, qua mặt con dâu để cưới thêm vợ cho con trai, chắc chắn đã đốt nóng nỗi cay đắng thất vọng và càng kìm nén càng bùng lên dữ dội trong lòng người vợ chính danh, (Lửa tâm càng dập càng nồng). GS. Trần Đình Sử, khi nghiên cứu về phép sóng đôi trong ngôn ngữ nghệ thuật của Truyện Kiều đã cảm nhận độ nóng của “ngọn lửa càng đốt càng cháy(…). Mỗi đợt sóng đôi là một cơn lửa cháy, càng cháy to, càng nguy hiểm”[3].
+
+
+
+Cũng nên thông cảm cho những dằn vặt toan tính kinh sợ, hiện lên trong đầu của phu nhân họ Hoạn: Làm cho nhìn chẳng được nhau/Làm cho đầy đọa cất đầu chẳng lên!/ Làm cho trong thấy nhãn tiền/Cho người buốn ván bán thuyền biết tay. Hậu quả thường thấy trong cái tình cảnh trớ trêu này: hoặc có chuyện trả thù ông ăn chả bà ăn nem, hoặc sự phá phách tung hê anh đi đàng anh tôi đàng tôi, hoặc nổ ra cuộc đánh ghen đổ máu, … Kết cục, có thể, một gia đình sẽ đổ vỡ, những người hôm qua còn đầu gối tay ấp hôm nay thành kẻ thù ra sức bêu riếu thóa mạ lẫn nhau. Chuyện riêng gia đình thành trò cho thiên hạ cười cợt đàm tiếu.
+
+
+
+Những điều dễ đoán đó làm ta thật bất ngờ, rất đáng nể phục trong phương thức xử lí thông minh khéo léo của Hoạn Thư. Người vợ, trong tình huống bị phụ tình này đã làm được những việc không phải ai cũng có thể vững tay co, giữ cho gia đình ngoài kín trong êm như vậy.
+
+
+
+Hãy xem một loạt giải pháp, chiến thuật được Hoạn Thư thi hành:
+
+
+
+\- Không đối mặt với dư luận, (Nỗi lòng kín chẳng ai hay, / Ngoài tai để mặc gió bay mái ngoài/… Buồng đào khuya sớm thảnh thơi / Ra vào một mực nói cười như không). Hoạn Thư quá rõ sự chính xác của dư luận. Và chuyện thực nhà mình đang cần che giấu, càng chống chế càng lộ chuyện.
+
+\- Đối với những người mách tin ý cũng liệu bài tâng công, thì một mặt mắng át để bảo vệ chồng, (Tiểu thư nổi giận đùng đùng/ Gớm tay thêu dệt ra lòng trêu ngươi!/ Chồng tao nào phải như ai, / Điều này hẳn miệng những người thị phi.), một mặt trấn áp mạnh tay, (đứa thì vả miệng đứa thì bẻ răng). Và kết quả bước đầu đã đạt được: Trong ngoài kín mít như bưng / nào ai còn dám nói năng một lời.
+
+\- Khôn khéo, cố kìm nén, tránh xung đột vợ chồng trong cuộc hồi trang của Thúc sinh. Gặp nhau sau bao ngày xa cách, mong mỏi, còn gì tủi cực hơn khi người vợ phải nồng thắm với chồng chỉ bằng cái vẻ bề ngoài, bên trong thì một mình gặm nhấm cái nỗi chàng ở bạc nỗi mình chịu đen. Đưa ra giải pháp hợp lí đã khó nhưng vẫn còn dễ hơn việc thực hiện trong cuộc. Làm sao giữ được bình tĩnh khi nhìn thấy mặt con người đen bạc ra lòng trăng hoa. Người nhạy cảm như Hoạn thư, thật chẳng dễ chịu gì khi phải cố gắng, đêm ngày lòng những dặn lòng, hết mức kìm nén trạng thái thần kinh nóng như thùng thuốc súng. Rồi có lúc, nàng cũng không nén được, cũng phải giở những lời đâu đâu để gạn hỏi chuyện Lâm Truy mà dư luận đang bàn tán. Cái mà người vợ mong chờ cũng đâu phải là quá đáng: chỉ cần được chồng báo tin, được thú thật, để rồi được bao dung tha thứ một cách đàng hoàng. Đáng tiếc là chàng Thúc, không phải là tri âm tri kỉ của vợ, tưởng mọi chuyện còn kín, hơn nữa thuộc loại nhát gan, lo sợ mọi việc đổ vỡ. Thành thử, vì sự im lặng của chàng, sau này người vợ tốt phải mang tiếng ghen tuông cay nghiệt, còn người tình vàng đá thì rơi vào tình cảnh nhục nhã ê chề.
+
+Tuy nhiên, có thể nói trong trận chiến với “kẻ thức ba”, bước đầu Hoạn Thư đã giành thắng lợi: Giữ cho cuộc thăm viếng của chồng diễn ra êm ái, (Tẩy trần vui chén thong dong,/ cười phấn cợt son, / Đèn khuya chung bóng trăng tròn sánh vai; bảo vệ danh dự cho mình; giữ tiếng cho chồng, cho gia đình; tránh xung đột và sứt mẻ tình cảm với chồng, tránh bị người ngoài lợi dụng, kích động, tránh đối mặt trực tiếp với dư luận, tránh bị sốc, cả giận mất khôn. Tóm lại, Hoạn thư đã đạt được ý định: giữ cho gia đình ngoài kín trong êm, và tạo điều kiện cho bước quyết liệt tiếp theo.
+
+
+
+2\. Dằn mặt tình địch, dạy đức ông chồng
+
+Có thể đặt câu hỏi: tại sao Hoạn Thư không giữ chồng ở nhà mà lại giục đi Lâm Truy? Và tại sao lại không thủ tiêu Thúy Kiều, cái việc không quá khó đối với một con quan Lại bộ ? Hoặc tại sao không gây sức ép để Thúy Kiều ngay từ đầu phải cao chạy xa bay? Và tại sao lại đưa Thúy Kiều về nhà khác gì tạo điều kiện cho lửa gần rơm ?
+
+Thực ra, Hoạn Thư thừa biết bên mình hiện chỉ là cái xác, còn hồn vía của chàng Thúc còn đang gửi ở Lâm truy (vợ vừa nhủ qua mà chồng đã vó câu thẳng ruổi nước non quê người). Cho nên dù không để cho Thúc sinh đi cũng chỉ là chuyện “đười ươi giữ ống”. Thứ hai, nếu thủ tiêu Thúy Kiều, không may lộ chuyện thì có còn giữ được chồng, được gia đình nữa hay không? Hơn nữa Hoạn thư không phải là kiểu người ghen tuông tàn bạo thú tính như Lữ hậu thời Tây Hán,Trung Quốc, (biến vợ bé của chồng thành “con người lợn”, rồi hành hạ cho đến chết). Còn nếu Thúy Kiều bỏ trốn lúc này có chắc là Thúc sinh đã dứt tơ lòng với người tình đá vàng? Vì vậy Hoạn thư đã chọn giải pháp bắt cóc, đem dây xích buộc chân nàng về, để trị tội cho bõ ghét.
+
+Sự việc diễn ra như trong truyện ta đã biết. Bầy Ưng Khuyển theo lệnh chủ, đã bắt Thúy Kiều, phóng hỏa đốt nhà, tạo hiện trường giả “người chết”. Rồi Thúy Kiều bị một phen mưa gió tan tành, bị đánh đòn thịt nát gan kinh, bị bắt làm thị tì ở nhà quan Lại bộ, bị ép làm con hầu ở nhà Hoạn thư. Việc hành hạ thể xác của Kiều, thừa điều kiện để xuống tay như Lữ hậu, nhưng Hoạn Thư cũng chỉ dừng đến đấy. Về cơ bản, coi như kẻ tình địch đã bị trừng trị. Trước khi Thúc sinh về, Hoạn Thư đã có phần nguôi giận đối với Thúy Kiều (thương tài / khuông uy …bớt vài bốn phân). Thực ra, gay gắt cay nghiệt với Thúy Kiều chỉ là chuyện giận cá chém thớt, chứ trong thâm tâm người mà Hoạn Thư muốn bắt về trị tội, muốn cho biết tay chính là cái người thăm ván bán thuyền. Cho nên khi nghĩ về cái sự buồn của nhà, Hoạn Thư có trách là trách người đen bạc ra lòng trăng hoa; có đau là đau nỗi chàng ở bạc… Không khi nào hình ảnh Thúy Kiều hiện lên trực tiếp như một đối tượng chủ yếu trong nỗi bực dọc của Hoạn Thư.
+
+Và để ép Thúc Sinh “tự nguyện” trở về “chịu tội”, biện pháp đốt nhà, tạo hiện trường “chết giả” là hiệu quả nhất. Khi người tình không còn nữa, nỗi đau đớn, nhớ thương có phần nguôi ngoai là lúc chàng Thúc Chạnh lòng nhớ cảnh gia hương,/ Nhớ quê chàng lại tìm đường thăm quê.
+
+Thời điểm tổ chức lễ “đón tiếp” được chọn ngay khi Thúc sinh vừa tới nhà là rất có dụng ý. Không chỉ vì tâm trạng căng thẳng sốt ruột phải ra tay lập tức, mà người vợ cao tay muốn có một cuộc chạm trán bất ngờ choáng váng, khiến anh chồng không kịp có thông tin, không kịp trở tay, bị bắt tận tay, bị day tận mặt mà không dám hé răng. Và chuyện phải xảy ra đã xảy ra: Cùng trong một tiếng tơ đồng / Người ngoài cười nụ người trong khóc thầm. / Rõ ràng thật lứa đôi ta,/ Làm ra con ở chúa nhà đôi nơi. Người đánh ghen tha hồ hỏi tra, thét, bắt “kẻ thứ ba” phải khoan, nhặt, quỳ tật mặt, mời tận tay, phải đánh đàn, phải mời rượu[4]. Còn kẻ trăng hoa phải phách lạc hồn xiêu / như dại như ngây / gan héo ruột đầy/ càng nghĩ càng cay đắng lòng; giả say giạm lời lảng ra cũng không xong; mắt lả chã mà cũng không dám khóc, miệng muốn than mà phải gượng nói gượng cười. Thật là bi hài, khi không còn nén được, bật khóc vì người tình, chàng Thúc lại phải “khai” liều là khóc vì hiếu phục…đau lòng chung thiên. Có lẽ trên đời này hiếm có người vợ “ điều trị” cái bệnh đen bạc của chồng một cách vừa cay độc (nặng như chì) vừa nhẹ nhàng (nhẹ như bấc) mà hết sức hiệu quả như vậy.
+
+Nhìn đôi tình nhân “quằn quại” trong cảnh con ở chúa nhà đôi nơi, nát ruột tan hồn, Hoạn Thư dường như đã bõ cơn hờn, dịu bớt nỗi đau (Tiểu thư nhìn mặt dường đà cam tâm, / Lòng riêng tấp tễnh mừng thầm: Vui này đã bõ đau ngầm xưa nay). Nhưng tại sao ngay lúc đó Hoạn Thư chẳng những không đẩy Thúy Kiều đi mà còn cho quy Phật ngay trong nhà mình?. Dù có đủ người để canh giữ, nhưng tình địch ở ngay trong nhà, liệu cảnh “lửa gần rơm” có tái diễn? Và tái diễn thật. Tiểu thư phải buổi vấn an về nhà / Thừa cơ sinh mới lẻn ra, Xăm xăm đến mé vườn hoa với nàng,/ Sụt sùi giở nỗi đoạn trường,/ Giọt châu tầm tả đượm tràng áo xanh.
+
+Có phải đây là nước cờ sơ hở của Hoạn Thư chăng? Chắc là không. Như trên đã nói, Hoạn Thư nhẹ tay đối với Kiều, bởi có biệt nhỡn liên tài, có tấm lòng yêu ghét phân minh, (Tiểu thư xem cũng thương tài / Khuôn uy dường cũng bớt vài bốn phân). Với Hoạn Thư, ba con người trong Thúy Kiều luôn được phân định: kẻ tình địch, bậc tài hoa, người mắc nạn. Cho nên, kẻ tình địch thì ghét, người mắc nạn thì thương, còn bậc tài hoa thì vừa thương vừa trọng. Lúc trước, bớt gay gắt với Kiều vì thương tài, còn hiện tại, vì như Hoạn Thư nói với Thúc sinh (nhưng thực ra cũng là tự nhủ lòng mình): tài nên trọng mà tình nên thương. Rồi nàng còn công khai khen tình địch trước mặt chồng: Ví chăng có số giàu sang,/ Giá này dẫu đúc nhà vàng cũng nên. Trên đời này dễ mấy ai đủ bản lĩnh để đưa ra một lời khen tuyệt đỉnh về kẻ thù như như vậy. Đấy chính là một nhân cách hiếm có, là cái khuôn uy bền chắc khiến cho chàng Thúc phải nể phục, phải sợ, phải bó tay. Việc bố trí cho Thúy Kiều ra ở Quan âm các vườn ta thực ra không phải để tiếp tục trả thù[5], ngoài nguyên cớ thương tài như đã nói trên, còn là giải pháp tạm thời cách li có kiểm soát Thúc sinh với Thúy Kiều. Nhưng quan trọng đây là nước cờ chiếu hết. Chuyện … vấn an về nhà chỉ là phép thử cuối cùng để khẳng định lòng dạ của Thúc –Kiều. Đâu có đi vấn an, mà tiểu thư đang nhón chân đứng nép, kiên nhẫn đến nửa giờ (tính theo giờ tây là khoảng một tiếng đồng hồ) nghe anh ả sụt sùi khóc than. Mãi cho đến khi nghe Kiều hở ra ý trốn chạy: Liệu mà mở của cho ra, / Ấy là tình nặng ấy là ơn sâu; rồi Thúc sinh quyết dứt tình: Liệu mà cao chạy xa bay,/ Ái ân ta có ngần này mà thôi, Hoạn Thư mới xuất hiện. Nhìn vẻ mặt và cử chỉ vui vẻ, mãn nguyện (Cười cười nói nói ngọt ngào), nghe lời khen ngợi, tiếc nuối của Hoạn Thư đối với tài năng của Thúy Kiều (Nghìn vàng thật cũng nên mua lấy tài), rồi chứng kiến cảnh nàng cùng chồng thong dong nối gót thư trai cùng về, ta thấy người vợ thông minh tót vời này đã nắm chắc phần thắng lợi. Việc còn lại chỉ còn là gia ân, là tạo sơ hở giả để Thúy Kiều bỏ trốn mà thôi. Đó là thắng lợi của trí tuệ khôn khéo, của bản lĩnh phi thường, thắng lợi của một nhân cách cao thượng đáng khâm phục. Chính Thúy Kiều, khi nghĩ lại, hết sức kinh hãi, nhưng cũng vô cùng cảm phục: Thực tang, bắt được dường này,/ Máu ghen ai cũng chau mày nghiến răng. / Thế mà im chẳng đãi đằng,/ Chào mời vui vẻ, nói năng dịu dàng. Và cũng thật đáng ghen với chàng Thúc, một tay khoác lác, nhát gan mà số đỏ, được cả hai người phụ nữ đáng giá nghìn vàng yêu thương và trân trọng, (trong khi vì dây dưa với chàng cả hai đã xuýt mất mạng).
+
+
+
+3\. Thoát án tử hình, chỉ ba tấc lưỡi
+
+
+
+Đúng là trái đất to mà cũng không khác gì miệng chén. Hai đối thủ không đội tròi chung đã quyết dứt tình năm xưa có ngờ đâu lại có ngày tái ngộ, mà tái ngộ trong vị thế đảo chiều. Trước đây là con ở chúa nhà, còn bây giờ là quan tòa và kẻ tội phạm. Khi trở thanh phu nhân bên cạnh anh hùng Từ Hải là lúc Thúy Kiều nghĩa đến ân oán trên đời, và người bị oán đầu tiên là Hoạn Thư. Như vậy, trong bao nhiêu kẻ gây ra nỗi bất hạnh cho minh, Kiều tỏ ra ấm ức, căm ghét Hoạn Thư nhất. Kiều không giấu nổi vẻ cay cú khi nói chuyện với Thúc sinh (Vợ chàng quỷ quái tinh ma,/ phen này kẻ cắp bà già gặp nhau); chưa xử mà đã chuẩn bị pháp trường tử hình tội phạm, (Dưới cờ gươm tuốt nắp ra/ Chính danh thủ phạm tên là Hoạn Thư). Cũng nên thông cảm cho Kiều, nhưng dù sao đây cũng là chỗ nông cạn, kém cỏi của nàng so với Hoạn Thư. Chỗ này xin nói vào dịp khác.
+
+
+
+Về phía Hoạn Thư, có thể coi là một dịp nữa thử thách trí tuệ và bản lĩnh người phụ nữ tài ba này. Nhìn cử chỉ, nghe giọng ngọt nhạt mỉa mai đay nghiến của Thúy Kiều: Thoắt trong nàng đã chào thưa,/ “Tiểu thư cũng có bây giờ đến đây./ Đàn bà dễ có mấy tay,/ Đời xưa mấy mặt đời này mấy gan./ Dễ dàng là thói hồng nhan./ Càng cay nghiệt lắm càng oan trái nhiều”, cũng phải lo thay cho Hoạn Thư, người đang đối mặt với tình thế ngàn cân treo sợi tóc. Không có thời gian để nghĩ suy cân nhắc; không có bố mẹ để bàn bạc nhờ vả như lúc ứng phó với anh chồng phụ bạc; dù đang bên cạnh, cũng chẳng trông cậy gì được ở anh chồng mặt như chàm đổ mình dường dẽ run. Sống chết giờ đây chỉ trong khoảnh khắc và phụ thuộc hoàn toàn vào sự lanh lợi khôn khéo của bản thân. Và diễn biến phiên tòa đã khẳng định phẩm chất ấy của Hoạn Thư. Dù lúc đầu hồn lạc phách siêu, choáng váng trước một bản án nặng nề, Hoạn Thư vẫn còn đủ can đảm để khấu đầu dưới trướng liệu điều kêu ca. Và đây là toàn văn bài tự bào chữa của “luật sư – tội phạm” Hoạn Thư:
+
+
+
+Rằng: “Tôi chút phận đàn bà,
+
+
+
+Ghen tuông thì cũng người ta thường tình.
+
+
+
+Nghĩ cho khi các viết kinh,
+
+
+
+Với khi khỏi cửa dứt tình chẳng theo.
+
+
+
+Lòng riêng riêng những kính yêu,
+
+
+
+Chồng chung chưa dễ ai chiều cho ai.
+
+
+
+Trót đà gây việc chông gai,
+
+
+
+Còn nhờ lượng bể thương bài nào chăng.”
+
+
+
+
+
+Điều cần bàn là những điều kêu ca sắc sảo đến mức nào mà khiến cho kẻ tử tù được trắng án trong gang tấc?
+
+
+
+Có thể thấy lời bào chữa ngắn chỉ là tám câu lục bát, nhưng đã bao gồm bốn luận điểm rất có tình có lí thật khó bác bỏ. Ở đây “bị cáo” đã:
+
+
+
+\- Khẳng định mình vô tội. Cái mà quan tòa quy tội: “kẻ cắp”, quỷ quái tinh ma, thói hồng nhan, cay nghiệt lắm, thực ra chỉ là chuyện ghen tuông thường tình của đàn bà. Luận điểm vừa bác lại cáo trạng, vừa tác động đến tâm lí của quan tòa (cũng là một hồng nhan, không thể không đồng cảm).
+
+
+
+\- Nêu chuyện khi các viết kinh, ngầm nhắc lại công trạng của mình đối với Thúy Kiều: cho ra ở các Quan âm (không phải làm thị tì); đến khi bỏ trốn, cũng gác bỏ thù oán, không truy bắt gắt gao. Ở đây Hoạn Thư còn ý tứ không tố rõ việc mất cắp đồ kim ngân, tránh làm cho Thúy Kiều mất mặt, (thực ra Hoạn Thư cũng hiểu Kiều không thể quên việc này). Những sự việc trên chính quan tòa là nhân chứng nên không thể không thừa nhận.
+
+
+
+\- Chất vấn: khi bị rơi vào cảnh chồng chung, đã ai nhường cho ai? Câu hỏi có tính chất khẳng định hướng vào Thúy Kiều, người đã từng trải nghiệm cái cảnh giấm chua. Khiến cho nàng Kiều, dù bây giờ đang ngồi ghế quan tòa cũng không thể không đặt mình vào hoàn cảnh ấy mà suy ngẫm.
+
+
+
+\- Thừa nhận gây ra việc chông gai, xin quan tòa rộng lượng tha thứ. Bị cáo khôn khéo tận dụng “tình tiết giảm nhẹ” (thành khẩn nhận tội), vừa tranh thủ cảm tình của quan tòa (khen người xét xử có lượng bể); vừa gây được ấn tượng chừng mực (chỉ xin thương bài nào chăng). Chắc rằng quan tòa không thể không vui lòng, dù có biết được “nịnh khéo”.
+
+Quả thật, “văn bản bào chữa” là một bài văn nghị luận mẫu mực: lời mạch lạc khúc chiết; ý sắc sảo trí tuệ; lập luận chặt chẽ lô-gic; tình kín đáo chân thành, thái độ nghiêm túc khiêm tốn. Và điều mấu chốt là bị cáo đã đẩy quan tòa vào thế bị động như Thúy Kiều đã tự nhận: Làm ra mang tiếng con người nhỏ nhen.
+
+
+
+Không phải ngẫu nhiên mà Thúy Kiều đã phải công khai khen kẻ cựu thù của mình: Khôn ngoan nhất mực, nói năng phải lời, và lập tức cho hủy bản án tử hình: Truyền quân lệnh xuống trước tiền tha ngay.
+
+
+
+Rõ ràng, đây không chỉ là văn chương mà là bản lĩnh, là trí tuệ, là nhân cách đã cứu Hoạn Thư thoát chết.
+
+Nhưng tiện đây cũng phải nói thêm, may mà Hoạn Thư đã gặp một Bao công thực sự. Vừa là nguyên đơn, vừa là chánh án, nhưng Thúy Kiều tỏ ra là một quan tòa công tâm nhất mực: thượng tôn pháp luật, phân biệt công lí và tư thù. Quả là trong Truyện Kiều có hai người đàn bà dũng cảm, cao thượng hết mực: một người dám công khai khen tình địch trước mặt chồng, và một người dám khen kẻ thù trước ba quân thiên hạ.
+
+
+
+Sứ mệnh cao cả của văn chương là tôn vinh vẻ đẹp của con người. Càng đọc cụ Nguyễn Du càng thấm thía điều đó. Nếu như ở Thúy Kiều chủ yếu lấp lánh vẻ đẹp của tài hoa nhan sắc, của tâm hồn, thì ở Hoạn Thư chủ yếu tỏa sáng vẻ đẹp của một trí tuệ khôn khéo, một bản lĩnh phi thường. Nhưng điều đáng nói là, cách ứng xử cao thượng đầy nhân tính, kể cả với kẻ thù, là ánh hào quang rực rỡ tôn vinh hai nhân vật phụ nữ độc đáo nhất trong thiên truyện bất hủ này.[6]
+
+
+
+\-----------------
+
+
+
+[1] - Xin đọc thêm các ý kiến trong các trang mạng sau: http://vietsciences.free.fr và http://vietsciences.net Võ Thu Tịnh, Đòn ghen của Hoạn Thư / Diễn đàn Kiến thức, học tập suốt đời - Ths. Phạm Quốc Tuấn, Nhận diện nhân vật Hoạn Thư trong "Đoạn trường tân thanh" của Nguyễn Du./ http:// ttvnol.com lời bàn của Bhavaghita / http:// newvietra.con - Triệu văn Đồi, Yêu – ghét Hoạn thư
+
+
+
+[2] -Hà Huy Giáp, Giới thiệu về Nguyễn Du và Truyện Kiều, in trong tập Truyện Kiều (Nguyễn Thạch Giang khảo đính, chú thích), NXB Đại học và THCN, H. 1972 , tr.LVI
+
+
+
+[3] - Trần Đình Sử, Thi pháp Truyện Kiều, NXB Giáo dục, 2003, tr. 279.
+
+
+
+[4] - Đõ Minh Tuấn, trong Nghệ thuật trữ tình của Nguyễn Du trong Truyện Kiều, NXB Văn hóa - Thông tin, H. 1995, quy tội Hoạn Thư: “ Tính chất độc ác trong sự hành hạ của Hoạn Thư chính là ở chỗ nó vùi dập ý thức người vợ trong Kiều, không cho ý thức đau khổ của người vợ được trỗi dậy và được bộc lộ qua tiếng đàn.” (…) Hoạn Thư là người xúc phạm sâu sắc đến tiếng đàn của Kiều”,(tr. 86). E rằng có cố tình “tìm vết” chăng?
+
+
+
+[5] - Hà Huy Giáp, Sđd, tr LVH. (“Ở trong tay Hoạn thư, tài hoa nhan sắc của nàng bị ả lợi dụng, trả thù một cách tinh vi. Hoạn thư đã buộc Kiều đánh đàn (…). Hoạn thư lợi dụng cửa Phật để giết chết tài sắc của Kiều”)
+
+
+
+Theo Lê Như Bình/ Phongdiep.net
+
+Nguồn: https://www.nguyendu.com.vn/m
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+### [Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+  * [ ](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+### [Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+  * [ ](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+### [Nghìn năm sau nhớ Nguyễn Du](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+  * [ ](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+### [Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+  * [ ](?chitiet=2310&van-chuong-truyen-kieu-me-hoac-long-nguoi.html "Văn chương truyện kiều mê hoặc lòng người")
+
+### [Văn chương truyện kiều mê hoặc lòng người](?chitiet=2310&van-chuong-truyen-kieu-me-hoac-long-nguoi.html "Văn chương truyện kiều mê hoặc lòng người")

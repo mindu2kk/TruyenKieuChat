@@ -1,0 +1,4 @@
+{"ask":"Cho tôi 10 câu đầu Truyện Kiều","expect":{"type":"opening","n":10}}
+{"ask":"Trích các câu 241–260","expect":{"type":"range","a":241,"b":260}}
+{"ask":"Xin 6 câu tả cảnh ngày xuân mở đầu","expect":{"type":"opening","n":6}}
+{"ask":"Trích đoạn chí khí anh hùng 12 câu","expect":{"type":"range","a":2153,"b":2164}}

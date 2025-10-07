@@ -1,0 +1,850 @@
+<!-- source: https://vietjack.com/van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp -->
+
+# 30+ Phân tích Kiều ở lầu Ngưng Bích (hay, ngắn gọn)
+
+  * [ HOT Sale 40% sách cấp tốc Toán - Văn - Anh vào 10 ngày 25-09 trên Shopee mall ](https://s.shopee.vn/1LRLjS5DCj)
+
+[__Trang trước](../van-mau-lop-9/truyen-kieu.jsp)
+
+[Trang sau __](../van-mau-lop-9/truyen-kieu.jsp)
+
+Tổng hợp 30 bài văn Phân tích đoạn trích Kiều ở lầu Ngưng Bích hay nhất với dàn ý chi tiết giúp học sinh có thêm tài liệu tham khảo để viết văn hay hơn.
+
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 1)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau1)
+  * [Dàn ý Phân tích đoạn trích Kiều ở lầu Ngưng Bích](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#dany)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 2)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau2)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 3)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau3)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 4)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau4)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 5)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau5)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 6)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau6)
+  * [Phân tích đoạn trích Kiều ở lầu Ngưng Bích (mẫu 7)](../van-mau-lop-9/4-bai-van-mau-phan-tich-doan-trich-kieu-o-lau-ngung-bich.jsp#vanmau7)
+
+## 30+ Phân tích Kiều ở lầu Ngưng Bích (hay, ngắn gọn)
+
+Quảng cáo
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 1**
+
+Nguyễn Du là bậc thầy về tả cảnh. Nhiều câu thơ tả cảnh của ông có thể coi là chuẩn mực cho vẻ đẹp của thơ ca cổ điển. Nhưng Nguyễn Du không chỉ giỏi về tả cảnh mà còn giỏi về tả tình cảm, tả tâm trạng. Trong quan niệm của ông, hai yếu tố tình và cảnh không tách rời nhau mà luôn đi liền nhau, bổ sung cho nhau.
+
+Đoạn trích Kiều ở lầu Ngưng Bích là một bức tranh tâm tình đầy xúc động. Bằng bút pháp tả cảnh ngụ tình, Nguyễn Du đã miêu tả tâm trạng nhân vật một cách xuất sắc. Đoạn thơ cho thấy nhiều cung bậc tâm trạng của Kiều. Đó là nỗi cô đơn, buồn tủi, là tấm lòng thủy chung, nhân hậu dành cho Kim Trọng và cha mẹ.
+
+Kết cấu của đoạn trích Kiều ở lầu Ngưng Bích rất hợp lí. Phần đầu tác giả giới thiệu cảnh Kiều bị giam lỏng ở lầu Ngưng Bích; phần thứ hai: trong nỗi cô đơn buồn tủi, nàng nhớ về Kim Trọng và cha mẹ; phần thứ ba: tâm trạng đau buồn của Kiều và những dự cảm về những bão tô cuộc đời sẽ giáng xuống đời Kiều.
+
+Quảng cáo
+
+Thiên nhiên trong sáu câu thơ đầu được miêu tả hoang vắng, bao la đến rợn ngợp. Ngồi trên lầu cao, nhìn phía trước là núi non trùng điệp, ngẩng lên phía trên là vầng trăng như sắp chạm đầu, nhìn xuống phía dưới là những đoạn cát vàng trải dài vô tận, lác đác như bụi hồng nhỏ bé như càng tô đậm thêm cuộc sống cô đơn, lẻ loi của nàng lúc này:
+
+Trước lầu Ngưng Bích khoá xuân
+
+Vẻ non xa tấm trăng gần ở chung
+
+Bốn bề bát ngát xa trông
+
+Cát vàng cồn nọ, bụi hồng dặm kia
+
+Có thể hình dung rất rõ một không gian mênh mông đang trải rộng ra trước mắt Kiều. Không gian ấy càng khiến Kiều xót xa, đau đớn:
+
+Bẽ bàng mây sớm đèn khuya,
+
+Nửa tình nửa cảnh như chia tấm lòng.
+
+Quảng cáo
+
+Một chữ bẽ bàng mà lột tả thật sâu sắc tâm trạng của Kiều lúc bấy giờ: vừa chán ngán, buồn tủi cho thân phận mình, vừa xấu hổ, sượng sùng trước mây sớm, đèn khuya. Và cảnh vật như cũng chia sẻ, đồng cảm với nàng: nửa tình nửa cảnh như chia tấm lòng. Bức tranh thiên nhiên không khách quan, mà có hồn, đó chính là bức tranh tâm cảnh của Kiều những ngày cô đơn ở lầu Ngưng Bích.
+
+Trong tâm trạng cô đơn, buồn tủi nơi đất khách quê người, Kiều tìm về với những người thân của mình. Nỗi nhớ người yêu, nhớ cha mẹ được Nguvễn Du miêu tả rất xúc động trong những lời độc thoại nội tâm của nhân vật. Nỗi nhớ thương được chia đều: bốn câu đầu dành cho người yêu, bốn câu sau dành cho cha mẹ. Nhưng nỗi nhớ với chàng Kim được nói đến trước vì đây là nồi nhớ nồng nàn và sâu thẳm nhất. Nồi nhớ đó được xoáy sâu và đêm thề nguyền dưới ánh trăng và nỗi đau cũng trào lên từ đó:
+
+Tưởng người dưới nguyệt chén đồng.
+
+Tin sương luống những rày trông mai chờ.
+
+Bên trời góc bể bơ vơ,
+
+Tấm thân gột rửa bao giờ cho phai.
+
+Quảng cáo
+
+Lời thơ như chứa đựng nhịp thổn thức của một trái tim yêu đương đang chảy máu! Nỗi nhớ của Kiều thật tha thiết, mãnh liệt! Kiều tưởng tượng ra cảnh chàng Kim đang ngày đêm chờ mong tin mình một cách đau khổ và tuyệt vọng. Mới ngày nào nàng cùng với chàng Kim nặng lời ước hẹn trăm năm mà bỗng dưng, nay trở thành kẻ phụ bạc, lỗi hẹn với chàng.
+
+Chén rượu thề nguyền vẫn còn chưa ráo, vầng trăng vằng vặc giữa trời chứng giám lời thề nguyền vẫn còn kia, vậy mà bây giờ mỗi người mỗi ngả. Rồi bất chợt Kiều liên tưởng đến thân phận: Bên trời góc bể bơ vơ của mình và tự dằn vặt: Tấm son gột rửa bao giờ cho phai.
+
+Kiều nuối tiếc mối tình đầu trong trắng của mình, nàng thấm thía tình cảnh cô đơn của mình, và cũng hơn ai hết, nàng hiểu rằng sẽ không bao giờ có thể gột rửa được tấm lòng son sắt, thủy chung của mình với chàng Kim. Và thực sự, bóng chàng Kim cũng sẽ không bao giờ phai nhạt trong tâm trí Kiều trong suốt mười lăm năm lưu lạc.
+
+Nhớ người yêu, Kiều càng xót xa nghĩ đến cha mẹ. Mặc dầu nàng đã liều đem tấc có, quyết đền ba xuân, cứu được cha và em thoát khỏi vòng tù tội, nhưng nghĩ về cha mẹ, bao trùm trong nàng là một nỗi xót xa lo lắng. Kiều đau lòng khi nghĩ đến cảnh cha mẹ già tựa cửa trông con. Nàng lo lắng không biết khi thời tiết thay đổi ai là người chăm sóc cha mẹ.
+
+Nguyễn Du đã rất thành công khi sử dụng thành ngữ, điển cố (tựa cửa hôm mai, quạt nồng ấp lạnh, gốc tử) để thể hiện tình cảm nhớ nhung sâu nặng cũng như những băn khoăn, trăn trở của Kiều khi nghĩ đến cha mẹ, nghĩ đến bổn phận làm con của mình. Trong hoàn cảnh của Kiều, những suy nghĩ, tâm trạng đó càng chứng tỏ Kiều là một người con rất mực hiếu thảo.
+
+Nhớ người yêu, nhớ cha mẹ, nhưng rồi cuối cùng nàng Kiều lại quay về với cảnh ngộ của mình, sống với tâm trạng và thân phận hiện tại của chính mình. Mỗi cảnh vật qua con mắt, cái nhìn của Kiều lại gợi lên trong tâm trí nàng một nét buồn. Và nàng Kiều mỗi lúc lại càng chìm sâu vào nỗi buồn của mình. Nỗi buồn sâu sắc của Kiều được ngòi bút bậc thầy Nguyễn Du mỗi lúc càng tô đậm thêm bằng cách dùng điệp ngữ liên hoàn rất độc đáo trong tám câu thơ tả cảnh ngụ tình:
+
+Buồn trông cửa bể chiều hôm,
+
+Thuyền ai thấp thoáng cánh buồm xa xa?
+
+Buồn trông ngọn nước mới sa
+
+Hoa trôi man mác biết là về đâu?
+
+Buồn trông nội cỏ rầu rầu,
+
+Chân mây mặt đất một màu xanh xanh.
+
+Buồn trông gió cuốn mặt duềnh,
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi.
+
+Nguyễn Du quan niệm: Cảnh nào cảnh chẳng đeo sầu... Mỗi cảnh vật hiện ra qua con mắt của Kiều ở lầu Ngưng Bích đều nhuốm nỗi buồn sâu sắc. Mỗi cặp câu gợi ra một nỗi buồn. Buồn trông là buồn mà nhìn ra xa, nhưng cũng là buồn mà trông ngóng một cái gì đó mơ hồ sẽ đến làm đổi thay tình trạng hiện tại.
+
+Hình như Kiều mong cánh buồm, nhưng cánh buồm chỉ thấp thoáng, xa xa không rõ, như một ước vọng mơ hồ, mỗi lúc mỗi xa. Kiều lại trông ngọn nước mới từ cửa sông chảy ra biển, ngọn sóng xô đẩy cánh hoa phiêu bạt, không biết về đâu như thân phận của mình.
+
+Rồi màu xanh xanh bất tận của nội cỏ rầu rầu càng khiến cho nỗi buồn thêm mênh mang trong không gian; để rồi cuối cùng, nỗi buồn đó bỗng dội lên thành một nỗi kinh hoàng khi ầm ầm tiếng sóng kêu quanh ghế ngồi. Đây là một hình ảnh vừa thực, vừa ảo, cảm thấy như sóng vỗ dưới chân, đầy hiểm họa, như muốn nhấn chìm Kiều xuống vực.
+
+Tám câu thơ tuyệt bút với nghệ thuật tả cảnh ngụ tình kết hợp với nghệ thuật điệp ngữ liên hoàn đầu mỗi câu lục và nghệ thuật ước lệ tượng trưng cùng với việc sử dụng nhiều từ láy tượng hình, tượng thanh (thấp thoáng, xa xa, man mác, rầu rầu, ầm ầm) đã khắc họa rõ cảm giác u uất, nặng nề, bế tắc, buồn lo về thân phận của Thúy Kiều khi ở lầu Ngưng Bích.
+
+Đoạn trích Kiều ở lầu Ngưng Bích là một bức tranh thiên nhiên đồng thời cũng là một bức tranh tâm trạng có bố cục chặt chẽ và khéo léo.
+
+Thiên nhiên ở đây liên tục thay đổi theo diễn biến tâm trạng của con người. Mỗi nét tưởng tượng của Nguyễn Du đều phản ánh một mức độ khác nhau trong sự đau đớn của Kiều. Qua đó, cho thấy Nguyễn Du đã thực sự hiểu nỗi lòng nhân vật trong cảnh đời bất hạnh để ca ngợi tấm lòng cao đẹp của nhân vật, để giúp ta hiểu thêm tâm hồn của những người phụ nữ tài sắc mà bạc mệnh.
+
+### **Dàn ý Phân tích đoạn trích Kiều ở lầu Ngưng Bích**
+
+**1, Mở bài:**
+
+\- Giới thiệu về tác phẩm và đoạn trích:
+
+\+ Truyện Kiều là tác phẩm truyện thơ Nôm lớn nhất của tác giả Nguyễn Du.
+
+\+ Đoạn trích “Kiều ở lầu Ngưng Bích” là đoạn trích hay, nằm trong phần “Gia biến, lưu lạc: Thúy Kiều bán mình chuộc cha và em trai, bị Mã Giám Sinh lừa, bị bán vào thanh lâu. Thúy Kiều đã định tự kết liễu đời mình, nhưng không thành, bị Tú Bà lừa nhốt ở lầu Ngưng Bích. lột tả được tâm trạng của Thúy Kiều trong cảnh xa nhà, bị giam lỏng.
+
+**2, Thân bài:**
+
+a, Cảnh cô đơn, tủi phận của Thúy Kiều (6 câu đầu)
+
+\- “Khóa xuân”: Kiều bị giam cầm, chôn vùi tuổi trẻ.
+
+\- Cảnh sắc hoang vắng, lạnh lẽo: dãy núi ở xa, mảnh trăng gần, cồn cát nối tiếp với bụi hồng trải dài ở xa
+
+⇒Nghệ thuật liệt kê, đối lập tương phản “non xa”/”trăng gần”, đảo ngữ, từ láy “bát ngát” gợi không gian thiên nhiên mênh mông, vắng lặng không một bóng người.
+
+\- Thúy Kiều đau đớn, tủi nhục cho thân phận của mình:
+
+\+ “Mây sớm đèn khuya” gợi thời gian tuần hoàn khép kín, lặp lại. Kiều thấy tuyệt vọng, buồn tủi, trong nỗi cô đơn đến “bẽ bàng”.
+
+\+ Bốn chữ “như chia tấm lòng”: sự chua xót, buồn đau của Kiều chỉ có cảnh vật nơi đây chứng kiến, chia sẻ.
+
+⇒ Sử dụng bút pháp chấm phá tạo nên khung cảnh hoang vắng, làm nền cho Kiều thổ lộ tâm tình.
+
+b, Nỗi thương nhớ Kim Trọng và cha mẹ
+
+Trong cảnh cô đơn, tâm trạng của Kiều chuyển từ buồn sang nhớ:
+
+\- Kiều nhớ đến Kim Trọng (4 câu tiếp theo)
+
+\+ Nhớ cảnh cùng Kim Trọng uống rượu thề nguyền dưới ánh trăng: tác giả dùng từ “tưởng” - vừa là nhớ đến, vừa là tưởng tượng ra người yêu đang ở trước mắt, qua đó thể hiện nỗi nhớ nhung day dứt của Kiều.
+
+\+ Hình dung rằng Kim Trọng cũng đang chờ tin mình: “Tin sương luống những rày trông mai chờ”.
+
+\+ Rồi Kiều lại giật mình nhớ đến hiện thực đang “bơ vơ” chưa biết ngày mai sẽ ra sao của mình. Kiều càng nhớ Kim Trọng thì càng tủi phận: tình yêu của nàng sẽ không bao giờ phai mờ, nhưng danh dự, phẩm giá của nàng đã bị vùi dập, hoen ố, khó mà gột rửa, không xứng với tình yêu của Kim Trọng nữa.
+
+⇒ Tâm trạng buồn nhớ, tuyệt vọng, tủi phận của nhân vật. Đây vừa là bi kịch tình yêu khi Thúy Kiều và Kim Trọng không thể nên duyên, vừa là nỗi đau về nhân phẩm của một cô gái tài sắc.
+
+\- Kiều nhớ và lo lắng cho cha mẹ:
+
+\+ Dùng từ “xót người”: Kiều lo lắng xót xa nghĩ đến cha mẹ sớm hôm tựa cửa nhớ thương nàng.
+
+\+ “Quạt nồng ấp lạnh”: Kiều lo lắng không biết ai sẽ chăm sóc tốt cho cha mẹ khi thời tiết đổi thay.
+
+\+ Tác giả sử dụng các từ ngữ chỉ thời gian như: “hôm mai”, “cách mấy nắng mưa”, và các điển cố văn học Trung Quốc: “sân Lai”, “gốc tử” để nói lên tâm trạng nhớ thương, lo lắng và tấm lòng hiếu thảo của Kiều dành cho cha mẹ.
+
+⇒ Kiều đã bán mình để trả nợ chữ Hiếu nhưng vẫn luôn một lòng đau đáu nhớ thương, lo lắng cho cha mẹ già, đồng thời lo sợ mình khó trở về gặp cha mẹ.
+
+c, Tâm trạng của Thúy kiều trở về với thực tại, lo lắng cho tương lai
+
+\- Điệp từ “buồn trông”: được lặp lại 4 lần tạo âm hưởng trầm buồn cho đoạn thơ, miêu tả nỗi buồn đang dâng lên như từng lớp sóng trong lòng Thúy Kiều.
+
+\- Cảnh vật thiên nhiên qua con mắt của Kiều gợi nỗi buồn da diết:
+
+\+ Cánh buồm ẩn hiện: gợi lên hành trình lưu lạc không biết bến bờ.
+
+\+ Cánh hoa trôi: gợi tả thân phận nhỏ bé, yếu đuối, lênh đênh trôi dạt (liên hệ so sánh với ca dao: sử dụng hình ảnh bèo dạt, hoa trôi để nói về số phận thăng trầm, yếu đuối, không thể tự định đoạt của người phụ nữ xưa).
+
+\+ Nội cỏ rầu rầu: gợi cuộc sống héo hon, bi thảm, vô vọng kéo dài.
+
+\+ Hình ảnh “gió cuốn”, âm thanh của sóng: thiên nhiên như lo sợ báo trước, số phận Thúy Kiều sẽ gặp giông bão xô đẩy, vùi dập.
+
+⇒ Nghệ thuật:
+
+\- Tả cảnh ngụ tình: lấy cảnh bên ngoài lầu Ngưng Bích để bộc lộ tâm trạng Thúy Kiều. Cảnh được miêu tả từ xa đến gần; màu sắc từ nhạt đến đậm; âm thanh từ tĩnh đến động, thể hiện nỗi buồn từ man mác, mông lung đến lo âu, kinh sợ của Kiều.
+
+\- Hệ thống câu hỏi tu từ: cảm xúc bế tắc, hoang mang, sợ hãi của Kiều, lo sợ cho tương lai không biết đi về đâu.
+
+\- Từ láy: “thấp thoáng”, “xa xa”, “man mác”,“rầu rầu”,”xanh xanh”,”ầm ầm”, tạo cảm giác cảnh vật u ám, trầm buồn.
+
+**3, Kết bài:**
+
+\- Đoạn trích thể hiện tâm trạng buồn thương của Thúy Kiều: nhớ nhà, thương cha mẹ, người yêu, thương cho thân phận mình.
+
+\- Những biện pháp nghệ thuật Nguyễn Du sử dụng (điệp từ, độc thoại nội tâm, tả cảnh ngụ tình, hệ thống tính từ - động từ, điển tích kết hợp thành ngữ…) đã lột tả chân thực nỗi buồn nhớ, vô vọng và dự đoán số phận lênh đênh của Thúy Kiều.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 2**
+
+Truyện Kiều là một kiệt tác văn học nên đã có rất nhiều người yêu thích, sáng tác những tác phẩm văn thơ vịnh về Truyện Kiều. Trong đó có những câu thơ rất hay vịnh về nàng Kiều khi ở lầu Ngưng Bích.
+
+Một mình đối diện với mình
+
+Mênh mông trăng gió vô tình thoảng qua
+
+Mong manh như một nhành hoa
+
+Ầm ầm tiếng sóng biết là về đâu?
+
+Chưa đi đến thuở bạc đầu
+
+Mà sao như đã nhuốm màu hư vô?
+
+Đó là những câu thơ người ta vịnh về tâm trạng của nàng Kiều khi Nguyễn Du miêu tả cảnh nàng bị Tú Bà giam lỏng ở lầu Ngưng Bích.
+
+Đoạn trích "Kiều ở lầu Ngưng Bích" nằm ở phần thứ hai "Gia biến và lưu lạc" của "Truyện Kiều". Sau khi bán mình cho Mã Giám Sinh, Kiều "thất thân" với hắn "đuốc hoa để đó mặc nàng nằm trơ", nàng bị hắn bán vào lầu xanh. Biết mình bị lừa và phải làm nghề dơ bẩn, Kiều uất ức, rút dao định tự vẫn. Tú Bà sợ hãi "Thôi thôi vốn liếng đi đời nhà ma", nhanh trí, mụ liền vờ hứa hẹn đợi Kiều bình phục sẽ gả chồng cho nàng vào nơi tử tế, rồi đưa Kiều ra giam lỏng ở lầu Ngưng Bích, đợi thực hiện âm mưu mới. Vì thế đoạn trích "Kiều ở lầu Ngưng Bích" dựng lên cảnh ngộ cô đơn, buồn tủi và tấm lòng thủy chung, hiếu thảo của Thúy Kiều một mình bơ vơ nơi xứ người, đồng thời qua đoạn trích, người đọc thấy được bút pháp "tả cảnh ngụ tình" độc đáo, đạt tới trình độ điêu luyện bậc thầy của thiên tài văn học Nguyễn Du.
+
+Trước hết là sáu câu thơ đầu, tác giả nêu lên hoàn cảnh sống và nỗi niềm cô đơn, tội nghiệp của nàng Kiều. Ngay câu thơ mở đầu: "Trước lầu Ngưng Bích khóa xuân", Nguyễn Du đã nêu bật lên cảnh ngộ đáng thương của Kiều. "Khóa xuân" tức khóa kín tuổi xuân và ở đây ý nói về việc Kiều đang bị giam lỏng. Vậy là tuổi thanh xuân của nàng Kiều bị giam hãm, khóa kín trong cấm cung và không được giao tiếp với bên ngoài. Vì thế, lầu Ngưng Bích như là nhà tù giam lỏng cuộc đời Kiều, nó cho thấy tình cảnh đáng thương, xót xa mà nàng Kiều phải chịu đựng.
+
+Những câu thơ tiếp theo, tái hiện quang cảnh xung quanh lầu Ngưng Bích rộng lớn, mênh mông được nhìn dưới con mắt đầy tâm trạng của Kiều:
+
+Vẻ non xa tấm trăng gần ở chung
+
+Bốn bề bát ngát xa trông
+
+Cát vàng cồn nọ bụi hồng dặm kia
+
+Bẽ bàng mây sớm đèn khuya
+
+Nửa tình nửa cảnh như chia tấm lòng.
+
+Nguyễn Du đã đặt Kiều trong một cảnh ngộ rất đặc biệt: một mình, cô đơn, trơ trọi giữa một không gian rộng lớn, mênh mông: "bốn bề bát ngát". Đứng trên lầu mà ngước mắt lên trời cao, Kiều chỉ thấy "non xa" và "tấm trăng gần". Nhìn xuống mặt đất chỉ thấy khoảng không trống vắng, xa xa là những con sóng lượn, những bãi cát dài phẳng lặng nối tiếp nhau, dưới ánh nắng của buổi chiều tà, bãi cát như trở nên lấp lánh giống như những bụi hồng. Cảnh thật đẹp, thơ mộng, lãng mạn nhưng đượm buồn. Bởi xung quanh Kiều, không hề có một chút bóng dáng sự sống của con người. Vì thế, từ “xa trông” như miêu tả cái nhìn xa xăm của Kiều, nàng đang cố gắng kiếm tìm một chút bóng dáng, sự sống xung quanh. Nhưng tuyệt nhiên chỉ là một không gian vắng lặng, tĩnh tại, không có chút động nhỏ bé nào đó xung quanh mình. Sau này trong bài thơ "Tràng Giang", Huy Cận cũng từng có câu thơ:
+
+Mênh mông không một chuyến đò ngang
+
+Không cầu gợi chút niềm thân mật
+
+Lặng lẽ bờ xanh tiếp bãi vàng.
+
+Vì thế, ẩn sau ánh mắt nhìn "xa trông" như đang trông mong, ngóng chờ ấy là niềm mong mỏi, khát khao, đợi chờ một tương lai hạnh phúc phía trước nhưng trước không gian trống trải, hoang vắng ấy thì chắc chắn chỉ làm cho Kiều trở nên thất vọng, cô đơn hơn mà thôi.
+
+Bẽ bàng mây sớm đèn khuya
+
+Nửa tình nửa cảnh như chia tấm lòng.
+
+Tính từ “bẽ bàng” gợi lên sự xấu hổ và tủi thẹn của Kiều khi nghĩ đến thân phận và duyên phận của mình. Có lẽ, nàng cảm thấy xấu hổ là vì bị Mã Giám Sinh lừa vào lầu xanh, còn nàng cảm thấy tủi thẹn là vì cảm thấy không còn xứng đáng với tình cảm mà Kim Trọng mong chờ. Cụm từ “mây sớm đèn khuya” gợi nên vòng tuần hoàn thời gian khép kín và ẩn sau đó là sự cô đơn, đơn điệu, nhàm chán khi mà ở đó Kiều chỉ có một thân một mình đối diện với chính mình, sớm thì làm bạn với mây, tối thì lại chỉ biết trò chuyện với bóng đèn. Vì thế tâm trạng của Kiều mới chia đôi thành hai ngả: “nửa tình – nửa cảnh như chia tấm lòng”. Cảnh có đẹp đến bao nhiêu đi chăng nữa cũng không thể nào khỏa lấp đi tâm trạng “bẽ bàng” của nàng.
+
+Tóm lại: Bằng bút pháp tả cảnh ngụ tình, kết hợp với những từ ngữ giàu tính tạo hình và biểu cảm, Nguyễn Du đã phác họa được khung cảnh lầu Ngưng Bích rất rộng lớn, mênh mông và tuyệt nhiêu không có sự sống của con người. Đồng thời qua đó, tác giả còn cho thấy được tâm trạng cô đơn, tủi hổ, bẽ bàng của Kiều khi bị giam lỏng trong lầu Ngưng Bích.
+
+Trong nỗi cô đơn cố hữu đang bủa vây quanh mình, khi một mình Kiều phải bơ vơ dưới góc bể chân trời ở lầu Ngưng Bích thì nối nhớ gia đình, nỗi nhớ người yêu đến như một lẽ tất yếu, rất phù hợp với qui luật tâm lí của con người xa quê. Tám câu thơ tiếp là nỗi niềm thương nhớ Kim Trọng và cha mẹ của Kiều.Đến đây, chúng ta thấy được cách dùng từ rất đắc địa, khéo léo của nhà thơ. Để diễn tả nỗi nhớ của Kiều dành cho chàng Kim, tác giả đã dùng động từ “Tưởng”. Tưởng là nhớ tới mức hình dung ra Kim Trọng đang ở trước mắt trò chuyện với Kiều. Kiều nhớ đến đêm chăng thề nguyện, hai người cùng uống chén rượu thủy chung, hứa sẽ bên nhau trọn đời. Nhưng bây giờ nàng đang phải lạc lõng nơi đất khách, nên nàng tưởng Kim Trọng đang đợi tin tức của mình, còn mình thì bặt vô âm tín:
+
+Tưởng người dưới nguyệt chén đồng
+
+Tin sướng luống những rày trông mai chờ
+
+Rồi nàng băn khoăn tự hỏi:
+
+Tấm son gột rửa bao giờ cho phai.
+
+Câu thơ có hai cách hiểu: Cách hiểu thứ nhất: Câu thơ như một lời khẳng định về tấm lòng son sắt, thủy chung của Kiều đối với Kim Trọng dù trên bước đường đời có phải trải qua bao sóng gió thì tấm lòng son ấy mãi vẹn nguyên. Cách hiểu thứ hai: câu thơ như một lời tự vấn lương tâm của Kiều, Kiều cho rằng tấm lòng son sắt của mình với Kim Trọng đã bị hen ố, đã bị dập vùi khi Kiều đã thất thân với Mã Giám Sinh nên không biết bao giờ mới gột rửa cho sạch được vết nhơ nhuốc ấy. Như vậy, trong nỗi nhớ chằng Kim, Thúy Kiều không chỉ bộc lộ nỗi niềm mong ngóng khắc khoải mà còn bộc lộ cả nỗi đau đớn, cùng cực, tủi hổ đến xe tâm can. Qua đó cho thấy được tấm lòng thủy chung, son sắt của Kiều dành cho Kim Trọng.
+
+Sau nỗi nhớ người yêu, Kiều tiếp tục nhớ tới cha mẹ - người thân yêu ruột thịt của mình:
+
+Xót người tựa cửa hôm mai
+
+Quạt lồng ấp lạnh những ai đó giờ?
+
+Sân Lai cách mấy nắng mưa,
+
+Có khi gốc tử đã vừa người ôm.
+
+Nếu như khi diễn tả nỗi nhớ chàng Kim của Kiều, Nguyễn Du dùng động từ "tưởng" thì khi diễn tả tấm lòng hiếu lễ với cha mẹ của Kiều, tác giả lại sử dụng tính từ “Xót”. Xót nghĩa là thương, thương đến mức xót xa trong lòng. Không xót xa sao được khi một đứa con hiếu thảo như Kiều lại cứ nghĩ đến hình ảnh cha mẹ đang tựa cửa ngóng trờ con trở về, còn con thì vẫn bóng chim tăm cá, không thấy đâu. Nàng còn lo lắng cho cha mẹ khi mà đã tuổi cao sức yếu không biết có ai chăm sóc cho không, hai em có làm tốt nghĩa vụ và trách nhiệm của phận làm con hay không. Cụm từ “cách mấy nắng mưa” có tính chất gợi tả thời gian, cho thấy sự xa cách của biết bao ngày mưa nắng nhưng cũng đồng thời gợi đến khoảng cách về không gian địa lí, sự xa xôi cách trở giữa nàng với cha mẹ biết bao giờ được gặp lại để làm tròn bổn phận làm con. Qua tâm trạng xót xa, buồn tủi và lo lắng khi nhớ về cha mẹ, gia đình của Kiều, chúng ta thấy được tấm lòng thảo thơm, hiếu nghĩa của Kiều dành cho cha mẹ rất là lớn lao, cao cả và thiêng liêng.
+
+Tuy nhiên, một nàng Kiều hiếu thảo với cha mẹ như thế, tại sao Kiều lại nhớ người yêu trước, sau đó mới nhớ đến cha mẹ của mình. Có được điều này là một dụng ý nghệ thuật độc đáo của tác giả. Bởi hình ảnh ánh trăng đang bắt đầu nhô lên nơi cửa ải xa xa kia khiến Kiều tức cảnh mà sinh tình, nhớ tới đêm trăng thanh thề nguyền giữa mình với Kim Trọng. Hơn thế, Kiều lại là một cô gái trẻ, Kim Trọng là mối tình đầu của nàng, mà mối tình đầu của một cô gái bao giờ cũng rất mãnh liệt. Chính vì vậy, Kiều luôn luôn nhớ tới Kim Trọng, hình ảnh Kim Trọng luôn thường trực trong lòng Kiều. Đặc biệt, Kiều đã bán mình chuộc cha và em, giúp gia đình thoát khỏi cơn tai biến thế là coi như Kiều đã tạm làm tròn bổn phận làm con đối với bậc sinh thanh; còn với Kim Trọng thì Kiều vẫn cảm thấy mình là một kẻ phụ tình và không còn trinh tiết, không còn xứng đáng với chàng Kim nữa. Đó là sự cắn rứt, đang dày vò trong trái tim nàng. Chính những lí do đó mà Nguyễn Du đã miêu tả nỗi nhớ của Kiều dành cho chàng Kim trước. Điều đó chứng tỏ Nguyễn Du là một thi sĩ rất am hiểu diễn biến tâm lí nhân vật. Sự am hiểu tâm lí ấy xuất phát từ tấm lòng yêu thương, trân trọng và ngợi ca con người của một nhà thơ nhân đạo chủ nghĩa.
+
+Bài thơ khép lại với tám câu thơ cuối thể hiện tâm trạng đau buồn, lo âu của Kiều qua cách nhìn cảnh vật.
+
+Buồn trông cửa bể chiều hôm
+
+Thuyền ai thấp thoáng cánh buồm xa xa?
+
+Buồn trông ngọn nước mới sa
+
+Hoa trôi man mác biết là về đâu?
+
+Buồn trông nội cỏ rầu rầu
+
+Chân mây mặt đất một màu xanh xanh
+
+Buồn trông gió cuốn mặt duềnh
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi.
+
+Điệp ngữ “buồn trông” được lặp đi lặp lại bốn lần. Đây là điệp ngữ liên hoàn và đồng thời cũng là điệp khúc của tâm trạng. Kiều buồn nên Kiều mới trông cảnh vật, khác với đoạn trước, Kiều trông mới thấy buồn. Ở đây, vì buồn nên trông, mà càng trông thì Kiều lại càng buồn. Nỗi buồn cứ thế điệp đi điệp lại dâng lên thành lớp lớp sóng trào, cứ cuộn xoáy trong tâm khảm của Kiều mà trở thành gánh nặng tâm tư.
+
+Buồn trông cửa bể chiều hôm
+
+Thuyền ai thấp thoáng cánh buồm xa xa?
+
+Buồn trông ngọn nước mới sa
+
+Hoa trôi man mác biết là về đâu?
+
+Chiều hôm là khoảng thời gian của buổi chiều hoàng hôn, khi mà mặt trời đã dần dần ngả về tây, bóng tối bắt đầu xâm lấn. Xa xa là hình ảnh của một chiếc thuyền nhỏ bé, cô đơn thoát ẩn, thoát hiện thấp thoáng trên cửa biển; một cánh hoa đang trôi bất định trên dòng nước mà không biết đi về đâu. Hình ảnh chiếc thuyền, cánh hoa được đặt trong thế tương phản đối lập với vũ trụ không cùng của trời đất mênh mang càng tô đậm hơn sự nhỏ bé, đơn độc, đáng thương và tội nghiệp. Đây là hình ảnh ẩn dụ cho thân phận của Kiều lênh đênh, chìm nổi giữa dòng đời mà không biết trôi dạt về đâu. Và đứng trước một không gian bao la của trời đất, của buổi chiều hoàng hôn sắp tắt, nỗi nhớ nhà, nhớ người thân đến như một lẽ tất yếu trong lòng Kiều. Nhưng trong tình cảnh “bốn bề góc bể trơ vơ” thì Kiều biết bao giờ mới được sum họp, đoàn viên cùng với gia đình, người yêu. Vì thế câu hỏi tu từ cứ réo rắc, khắc khoải trong lòng của Kiều, dấy lên niềm khao khát được trở về nhà, trở về quê hương nơi chôn rau cắt rốn của mình.
+
+Buồn trông nội cỏ rầu rầu
+
+Chân mây mặt đất một màu xanh xanh
+
+Ngước mắt trông về phía xa của cửa biển Kiều chỉ càng cảm thấy rộng trống, cơ đơn, buồn tủi. Kiều quay trở về nhìn xuống mặt đất quanh mình để tìm kiếm sự sống của cảnh vật xung quanh thì lại chỉ thấy những đám cỏ xanh héo úa, lụi tàn. Hình ảnh “nội cỏ rầu rầu” là một hình ảnh nhân hóa, biểu hiện tâm trạng của con người. Lòng người buồn nên nhìn đâu cũng thấy buồn; nỗi buồn của Kiều như thấm vào cảnh vật khiến cho cảnh vật cũng nhuốm màu tâm trạng. Trong văn học từ xưa tới nay, màu sắc xanh thường khiến chúng ta nghĩ tới màu của sự sống, của sự sinh sôi bất diệt. Nhưng cũng có trường hợp, màu xanh có khi trở thành màu sắc của bi kịch con người. Bài thơ “Chinh phụ ngâm” của Đặng Trần Côn đã diễn tả nỗi nhớ của người chinh phụ đối với người chồng của mình nơi biên ải qua màu xanh ngắt của cỏ lá:
+
+“Cùng trông lại mà cùng chẳng thấy
+
+Thấy xanh xanh những mấy ngàn dâu
+
+Ngàn dâu xanh ngắt một màu
+
+Lòng chàng ý thiết ai sầu hơn ai?”
+
+Như vậy, màu xanh ngắt, xanh xanh của cỏ lá đã trở thành màu của sự xa cách, sự li biệt và nhạt nhòa. Nay từ “xanh xanh” lại xuất hiện trong câu thơ của Nguyễn Du nên màu sắc ấy biểu trưng cho sự nhạt nhòa, sự chán nản, vô vọng của Kiều trước một khung cảnh thiếu vắng sự sống, cô đơn, và tẻ nhạt.
+
+Buồn trông gió cuốn mặt duềnh
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi.
+
+Nếu như những bức tranh thiên nhiên bên trên đều được tái hiện trong trạng thái tĩnh thì khép lại bài thơ, bức tranh thiên nhiên được miêu tả trong trạng thái động. Đó là âm thanh dữ dội của gió, của sóng; gió làm cho mặt biển tung lên những con sóng ồ ạt đập vào bờ mà phát ra tiếng kêu. Nhưng quan trọng, tiếng sóng ấy không đơn thuần là những con sóng thực ở ngoài biển khơi mà đó còn là con sóng lòng của tâm trạng. Diệp khúc “buồn trông” ở những câu thơ trên kết đọng, tích tụ rồi dồn đẩy xuống câu thơ cuối khiến cho nỗi buồn ngày càng trở nên chồng chất như lớp lớp sóng trào. Đồng thời, tiếng sóng “ầm ầm” dữ dội ấy cũng chính hình ảnh ẩn dụ cho cuộc đời phong ba bão táp đã và đang đổ ập xuống đời Kiều, đổ ập xuống đôi vai gầy yếu của một cô gái trẻ đáng thương và tội nghiệp. Vì thế lúc này Kiều không chỉ buồn mà còn lo lắng, sợ hãi như đang rơi vào vực thẳm một cách bất lực.
+
+Tóm lại: Tám câu thơ cuối, Nguyễn Du đã sử dụng thật tài tình bút pháp “tả cảnh ngụ tình” của văn học cổ điển để diễn tả tâm trạng “tình trong cảnh ấy, cảnh trong tình này” của Kiều khi bị giam lỏng ở lầu Ngưng Bích. Mỗi câu thơ là một bức tranh thực cảnh cũng chính là thực tình của một con người mang trong mình nỗi buồn đau chồng chất. Đó là nỗi đau đớn, xót xa, lo lắng và khắc khoải của một kiếp má đào, trôi nổi, vô định, mong manh và bế tắc không biết đi về nơi đâu. Vì thế, dù nàng “Thông minh vốn sẵn tính trời” nhưng đang đứng trước sự tuyệt vọng, yếu đuối của bản thân, Kiều đã bị Sở Khanh lừa gạt để rồi dấn thân vào một cuộc đời đầy sóng gió, truân chuyên “Thanh lâu hai lượt, thanh y hai lần”.
+
+Qua việc phân tích ở trên, chúng ta thấy đoạn trích "Kiều ở lầu Ngưng Bích" là một trong những đoạn thơ hay, đặc sắc và thành công nhất trong Truyện Kiều về nghệ thuật miêu tả, khắc họa thế giới nội tâm nhân vật và nghệ thuật "tả cảnh ngụ tình". Qua đoạn thơ chúng ta thấy được cảnh ngộ cô đơn, đáng thương , tội nghiệp và tấm lòng thủy chung son sắt với người yêu, hiếu thảo với cha mẹ của nàng Kiều, một con người tài hoa mà bạc mệnh!.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 3**
+
+Trong phần đầu của Truyện Kiều, Nguyễn Du đã dự cảm về số phận nàng Kiều không chỉ ở nhan sắc hơn người, mà còn trực tiếp ở câu thơ: “Sắc đành đòi một, tài đành họa hai”, và quả thật câu thơ đó đã vận vào đời nàng. Gia đình gặp tai biến, cha và em bị bắt, nàng phải bán mình chuộc cha. Không chỉ vậy, còn bị Mã Giám Sinh lừa bán vào lầu xanh. Cuộc đời nàng bắt đầu bước vào chuỗi ngày tăm tối khi bị giam ở lầu Ngưng Bích. Tất cả những điều đó được thể hiện rõ nét trong đoạn trích “Kiều ở lầu Ngưng Bích”.
+
+Đoạn trích thuộc phần thứ hai “Gia biến và lưu lạc”, bố cục bài chia làm ba phần: phần đầu nói về cảnh ngộ và nỗi niềm của Thúy Kiều; phần hai là nỗi nhớ da diết, khắc khoải Kim Trọng và cha mẹ; phần ba cho thấy nỗi cô đơn, hãi hũng, dự cảm về tương lai đầy tai ương, bất trắc của chính mình.
+
+Tình cảnh của Thúy Kiều hết sức đáng thương, sau khi biết mình bị lừa bán vào lầu xanh, Kiều uất ức định tự vẫn, nhưng Tú Bà đã ngăn lại và vờ hẹn đợi Kiều bình phục sẽ tìm người tốt gả chồng cho nàng, nhưng thực chất nàng bị giam lỏng ở lầu Ngưng Bích, để mụ ta chờ thời cơ thực hiện âm mưu mới. Thúy Kiều bị giảm lỏng ở lầu Ngưng Bích, khóa kín cả tuổi thanh xuân của mình ở nơi đây, thật đáng thương và xót xa cho số phận của nàng. Nơi ở của nàng tách biệt khỏi thế giới xung quanh: Bốn bề bát ngát xa trông, / Cát vàng cồn nọ, bụi hồng dặm kia. Cả không gian mênh mông, rợn ngợp hiện ra trước mắt, những hình ảnh “non xa” “trăng gần” gợi ra không gian ở cả chiều cao và chiều xa, không gian lầu Ngưng Bích chơi vơi, chênh vênh, đơn độc, tách khỏi mọi giao tiếp với xã hội xung quanh. Không chỉ vậy, không gian ấy còn không có dấu hiệu của sự sống. Nguyễn Du đã liệt kê hoàng loạt các chi tiết: cát vàng, bụi hồng, cồn nọ, dặm kia như sự phủ định sự sống, gợi nên cái ngổn ngang của cảnh vật. Không gian quạnh hiu, vắng vẻ chỉ có “mây sớm” “đèn khuya” làm bạn với Thúy Kiều.
+
+Trong khung cảnh ấy, có ai lại không cảm thấy cô đơn, lẻ loi, trống trải. Nàng không có lấy một người bầu bạn, không có ai chia sẻ mọi nỗi niềm, chỉ có ánh trăng vàng ngoài kia làm với với nàng. Nhưng nó cũng chỉ là sự vật vô tri, nàng có trải lòng với ánh trăng thì cũng đâu có thể làm nàng vơi bớt nỗi cô đơn, sầu muộn. Lòng nàng ngổn ngang trăm mối tơ vò, nàng khắc khoải, thiết tha tìm kiếm một dấu hiệu sự sống, khắc khoải tìm kiếm hơi ấm tình người, tìm sự sẻ chia từ thế giới xung quanh. Nhưng càng tìm nàng lại càng rơi vào nỗi tuyệt vọng, cô đơn vẫn hoàn cô đơn, tình cảnh của nàng quả thực vô cùng đáng thương.
+
+Trải lòng với thiên nhiên, tìm kiếm hơi ấm tình người nàng chỉ toàn gặp phải những tuyệt vọng, trong hoàn cảnh như vậy, chàng nhớ về Kim Trọng người nàng yêu thương nhất và nhớ về cha mẹ ở nhà không có người chăm lo.
+
+Tưởng người dưới nguyệt chén đồng/ Tin sương luống những dày trông mai chờ/ Bên trời góc bể bơ vơ/ Tấm son gột rửa bao giờ cho phai. Chỉ một chữ “tưởng” thôi mà thể hiện biết bao cảm xúc nhớ thương, khát vọng tình yêu đôi lứa. Kỉ niệm thề nguyền hôm nao dường như vẫn còn vẹn nguyên trong trái tim Kiều, nhưng tất cả đã là quá khứ, tưởng đó cũng chỉ là mơ tưởng về quá khứ đã xa mà thôi. Điều ấy khiến nàng càng trở nên đau đớn, xót xa, tự trách bản thân đã phụ bạc chàng Kim. Kim Trọng về tang chú, không hề biết gia đình Kiều xảy ra tai biến, bởi vậy có lẽ vẫn ngày đêm mong ngóng tin người mình yêu thương. Thúy Kiều day dứt, dằn vặn trong đau khổ. “Tấm son” là hình ảnh thơ đa nghĩa, có thể hiểu “tấm son” là tấm lòng thủy chung son sắt một lòng hướng về Kim Trọng. Nhưng cũng có thể hiểu khi tấm lòng son đã bị vùi dập, làm cho hoen ố thì không có cách nào gột rửa được, nàng cảm thấy không xứng với Kim Trọng. Dù hiểu theo cách nào ta cũng thấy được tình yêu thủy chung và số phận bất hạnh của nàng.
+
+Sau nỗi nhớ chàng Kim, Kiều nhớ về cha mẹ: “Xót người tựa cửa hôm nai,/ Quạt nồng ấp lạnh những ai đó giờ?/ Sân Lai cách mấy nắng mưa/ Có khi gốc tử đã vừa người ôm”. Dù ở trong tình cô đơn, tuyệt vọng, bị đẩy đến bước đường cùng nàng Kiều vẫn chẳng may may quan tâm cho số phận mình mà vẫn một lòng hướng về cha mẹ. Nàng lo lắng, xót xa không có ai ở nhà chăm sóc, đỡ đần cha mẹ khi tuổi cao, sức yếu. Nàng thương cha mẹ cảnh ngày ngày ngóng con về trong vô vọng. Điển tích “Sân Lai” càng cho thấy rõ hơn tấm lòng hiếu thảo của nàng với cha mẹ. Nàng quả là người con có tình, có nghĩa, hiếu thảo.
+
+Sự sắp xếp của Nguyễn Du cũng thật tài tình, khéo léo, ông để nàng Kiều nhớ Kim Trọng trước chứ không phải nhớ cha mẹ trước. Liệu đây có phải là sự bất hợp lí, nàng Kiều chẳng lẽ lại trọng tình hơn trọng hiếu. Nhưng thực tế lại không phải như vậy. Để nàng nhớ Kim Trong trước là hoàn toàn phù hợp, Kiều đã bị Mã Gám Sinh làm nhục và bị bán vào lầu xanh, nên nàng vô cùng đau đớn, tủi nhục, tấm lòng son sắt của nàng đã bị phá bỏ. Bởi vậy người đầu tiên nàng nhớ là chàng Kim. Đối với cha mẹ: Kiều đã đền ơn sinh thành, đã tự nguyện bán mình chuộc cha, làm tròn chữ hiếu, vẹn đạo làm con. Cho nên ở lầu Ngưng Bích nàng nhớ Kim Trọng trước là hoàn toàn phù hợp với quy luật tình cảm nhưng nàng cũng không quên nhớ về cha mẹ, lo lắng, xót xa khi cha mẹ già yếu mà không có con ở bên đỡ đần.
+
+Tám câu thơ cuối là bức tranh tâm trạng thẫm đẫm nỗi lo âu, sợ hãi của Kiều về tương lai của mình. Điệp từ “buồn trông” mở đầu cho bốn cặp lục bát, mỗi cặp lại mở ra một chiều kích của nỗi buồn. Nỗi buồn và cảnh vật hòa vào làm một, quả thật “Người buồn cảnh có vui đâu bao giờ”. Đầu tiên là nỗi buồn về thân phận tha hương, nổi nênh, hình ảnh con thuyền phía xa gợi lên số phận bấp bênh của Kiều, đồng thời cho thấy khát vọng đoàn tụ của nàng. Cặp lục bát thứ hai với hình ảnh ẩn dụ “hoa” cho thấy rõ hơn thân phận trôi dạt giữa dòng đời. Câu hỏi tu từ “về đâu” nhấn mạnh hơn nữa sự mất phương hướng, vô định không biết cuộc đời mình sẽ đi đâu về đâu. Cảnh vật ngày càng tiến gần đến Kiều hơn: “Buồn trông nội cỏ rầu rầu/ Chân mây mặt đất một màu xanh xanh”, màu xanh không còn căng tràn sức sống, xanh tươi mà đó là màu xanh úa tàn, chết chóc. Từ láy “rầu rầu” nhấn mạnh hơn nữa vào sự úa tàn của cảnh vật, u buồn của lòng người. Câu thơ cuối cùng là hình ảnh thơ khiến Thúy Kiều xiết bao rợn ngợp, hãi hùng: “Buồn trông gió cuốn mặt duềnh/ Ầm ầm tiếng sóng kêu quanh ghế ngồi”. Thiên nhiên hung hãn, dữ dội, tiếng sóng ầm ầm vỗ vào bờ. Thậm chí Kiều còn có cảm giác như những đợt sóng đó bủa vây lấy mình, đổ ập xuống cuốn mình đi. Hình ảnh những con sóng đó cũng chính là dự cảm của nàng về những biến cố nàng sắp phải ghánh chịu sau này. Linh cảm đó càng khiến Kiều lo lắng, sợ hãi hơn.
+
+Đoạn trích tiêu biểu cho nghệ thuật tả cảnh ngụ tình tài ba của Nguyễn Du, tình và cảnh hòa quyện vào nhau, bổ sung cho nhau. Ngôn ngữ trần thuật đặc sắc đặc biệt là hệ thống từ láy, điệp từ trong tám câu cuối góp phần thể hiện tâm trạng, số phận nhân vật.
+
+“Kiều ở lầu Ngưng Bích” là một tuyệt bút về tả cảnh ngụ tình. Cho thấy số phận bất hạnh, sóng gió của nàng Kiều. Đồng thời cho thấy tấm lòng hiếu thảo, tình nghĩa, thủy chung với cha mẹ và người yêu. Qua đây còn cho thấy sự cảm thương của tác giả về số phận bất hạnh của Thúy Kiều.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 4**
+
+Không chỉ là bậc thầy trong tả người, Nguyễn Du còn có biệt tài trong tả cảnh. Khung cảnh ông miêu tả đã đạt đến mực mẫu mực, cổ điển, nói lên tâm trạng, cảm xúc của nhân vật. Tình và cảnh trở thành hai yếu tố bổ sung làm nên chất riêng cho sáng tác Nguyễn Du. Và tình cảnh ấy đã được ông kết hợp hài hòa để phản ánh tâm trạng của Kiều khi ở lầu Ngưng Bích.
+
+Mỗi một bức tranh trong đoạn trích Kiều ở lầu Ngưng Bích gắn liền với một tâm trạng của Thúy Kiều. Bức tranh đầu tiên là khung cảnh thiên nhiên hoang vắng, mênh mông, rợn ngợp:
+
+Trước lầu Ngưng Bích khoa xuân
+
+…
+
+Nửa tình nửa cảnh như chia tấm lòng
+
+Sau khi bị lừa và nhốt vào lầu Ngưng Bích, Thúy Kiều tự hiểu được hoàn cảnh của bản thân. Là một cô gái trẻ, ấy vậy mà nàng lại bị “khóa xuân” sống trong cung cấm, không dược giao thiếp với bên ngoài, nàng bị giam lỏng. Khung cảnh thiên nhiên bao la, hoang vắng: núi xa, trăng sáng, cồn vàng, những bụi cỏ trải dài hết tầm mắt. Kiều ừa bị lừa phỉnh, vừa bị đánh đập la mắng, định tự tử mà không thành, nay bị giam ở lầu Ngưng Bích.
+
+Trong khung cảnh ấy, tâm trạng của con người làm sao cho hết buồn, hết cô đơn, tủi cực, lòng nàng ngổn ngang trăm bề, tìm ra xa, rồi đi về gần để mong có được hơi ấm cuộc sống, nhưng cuối cùng lại chỉ làm bạn với canh khuya. Nàng đau đớn thắt lòng, chẳng thể làm tìm nguồn vui ở hiện tại nàng đành lòng nhớ về quá khứ, nhớ về người thân. Nàng nhớ về Kim Trọng:
+
+Tưởng người dưới nguyệt chén đồng
+
+…
+
+Tấm son gột rửa bao giờ cho phai
+
+Nhưng nhớ về Kim Trọng càng làm nàng đau đớn hơn. Những kỉ niệm trong sáng, đẹp đẽ của mối tình đầu ùa về, làm thắt lại trái tim nhỏ bé của nàng. Nàng tự trách mình đi không một lời báo trước để chàng Kim vẫn ngày đêm mong ngóng. Bao giờ nàng mới có thể quên được đi mối tình trong sáng, đẹp đẽ đó. Sau khi nhớ về Kim Trọng, Thúy Kiều nhớ về cha mẹ già, tuổi cao sức yếu không có người chăm lo: “Xót người tựa cửa hôm mai/ Quạt nồng ấp lạnh những ai đó giờ/ Sân Lai cách mấy nắng mưa/ Có khi gốc tử đã vừa người ôm”. Thành ngữ “Quạt nồng ấp lạnh” cùng với điển cố “sân Lai”, “gốc tử” đã cực tả nỗi nhớ thương cũng như lòng hiếu thảo của Kiều. Cụm từ “cách mấy nắng mưa” vừa nói được sức mạnh của bao mùa mưa nắng, vừa nói đến sự tàn phá của thiên nhiên đối với cảnh vật và con người. Nguyễn Du đã rất thành công khi sử dụng ngôn ngữ độc thoại nội tâm. Giọng thơ rưng rưng lệ, nỗi đau của nàng Kiều như thấm vào cảnh vật, thời gian và lòng người. Nàng dường như quên đi cảnh ngộ của bản thân để lo nghĩ cho những người thân yêu.
+
+Bức tranh thiên nhiên thứ hai là tám câu thơ cuối, khi nàng trở về với thực tại phũ phàng trước mắt mình:
+
+Buồn trông cửa bể chiểu hôm
+
+…
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi
+
+Khung cảnh về chiều, với cánh buồm bé nhỏ ẩn hiện giữa khung cảnh mênh mông sóng nước. Con thuyền càng trở nên lẻ loi, đơn độc hơn. Nó cũng chính như cuộc đời của Kiều, đơn độc trên bước đường đời đầy truân chuyên, chẳng biết khi nào mới có thể đoàn tụ cùng gia đình.
+
+Rồi đôi mắt nàng hướng về những ngọn nước mới sa, những nhành hoa mỏng manh trôi dạt, rồi tự hỏi không biết chúng sẽ trôi về đâu. Nhìn những cánh hoa tàn lụi, nàng lại càng buồn hơn vì thấy hình ảnh của chúng mình trong đó, lênh đênh, vô định giữa sóng gió cuộc đời. Đây cũng chính là hoàn cảnh tội nghiệp, đáng thương của nàng. Số phận của mình không được làm chủ, bị đưa đẩy, vuid dập. Tâm trạng cô đơn, bơ vơ càng được tô đậm hơn nữa.
+
+Nhìn ra một hướng khác cũng chỉ có nội cỏ bủa vây bốn phía. Màu xanh tàn tạ, héo úa, nhạt nhòa, đâu còn màu xnah non tươi tốt, mỡ màng đến tận chân trời của cảnh ngày xuan nữa. Màu xanh này gợi lên trong Kiều nỗi buồn vô vọng bởi cuộc sống quẩn quanh, bế tắc. hai câu thơ cuối cùng cả tình và cảnh đã đạt đến độ điêu luyện. Nỗi buồn mỗi lúc một tăng, dồn dập xô tới. Tiếng sóng ầm ầm đó cũng chính là biết bao phong ba bão táp đổ ập xuống cuộc đời Kiều. Lúc này không còn là lo âu mà là sự kinh sợ, dần rơi vào vực thẳm bất lực.
+
+Bằng bút pháp tả cảnh ngụ tình đặc sắc, kết hợp với vốn ngôn từ phong phú, Nguyễn Du đã xây dựng thành công bức tranh chân dung tâm trạng Thúy Kiều. Tấm lòng nàng ngổn ngang, đầy going bão, nàng bất lực chờ đợi những khó khăn đợi mình ở phía trước. Những vần thơ cũng cho thấy tấm lòng cảm thông mà Nguyễn Du dành cho những người phụ nữ có số phận bất hạnh.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 4**
+
+Đoạn thơ "Kiều ở lầu Ngưng Bích" dài 22 câu, trích trong "Truyện Kiều" là những "Câu thơ còn đọng nỗi đau nhân tình" ( Tố Hữu) . Bao biến cố khủng khiếp đã diễn ra : tai bay vạ gió, cha và em bị tù tội, gia sản bị bọn sai nha "đầu trâu mặt ngựa" cướp "sạch sành sanh" ... , phải bán mình chuộc cha, trao duyên cho em, Kiều rơi vào tay Mã Giám Sinh – Tú Bà. Sau khi "thất thân" bởi Mã Giám Sinh, bị mụ Tú Bà làm nhục, Kiều tự vẫn nhưng đã được cứu sống. Tú Bà dỗ dành Kiều:
+
+" Người còn thì của hãy còn,
+
+Tìm nơi xứng đáng là con cái nhà ..."
+
+Kiều được Tú Bà đưa ra lầu Ngưng Bích với lời hứa "con hãy thong dong" , nhưng thật ra là nàng bị giam lỏng. Lầu Ngưng Bích là một điểm dừng chân của Thúy Kiều trên con đường lưu lạc đầy máu và nước mắt, cay đắng và tủi nhục suốt 15 năm trời.
+
+Đoạn thơ không chỉ biểu lộ tình cảm xót thương của Nguyễn Du đối với kiếp người bạc mệnh mà còn thể hiện một bút pháp nghệ thuật đặc sắc về tự sự, về tả cảnh ngụ tình, về ngôn ngữ độc thoại để biểu đạt nỗi lòng và tâm trạng của nhân vật Thúy Kiều.
+
+Sáu câu đầu là một không gian nghệ thuật và một tâm trạng nghệ thuật đồng hiện. Có "non xa" và "tấm trăng gần"; có "cát vàng cồn cọ" và " bụi hồng dặm kia". Giữa một thiên nhiên vắng lặng và mênh mông, không một bóng người, Kiều chỉ còn biết " Bốn bề bát ngát xa trông". Một cảm giác cô đơn, buồn tủi và bẽ bàng cho thân phận mình, duyên số mình. Chỉ có một mình một bóng đối diện với " mây sớm đèn khuya", nỗi lòng người con gái lưu lạc đau khổ, tủi nhục và ngao ngán vô cùng:
+
+" Bẽ bàng mây sớm đèn khuya,
+
+Nửa tình nửa cảnh như chia tấm lòng"
+
+Bốn chữ "như chia tấm lòng" diễn tả một nỗi niềm, một nỗi lòng tan nát, đau thương. Vì thế, tuy sống giữa một khung cảnh đẹp êm đềm, có non xa và trăng gần- nhưng nàng vẫn thấy cô đơn, bẽ bàng, bởi lẽ "người buồn cảnh có vui đâu bao giờ". Kiều sao không khỏi cô đơn, bẽ bàng trong một cảnh ngộ đầy bi kịch:
+
+" Chung quanh những nước non người,
+
+Đau lòng lưu lạc nên vài bốn câu"
+
+Tám câu thơ tiếp theo nói lên niềm tưởng nhớ người yêu và nỗi xót thương cha mẹ của Thúy Kiều khi sống một mình trong lầu Ngưng Bích. Với Kim Trọng thì Kiều " tưởng người ... ". Với cha mẹ thì nàng đã "xót người ... ", mỗi đối tượng Kiều lại có một nỗi thương nhớ riêng.
+
+Trên đường theo Mã Giám Sinh về Lâm Trì, Kiều thương Kim Trọng cô đơn, đau khổ " Một trời thu để riêng ai một người". Đối với cha mẹ Kiều khắc khoải " Nghe chim như nhắc tấm lòng thần hôn." Lần này, Kiều tưởng nhớ chàng Kim, nhớ lời thề dưới trăng đêm tình tự "dưới nguyệt chén đồng", thương người yêu đau khổ "rày trông mai chờ" và "bơ vơ" cô đơn, sầu tủi. Đến bao giờ mới nguôi, mới "phai" được nỗi thương nhớ ấy? Những từ ngữ, hình ảnh chỉ không gian và thời gian cách biệt như: "dưới nguyệt chén đồng", "tin sương", "rày trông mai chờ", "bên trời góc bể", "tấm son gột rửa" ... đã diễn tả và bộc lộ một cách sâu sắc, cảm động tình cảm thương nhớ người yêu trong mối tình đầu, nay vì cảnh ngộ mà chia lìa đau đớn:
+
+" Tưởng người dưới nguyệt chén đồng,
+
+Tin sương luống những rày trông mai chờ.
+
+Bên trời góc bể bơ vơ,
+
+Tấm son gột rửa bao giờ cho phai..."
+
+Các động từ - vị ngữ: "tướng", "trông", "chờ", "bơ vơ", "gột rửa", "phai" ... đã liên kết thành một hệ thống ngôn ngữ độc thoại biểu đạt nội tâm nhân vật trữ tình. Kiều nhớ thương người yêu khôn nguôi, xót xa cho mối tình đã nặng lời thề son sắt mà bị tan vỡ!
+
+Nhớ chàng Kim rồi Kiều xót thương cha mẹ. Các từ ngữ chỉ thời gian xa cách : "hôm mai", "cách mấy nắng mưa", các thi liệu, điển cố văn học Trung Hoa như: "sân Lai", "gốc tử" và thành ngữ "quạt nồng ấp lạnh", đặc biệt hình ảnh mẹ già "tựa cửa hôm mai" đợi chờ, trông ngóng đứa con lưu lạc quê người đã cực tả nối nhớ thương của cha mẹ, nỗi đau buồn của đứa con gái đầu lòng không thể, không được chăm sóc phụng dưỡng cha mẹ, khi song thân đã già yếu, khi "gốc tử đã vừa người ôm".
+
+Nguyễn Du đã sử dụng ngôn ngữ độc thoại kết hợp hài hòa giữa phong cách cổ điển và phong cách dân tộc, tạo nên những vần thơ biểu cảm thể hiện một tâm trạng bi kịch, một cảnh ngộ đầy bi kịch của Thúy Kiều. Trong chia lìa "trâm gãy gương tan" nàng vẫn dành cho "người tình chung" bao tình thương nhớ "muôn vàn ái ân". Là một đứa con chí hiếu, giàu đức hi sinh, khi cha mẹ già yếu không được sớm hôm phụng dưỡng, Kiều càng nhớ thương càng xót xa. Giọng thơ rưng rưng lệ, nỗi đau của nàng Kiều như thấm vào cảnh vật, thời gian và lòng người bấy lâu nay:
+
+" Xót người tựa cửa hôm mai
+
+Quạt nồng ấp lạnh những ai đó giờ?
+
+Sân Lai cách mấy nắng mưa,
+
+Có khi gốc tử đã vừa người ôm"
+
+Tám câu cuối, đoạn điệp ngữ "buồn trông" xuất hiện bốn lần, đứng ở vị trí đầu câu sáu của mỗi cặp lục bát. Hai chữ "buồn trông" là cảm xúc chủ đạo của tâm trạng "tê tái" đau thương; thương mình và thương người thân, thương cho thân phận và duyên số ... . "Buồn trông" vì càng buồn thì càng trông, càng trông lại càng buồn. Đây là đoạn thơ tả cảnh ngụ tình hay nhất trong " Truyện Kiều". Cứ mỗi cặp lục bát là một nét tâm trạng "buồn trông". Ngoại cảnh và tâm cảnh, khung cảnh thiên nhiên và diễn biến tâm trạng của nhân vật được diễn tả qua một hệ thống hình tượng và ngôn ngữ mang tính ước lệ, mở ra một trường liên tưởng bi thương:
+
+" Buồn trông cửa bể chiều hôm,
+
+Thuyền ai thấp thoáng cánh buồm xa xa"
+
+Cửa bể mênh mông lúc ngày tàn chiều hôm càng làm tăng nỗi buồn đau cô đơn của kiếp người lưu lạc. "Thuyền ai" lúc ẩn lúc hiện "thấp thoáng cánh buồm xa xa" đầy ám ảnh. "Buồn trông" con thuyền ai xa lạ, cánh buồm xa xa "thấp thoáng" , Kiều càng nghĩ đến thân phận bơ vơ của mình nơi quê người đất khách.
+
+Rồi nàng lại "buồn trông" về "ngọn nước mới sa", dõi theo những cánh hoa trôi dạt và tự hỏi "về đâu" đến phương trời vô định nào. Cánh hoa trôi man mác ấy tượng trưng cho số phận chìm nổi trên dòng đời không biết về đâu - Kiều nhìn hoa trôi trên ngọn nước mà cảm thương cho số phận của mình:
+
+" Buồn trông ngọn nước mới sa,
+
+Hoa trôi man mác biết là về đâu?"
+
+Sau hai câu hỏi tu từ về "thuyền ai", về hoa trôi "biết là về đâu?", Kiều " buồn trông" về bốn phía "chân mây mặt đất" về nội cỏ, nàng chỉ nhìn thấy trên cái nền xanh xanh mịt mờ bao la là màu sắc tàn úa, vàng héo "dầu dầu" của nội cỏ. Màu sắc tê tái thê lương ấy đã phản chiếu nỗi đau tê tái của người con gái lưu lạc:
+
+" Buồn trông nội cỏ dầu dầu,
+
+Chân mây mặt đất một màu xanh xanh"
+
+"Nội cỏ dầu dầu" tàn úa hiện lên giữa màu "xanh xanh" nhạt nhòa của "chân mây mặt đất" chính là tâm trạng lo âu của Kiều khi nghĩ đến tương lai mờ mịt. Sắc cỏ "dầu dầu" ấy, nàng đã một lần nhìn thấy mới ngày nào trên mộ Đạm Tiên.
+
+" Sè sè nấm đất bên đường,
+
+Dầu dầu ngọn cỏ nửa vàng nửa xanh"
+
+Nhìn xa rồi nhìn gần, vừa "buồn trông" vừa lắng tai nghe. Nghe tiếng gió, gió gào, "gió cuốn" trên mặt duềnh. Nghe tiếng "ầm ầm" của sóng, không phải là sóng reo mà la "sóng kêu". Gió và song đang bửa vây "xung quanh ghế ngồi". Một tâm trạng cô đơn lẻ loi đang trải qua những giờ phút hãi hùng, ghê sợ, lo âu. Phải chăng âm thanh dữ dội ấy của gió và sóng là biểu tượng cho những tai họa khủng khiếp đang bủa vây, sắp giáng xuống số phận người con gái nhỏ bé đáng thương? Kiều buồn trông mà lo âu sợ hãi:
+
+" Buồn trông gió cuốn mặt duềnh,
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi"
+
+Bức tranh "nước non người", cận cảnh là lầu Ngưng Bích, viễn cảnh là con thuyền và cánh buồm xa xa trên cửa bể chiều hôm, là ngọn nước và hoa trôi, là nội cỏ dầu dầu giữa màu xanh xanh của chân mây mặt đất, là gió cuốn và tiếng sóng ầm ầm kêu nơi mặt duềnh ... mang ý nghĩa tượng trưng và giàu giá trị thẩm mĩ. Màu sắc ấy, âm thanh ấy của thiên nhiên vừa bao la vừa mờ mịt, vừa dữ dội, tất cả như đang bủa vây người con gái lưu lạc đau thương trong nỗi buồn đau hãi hùng, lẻ loi.
+
+Những chặng đường đầy cạm bẫy, nhiều máu và nước mắt có "ma đưa lối, quỷ đem đường" ... đối với Kiều đang ở phía trước. Đoạn thơ : "Kiều ở lầu Ngưng Bích " như chứa đầy lệ. Lệ của người con gái lưu lạc, đau khổ vì cô đơn lẻ loi, buồn thương chua xót vì mối tình đầu tan vỡ, xót xa vì thương nhớ mẹ cha, lo sợ cho thân phận, số phận mình. Lệ của nhà thơ, một trái tim nhân đạo bao la đồng cảm, xót thương cho người thiếu nữ tài sắc, hiếu thảo mà bạc mệnh.
+
+Các từ láy: bát ngát, bẽ bàng, bơ vơ, thấp thoáng, xa xa , man mác, dầu dầu, xanh xanh, ầm ầm ... kết hợp với điệp ngữ "buồn trông" đã tạo nên sắc điệu trữ tình thẩm mĩ và tô đạm cảm hứng nhân đạo sâu sắc. Đó là giá trị văn chương đích thực của đoạn thơ "Kiều ở lầu Ngưng Bích".
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 5**
+
+Kiều ở lầu Ngưng Bích là một bức tranh đa dạng, phong phú về ngoại cảnh và tâm cảnh. Khắc hoạ nỗi đau buồn, sợ hãi mà Kiều đang nếm trải, dự báo sóng gió bão bùng mà nàng phải trải qua trong mười lăm năm lưu lạc thanh lâu hai lượt, thanh y hai lần.
+
+Từ một thiếu nữ tài sắc sống trong cảnh êm đềm trướng rủ màn che, Kiều đã trở thành món hàng trong màn mua bán của Mã Giám Sinh và giờ đây nàng đang sống trong cô đơn, nhớ thương đau buồn, lo âu nơi lầu Ngưng Bích. Hai mươi hai câu thơ trong đoạn trích Kiều ở lầu Ngưng Bích đã thể hiện rõ bức tranh tâm cảnh của Kiều. Sống nơi lầu Ngưng Bích là Kiều sống trong sự cô đơn tuyệt đối:
+
+Trước lầu Ngưng Bích khoá xuân,
+
+Vẻ non xa tấm trăng gần ở chung.
+
+Bốn bề bát ngát xa trông,
+
+Cát vàng cồn nọ bụi hồng dặm kia.
+
+Bẽ bàng mây sớm đèn khuya,
+
+Nửa tình nửa cảnh như chia tấm lòng.
+
+Kiều bị giam lỏng ở lầu Ngưng Bích, hai chữ khoá xuân đã nói lên điều đó. Khoá xuân ở đây không phải nói tới những cô gái còn cấm cung mà là sự mỉa mai, chua xót cho thân phận nàng Kiều. Nàng trơ trọi giữa thời gian mênh mông, không gian hoang vắng trong hoàn cảnh tha hương, cô đơn, tương lai mờ mịt. Trong khi những dư vị đau khổ vừa trải qua vẫn đang tấy đỏ, giờ Kiều lại bị đẩy vào chốn lầu xanh ô nhục.
+
+Trong cảnh ngộ như thế, Kiều chỉ còn biết lắng nghe tiếng nói từ sâu thẳm lòng mình. Tâm trạng Kiều trải ra theo cái nhìn cảnh vật. Nhìn lên trên là vầng trăng đơn côi, nhìn xuống mặt đất thì bên là cồn cát nhấp nhô lượn sóng, bên là bụi hồng cuốn xa hàng vạn dặm. Lầu Ngưng Bích là một chấm nhỏ giữa thiên nhiên trơ trọi, giữa mênh mang trời nước. Cái lầu cao ngất nghểu, trơ trọi ấy giam hãm một thân phận trơ trọi. Không một bóng người, không một sự chia sẻ, chỉ có một thiên nhiên câm lặng làm bạn.
+
+Kiều chỉ có một mình để tâm sự, để đối diện với chính mình. Trong cái không gian rợn ngợp và thời gian dài dặc, quẩn quanh mây sớm đèn khuya gợi vòng tuần hoàn khép kín của thời gian, tất cả như giam hãm con người, như khắc sâu thêm nỗi đơn côi khiến Kiều càng thấy bẽ bàng chán ngán, buồn tủi.
+
+Sớm và khuya, ngày và đêm Kiều thui thủi một mình nơi đất khách quê người, nàng chỉ còn biết làm bạn với mây và đèn. Trong nỗi cô đơn tuyệt đôi ấy, lòng Kiều dồn tới lớp lớp những nỗi niềm chua xót. Buồn vì cảnh hoang vu, rợn ngợp và buồn vì cái tình riêng khiến lòng nàng như bị chia xé: Nửa tình nửa cảnh như chia tấm lòng.
+
+Nguyễn Du từ cảnh vật trước lầu Ngưng Bích đã nói lên những nỗi lòng của Thuý Kiều. Đó là sự cô đơn, vô vọng đến tuyệt đối và đó là những dư vị của bao tháng ngày gian khổ đang sưng tấy. Tạm quên đi những chia xé trong lòng, Kiều nhớ về những người thân:
+
+Tưởng người dưới nguyệt chén đồng,
+
+Tin sương luống những rày trông mai chờ.
+
+Trái với những quy định phong kiến, Kiều nhớ về người yêu rồi mới nhớ cha mẹ. Trong lúc này, nỗi đau dứt tình người yêu như còn rớm máu, kỉ niệm như còn mới đây thôi. Hơn thế nữa Kiều lại bị Mã Giám Sinh làm nhục, sau đó bị đưa vào chốn lầu xanh nên nỗi đau lớn nhất của nàng lúc này là: Tấm son gột rửa bao giờ cho phai.
+
+Chính bởi thế mà người đầu tiên nàng nghĩ tới là chàng Kim. Với cha mẹ, nàng đã hi sinh bán mình nên phần nào đã đáp đền được ơn sinh thành. Còn với Kim Trọng, nàng là kẻ phụ tình, lỗi hẹn. Trong tâm cảnh như thế, để Kiều nhớ chàng Kim trước là sự tinh tế của ngòi bút Nguyễn Du. Nhớ tới người yêu là nhớ tới đêm trăng thề nguyền. Vừa mới hôm nào, nàng cùng chàng uống chén rượu thề nguyền son sắc, một lòng cùng nhau một đời mà nay mối tình duyên đã chia lìa đột ngột.
+
+Câu thơ như có nhịp thổn thức của trái tim rỉ máu. Kiều đau đớn hình dung Kim Trọng vẫn ngày ngày hướng về nàng để chờ tin mà uổng công vô ích. Càng nhớ chàng Kim bao nhiêu thì Kiều lại thương cho thân mình bấy nhiêu. Thương mình bơ vơ bên trời góc bể, càng nuối tiếc mối tình đầu, nàng hiểu rằng tấm son mà nàng dành cho chàng Kim chẳng bao giờ nguôi ngoai.
+
+Không chỉ vậy mà tấm son đã bị hoen ố của nàng đến khi nào mới rửa cho được. Trong nỗi nhớ còn có cả nỗi xót xa, ân hận. Đặt trong hoàn cảnh cô đơn, Kiều đã tạm để nỗi lòng mình lắng xuống và nhớ tới Kim Trọng. Đó là sự vị tha và tấm lòng chung thủy của một con người. Nếu khi nhớ tới Kim Trọng, Kiều tưởng thì khi nghĩ tới cha mẹ Kiều xót:
+
+Xót người tựa cửa hôm mai,
+
+Quạt nồng ấp lạnh những ai đó giờ?
+
+Sân Lai cách mấy nắng mưa,
+
+Có khi gốc tử đã vừa người ôm.
+
+Nàng thương cha mẹ từ bấy đến nay vẫn sớm chiều tựa cửa ngóng chờ tin của đứa con lưu lạc. Nàng xót thương da diết và day dứt khôn nguôi vì không thể quạt nồng ấp lạnh, phụng dưỡng song thân khi già yếu. Thành ngữ quạt nồng ấp lạnh, điển cố Sân Lai, gốc tử đều nói lên tâm trạng nhớ thương, tấm lòng hiếu thảo của Kiều. Nàng tưởng tượng nơi quê nhà tất cả đã đổi thay.
+
+Cha mẹ thì mỗi người thêm một già yếu mà nàng thì chẳng thể ở bên chăm sóc. Giờ đây khoảng cách không gian giữa nàng và cha mẹ là cách mấy nắng mưa. Thiên nhiên không chỉ tàn phá cảnh vật mà còn tàn phá cả con người. Lần nào khi nhớ tới cha mẹ, Kiều cũng nhớ ơn chín chữ cao sâu và luôn ân hận mình đã phụ công sinh thành nuôi dưỡng của cha mẹ. Nỗi nhớ của nàng được gửi vào chiều dài thời gian, vào chiều sâu không gian bởi vậy mà càng thêm da diết, sâu xa.
+
+Dù đau buồn bất hạnh nhưng trái tim Kiều đầy yêu thương, nhân hậu, vị tha. Nàng là người tình chung thuỷ, là người con rất mực hiếu thảo, là người có tấm lòng vị tha đáng trọng. Hai nỗi nhớ được biểu hiện khác nhau đó cùng là sự cảm thông lạ lùng của nhà thơ, tấm lòng nhân đạo của Nguyễn Du đối với con người.
+
+Vẫn việc sử dụng bút pháp tả cảnh ngụ tình quen thuộc, những nỗi buồn khác nhau với những lí do buồn khác nhau, trong lòng Kiều đã tình buồn tác động lại khiến cảnh buồn hơn và nỗi buồn ngày một ghê gớm, mãnh liệt hơn:
+
+Buồn trông cửa bể chiều hôm,
+
+Thuyền ai thấp thoáng cánh buồm xa xa?
+
+Buồn trông ngọn nước mới sa,
+
+Hoa trôi man mác biết là về đâu?
+
+Buồn trông nội cỏ rầu rầu,
+
+Chân mây mặt đất một màu xanh xanh.
+
+Buồn trông gió cuốn mặt duềnh,
+
+Ầm ầm tiếng sóng kêu quanh ghế ngồi.
+
+Tám câu thơ vừa là bức tranh tâm cảnh mà cũng là thực cảnh. Cảnh được miêu tả theo kiểu tứ bình trong con mắt trông bốn bề và từ xa tới gần. Cảnh đầu tiên mà Kiều trông là cảnh cửa bể lúc chiều hôm:
+
+Buồn trông cửa bể chiều hôm,
+
+Thuyền ai thấp thoáng cánh buồm xa xa?
+
+Không gian mênh mông và thời gian khi chiều tà muôn thuở luôn gợi buồn. Giữa khung cảnh ấy chỉ có một con thuyền vô định và hiện hữu với cánh buồm thấp thoáng xa xa như một ảo ảnh. Cảnh đã gợi trong lòng người tha hương nỗi buồn nhớ về cha mẹ, quê nhà cách xa, nỗi cô đơn và khát khao sum họp. Cánh hoa trôi man mác trên ngọn nước mới sa gợi trong lòng Kiều nỗi buồn về thân phận trôi nổi, không biết rồi sẽ bị trôi dạt, bị vùi dập ra sao:
+
+Buồn trông ngọn nước mới sa,
+
+Hoa trôi man mác biết là về đâu?
+
+Cảnh làm Kiều xót xa cho duyên phận, số kiếp của mình. Sau một cửa biển một cánh hoa giữa dòng nước là cảnh của một nội cỏ:
+
+Buồn trông nội cỏ rầu rầu,
+
+Chân mây mặt đất một màu xanh xanh.
+
+Cả một nội cỏ trải ra mênh mông nhưng khác với cỏ trong ngày Thanh minh. Đó là cỏ non xanh rợn chân trời, còn cỏ ở đây rầu rầu. Một màu vàng úa gợi tới sự héo tàn, buồn bã. Màu xanh nhàn nhạt trải dài từ mặt đất tới chân mây không phải là màu xanh của sự sống, của hi vọng mà chỉ gợi nỗi chán ngán vô vọng vì cuộc sống vô vị, tẻ nhạt, cô quạnh này không biết bao giờ mới kết thúc. Cảnh mờ mịt cũng giống như tương lai mờ mịt, thân phận nội cỏ hoa hèn của Thuý Kiều. Và cuối cùng là cảnh con sóng nổi lên ầm ầm sau cơn gió:
+
+Buồn trông gió cuốn mặt duềnh,
+
+Ấm ầm tiếng sóng kêu quanh ghế ngồi.
+
+Tiếng sóng kêu như báo trước sóng gió dữ dội của cuộc đời hay cũng là tiếng kêu đau đớn của Kiều đồng vọng với thiên nhiên. Kiều không chỉ buồn mà còn lo sợ, kinh hãi như đang đứng trước sóng gió, bão táp của cuộc đời sắp đổ xuống đầu nàng. Cảnh được miêu tả từ xa đến gần, màu sắc từ nhạt đến đậm, âm thanh từ tĩnh đến động. Cảnh ngày một rõ hơn để diễn tả nỗi buồn từ man mác mông lung đến âu lo kinh sợ dồn đến bão táp nội tâm.
+
+Thiên nhiên chân thực, sinh động nhưng mờ ảo bởi nó được nhìn theo quy luật Cảnh nào cảnh chẳng đeo sầu - Người buồn cảnh có vui đâu bao giờ. Và đó cũng là hiện thân, là tang vật của quá khứ khổ đau, hiện tại lẻ loi bất hạnh và báo hiệu một tương lai khủng khiếp. Tất cả đều là hình ảnh về sự vô định, mong manh, vô vọng, sự trôi dạt, bế tắc. Đoạn thơ gồm bốn cặp câu lục bát cũng là bốn cảnh và các cặp câu được liên kết nhờ điệp ngữ buồn trông:
+
+Buồn trông cửa biển chiều hôm,
+
+Buồn trông ngọn nước mới sa,
+
+Buồn trông nội cỏ rầu rầu,
+
+Buồn trông gió cuốn mặt duềnh,
+
+Buồn trông là nhìn xa mà trông ngóng một cái gì mơ hồ sẽ đến làm thay đổi hiện tại nhưng trông mà vô vọng. Buồn trông có cái thảng thốt lo âu, có cái xa lạ cuốn hút tầm nhìn, có cả sự dự cảm hãi hùng của người con gái lần đầu lạc bước giữa cuộc đời ngang ngửa. Điệp ngữ kết hợp với những hình ảnh đứng sau cùng các từ láy đã diễn tả nỗi buồn với nhiều sắc độ khác nhau, trào dâng lớp lớp như những con sóng lòng.
+
+Điệp ngữ tạo nên những vần bằng, gợi âm hưởng trầm buồn man mác, diễn tả nỗi buồn mênh mang sâu lắng, vô vọng đến vô tận. Buồn trông trở thành điệp khúc của đoạn thơ cũng như điệp khúc của tâm trạng. Bằng một gam màu nhạt và lạnh, Nguyễn Du đã vẽ lên một bộ tứ bình tâm trạng hết sức độc đáo và xúc động.
+
+Khúc ca khép lại đầy dư âm với hòa tấu phức điệu của sóng biển, sóng lòng, sóng đời đang vang lên những tiếng gầm gào của hiểm hoạ như muốn hất tung, nhấn chìm người con gái cô đơn, tội nghiệp trên điểm tựa chiếc ghế đời mỏng manh. Lúc này Kiều trở nên tuyệt vọng, yếu đuối nhất để rồi sự bị lừa gạt và dấn thân vào cuộc đời thanh lâu hai lượt, thanh y hai lần.
+
+Để thể hiện tâm trạng phức tạp mỗi nỗi buồn ôm trọn ba nỗi buồn: buồn-nhớ người yêu, buồn nhớ cha mẹ và buồn cho chính mình, Nguyễn Du đã chọn cách thể hiện tình trong cảnh ấy, cảnh trong tình này thật độc đáo tạo nên đoạn thơ tuyệt bút với bút pháp tả cảnh ngụ tình.
+
+Tóm lại, Kiều ở lầu Ngưng Bích là một bức tranh đa dạng, phong phú về ngoại cảnh và tâm cảnh khắc hoạ nỗi đau buồn, sợ hãi mà Kiều đang nếm trải, dự báo sóng gió bão bùng mà nàng phải trải qua trong mười lăm năm lưu lạc thanh lâu hai lượt, thanh y hai lần. Đoạn thơ có giá trị nhân bản sâu sắc đồng thời thể hiện tấm lòng nhân hậu, cảm thương chia sẻ của Nguyễn Du với nỗi đau của Thúy Kiều.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 6**
+
+Đề tài về người phụ nữ luôn là nỗi trăn trở của các nhà thơ lớn. Không chỉ khắc họa những nét đẹp trong tâm hồn, tính cách mà các nhà thơ còn cảm nhận rõ được nỗi bất hạnh của người phụ nữ. Và Nguyễn Du đã rất thành công khi chọn người phụ nữ làm đề tài trong tác phẩm của mình với kiệt tác dựa theo cốt truyện của Kim Vân Kiều truyện của Thanh Tâm ở Trung Quốc đó là Truyện Kiều.
+
+Đoạn trích Kiều ở lầu Ngưng Bích được trích trong tác phẩm đó là một đoạn trích hay và giàu cảm xúc. Bằng ngòi bút tả cảnh ngụ tình nhà thơ đã diễn tả tâm trạng của Thúy Kiều trong hoàn cảnh bị giam cầm, nỗi nhớ Kim Trọng, nhớ gia đình và đặc biệt là tâm trạng của Kiều trước cảnh vật ở lầu Ngưng Bích.
+
+Mở ra trước mắt người đọc là thiên nhiên trước lầu Ngưng Bích:
+
+“Trước lầu Ngưng Bích khoá xuân
+
+Vẻ non xa tấm trăng gần ở chung
+
+Bốn bề bát ngát xa trông
+
+Cát vàng cồn nọ bụi hồng dặm kia
+
+Bẽ bàng mây sớm đèn khuya
+
+Nửa tình nửa cảnh như chia tấm lòng.”
+
+Câu thơ mở đầu: “Trước lầu Ngưng Bích khóa xuân” lầu Ngưng Bích cao, đẹp, cái tên nghe cũng thật hay: Ngưng Bích. Nhưng chính nơi đây lại là nơi “khóa xuân” tức là khóa kín tuổi xuân của Thúy Kiều nàng chẳng khác nào bị giam lỏng. Đứng trên lầu cao hướng tầm mắt ra xa nàng nhìn thấy:
+
+“Vẻ non xa tấm trăng gần ở chung
+
+Bốn bề bát ngát xa trông
+
+Cát vàng cồn nọ bụi hồng dặm kia.”
+
+Nhìn ra xa là những phía dãy núi chạy dài ngước mắt lên trông thấy tấm trăng rất gần. Trông ra xung quanh là bốn bề bát ngát rộng lớn có những cồn cát cứ nối tiếp nhau chạy dài. Gió thổi, cuốn lên bụi hồng. Dưới ngòi bút miêu tả của nhà thơ cảnh thiên nhiên trước lầu Ngưng Bích hiện lên thật đẹp, sống động nó có thể là thực hay mang tính ước lệ. Cảnh được nhìn từ xa đến gần, từ cao xuống thấp nhưng lại hoang vắng rợn ngợp không một tiếng người, không có cả một tiếng chim hót. Cảnh thiên nhiên tác động đến tâm trạng của con người:
+
+“Bẽ bàng mây sớm đèn khuya
+
+Nửa tình nửa cảnh như chia tấm lòng.”
+
+Từ “bẽ bàng” nói đến tâm trạng xấu hổ, tủi thẹn của nàng Kiều khi bị giam cầm ở lầu Ngưng Bích. Trong hoàn cảnh cô đơn nàng Kiều chỉ có thể bầu bạn với mây buổi sớm, đèn buổi khuya nhưng hai người bạn ấy nàng chỉ có thể ngắm mà không thể tâm sự, giãi bày khiến cho Kiều cảm thấy cô đơn. Thành ngữ, cách biểu đạt của nghệ thuật ẩn dụ “mây sớm đèn khuya” chỉ về vòng tuần hoàn của thời gian.
+
+Dường như thời gian và không gian đều đang giam hãm Thúy Kiều nàng không thể nào thoát ra được. “Nửa tình” là nói đến tình cảnh của Kiều bị giam cầm nơi lầu Ngưng Bích xa gia đình, chia tay với mối tình đầu. Còn “nửa cảnh” là nói đến cảnh thiên nhiên trong tâm trạng buồn, đau khổ nàng muốn tìm đến thiên nhiên để giãi bày nhưng nó lại hoang vắng, xa vời. Nửa tình nửa cảnh như hòa vào là một làm cho trái tim nàng đau đớn như bị chia cắt. Bị giam cầm nơi lầu Ngưng Bích Kiều cảm thấy cô đơn, nhớ người mình đã từng thề non, hẹn biển:
+
+“Tưởng người dưới nguyệt chén đồng
+
+Tin sương luống những rày trong mai chờ
+
+Bên trời góc bể bơ vơ
+
+Tấm son gột rửa bao giờ cho phai”
+
+Nỗi nhớ Kim Trọng nàng nhớ những đêm ngồi dưới ánh trăng cùng nhau thề nguyện sẽ bên nhau trọn đời. Nàng tưởng ở quê nhà Kim Trọng vẫn mong ngóng mình trở về. Các động từ - vị ngữ: "tưởng", "trông", "chờ", "bơ vơ", "gột rửa", "phai" đã liên kết thành một hệ thống ngôn ngữ độc thoại biểu đạt nội tâm nhân vật trữ tình.
+
+Kiều nhớ người yêu khôn nguôi, xót xa cho mối tình đã nặng lời thề son sắt mà bị tan vỡ! Nàng cảm thấy hổ thẹn với Kim Trọng vì không giữ trọn lời thề năm xưa mà giờ đây không thể nào quay lại được nữa. Nhớ Kim Trọng rồi nàng lại nhớ về gia đình:
+
+“Xót người tựa cửa hôm mai
+
+Quạt nồng ấp lạnh những ai đó giờ
+
+Sân Lai cách mấy nắng mưa
+
+Có khi gốc tử đã vừa người ôm.”
+
+Nhớ cha mẹ lại bắt đầu bằng chữ “xót” nàng xót xa khi tưởng tượng ra cảnh cha mẹ mình mỗi sớm mỗi chiều người mẹ đứng tựa cửa trông chờ con về nhưng đó là sự chờ đợi trong vô vọng. Trong lòng nàng tự hỏi “Quạt nồng ấp lạnh những ai đó giờ”. Thành ngữ “Quạt nồng ấp lạnh” cách biểu đạt của nghệ thuật ẩn dụ chỉ hành động của người con mùa hè nóng nực thì quạt cho cha mẹ ngủ, mùa đông trời lạnh thì ủ ấm chỗ cha mẹ nằm và giờ đây ai có thể làm việc đó thay nàng.
+
+Cứ nghĩ đến điều đó mà lòng nàng cảm thấy buồn, lo lắng. Viết về nỗi nhớ cha mẹ của người con xa quê nhà thơ đã đưa vào những điển tích “Sân Lai, gốc tử” nói về việc làm của người con hiếu thảo không những phụ dưỡng sớm hôm mà còn nhảy múa cho cha mẹ vui.
+
+Còn với nàng Kiều đang bị giam cầm nơi lầu Ngưng Bích bơ vơ trên đất khách quê người giờ đây không phụ dưỡng được cha mẹ sớm hôm thời gian cứ trôi kể cả “gốc tử đã vừa người ôm” nàng không thể làm tròn bổn phận của người con. Nghĩ đến điều này mà nàng cảm thấy xót xa ân hận nhưng với nàng Kiều ta thấy nàng đã làm tròn bổn phận khi bán mình cứu cha. Nỗi nhớ người thân rồi cũng qua đi để rồi nàng lại trở về thực tại:
+
+“Buồn trông cửa bể chiều hôm
+
+Thuyền ai thấp thoáng cánh buồm xa xa.”
+
+Trong tâm trạng buồn hướng tầm mắt về nơi cửa bể là không gian rộng lớn chỉ có trời với biển. Không gian ấy lại đặt vào thời điểm chiều hôm gợi lên trong lòng nàng nỗi nhớ quê hương nhớ về người thân yêu. Trên mặt biển rộng lớn nàng còn nhìn thấy con thuyền và cánh buồm thấp thoáng ở phía xa.
+
+Câu hỏi tu từ “thuyền ai” như rơi vào khoảng không trống vắng không lời đáp lại bởi con thuyền kia cứ đi xa nàng khuất hẳn về phía chân trời xa. Nhìn con thuyền nàng liên tưởng đến thân phận mình lênh đênh trôi dạt trên đất khách quê người. Nghĩ đến mà lòng nàng lại thấy đau đớn. Đôi mắt của nàng lại hướng tới cảnh ngọn nước mới xa:
+
+“Buồn trông ngọn nước mới sa
+
+Hoa trôi man mác biết là về đâu.”
+
+Trước mắt nàng dòng nước chảy vừa mạnh vừa siết cuốn theo những cánh hoa nhỏ bé mỏng manh lúc nổi lúc chìm. Câu hỏi tu từ “hoa trôi man mác biết là về đâu” nàng hỏi hoa kia hay hỏi chính lòng mình. Nhìn cánh hoa mà nàng nghĩ đến số phận mình cũng bị dòng đời xô đẩy không biết đâu là bến bờ. Nghĩ đến mà lòng nàng lại thấy xót xa. Thay hình ảnh ngọn nước mới sa là hình ảnh nội cỏ:
+
+“Buồn trông nội cỏ rầu rầu
+
+Chân mây mặt đất một màu xanh xanh”
+
+Cảnh nội cỏ rầu rầu, từ láy “rầu rầu” gợi về sắc cỏ héo úa, rầu rĩ như bị bàn chân ai dẫm đạp. Nhìn nội cỏ ấy mà Kiều lại liên tưởng đến thân phận mình bị người đời chà đạp rồi cũng héo úa như nội cỏ mà thôi. Nghĩ đến điều đó thôi mà lòng nàng cảm thấy đau đớn. Trong tâm trạng ấy mà nàng lại nhìn thấy một màu xanh trải dài từ mặt đất tới chân trời. Từ láy "xanh xanh” gợi một màu xanh đơn điệu và tẻ nhạt khiến cho lòng nàng đã buồn lại càng buồn thêm.
+
+Cảnh cuối cùng xuất hiện trước mắt nàng Kiều vẫn là không gian nơi của bể mênh mông rộng lớn. Ở đó có gió cuốn mặt duềnh tạo nên những con sóng lớn xô đập vào bờ đã phát ra những âm thanh ầm ầm. Từ láy “ầm ầm” gợi tả âm thanh nghe thật dữ dội.
+
+Sóng biển kia không chỉ va đập ầm ầm mà còn là tiếng kêu như gào thét nghe thật ghê rợn. Cách biểu đạt của nghệ thuật ẩn dụ “sóng kêu” sóng biển kia hay sóng gió cuộc đời những tai ương tai họa đang đùa giỡn nhấn chìm cuộc đời con người lúc nào không hay. Nghĩ đến điều đó mà lòng nàng cảm thấy lo sợ hãi hùng.
+
+Điệp ngữ “buồn trông” lặp đi lặp lại như một điệp khúc trầm buồn đứng ở đầu bốn cảnh. Cách sử dụng từ láy kết hợp với câu hỏi tu từ mỗi cảnh thiên nhiên lại diễn tả tâm trạng khác nhau của Thúy Kiều từ nỗi buồn nhớ đến đau đớn xót xa lo sợ hãi hùng. Tất cả được diễn tả tinh tế qua ngòi bút tả cảnh ngụ tình. Có thể nói rằng tám câu thơ cuối là một bước tranh tâm trạng và ngoại cảnh mà gửi gắm trong đó là sự đồng cảm, xót thương của Nguyễn Du dành cho Thúy Kiều người con gái mà ông hằng mến mộ, yêu quý.
+
+Đoạn trích đã cho ta thấy được nỗi bất hạnh của người phụ nữ trong xã hội cũ họ đã phải trải qua rất nhiều đớn đau. Hãy trân trọng người phụ nữ bởi họ có quyền được yêu thương.
+
+### **Phân tích đoạn trích Kiều ở lầu Ngưng Bích - mẫu 7**
+
+Trong Truyện Kiều có nhiều đoạn thơ hay miêu tả nỗi cô đơn, nhớ nhà của Kiều, nhưng không đoạn nào thể hiện được tâm trạng bi đát, bế tắc, đơn côi như đoạn "Kiều ở lầu Ngưng Bích".
+
+Sau khi biết mình bị bán vào lầu xanh, Kiều đã tự tử, nhưng không chết. Biết Kiều tính cách khẳng khái, cứng rắn, Tú Bà đã cho Kiều ở riêng trong lầu Ngưng Bích để thực hiện một âm mưu khác. Trong thời gian này, sức khỏe của Kiều mới hồi phục trở lại, nhưng tình cảm lại hết sức cô đơn.
+
+Chết thì nàng đã không muốn chết nữa vì sợ bị lụy cho cha mẹ, nhưng sống thì sẽ sống như thế nào, một thân một mình ở nơi hoàn toàn xa lạ, tứ cố vô thân? Đây là đoạn thơ hay nổi tiếng của Truyện Kiều, cực tả nỗi lòng cô đơn, buồn thảm, bi đát đó của nàng Kiều. Trước hết, Nguyễn Du miêu tả tình cảnh cô đơn của Kiều ở lầu Ngưng Bích bằng cách vẽ ra khung cảnh xung quanh theo con mắt của Kiều:
+
+Trước lầu Ngưng Bích khóa xuân
+Vẻ non xa, tấm trăng gần ở chung
+Bốn bề bát ngát xa trông
+Cát vàng cồn nọ, bụi hồng dặm kia
+Bẽ bàng mây sớm đèn khuya
+Nửa tình, nửa cảnh như chia tấm lòng
+
+Hai chữ "khóa xuân" rất đẹp nhưng nói lên thực chất Kiều bị giam lỏng. Câu "Vẻ non xa, tấm trăng gần ở chung" cũng rất đẹp, cực tả cảnh cô đơn của Kiều. Lầu Ngưng Bích cao quá, trơ trọi quá, Kiều như chỉ còn "ở chung" làm bạn với "vẻ non xa, tấm trăng gần" (gần trăng vì lầu quá cao). Một cảm giác trơ trọi, rợn ngợp, lơ lửng tràn ngập câu thơ. Nhìn ra xung quanh chỉ thấy một không gian bao la, xa vời: non xa, xa trông, cát vàng, cồn nọ, bụi hồng dặm kia, tịnh không một bóng cây, bóng nhà, bóng người.
+
+Về thời gian, sớm làm bạn với mây, khuya làm bạn với đèn, thức ngủ một mình thui thủi triền miên, thật là bẽ bàng - ngao ngán và vô vọng. Nhưng nàng buồn về cảnh một phần, một phần khác buồn hơn là vì tình. Đó là hai nỗi buồn chia sẻ tâm hồn nàng.
+
+Thứ hai, nhà thơ cực tả nỗi lòng nhớ nhung, thương xót đối với người thân. Người đầu tiên được nhớ trong giờ phút cô quạnh ấy là Kim Trọng, người tình mà nàng đã nặng lòng thề hẹn:
+
+Tưởng người dưới nguyệt chén đồng
+Tin sương luống những rày trông mai chờ
+
+Trong tâm trí nàng vẫn còn như in hình ảnh hai người cùng uống rượu thề nguyền dưới trăng: "Đinh ninh hai miệng một lời song song". Kiều thương nhất là việc Kim Trọng vẫn chưa biết Kiều đã thuộc về người khác, vẫn đang ngày đêm trông chờ nàng một cách uổng công. Hết thương Kim Trọng, nàng lại thương mình:
+
+Bên trời góc bể bơ vơ
+Tấm son gột rửa bao giờ cho phai
+
+"Tấm son" đây là tấm lòng thủy chung, son sắt của Thúy Kiều đối với Kim Trọng. Nói bao giờ mới quên được mối tình có nghĩa là chẳng bao giờ quên được.
+
+Kế đến là nhớ thương cha mẹ già:
+
+Xót người tựa cửa hôm mai
+Quạt lồng ấp lạnh những ai đó giờ?
+Sân Lai cách mấy nắng mưa
+Có khi gốc tử đã vừa người ôm
+
+"Tựa cửa" là hình ảnh của ngóng trông. Nàng tưởng tượng cha mẹ đang tựa cửa ngóng trông nàng về. Và giờ đây ai là người "quạt nồng ấp lạnh" cho cha mẹ. Nàng cảm thấy thời gian xa nhà đã rất lâu: "Cách mấy nắng mưa", và tưởng như thấy cha mẹ đã già ("có khi gốc tử đã vừa người ôm").
+
+Hiển nhiên là Kiều cũng nhớ hai em, song chàng Kim và cha mẹ vẫn là mối tình cảm tha thiết nhất, gắn bó nhất. Cuối cùng, Kiều nhìn đến cảnh trống trải, xa vắng mà nghĩ đến thân phận. Đây là những câu thơ réo rắt bậc nhất về nỗi buồn luân lạc, bơ vơ. Mỗi câu như gợi lên một nỗi buồn thảm, hãi hùng lắng sâu trong vô thức:
+
+Buồn trông cửa bể chiều hôm
+Thuyền ai thấp thoáng cánh buồm xa xa
+Buồn trông ngọn nước mới sa
+Hoa trôi man mác biết là về đâu
+Buồn trông nội cỏ dầu dầu
+Chân mây mặt đất một màu xanh xanh
+Buồn trông gió cuốn mặt duềnh
+Ầm ầm tiếng sóng kêu quanh ghế ngồi
+
+Tám câu thơ, mỗi cặp câu gợi ra một nỗi buồn sâu thẳm. "Buồn trông" là buồn nhìn xa, cũng như buồn nhìn trông ngóng một cái gì mơ hồ sẽ đến làm đổi thay tình trạng hiện tại, nhưng trông mà vô vọng. Hình như nàng mong một cánh buồm, nhưng cánh buồm chỉ thấp thoáng xa xa, không rõ, như là một ước vọng mơ hồ, mỗi lúc một xa.
+
+Nàng lại trông một ngọn nước mới, từ cửa sông ra biển, ngọn sóng xô đẩy theo cánh hoa phiêu dạt, không biết về đâu. Kiều ngồi trên lầu cao làm sao thấy được cánh hoa trên dòng nước. Đây chỉ là cảnh tưởng tượng về số phận mình.
+
+Nàng lại trông thấy đồng cỏ úa tàn, chân mây mặt đất một màu mờ mịt xanh xanh, tưởng như mịt mùng, không có chân trời. Nàng lại "trông gió cuốn mặt duềnh". "Duềnh" là chỗ biển ăn sâu vào đất liền, thành vịnh. Gió cuốn mặt duềnh làm cho sóng vỗ rào rạt, ầm ầm ... . Tất nhiên, dù lầu Ngưng Bích có rất gần bờ biển cũng không thể nghe thấy tiếng sóng kêu quanh ghế ngồi được. Đây là hình ảnh vừa thực, vừa ảo, cảm thấy như sóng vỗ dưới chân, đầy hiểm họa, như muốn nhấn chìm nàng xuống vực.
+
+Tám câu thơ, câu nào cũng vừa thực vừa hư, vừa là thực cảnh, vừa là tâm cảnh. Toàn là hình ảnh về sự vô vọng, sự dạt trôi, sự bế tắc và sự chao đảo, nghiêng đổ. Đây chính là lúc mà tình cảm Kiều trở nên mong manh, yếu đuối nhất, là lúc mà nàng rất dễ rơi vào cạm bẫy, như nàng sẽ rơi vào tay Sở Khanh sau này.
+
+Trong đoạn thơ này, không gian bao la rợn ngợp, không một bóng người. Thời gian như dồn lại, không biết bao nhiêu buổi sáng, buổi chiều lặp lại. Con người trở nên nhỏ bé, bất lực, trơ trọi. Nghệ thuật trùng điệp như kéo dài nỗi buồn vô vọng, vô tận của con người.
+
+**Mục lục Văn mẫu | Văn hay 9 theo từng phần:**
+
+  * [**Mục lục Văn thuyết minh**](https://vietjack.com/van-mau-lop-9/van-thuyet-minh-lop-9.jsp)
+  * [**Mục lục Văn tự sự**](https://vietjack.com/van-mau-lop-9/van-tu-su-lop-9.jsp)
+  * [**Mục lục Văn nghị luận xã hội**](https://vietjack.com/van-mau-lop-9/van-nghi-luan-xa-hoi-lop-9.jsp)
+  * [**Mục lục Văn nghị luận văn học Tập 1**](https://vietjack.com/van-mau-lop-9/van-nghi-luan-van-hoc-lop-9-tap-1.jsp)
+  * [**Mục lục Văn nghị luận văn học Tập 2**](https://vietjack.com/van-mau-lop-9/van-nghi-luan-van-hoc-lop-9-tap-2.jsp)
+
+  * [ HOT Giáo án Powerpoint bản mới 2025 Toán, Văn, Anh, Sử.... lớp 1-12 tại VietJack chỉ từ 200k/ 1 năm  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?loai=giao-an-powerpoint&q=)
+
+### Tủ sách VIETJACK luyện thi vào 10 cho 2k10 (2025):
+
+  * [ **Giải mã đề thi vào 10 theo đề Hà Nội, Tp. Hồ Chí Minh (300 trang - từ 99k/1 cuốn)**](https://s.shopee.vn/1LRLjS5DCj)
+  * [ **Bộ đề thi thử 10 chuyên (120 trang - từ 99k/1 cuốn)**](https://s.shopee.vn/1LRLjS5DCj)
+  * [ **Cấp tốc 7,8,9+ Toán Văn Anh thi vào 10 (400 trang -từ 119k)**](https://s.shopee.vn/1LRLjS5DCj)
+
+  * [**Hơn 20.000 câu trắc nghiệm Toán,Văn, Anh lớp 9 có đáp án**](https://khoahoc.vietjack.com/trac-nghiem/Lop-9/mon-Toan?type=test)
+
+### TÀI LIỆU CLC DÀNH CHO GIÁO VIÊN VÀ PHỤ HUYNH LỚP 9
+
+\+ Bộ giáo án, bài giảng powerpoint, đề thi file word có đáp án 2025 tại [**https://tailieugiaovien.com.vn/**](https://tailieugiaovien.com.vn/)
+
+\+ Hỗ trợ zalo: [**VietJack Official**](https://zalo.me/3800062780558660756)
+
+\+ Tổng đài hỗ trợ đăng ký : **084 283 45 85**
+
+##### [Đề thi vào 10 các sở Hà Nội, Tp. Hồ Chí Minh.. ( **45** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=on-vao-10&loai=de-thi&q=)
+
+##### [Đề thi giữa kì, cuối kì 9 ( **120** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=de-thi&q=)
+
+##### [Bài giảng Powerpoint Văn, Sử, Địa 9.... ( **36** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=giao-an-powerpoint&q=)
+
+##### [Giáo án word 9 ( **76** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=giao-an,giao-an-powerpoint&q=)
+
+##### [Chuyên đề dạy thêm Toán, Lí, Hóa ...9 ( **77** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=chuyen-de&q=)
+
+##### [Đề thi HSG 9 ( **9** tài liệu )  ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9&loai=de-thi,de-thi-hsg&q=)
+
+[xem tất cả](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=lop-9)
+
+Đã có app VietJack trên điện thoại, giải bài tập SGK, SBT Soạn văn, Văn mẫu, Thi online, Bài giảng....miễn phí. Tải ngay ứng dụng trên Android và iOS.
+
+[](https://apps.apple.com/vn/app/vietjack/id1490262941?l=vi&mt=8)
+
+[](https://play.google.com/store/apps/details?id=com.jsmile.android.vietjack)
+
+Theo dõi chúng tôi miễn phí trên mạng xã hội facebook và youtube:
+
+Loạt bài **Tuyển tập những bài văn hay | văn mẫu lớp 9** của chúng tôi được biên soạn một phần dựa trên cuốn sách: **Văn mẫu lớp 9** và **Những bài văn hay lớp 9 đạt điểm cao**.
+
+Nếu thấy hay, hãy động viên và chia sẻ nhé! Các bình luận không phù hợp với **[nội quy bình luận trang web](https://vietjack.com/lien-he/quy-dinh-binh-luan.jsp)** sẽ bị cấm bình luận vĩnh viễn.
+
+[__Trang trước](../van-mau-lop-9/truyen-kieu.jsp) [Trang sau __](../van-mau-lop-9/truyen-kieu.jsp)
+
+truyen-kieu.jsp
+
+* * *
+
+Giải bài tập lớp 9 sách mới các môn học
+
+  * [Giải Tiếng Anh 9 Global Success](https://vietjack.com/tieng-anh-9-moi/tieng-anh-9-global-success.jsp)
+  * [Giải sgk Tiếng Anh 9 Smart World](https://vietjack.com/tieng-anh-9-ilearn/index.jsp)
+  * [Giải sgk Tiếng Anh 9 Friends plus](https://vietjack.com/tieng-anh-9-ct/index.jsp)
+  * [**Lớp 9 Kết nối tri thức**](https://vietjack.com/series/sach-lop-9-ket-noi-tri-thuc.jsp)
+  * [Soạn văn 9 (hay nhất) - KNTT](https://vietjack.com/soan-van-lop-9-kn/index.jsp)
+  * [Soạn văn 9 (ngắn nhất) - KNTT](https://vietjack.com/soan-van-9-kn/index.jsp)
+  * [Giải sgk Toán 9 - KNTT](https://vietjack.com/toan-9-kn/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - KNTT](https://vietjack.com/khoa-hoc-tu-nhien-9-kn/index.jsp)
+  * [Giải sgk Lịch Sử 9 - KNTT](https://vietjack.com/lich-su-9-kn/index.jsp)
+  * [Giải sgk Địa Lí 9 - KNTT](https://vietjack.com/dia-li-9-kn/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - KNTT](https://vietjack.com/giao-duc-cong-dan-9-kn/index.jsp)
+  * [Giải sgk Tin học 9 - KNTT](https://vietjack.com/tin-hoc-9-kn/index.jsp)
+  * [Giải sgk Công nghệ 9 - KNTT](https://vietjack.com/cong-nghe-9-kn/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - KNTT](https://vietjack.com/hoat-dong-trai-nghiem-9-kn/index.jsp)
+  * [Giải sgk Âm nhạc 9 - KNTT](https://vietjack.com/am-nhac-9-kn/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - KNTT](https://vietjack.com/mi-thuat-9-kn/index.jsp)
+  * [**Lớp 9 Chân trời sáng tạo**](https://vietjack.com/series/sach-lop-9-chan-troi-sang-tao.jsp)
+  * [Soạn văn 9 (hay nhất) - CTST](https://vietjack.com/soan-van-lop-9-ct/index.jsp)
+  * [Soạn văn 9 (ngắn nhất) - CTST](https://vietjack.com/soan-van-9-ct/index.jsp)
+  * [Giải sgk Toán 9 - CTST](https://vietjack.com/toan-9-ct/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - CTST](https://vietjack.com/khoa-hoc-tu-nhien-9-ct/index.jsp)
+  * [Giải sgk Lịch Sử 9 - CTST](https://vietjack.com/lich-su-9-ct/index.jsp)
+  * [Giải sgk Địa Lí 9 - CTST](https://vietjack.com/dia-li-9-ct/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - CTST](https://vietjack.com/giao-duc-cong-dan-9-ct/index.jsp)
+  * [Giải sgk Tin học 9 - CTST](https://vietjack.com/tin-hoc-9-ct/index.jsp)
+  * [Giải sgk Công nghệ 9 - CTST](https://vietjack.com/cong-nghe-9-ct/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - CTST](https://vietjack.com/hoat-dong-trai-nghiem-9-ct/index.jsp)
+  * [Giải sgk Âm nhạc 9 - CTST](https://vietjack.com/am-nhac-9-ct/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - CTST](https://vietjack.com/mi-thuat-9-ct/index.jsp)
+  * [**Lớp 9 Cánh diều**](https://vietjack.com/series/sach-lop-9-canh-dieu.jsp)
+  * [Soạn văn 9 Cánh diều (hay nhất)](https://vietjack.com/soan-van-lop-9-cd/index.jsp)
+  * [Soạn văn 9 Cánh diều (ngắn nhất)](https://vietjack.com/soan-van-9-cd/index.jsp)
+  * [Giải sgk Toán 9 - Cánh diều](https://vietjack.com/toan-9-cd/index.jsp)
+  * [Giải sgk Khoa học tự nhiên 9 - Cánh diều](https://vietjack.com/khoa-hoc-tu-nhien-9-cd/index.jsp)
+  * [Giải sgk Lịch Sử 9 - Cánh diều](https://vietjack.com/lich-su-9-cd/index.jsp)
+  * [Giải sgk Địa Lí 9 - Cánh diều](https://vietjack.com/dia-li-9-cd/index.jsp)
+  * [Giải sgk Giáo dục công dân 9 - Cánh diều](https://vietjack.com/giao-duc-cong-dan-9-cd/index.jsp)
+  * [Giải sgk Tin học 9 - Cánh diều](https://vietjack.com/tin-hoc-9-cd/index.jsp)
+  * [Giải sgk Công nghệ 9 - Cánh diều](https://vietjack.com/cong-nghe-9-cd/index.jsp)
+  * [Giải sgk Hoạt động trải nghiệm 9 - Cánh diều](https://vietjack.com/hoat-dong-trai-nghiem-9-cd/index.jsp)
+  * [Giải sgk Âm nhạc 9 - Cánh diều](https://vietjack.com/am-nhac-9-cd/index.jsp)
+  * [Giải sgk Mĩ thuật 9 - Cánh diều](https://vietjack.com/mi-thuat-9-cd/index.jsp)
+
+> [Học cùng VietJack](https://www.facebook.com/hoc.cung.vietjack/)
+
+[ ](https://tailieugiaovien.com.vn/danh-sach-tai-lieu?lop=on-vao-10&loai=de-thi&q=)

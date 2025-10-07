@@ -1,0 +1,116 @@
+<!-- source: https://m.nguyendu.vn/?chitiet=258&man-doan-vien-_-bi-kich-cua-nhan-vat-thuy-kieu.html -->
+
+* [Nghiên cứu, thảo luận](?chuyenmuc=29&nghien-cuu--thao-luan.html)
+  * __
+  * [Cuộc đời - sự nghiệp](?chuyenmuc=11&cuoc-doi-_-su-nghiep.html)
+  * __
+  * [Tư liệu lịch sử](?chuyenmuc=12&tu-lieu-lich-su.html)
+  * __
+
+# Màn đoàn viên - Bi kịch của nhân vật Thúy Kiều
+
+03/07/2021
+
+HNTĐ
+
+##  Truyện Kiều là bức tranh rộng lớn về cuộc sống thời đại của Nguyễn Du. Tác giả đã làm nổi bật sự đối lập giữa quyền sống của con người, nhất là người phụ nữ Việt Nam, với sự áp bức của chế độ phong kiến suy tàn. Có thể nói, chủ nghĩa nhân đạo là nền tảng vững chắc cho tác phẩm này. Chủ nghĩa nhân đạo thấm nhuần trong mọi tình tiết của tác phẩm, thấm nhuần trong mọi bức tranh về con người cũng như thiên nhiên tạo vật. Nhưng tất cả bút pháp tập trung nhất ở Thúy Kiều, nhân vật trung tâm mà vận mệnh và tính cách có màu sắc bi kịch, quán xuyến toàn bộ nội dung tác phẩm. Có thể nói, màn đoàn viên là một bi kịch đau đớn nhất trong đời Kiều.
+
+Sau 15 năm lưu lạc, chịu nhiều khổ cực và lựa chọn nhảy sông Tiền Đường để mong giải thoát khỏi kiếp khổ đau của đời người, của trần thế, thế nhưng cái chết không dành cho Kiều. Và rồi, Kiều được Kim Trọng và cả nhà tìm về từ thảo đường của Giác Duyên, sau quãng thời gian 15 năm lưu lạc. Cả nhà mừng vui mở tiệc đoàn viên. Giờ phút được trở lại cố hương chung sống với cha mẹ và hai em là một sự bất ngờ và hạnh phúc khôn xiết của Thúy Kiều. Nhưng đây cũng chính là một màn tái hợp thể hiện nghịch lý của cuộc đời, tâm trạng bi kịch và tình huống bi kịch mới lại tiếp tục xuất hiện với nàng Kiều. Từ hai sự kiện “tiệc đoàn viên’ và “đêm tái hợp” bi kịch của Kiều lại càng thêm đau đớn, với tình huống đầy kịch tính, “mối quan hệ tay ba” hết sức đặc biệt và chua xót giữa ba con người: Thúy Kiều - Kim Trọng - Thúy Vân. Với “Tiệc đoàn viên”, bên cạnh hạnh phúc đoàn tụ với gia đình, tưởng như Thúy Kiều còn có thể tìm lại hạnh phúc tình yêu. Thế nhưng, qua “Đêm tái hợp”, hạnh phúc lứa đôi đã vĩnh viễn trôi đi.
+
+Trong mối quan hệ tay ba ấy, hình ảnh Thúy Vân xuất hiện, sự xuất hiện ấy rất đúng lúc để tạo ra một bối cảnh thích hợp cho tình huống phức tạp đang được đặt ra đối với cả gia đình, đặc biệt là đối với Thúy Kiều và Kim Trọng.
+
+Tàng tàng chén cúc giở say
+
+Đứng lên Vân mới giãi bày một hai
+
+Trong tiệc hoa vui vầy, Thúy Vân đã lựa chọn thời điểm giữa chừng tiệc rượu, khi mà mọi người đã chia sẻ nỗi xúc động ban đầu và niềm vui đoàn tụ để đề cập tới chuyện tình duyên năm xưa. Với cử chỉ “Đứng lên Vân mới giãi bàymột hai”, nàng rất từ tốn khoan thai để đặt vấn đề với Thúy Kiều, một sự việc rất khó nói: thành hôn với Kim Trọng. Vì đây là câu chuyện khó nói nên Thúy Vân đã nói dài đến 14 câu thơ với nhiều liên từ và điệp ngữ:
+
+Vậy đem duyên chị buộc vào cho em
+
+Cũng là phận cải duyên kim
+
+Cũng là máu chảy ruột mềm chớ sao?
+
+Những là rày ước mai ao
+
+Mười lăm năm ấy biết bao nhiêu tình
+
+Bây giờ gương vỡ lại lành
+
+Khuôn thiêng lừa lọc đã đành có nơi
+
+Còn duyên may lại còn người
+
+Còn vầng trăng cũ còn lời nguyền xưa
+
+Những lời nói của Thúy Vân rõ ràng, mạch lạc và với Vân thì quan hệ tình cảm Thúy Kiều- Kim Trọng là một mối quan hệ thiêng liêng được tác hợp bởi Trời và thề nguyền bởi con người :
+
+Rằng : Trong tác hợp cơ trời
+
+Đôi bên gặp gỡ một lời kết giao
+
+Còn mối quan hệ giữa Thúy Vân và Kim Trọng xuất phát từ biến động của cảnh ngộ gia đình, của hoàn cảnh khách quan: “Gặp cơn binh địa ba đào”. Đặc biệt, Thúy Vân nói đến tình chị em giữa Thúy Vân và Thúy Kiều như là cơ sở sâu xa của việc nàng chấp nhận lấy Kim Trọng: “Vậy đem duyên chị buộc vào cho em”. Tình cảm chị em ruột thịt chân thành tha thiết giữa hai người. Và tiếp đó như để giãi bày cùng chị và thêm thuyết phục chị để nói tình cảm của Kim Trọng lâu nay vẫn dành cho người thương năm xưa:
+
+Nhũng là mày ước mai ao
+
+Mười lăm năm ấy biết bao nhiêu tình
+
+Biết chồng “vẫn mải mê đi tìm người yêu cũ”, nhưng Thúy Vân không chỉ cảm thông mà còn đồng cảm với tình yêu sâu sắc, say đắm của Kim Trọng dành cho Thúy Kiều. Câu thơ “Mười lăm năm ấy biết bao nhiêu tình”càng khẳng định tình yêu bất diệt trước mọi thử thách của thời gian. Thúy Vân biết rằng, chị mình khó lòng chấp nhận việc tái hợp với người tình xưa. Vì vậy, Vân đã rất khéo léo nói đến mối ràng buộc thiêng liêng giữa Kim - Kiều: khuôn trời uy nghi đã tạo dựng nên mối nhân duyên này và hai người đã có lời ước nguyện thiêng liêng. Đó là những điều không thể và khó để dứt bỏ. Thế rồi, ngoài tình yêu tha thiết và những ràng buộc thiêng liêng, người em gái này còn đưa ra lý lẽ về tuổi xuân không phôi pha của người chị gái đã xa nhà từ mấy năm trước:
+
+Quả mai ba bảy đường vừa
+
+Đào non sớm liệu xe tơ kịp thì
+
+Còn đối với Kiều, khi được trở về từ nơi tu hành, Kiều cứ ngỡ là yên ổn, là an toàn. Nhưng thật không ngờ cuộc đời lại đầy bi kịch, cuộc đời đau khổ lại vẫn tiếp diễn. Thúy Vân đã khơi vào vết thương, nỗi đau tưởng như đã lành của Kiều. Trong tâm trí Kiều, mối tình đẹp đẽ năm xưa đã được chôn vùi vào quá khứ dĩ vãng:
+
+Sự muôn năm cũ kể chi bây giờ
+
+Một lời tuy có ước xưa
+
+Xót mình dãi gió dầm mưa đã nhiều
+
+Nói càng hổ thẹn trăm chiều
+
+Thà cho ngọn nước thủy triều chảy xuôi
+
+Trong lúc này đây, Kiều nhớ lại 15 năm lưu lạc. Hiện lên trên tất cả là một con người - với cảm xúc về một hoàn cảnh trong quá khứ:
+
+Thiếp từ ngộ biến đến giờ
+
+Ong qua bướm lại đã thừa xấu xa
+
+Bấy giờ gió táp mưa sa
+
+Một quá khứ đau khổ, phũ phàng như đang hiện diện. Mười lăm năm qua là những năm tháng ô nhục, đớn đau. Bấy giờ, Kiều đã thoát khỏi cảnh “dãi gió dầm mưa”, “ong qua bướm lại” nhưng quá khứ đó đã để lại biết bao dư vị đắng cay trong tâm hồn nàng. Và rồi nỗi ê chề, tủi nhục vẫn cứ tuôn trào, để rồi chính hoàn cảnh bi kịch trong quá khứ đã đem đến tâm trạng bi kịch trong hiện tại: “Nghĩ mình chẳng hổ mình sao…Trông hoa đèn chẳng thẹn mình lắm ru”.
+
+Tiềm ẩn phía sau tấm thảm ngôn từ trực tiếp miêu tả “vườn xuân muôn đời” của “màn tái hợp”trong Truyện Kiều là một giải kết bi kịch. Nguyễn Du đã dựng lên màn “tái thế tương phùng” để đẩy nhân vật vào sự đày đọa đau đớn nhất: 15 năm quằn quại đấu tranh và tìm kiếm để dẫn đến đoạn đời tái hợp còn đứt ruột hơn cả những nỗi đau trước đó. Hai con người với một tình yêu đẹp, giờ đây cùng sống dưới một mái nhà nhưng không được hưởng hạnh phúc lứa đôi. Còn có nỗi đày đọa nào hơn đối với trái tim những con người yêu nhau mà không được sống với nhau. Có lẽ, thà để cho Thúy Kiều chết đi còn đỡ đau đớn hơn là ban cho nàng sự tồn tại như là một án tù chung thân mãn kiếp. Nhưng đó mới là sáng tạo độc đáo của Nguyễn Du khi phản ánh bi kịch của con người: khắc sâu bi kịch tinh thần của kiếp người hơn là cực tả nỗi đau vật chất.
+
+Trong màn đoàn viên, Thúy Kiều đã thực hiện hai sự từ bỏ. Đó là từ bỏ mối tình cầm sắt với Kim Trọng và từ bỏ khúc đàn định mệnh bên trong của nàng: “Một phen tri kỷ cùng nhau/ Cuốn dây từ đây về sau xin chừa”... Có lẽ, đó là một ảo tưởng bằng an, đắp đổi sau mười lăm năm tan nát. Có lẽ, nhạc khúc cuối cùng của hồ cầm là nhạc cuối cùng của đời Kiều. Về với đoạn kết trong màn đoàn viên là tìm về với một nỗi trái ngang không dứt… Hình như, có một sự bế tắc không vượt qua ở đây? Đại thi hào băn khoăn đi tìm cách giải đáp cho câu hỏi đớn đau của con người- người phụ nữ tài sắc. Nhà thơ đã đi vào con đường mới mẻ của nghệ thuật trên cơ sở một cảm xúc đúng đắn về cuộc sống. Tình yêu và hạnh phúc của Kim - Kiều đã bị tan vỡ trong 15 năm tai biến và ngay cả trong buổi đoàn tụ, rốt cuộc là họ không thể và không bao giờ “tái hợp” như những đôi trai gái khác. Bi kịch tình yêu, hạnh phúc vẫn là một “nỗi đoạn trường” không thể nào giải quyết.
+
+Kết thúc Truyện Kiều, phải chăng đó là một khúc đoạn trường trong cung đàn bạc mệnh, một kết thúc đầy bi kịch? Như thế, sau 15 năm lưu lạc, Kiều trở về đoàn tụ cùng gia đình. Nhưng sự đời lần nữa lại trêu đùa Thúy Kiều, nàng phải sống "lưu đày" ngay giữa nhà mình, bên cạnh người yêu mình. Tất cả được thể hiện bằng bút pháp nhân đạo sâu sắc của nhà thơ đối với nhân vật, “Lời văn tả ra hình như máu chảy ở đầu ngọn bút, nước mắt thấm ở trên tờ giấy, khiến ai đọc đến cũng phải thăm thía ngậm ngùi, đau đớn như đứt ruột” (Mộng Liên Đường chủ nhân).
+
+Theo Trần Thị Vợi (Lớp ĐHTH 2, Khoa SP THMN)/Đại học Hà Tĩnh
+
+Nguồn: http://nguyendu.com.vn/
+
+  *   * __ bình luận
+
+  * [ ](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+### [Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông](?chitiet=15324&tim-kiem-phuong-phap-toi-uu-trinh-bay-van-ban-truyen-kieu-quoc-ngu-phuc-vu-doc-gia-pho-thong.html "Tìm kiếm phương pháp tối ưu trình bày văn bản Truyện Kiều Quốc ngữ phục vụ độc giả phổ thông")
+
+  * [ ](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+### [Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt](?chitiet=11327&truyen-kieu--thanh-guom-mo-rong-bo-coi-van-hoa-viet.html "Truyện Kiều, thanh gươm mở rộng bờ cõi văn hóa Việt")
+
+  * [ ](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+### [Nghìn năm sau nhớ Nguyễn Du](?chitiet=8324&nghin-nam-sau-nho-nguyen-du.html "Nghìn năm sau nhớ Nguyễn Du")
+
+  * [ ](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+### [Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du](?chitiet=8322&luan-ve-tam-_-tai-trong-truyen-kieu-cua-nguyen-du.html "Luận về Tâm - Tài trong Truyện Kiều của Nguyễn Du")
+
+  * [ ](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")
+
+### [Vẻ đẹp của Hoạn Thư trong truyện Kiều](?chitiet=2312&ve-dep-cua-hoan-thu-trong-truyen-kieu.html "Vẻ đẹp của Hoạn Thư trong truyện Kiều")

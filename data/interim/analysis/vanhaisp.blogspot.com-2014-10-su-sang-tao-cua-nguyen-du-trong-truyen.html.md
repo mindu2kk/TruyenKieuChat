@@ -1,0 +1,478 @@
+<!-- source: https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html -->
+
+* Share This:
+  * [__Facebook](http://www.facebook.com/share.php?v=4&src=bm&u=https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html&t=Sự sáng tạo của Nguyễn Du trong Truyện Kiều \(K38.Văn.ĐHSP\) "Share this on Facebook")
+  * [ __Twitter](http://twitter.com/home?status=Sự sáng tạo của Nguyễn Du trong Truyện Kiều \(K38.Văn.ĐHSP\) -- https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html "Tweet This!")
+  * [ __Google+](https://plus.google.com/share?url=https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html "Share this on Google+")
+  * [__Stumble](http://www.stumbleupon.com/submit?url=https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html&title=Sự sáng tạo của Nguyễn Du trong Truyện Kiều \(K38.Văn.ĐHSP\) "Stumble upon something good? Share it on StumbleUpon")
+  * [ __Digg](http://digg.com/submit?phase=2&url=https://vanhaisp.blogspot.com/2014/10/su-sang-tao-cua-nguyen-du-trong-truyen.html&title=Sự sáng tạo của Nguyễn Du trong Truyện Kiều \(K38.Văn.ĐHSP\) "Digg this!")
+
+[](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhipFmTtDTLg4SQ6MM3x0Q46Bq-ak-yso1RGpyUYzRraWah0zQxA-U6D0kISUAOE-jIgJWpVsT2nzWCGTwB3dPctBYmvWMr-_r7fqEfJuClKpAXzV1u-bHu4DyN45P9Wn6r8uh3SJKvmzgi/s1600/b9ffa840-890b-4e9a-9f65-046890ac886e.png)
+
+**
+**
+
+**I/ DẪN NHẬP**
+
+Phạm Quỳnh đã từng nói đại ý rằng : một nước không thể không có quốc túy, Truyện Kiều là quốc túy của ta; một nước không thể không có quốc hoa, Truyện Kiều là quốc hoa của ta; một nước không thể không có quốc hồn, Truyện Kiều là quốc hồn của ta. Rõ ràng, không phải ngẫu nhiên mà Phạm Quỳnh đưa ra lời nhận xét như vậy, quả thực, Truyện Kiều đã trở thành linh hồn của cả dân tộc, mang trong nó tất cả những gì tinh túy nhất. Thật vậy, đọc Truyện Kiều, ta dường như thấy được “máu chảy ở đầu ngọn bút, nước mắt thấm ở trên tờ giấy”, khi Nguyễn Du đã hòa lòng mình vào từng câu, từng chữ trong thiên _Đoạn Trường Tân Thanh_. Hàng trăm năm qua, _Truyện Kiều_ đã sống chan hòa trong đời sống dân tộc. Không riêng gì văn học Việt Nam, trên văn đàn thế giới cũng thật hiếm những tác phẩm chinh phục được đông đảo trái tim của bạn đọc như _Truyện Kiều_. Dẫu biết cốt truyện của _Truyện Kiều_ được mượn từ tác phẩm _Kim Vân Kiều truyện_ của Thanh Tâm Tài Nhân, nhưng cũng cần phải hiểu rằng Nguyễn Du đã thổi hồn dân tộc vào tác phẩm của mình, tạo cho nó một hình ảnh mới, một giọng điệu mới, và một sức sống mãnh liệt chưa từng thấy. Chúng ta hãy cùng so sánh Truyện Kiều và Kim Vân Kiều truyện để thấy rõ được sự tiếp thu và sáng tạo, cũng như những thành công mà Nguyễn Du đã đạt được.
+
+**II/ GIỚI THIỆU CHUNG**
+
+**1\. Nguyễn Du và _Truyện Kiều_ **
+
+**a.Nguyễn Du**
+
+**Cuộc đời**
+
+Nguyễn Du tên chữ là Tố Như, hiệu là Thanh Hiên, sinh năm Ất Dậu (1765), niên hiệu Cảnh Hưng triều vua Lê Hiển Tông. Nơi sinh là phường Bích Câu, thành Thăng Long (Hà Nội). Cha là Nguyễn Nghiễm, mẹ là Trần Thị Tần. Ông là một nhà thơ nổi tiếng thời Lê mạt, Nguyễn sơ ở [Việt Nam](http://vi.wikipedia.org/wiki/Vi%E1%BB%87t_Nam "Việt Nam"), được [người Việt](http://vi.wikipedia.org/wiki/Ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t "Người Việt") kính trọng gọi là "Đại thi hào dân tộc". Năm [1965](http://vi.wikipedia.org/wiki/1965 "1965"), Nguyễn Du được Hội đồng hòa bình thế giới công nhận là [danh nhân văn hóa](http://vi.wikipedia.org/w/index.php?title=Danh_nh%C3%A2n_v%C4%83n_h%C3%B3a&action=edit&redlink=1 "Danh nhân văn hóa \(trang chưa được viết\)") thế giới và ra quyết định kỷ niệm trọng thể nhân dịp 200 năm năm sinh của ông.
+
+**S****ự nghiệp**
+
+**Tác phẩm bằng chữ Hán**
+
+Những tác phẩm bằng chữ Hán của Nguyễn Du rất nhiều, nhưng mãi đến năm 1959 mới được ba nhà nho là: [Bùi Kỷ](http://vi.wikipedia.org/wiki/B%C3%B9i_K%E1%BB%B7 "Bùi Kỷ"), [Phan Võ](http://vi.wikipedia.org/w/index.php?title=Phan_V%C3%B5&action=edit&redlink=1 "Phan Võ \(trang chưa được viết\)") và [Nguyễn Khắc Hanh](http://vi.wikipedia.org/w/index.php?title=Nguy%E1%BB%85n_Kh%E1%BA%AFc_Hanh&action=edit&redlink=1 "Nguyễn Khắc Hanh \(trang chưa được viết\)") sưu tầm, phiên dịch, chú thích và giới thiệu tập:  _Thơ chữ Hán Nguyễn Du_ (NXB Văn hóa, 1959) chỉ gồm có 102 bài. Đến năm 1965 NXB Văn học đã ra  _Thơ chữ Hán Nguyễn Du_ tập mới do [Lê Thước](http://vi.wikipedia.org/wiki/L%C3%AA_Th%C6%B0%E1%BB%9Bc "Lê Thước") và [Trương Chính](http://vi.wikipedia.org/w/index.php?title=Tr%C6%B0%C6%A1ng_Ch%C3%ADnh&action=edit&redlink=1 "Trương Chính \(trang chưa được viết\)") sưu tầm, chú thích, phiên dịch, sắp xếp, gồm 249 bài như sau:
+
+· [Thanh Hiên thi tập](http://vi.wikipedia.org/wiki/Thanh_Hi%C3%AAn_thi_t%E1%BA%ADp "Thanh Hiên thi tập") (Tập thơ của Thanh Hiên) gồm 78 bài, viết chủ yếu trong những năm tháng trước khi làm quan nhà Nguyễn.
+
+· [Nam trung tạp ngâm](http://vi.wikipedia.org/wiki/Nam_trung_t%E1%BA%A1p_ng%C3%A2m "Nam trung tạp ngâm") (Ngâm nga lặt vặt lúc ở miền Nam) gồm 40 bài, viết khi làm quan ở Huế, Quảng Bình và những địa phương ở phía nam Hà Tĩnh.
+
+· [Bắc hành tạp lục](http://vi.wikipedia.org/wiki/B%E1%BA%AFc_h%C3%A0nh_t%E1%BA%A1p_l%E1%BB%A5c "Bắc hành tạp lục") (Ghi chép linh tinh trong chuyến đi sang phương Bắc) gồm 131 bài thơ, viết trong chuyến đi sứ sang Trung Quốc.
+
+**Tác phẩm bằng chữ Nôm**
+
+Những tác phẩm bằng chữ Nôm của Nguyễn Du gồm có:
+
+· [Đoạn trường tân thanh](http://vi.wikipedia.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u "Truyện Kiều") (Tiếng kêu mới về nỗi đau đứt ruột-Tên phổ biến là [ _Truyện Kiều_](http://vi.wikipedia.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u "Truyện Kiều")), được viết bằng [chữ Nôm](http://vi.wikipedia.org/wiki/Ch%E1%BB%AF_N%C3%B4m "Chữ Nôm"), gồm 3254 câu thơ theo thể [lục bát](http://vi.wikipedia.org/wiki/Th%C6%A1#L.E1.BB.A5c_b.C3.A1t "Thơ"). Nội dung của truyện dựa theo tác phẩm [ _Kim Vân Kiều truyện_](http://vi.wikipedia.org/wiki/Kim_V%C3%A2n_Ki%E1%BB%81u "Kim Vân Kiều") __ của [Thanh Tâm Tài Nhân](http://vi.wikipedia.org/wiki/Thanh_T%C3%A2m_T%C3%A0i_Nh%C3%A2n "Thanh Tâm Tài Nhân"), [Trung Quốc](http://vi.wikipedia.org/wiki/Trung_Qu%E1%BB%91c "Trung Quốc"). Nội dung chính của truyện xoay quanh quãng đời lưu lạc sau khi bán mình chuộc cha của [Thuý Kiều](http://vi.wikipedia.org/wiki/Th%C3%BAy_Ki%E1%BB%81u "Thúy Kiều"), nhân vật chính trong truyện, một cô gái có tài sắc. Về thời điểm sáng tác,  _Từ điển văn học (bộ mới)_ ghi: "Có thuyết cho rằng Nguyễn Du viết ra sau khi ông đi sứ [Trung Quốc](http://vi.wikipedia.org/wiki/Trung_Qu%E1%BB%91c "Trung Quốc") (1814-1820), có thuyết cho nói ông viết trước khi đi sứ, có thể vào khoảng thời gian làm Cai bạ ở [Quảng Bình](http://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_B%C3%ACnh "Quảng Bình") (1804-1809). Thuyết sau được nhiều người chấp nhận hơn".
+
+· [Văn chiêu hồn](http://vi.wikipedia.org/wiki/V%C4%83n_t%E1%BA%BF_th%E1%BA%ADp_lo%E1%BA%A1i_ch%C3%BAng_sinh "Văn tế thập loại chúng sinh") (tức [Văn tế thập loại chúng sinh](http://vi.wikipedia.org/wiki/V%C4%83n_t%E1%BA%BF_th%E1%BA%ADp_lo%E1%BA%A1i_ch%C3%BAng_sinh "Văn tế thập loại chúng sinh"), dịch nghĩa: Văn tế mười loại chúng sinh), hiện chưa rõ thời điểm sáng tác. Trong văn bản do Đàm Quang Thiện hiệu chú có dẫn lại ý của ông [Trần Thanh Mại](http://vi.wikipedia.org/wiki/Tr%E1%BA%A7n_Thanh_M%E1%BA%A1i "Trần Thanh Mại") trên “Đông Dương tuần báo” năm [1939](http://vi.wikipedia.org/wiki/1939 "1939"), thì Nguyễn Du viết bài [văn tế](http://vi.wikipedia.org/wiki/V%C4%83n_t%E1%BA%BF "Văn tế") này sau một mùa dịch khủng khiếp làm hằng triệu người chết, khắp non sông đất nước âm khí nặng nề, và ở khắp các chùa, người ta đều lập đàn giải thoát để cầu siêu cho hàng triệu linh hồn. Ông [Hoàng Xuân Hãn](http://vi.wikipedia.org/wiki/Ho%C3%A0ng_Xu%C3%A2n_H%C3%A3n "Hoàng Xuân Hãn") cho rằng có lẽ Nguyễn Du viết  _Văn chiêu hồn_ trước cả [Truyện Kiều](http://vi.wikipedia.org/wiki/Truy%E1%BB%87n_Ki%E1%BB%81u "Truyện Kiều"), khi ông còn làm cai bạ ở Quảng Bình (1802-1812). Tác phẩm được làm theo thể [song thất lục bát](http://vi.wikipedia.org/wiki/Th%C6%A1_song_th%E1%BA%A5t_l%E1%BB%A5c_b%C3%A1t "Thơ song thất lục bát"), gồm 184 câu thơ [chữ Nôm](http://vi.wikipedia.org/wiki/Ch%E1%BB%AF_N%C3%B4m "Chữ Nôm").
+
+· Thác lời trai phường nón, 48 câu, được viết bằng thể lục bát. Nội dung là thay lời anh con trai phường nón làm thơ tỏ tình với cô gái phường vải.
+
+· Văn tế sống Trường Lưu nhị nữ, 98 câu, viết theo lối [văn tế](http://vi.wikipedia.org/wiki/V%C4%83n_t%E1%BA%BF "Văn tế"), để bày tỏ nỗi uất hận vì mối tình với hai cô gái phường vải khác.
+
+
+
+**b._Truyện Kiều_**
+
+_Truyện Kiều_ \- tên gốc là  _Đoạn trường tân thanh_ , là truyện thơ chữ Nôm theo [thể lục bát](http://vi.wikipedia.org/wiki/Th%C6%A1#L.E1.BB.A5c_b.C3.A1t "Thơ") của [Nguyễn Du](http://vi.wikipedia.org/wiki/Nguy%E1%BB%85n_Du "Nguyễn Du"), gồm 3254 câu lục bát, dựa theo tiểu thuyết [_Kim Vân Kiều truyện_](http://vi.wikipedia.org/wiki/Kim_V%C3%A2n_Ki%E1%BB%81u_truy%E1%BB%87n "Kim Vân Kiều truyện") của [Thanh Tâm Tài Nhân](http://vi.wikipedia.org/wiki/Thanh_T%C3%A2m_T%C3%A0i_Nh%C3%A2n "Thanh Tâm Tài Nhân") (Trung Quốc).
+
+Có thuyết nói Nguyễn Du viết _Truyện Kiều_ sau khi đi sứ Trung Quốc ([1814](http://vi.wikipedia.org/wiki/1814 "1814")-[1820](http://vi.wikipedia.org/wiki/1820 "1820")). Lại có thuyết nói ông viết trước khi đi sứ, có thể vào khoảng thời gian làm Cai bạ ở [Quảng Bình](http://vi.wikipedia.org/wiki/Qu%E1%BA%A3ng_B%C3%ACnh "Quảng Bình") ([1804](http://vi.wikipedia.org/wiki/1804 "1804")-[1809](http://vi.wikipedia.org/wiki/1809 "1809")). Thuyết sau được nhiều người chấp nhận hơn. Ngay sau khi ra đời, _Truyện Kiều_ được nhiều nơi khắc in và lưu hành rộng rãi. Hai bản in xưa nhất hiện còn là bản của Liễu Văn Đường ([1871](http://vi.wikipedia.org/wiki/1871 "1871")) và bản của Duy Minh Thị ([1872](http://vi.wikipedia.org/wiki/1872 "1872")), đều ở thời vua [Tự Đức](http://vi.wikipedia.org/wiki/T%E1%BB%B1_%C4%90%E1%BB%A9c "Tự Đức").
+
+Nội dung chính của truyện xoay quanh quãng đời lưu lạc sau khi bán mình chuộc cha của Thúy Kiều-nhân vật chính trong truyện, một cô gái “sắc nước hương trời” và có tài “ cầm ký thi họa” nhưng cuộc đời lại gặp lắm truân chuyên.
+
+Về nội dung, _Truyện Kiều_ có hai giá trị lớn là giá trị hiện thực và giá trị nhân đạo. Tác phẩm đã phản ánh sâu sắc hiện thực xã hội đương thời với bộ mặt tàn bạo của tầng lớp thống trị và số phận những con ngừơi bị áp bức đau khổ, đặc biệt là số phận bi kịch của người phụ nữ.
+
+Về nghệ thuật, _Truyện Kiều_ đã đạt được những thành tựu to lớn về nhiều mặt, nổi bật là ngôn ngữ và thể loại. Đến _Truyện Kiều_ , ngôn ngữ tiếng Việt đã đạt đến đỉnh cao của ngôn ngữ nghệ thuật ở cả ba phương diện biểu đạt, biểu cảm và thẩm mĩ; kết hợp hài hòa giữa ngôn ngữ bình dân và ngôn ngữ bác học, đồng thời nghệ thuật tự sự và miêu tả trong tác phẩm cũng rất đa dạng.
+
+Ngày nay, _Truyện Kiều_ vẫn đang được các nhà xuất bản in với số lượng lớn, được dịch ra rất nhiều thứ tiếng. Các nhà nghiên cứu trên thế giới đánh giá rất cao _Truyện Kiều_.Và có thể nói rằng kiệt tác Truyện Kiều có sức chinh phục khá lớn đối với nhiều thế hệ độc giả cả trong và ngoài nước.
+
+**2\. Thanh Tâm tài Nhân và _Kim Vân Kiều truyện_**
+
+**a.Thanh Tâm Tài Nhân**
+
+Thanh Tâm Tài Nhân tên thật là Từ Văn Trường, tức Từ Vị, ông còn có một số bút danh khác là Thiện Tri, Thanh đằng, Điền Thủy Nguyệt; là một nhà văn Trung Quốc đời nhà Thanh( khoảng thế kỷ XVII). Ông học giỏi, hiểu biết rộng nhưng lận đận chốn quan trường, bèn làm mặc khách của [Hồ Tôn Hiến](http://vi.wikipedia.org/wiki/H%E1%BB%93_T%C3%B4ng_Hi%E1%BA%BFn "Hồ Tông Hiến"). Sinh thời đã có lần Thanh Tâm Tài Nhân thảo tờ biểu "Dâng hươu trắng" cho vua nên trở thành nổi tiếng.
+
+Ngoài Kim Vân Kiều, ông còn viết bộ kịch Tứ thanh viên gồm bốn vở.
+
+**b._Kim Vân Kiều truyện_**
+
+_Kim Vân Kiều truyện_ là một trong vô vàn tiểu thuyết tài tử giai nhân cuối Minh đầu Thanh. _Kim Vân Kiều truyện_ là một bộ tiểu thuyết chương hồicó lối kết cấu truyền thống theo kiểu văn xuôi cổ điển Trung Quốc kể lại cuộc đời của một cô gái đời Minh nổi danh về tài sắc mà chẳng may bị lưu lạc khổ sở: “Thanh lâu hai lượt, thanh y hai lần”. Sách gồm 20 hồi, trước mỗi hồi đều có phần giới thệu, tóm lược nội dung, lời bình phẩm. Kết cấu của tác phẩm được miêu tả theo tuyến tính thời gian, trình tự diễn biến của sự kiện và quá trình hoạt động của nhân vật chính. Chủ đề của _Kim Vân Kiều truyện_ là tình và khổ.
+
+**3\. Mối quan hệ giữa _Truyện Kiều_ và _Kim Vân Kiều truyện_**
+
+Như chúng ta đã biết _Truyện Kiều_ của Nguyễn Du và _Kim Vân Kiều truyện_ của Thanh Tâm Tài Nhân có mối quan hệ mật thiết với nhau. Nói cho đúng hơn thì _Truyện Kiều_ có nguồn gốc từ _Kim Vân Kiều truyện_ đời Thanh. Thế nhưng hai tác phẩm này lại có hai số phận hoàn toàn khác nhau. Nếu như _Truyện Kiều_ của Nguyễn Du được nhiều người ưa chuộng và được dịch ra nhiều thứ tiếng khác nhau (khoảng 30 bản dịch ra 20 tiếng nước ngoài. Ngoài ra đã có những công trình nghiên cứu so sánh Truyện Kiều với một số tác phẩm của một số nền văn học dân tộc khác như văn học Nga, văn học Đức, văn học Hàn Quốc, ...). Thì _Kim Vân Kiều truyện_ lại phải chịu một số phận bất hạnh. Cuốn sách của Thanh Tâm Tài Nhân bị vùi lấp hàng mấy thế kỉ trong văn học sử Trung Quốc. Nó thất truyền và gần như không tồn tại trong lịch sử văn học Trung Quốc.
+
+Điều gì đã làm ra sự khác biệt, khoảng cách về giá trị rất lớn giữa hai tác phẩm ấy?
+
+Chúng ta thấy rất rõ hai tác phẩm này có cùng một cốt truyện, cùng một hệ thống nhân vật và cả kết cấu tự sự. Thế nhưng Nguyễn Du đã đem tài năng của mình vào để thay đổi số phận của tác phẩm. Ông biến nó thành viên ngọc sáng của phương Đông, trải qua bao thế kỉ vẫn chiếm một vị trí quan trọng trong nền văn học. Những cái mới trong _Truyện Kiều_ mà Thanh Tâm Tài Nhân đã không làm được trong _Kim Vân Kiều truyện_ của mình có phải là nguyên nhân chính của sự khác biệt?! Một bên là văn xuôi tự sự một bên là truyện thơ – thể loại khác nhau thì thông điệp nghệ thuật làm sao có thể giống nhau? Rõ ràng truyện thơ có nhiều ưu thế hơn hẳn trong việc thể hiện cảm xúc, đồng thời nó cũng dễ chạm vào trái tim bạn đọc hơn là ngôn ngữ của một cuốn tiểu thuyết. Không chỉ thế Nguyễn Du đã đem thiên nhiên vào trong tác phẩm của mình – một thiên nhiên thực nhưng cũng có khi là thiên nhiên của cảm xúc, tâm tưởng. Trong khi đó Kim Vân Kiều truyện hoàn toàn vắng bóng thiên nhiên. Nguyễn Du xây dựng lại các tình tiết cũng như hình tượng nhân vật của nguyên tác cho phù hợp với suy nghĩ, cảm nhận của mình. Đó là cái riêng và cũng là cái sáng tạo làm nên sự khác biệt cơ bản giữa hai tác phẩm.
+
+Công lao của Thanh Tâm Tài Nhân không nhỏ. Không có Thanh Tâm Tài Nhân thì ắt hẳn không thể có _Truyện Kiều_ của Nguyễn Du. Nhưng cũng lại phải nói cho công bằng, chính nhờ _Truyện Kiều_ của Nguyễn Du ngày một nổi tiếng, vượt ra khỏi biên giới nước mình, mới là một động cơ để những học giả như ông Đồng Văn Thành cố gắng làm cho _Kim Vân Kiều truyện_ được độc giả trong và ngoài Trung Hoa quan tâm tới lại.
+
+**III/NỘI DUNG CHÍNH**
+
+**1\. Bảng thống kê so sánh _Đoạn Trường Tân Thanh_ với _Kim Vân Kiều truyện_**
+
+Như mọi người đều biết, _Đoạn Trường Tân Thanh_ của Nguyễn Du được sáng tác theo _Kim Vân Kiều truyện_ của Thanh Tâm Tài Nhân. Vậy phần nào là phần sáng tạo của Nguyễn Du, phần nào là theo ý của Thanh Tâm Tài Nhân? Điều đó cho đến nay vẫn chưa giải quyết một cách cụ thể và triệt để. Sự không hoàn toàn nhất trí trong việc đánh giá Nguyễn Du do đấy mà có.
+
+Công việc đó cần phải dựa trên sự so sánh đối chiếu hai tác phẩm để rút ra những số liệu cụ thể mới định giá được. Chỉ có làm như thế, chúng ta mới có thể tránh được những nhận định phiến diện, chủ quan.
+
+Và đây là kết quả cụ thể:
+
+ĐT TT |  Theo ý KVKT |  Số câu do Nguyễn Du sáng tạo |  Bố cục |  Tư tưởng
+---|---|---|---|---
+Tả cảnh |  Tả người |  Nhớ người yêu |  Nhớ cha mẹ |  Băn khoăn |  Tâm lý yêu đương |  Cộng |  Bỏ ý |  Chuyển ý |  Có ý nghĩa tôn giáo |  Có tính chất tiến bộ
+1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 |  9 |  10 |  11 |  12 |  13
+3254 câu |  1313 |  357 |  171 |  38 |  23 |  124 |  196 |  1941 |  2/3 KVKT |  15 |  20 |  4
+
+
+
+Các thành phần khác: 1022 câu
+
+Trong khi đối chiếu, tính được: Về phía _Kim Vân Kiều Truyện_ sẽ bao gồm cả bài tựa của Thiên Hoa tăng chủ nhân, lời bình đại ý đầu mỗi hồi, nội dung của 20 hồi cùng với tất cả các bài thơ xướng họa ở mỗi hồi. _Kim Vân Kiều Truyện_ , căn cứ vào quyển _Kim Vân Kiều_ , Thanh Tâm Tài Nhân biên thứ, Lý Trí Trung hiệu điểm, Xuân Phong Văn nghệ xuất bản xã là tài liệu mới ấn hành trong những năm gần đây, phục vụ cho việc nghiên cứu Minh mạt Thanh sơ tiểu thuyết.
+
+Cột 1, ghi theo thứ tự 20 hồi của _Kim Vân Kiều Truyện._
+
+Cột 2, đối chiếu với số câu được diễn ra ở _Đoạn Trường Tân Thanh_ theo từng hồi của _Kim Vân Kiều Truyện._
+
+Các cột 3, 4, 5, 6, 7, 8, 9 ghi theo số câu. Đơn vị là câu.
+
+_Truyện Kiều_ có những trang trữ tình ưu tú nhất trong văn học nước ta, là tập thơ ái tình. Trong một xã hội phong kiến, khi quả tim của đôi lứa thanh niên luôn bị đè nén trong lễ giáo, nỗi ẩn ức của con người đã tìm được trong tập thơ Nguyễn Du đôi lời an ủi, một tia hy vọng cho luyến ái được tự do, được giải phóng và một dịp để nhận thức bao nhiêu nét tế nhị của quả tim con người qua các cuộc thử thách của tình yêu. Do đó độc giả biết ghét tất cả những trạng thái luân lý không tự nhiên đã trói buộc con người một cách vô lý, làm cho cõi lòng nghèo nàn.  _Truyện Kiều_ còn là tập thơ của thiên nhiên, dạy cho con người biết yêu thiên nhiên trong màu sắc, thanh âm, ý vị của nó. Thiên nhiên trong  _Truyện Kiều_ toàn diện:
+
+Cảnh thiên nhiên chân thật của đồng quê, cảnh chiều hôm, cảnh:  _“non xa trăng gần”_ khi Kiều ngồi nghe:  _"Ầm ầm tiếng sóng kêu quanh ghế ngồi"_ , cảnh: "_Ngọn triều non bạc trùng trùng"..._ Bao nhiêu âm thanh, màu sắc, bao nhiêu cảm giác của ngũ quan, bao nhiêu ý nghĩa của con người trước tạo vật...Nguyễn Du đã lựa chọn sắp xếp, có lúc vay mượn, nhưng luôn luôn chế biến để họa những bức cảnh phù hợp với tâm trạng, ăn nhịp với bước đường biến chuyển của cuộc đời. Cảnh vật thiên nhiên trong  _Truyện Kiều_ vừa là một quang cảnh  _“nhìn qua một tâm trạng”_ vừa là bức tranh trí họa cho đời sống của con người. Nhà thi sĩ trữ tình thiên tài đó, trong khi tả cảnh vật thiên nhiên với bao nhiêu màu sắc, hình thái, đã giúp cho người đọc một lối nhận thức về vũ trụ, về ngoại giới. Đồng thời nhà thi sĩ đã làm cho nhãn giới và tâm giới của độc giả thêm phong phú, thâm thúy. Cảm giác của độc giả dồi dào và sắc sảo hẳn lên với những cảm giác phức tạp, nhiều vẻ, nhiều màu, thi sĩ đã lượm nhặt lại và cung cấp một bó hoa đầy vật sắc. Tập thơ của Nguyễn Du quả đã mở rộng tầm con mắt độc giả ngày trước và cả ngày nay, cho nó chú ý đến thị dã mới mẻ, muôn màu của vật giới và tâm giới.
+Một mặt nữa, cảnh vật thiên nhiên là cụ thể. Khi thi sĩ gây cho người mối cảm tình sâu sắc đối với cảnh vật, đồng thời cũng bồi dưỡng nỗi lòng yêu quê hương đất nước. Tình yêu quê hương làng mạc đó chính là một yếu tố để bồi dưỡng tinh thần yêu nước của con người. Quan niệm phê bình văn học nhân dân vẫn chú trọng đến tinh thần yêu nước của các nhà văn hiện đại, chính vì lẽ đó. Qua  _Truyện Kiều_ , có những bức họa, bức cảnh tuyệt diệu độc giả có thể đối chiếu với thực tế Việt Nam, làm cho con người tin chắc đó là hình thái, màu sắc của đất. Độc giả không lấy gì làm lạ khi những người bôn tẩu việc nước và gặp bước đường trắc trở vẫn mở một trang  _Truyện Kiều_ , tìm lấy một lời an ủi, một lý do cho sự hy sinh với lý tưởng của mình.
+
+Cột 10, ghi tính theo số trang của bản _Kim Vân Kiều Truyện_ 214 trang. Số ý Nguyễn Du lược đi được tính theo dòng mà lấy tỉ lệ: Nguyễn Du lược đi 142 trang tức là đúng 2/3 quyển _Kim Vân Kiều Truyện._
+
+Cột 12, ghi tính theo từng tư tưởng cụ thể, ví dụ: “Âu đành quá kiếp nhân duyên, nhân quả dở dang, hay Túc nhân âu cũng có trời ở trong…”
+
+Trong học thuyết Nho gia, Khổng Tử cho rằng mỗi cá nhân, sự sống- cái chết, phú quý hay nghèo hèn đều do “Thiên mệnh” quy định. Mạnh Tử nhấn mạnh thêm: không có việc gì xảy ra mà không có mệnh trời, mình nên tùy thuận mà nhận lấy cái mệnh chính đáng ấy. Là một nhà Nho uyên bác Tứ thư, Ngũ kinh, Nguyên Du đã thấm nhuần chân lí khái quát từ học thuyết của Nho gia. Ngay khi mở đầu tác phẩm, tác giả đã đưa ra nhiều khái niệm của đạo Nho:
+
+_“Trăm năm trong cõi người ta_
+
+_Chữ tài chữ mệnh khéo là ghét nhau_
+
+_Trải qua một cuộc bể dâu_
+
+_Những điều trông thấy mà đau đớn lòng_
+
+_Lạ gì bỉ sắc tư phong_
+
+_Trời xanh quen thói má hồng đánh ghen_
+
+_Cảo thơm lần giở trước đèn_
+
+_Phong tình cổ lục còn truyền sử xanh”_
+
+Có thể thấy qua đoạn mở đầu, tác giả đã khái quát nên quy luật về mối quan hệ giữa con người với thế lực siêu hình, đó là “mệnh trời”- một trong những học thuyết cơ bản của Nho gia. Mối quan hệ này được nhắc lại ở đoạn kết của tác phẩm. Theo ông, mệnh trời là một thế lực vạn năng:
+
+_Ngẫm hay muôn sự tại trời_
+
+_Trời kia đã bắt làm người có thân_
+
+_Bắt phong trần phải phong trần_
+
+_Cho thanh cao mới được phần thanh cao_
+
+_Và trời cũng hết sức công bằng:_
+
+_Có đâu thiên vị người nào_
+
+_Chữ tài chữ mệnh dồi dào cả hai_
+
+Như vậy với hai đoạn thơ mở đầu và kết thúc tác phẩm, Nguyễn Du đã đi vào quỹ đạo chính thống “văn dĩ tải đạo” để làm sáng tỏ học thuyết của tiên thánh, để thuyết giải về Thần quyền. Trong trường hợp này, phụ nữ sẽ là đối tượng phú bẩm cho vẻ đẹp “hồng nhan”, đồng thời lại bị tạo hóa “đánh ghen”đày đọa số phận  _“trời xanh quen thói mà hồng đánh ghen”_. Và qua những khái niệm của Nho gia với những quan niệm triết lí đã đúc kết thành biểu thức, với phong cách diễn đạt có màu sắc thành ngữ, tục ngữ thường gặp trong “Truyện Kiều”, tác giả nêu lên cảm hứng có tính chất chính thống bắt nguồn từ quan niệm sáng ác của Nho gia. Đó chính là quan niệm được nọ mất kia, hơn tài kém mệnh. Cùng với việc mượn đề tài, cốt truyện như đã nói trên, Nguyễn Du một mặt thể hiện khuynh hướng chính thống trong văn học trung đại.
+
+
+
+Tồn tại song song với nhưng khái niệm và quan niệm về mệnh trời, về những biến động vô lường của cuộc sống con người, về hình tượng nhan sắc bị vùi dập bởi tạo hóa:
+
+_Có tài mà cậy chi tài_
+
+_Chữ tài liền vỡi chữ tai một vần_
+
+Nguyễn Du lại khẳng định:
+
+_Sinh rằng giải cấu là duyên_
+
+_Xưa nay nhân định thắng thiên cũng nhiều_
+
+_Ví dù giải kết đến điều_
+
+_Thì đem vàng đá mà liều với thân._
+
+Hay như hai câu ở đoạn cuối:
+
+_Thiện căn ở tại lòng ta_
+
+_Chữ tâm kia mới bằng ba chữ tài._
+
+Hòa vào màu sắc của tư tưởng Phật giáo ở những câu thơ trên là nét tư tưởng Nho giáo của Khổng Mạnh: con người bằng nỗ lực chủ quan có thể vượt lên trên số phận.
+
+Cột 13, ghi những tư tưởng tiến bộ, ví dụ “Nhân định thắng thiên”, “Trong tay đã sẵn đồng tiền”, “Chẳng qua đồng cốt quàng xiên”…
+
+Thúy Kiều phải tiếp khách lầu xanh, có sự thay đổi về thân phận nhưng không bao giờ thay đổi tâm hồn và tính cách. Chính và lẽ đó mà bút lực của Nguyễn Du luôn dồi dào những lời ca ngợi. Mười lăm năm trải qua biết bao nhiêu thân phận, trước mặt người yêu cũ, nàng vẫn có thể nói một cách tự hào về mình:
+
+_Chữ trinh còn một chút này_
+
+_Chẳng cầm cho vững lại giày cho tan._
+
+Đến đây lại có một quan niệm mới về chữ “trinh”. Theo quan niệm Nho giáo, chữ “trinh” đáng giá ngàn vàng. Nhiều lúc quan niệm cua giai cấp phong kiến và quan niệm xã hội ấy đã chặn đứng quyền sống và quyền làm lại cuộc đời của những nạn nhân xã hội. Nhưng Nguyễn Du sớm có con đường cách tân với quan niệm mới mẻ về chữ “trinh”. Nhà thơ đã để Kim Trọng nói với Thúy Kiều trong màn đoàn viên:
+
+_Xưa nay trong đạo đàn bà_
+
+_Chữ trinh kia cũng có ba bảy đường_
+
+_Có khi biến có khi thường_
+
+_Có quyền nào phải một đường chấp kinh_
+
+_Như nàng lấy hiếu làm trinh_
+
+_Bụi nào cho đục được mình áy vay?_
+
+_Hoa tàn mà lại thêm tươi_
+
+_Trăng tàn mà lại hơn mười rằm xưa._
+
+
+
+Vấn đề luyến ái? Kiều quả đã can đảm nghe lời gọi của trái tim và bất chấp khuôn phép lễ giáo, tôn pháp của đạo Khổng. Nhưng tinh thần đấu tranh của Kiều chưa phải ý thức tranh đấu của chủ nghĩa nữ quyền.
+
+Vấn đề hôn nhân?  _Truyện Kiều_ có những đoạn hùng hồn khởi tố những người đàn bà lâm vào  _“cái kiếp lấy chồng chung”_. Nhưng tố khổ chưa thể giải quyết vấn đề nữ quyền.
+
+Vấn đề hạnh phúc? Cảnh đoàn viên của Kiều trong đoạn  _“Hậu Kim Trọng”_ chỉ là tia sáng dìu dịu, hắt hiu trước bàn thờ Phật, phải đâu là thức ăn của cõi người...Đối với vận mệnh có lúc Kiều phải nghiến răng nguyền rủa:
+
+ _Chém cha cái kiếp má đào_
+ _Cởi ra rồi lại buộc vào như không?_
+
+Các cột 11, 12, 13 cũng chỉ ghi những điều do Nguyễn Du viết ra.
+
+Những số liệu thống kê ở bảng chí có thể đảm bảo khả năng gần đúng tối đa.
+
+**2.Những sáng tạo của Nguyễn Du trong _Truyện Kiều_**
+
+**a.Thể loại**
+
+Một bên là văn xuôi kể chuyện theo lối cổ của _Kim Vân Kiều truyện_ , một bên là truyện thơ của _Truyện Kiều._ Hay nói rõ hơn đó chính là sự khác biệt về loại hình ngôn ngữ, một bên là văn xuôi, một bên là thơ. Nói đến văn xuôi kể chuyện theo lối cổ như _Kim Vân Kiều truyện_ là nói đến cái ngữ nghĩa thông báo đơn nhất mà ngôn từ chứa đựng, cụ thể ở đây là nội dung của câu chuyện được kể lại. Còn nói đến thơ như _Truyện Kiều_ thì ngoài ngữ nghĩa ra từ ngôn bản, còn phải nói đến tiết tấu, vần và nhịp điệu, nói đến khả năng ảnh hưởng của tất cả những thứ ấy. "Trong lúc trữ tình, nhà thơ đã gửi gắm vào đó cả thể nghiệm cuộc đời của mình, nên những đoạn đó chân thực tha thiết, làm cảm động lòng người".
+
+_Kim Vân Kiều truyện_ của Thanh Tâm Tài Nhân là tác phẩm tiểu thuyết chương hồi thuộc thể tài văn xuôi, kết cấu theo thời gian, theo trình tự diễn biến của các sự kiện, theo quá trình hành động của các nhân vật. Nó thiên về mô tả sự kiện, đi sâu miêu tả thực tại, khắc họa chân dung nhân vật một cách cụ thể- điều mà đôi khi ta cảm thấy hơi khó chịu.
+
+Cũng như các tiểu thuyết chương hồi khác, tác phẩm gần như không đề cập đến diễn biến tâm lý nhân vật mà chỉ có các biến cố, hành động của nhân vật. Tác phẩm lại đặc biệt coi trọng mâu thuẫn xung đột, tập trung mô tả nhiều chi tiết để tô đậm một tính cách nào đấy của nhân vật. Diện mạo nhân vật gần như chỉ là những nét chấm phá chứ không miêu tả cụ thể.Trong tác phẩm, tác giả cũng đã đưa vào những đoạn thơ, bài phú miêu tả thiên nhiên, nhưng thiên nhiên ấy lại bị tách rời khỏi cốt truyện và đôi khi lại không gắn bó gì với tâm trạng của nhân vật.
+
+Trong khi đó, _Truyện Kiều_ lại là một cuốn truyện thơ, một tác phẩm văn học vừa cổ điển vừa hiện đại, có sự hài hòa giữa hình thức và nội dung. Các nhân vật trong tác phẩm, các vấn đề xã hội không đợi tác giả tự thuật lại nhiều mà tự nó có thể tự hiện diện, tự bộc lộ một cách tinh vi.
+
+
+
+**b.Nguyễn Du đã lược bỏ hai phần ba cuốn truyện**
+
+Trong một bài biên khảo đăng trong tuyển tập “Nguyễn Du, Tác Giả và Tác Phẩm” do Nhà Xuất bản Giáo Dục ấn hành năm 1999 tại Việt Nam, các tác giả Nguyễn Thạch Giang, Triệu Ngọc Lan, và Lô Úy Thu đã bỏ công tìm tòi những phần trong _Kim Vân Kiều truyện_ đã bị cụ Nguyễn Du lược bỏ. Khi so sánh  _Đoạn Trường Tân Thanh_ với _Kim Vân Kiều Truyện_ do Xuân Phong Văn Nghệ xuất bản, các tác giả này nhận thấy cụ Nguyễn Du đã loại bỏ 142 trang trên tổng số 214 trang, tức khoảng 2/3 tác phẩm. Cụ chỉ giữ lại 72 trang và dùng các chi tiết trong số trang này để viết thành 1313 câu thơ trong tổng số 3254 câu của _Đoạn Trường Tân Thanh.****_
+
+Vậy những phần mà Nguyễn Du lược bỏ đó là:
+
+◊Tất cả những bài thơ xướng họa, những bài ghi lời thề thốt:
+
+Trong Kim Vân Kiều truyện
+
+Chính điều này đã làm cho chúng ta bớt khó chịu bởi cái lối sính thơ của nhân vật. Nguyễn Du đã khéo léo dẫn dắt độc giả vào một lối đi khác Thanh Tâm Tài Nhân, đó chính là đi vào đường tài và đường tình của các nhân vật, mà trung tâm là Thúy Kiều; làm cho độc giả phải bất bình sâu sắc với những cái đã phũ phàng chà đạp lên cái “tài” và cái “tình” của con người.
+
+Chẳng hạn, ở đoạn ba chị em Thúy Kiều đi hội đạp thanh, lúc đi ngang mộ Đạm Tiên, nếu Kiều trong _Truyện Kiều_ chỉ:
+
+_Lầm rầm khấn vái nhỏ to_
+
+_Sụp ngồi đặt cỏ trước mồ bước ra._
+
+Thì Kiều trong _Kim Vân Kiều truyện_ lại vừa khấn vái, vừa lạy, lại vừa đề thơ:
+
+_Sắc hương đâu đó tá?_
+
+_Thăm viếng não lòng thay!_
+
+_Chăn gấm, trăng soi lạnh,_
+
+_Đài gương, bụi phủ nhòa._
+
+_Đất tuy vùi ngọc ấy,_
+
+_Tuyết chưa lấp danh này._
+
+_Rượu nhiều như sông đó,_
+
+_Nào ai tưới chôn đây?_
+
+Hay như sau khi gặp Kim Trọng về, ở _Kim Vân Kiều truyện_ , đang đêm nhớ nhung, suy nghĩ miên man về Kim, Thúy Kiều lại làm thơ:
+
+_Trời quang mây lặng không vương bụi,_
+
+_Khác gì bình ngọc chứa lòng băng._
+
+_Nếu bạn đa tình săn sóc hỏi,_
+
+_Tấm thân đau đớn biết cho chăng?_
+
+Thì hành động này ta không bắt gặp lại trong _Truyện Kiều_.
+
+◊Những lời đối đáp rườm rà, không giúp ích gì cho việc phát triển tính cách nhân vật.
+
+Như trong hồi 1 và hồi 2, những lời đối thoại qua lại của ba chị em Thúy Kiều lúc thấy mộ Đạm Tiên và khi gặp Kim Trọng đều được Nguyễn Du rút gọn hết. Cả ở những hồi sau cũng thế.
+
+Cũng nhờ đó, bố cục của cốt truyện trong _Đoạn Trường Tân Thanh_ rất chặt chẽ, phát triển rất tự nhiên và cân đối, không hề luộm thuộm, rườm rà.Có thể thấy rằng Nguyễn Du chỉ giữ lại những chi tiết nào gọi là đặc trưng, điển hình, ảnh hưởng hoặc làm rõ tâm lý, tính cách nhân vật.
+
+◊Những gì gây hại đến tính cách, nhân phẩm của các nhân vật như Thúy Kiều, Kim Trọng, Từ Hải; bao gồm cả những lời lẽ dụ hàng của các thuyết khách của Hồ Tôn Hiến( quan đốc phủ phái Hoa Nhân, trung quân họ La), lời Từ Hải đáp lại tên Lợi Sinh.
+
+Cuộc xử oán dông dài và man rợ trong Kim Vân Kiều Truyện được cụ Nguyễn Du tóm tắt qua 42 câu thơ. So sánh hai đoạn trích Kiều báo oán trong _Kim Vân Kiều Truyện_ và _Đoạn Trường Tân Thanh_ , ta nhận thấy những điểm nổi bật sau:
+
+●Trong _Đoạn Trường Tân Thanh_ , Thúy Kiều tha tội hoàn toàn cho Hoạn Thư. Trong _Kim Vân Kiều Truyện_ , Kiều tha tội chết nhưng ra lệnh đánh Hoạn Thư một cách dã man.
+
+●Trong _Đoạn Trường Tân Thanh_ , Thúy Kiều không sai quân sĩ bắt mẹ Hoạn Thư đem về trị tội như trong _Kim Vân Kiều Truyện_.
+
+●Cụ Nguyễn Du chỉ tả cảnh xử tội Tú Bà, Mã Giám Sinh, Sở Khanh, Bạc Hãnh, Bạc Bà, và Ưng, Khuyển một cách vắn tắt chứ không chi tiết và tàn nhẫn như trong _Kim Vân Kiều Truyện_. Qua ngòi bút của cụ Nguyễn Du, chúng ta cảm thấy đồng tình với Kiều khi nàng tha bổng Hoạn Thư nên không phê phán nàng nặng nề khi nàng trả thù những nhân vật khác. Trái lại, khi đọc _Kim Vân Kiều Truyện_ , có lẽ người đọc phải chau mày và có ý niệm chán ghét Kiều trước cách trừng trị dã man, tàn bạo, thiếu nhân tính nàng áp dụng đối với kẻ thù.
+
+Nàng Kiều trong _Truyện Kiều_ đối với Thúc Sinh và Từ Hải vẫn nặng tình như đối với Kim Trọng, mà lẽ ra theo đúng nguyên tác _Kim Vân Kiều truyện_ “Thúy Kiều chỉ thực sự yêu có một mình Kim Trọng, còn đối với Thúc Sinh và Từ Hải thì chủ yếu chỉ cảm cái ơn họ chuộc mình ra khỏi lầu xanh.Nguyễn Du cũng không hề buộc chặt nhân vật Thúy Kiều vào một thứ “phẩm tiết kiên trinh” như Thanh Tâm Tài Nhân. Được Hoài Thanh coi là người “đi guốc trong ruột nhân vật”, Nguyễn Du hiểu hơn ai hết mối tình với Kim Trọng dầu sao cũng chỉ là mối tình đầu của Kiều. Với thời gian xa cách chừng ấy năm, lại trải biết bao nhiêu bầm dập, trong tâm lý Kiều ví thử vẫn cứ còn giữ guyên vẹn tình cảm với Kim Trọng như thuở nào để suốt ngày mình dằn vặt mình thì thật ít ai hiểu nổi. Nguyễn Du đúng là một ngòi bút hiện thực tâm lý, khi ông cho nàng Kiều nhớ đến Kim Trọng như nhớ đến một kỷ niệm cũ, không còn thắm nữa nhưng vẫn chưa phai: “Xót thay chút nghĩa cũ càng/Dầu lìa ngó ỷ còn vương tấc lòng".Nguyễn Du cũng không thể buộc Thúy Kiều hờ hững với Thúc Sinh vì trong hoàn cảnh đang sống dưới địa ngục trần gian của nhà mụ Tú Bà, Thúc Sinh không chỉ là người phò nguy cứu nạn, mà còn là con người hết sức đa tình, đã hiến dâng cho nàng cả tâm hồn và của cải, cả tình yêu “đá vàng” lẫn tình yêu xác thịt: “Miệt mài trong cuộc truy hoan/Càng quen thuộc nết càng dan díu tình”. Kiều giờ đây không còn ở cái tuổi cài trâm e lệ như thuở mới yêu Kim Trọng. Nàng đã thất thân với Mã Giám Sinh rồi với Sở Khanh, lại đã lăn lóc chốn lầu xanh, mùi đời đã trải. Bắt nàng cứ thờ ơ lạnh nhạt trước một mối tình chứa chan hạnh phúc như của chàng Thúc e chỉ là giả dối nếu không là ngốc nghếch về tâm lý. Thế nhưng mối tình của Thúy Kiều đối với Thúc sinh, cũng như sau này đối với Từ Hải, vẫn khác mối tình đầu giữa nàng với Kim Trọng. Một bên e ấp, trong sáng, thuần túy tình yêu, một bên dạn dĩ, tỉnh táo, vừa là ơn nghĩa, vừa biết tính toán thiệt hơn, nên tuy có nhớ nhung: “Cầm tay dài ngắn thở than/Chia phôi ngừng chén hợp tan nghẹn lời’ vẫn đinh ninh những chuyện rất thực tế: “Đôi ta chút nghĩa đèo bòng". Cũng vậy, với Từ Hải, người đã cứu mình khỏi chốn bùn nhơ lần thứ hai, lại giúp mình đền ơn trả oán phân minh, cho mình được sống những ngày hả hê nhất, mà nói Kiều lấy Từ không phải vì tình thì dễ chỉ có Thanh Tâm Tài Nhân mới nghĩ ra được. Kiều của Nguyễn Du phát triển theo xu thế tâm lý cuộc đời thực đã không thể làm như vậy. Nàng yêu Từ Hải với tấm lòng của người tri kỉ: “Khen cho con mắt tinh đời/Anh hùng đoản giữa trần ai mới già”, cũng là với cái nghĩa của người chịu ơn sâu nặng: “Thưa rằng lượng cả bao dung/Tấn Dương được thấy mây rồng có phen”. Vì thế nàng vẫn dành cho từ Hải một góc trong trái tim thương nhớ sau khi đã hồi tưởng hết cha mẹ, các em, đến người tình cũ:”Cánh hồng bay bổng tuyệt vời/ Đã mòn con mắt phương trời đăm đăm”. Không thể nói với những mối tình gắn bó sau này, Kiều đã tự đánh mất mình. Chính Kim Trọng là người hiểu rất rõ tâm hồn của nàng trước sau vẫn toàn vẹn: “Chữ trinh kia cũng có ba bảy đường”.
+
+Điều này cho ta thấy sự khác biệt rõ ràng giữa tư tưởng của Nguyễn Du với tư tưởng của Thanh Tâm Tài Nhân. Từ đó mà chủ đề của hai tác phẩm ngỡ là giống nhau nhưng thật ra lại khác nhau hoàn toàn.
+
+Nếu Thanh Tâm Tài Nhân viết _Kim Vân Kiều truyện_ chỉ vì cảm thông với thân phận chìm nổi bấp bênh, trăm đau ngàn khổ của nhân vật chính Thúy kiều- một người con gái tài sắc vẹn toàn nhưng lại bị bao “nỗi khổ nhục phũ phàng hắt hủi” và cốt chỉ để chứng minh “ Tạo hóa ghét sự hoàn toàn, hơn điều nọ tất phải kém điều kia, sinh được một phần hồng nhan thì phải chịu mười phần đày đọa, có được một chút tài tình lại phải gánh thêm mười phần nghiệp chướng”.
+
+Thì ở _Đoạn Trường Tân Thanh_ , Nguyễn Du dường như sâu sắc hơn nhiều. Ông đau cho cái kiếp số bèo bọt của nhân vật hay cũng chính là đau cho cái cuộc đời thực của ông?! Sóng gió cuộc đời xô cuốn phũ phàng lên cả thân người của thi sĩ tài hoa ấy. Chính vì thế “Đau đớn thay phận đàn bà. Lời rằng bạc mệnh cũng là lời chung”. Câu thơ nghe như xé lòng người đọc tan tác, ta nghe đâu đó cả tiếng cười gằn mỉa mai của tác giả!
+
+Rõ ràng, cái cảm của Thanh Tâm Tài Nhân chỉ là cái cảm của người ngoài, làm sao đau, sao xót bằng cái cảm của Nguyễn Du- người trong cuộc! Hỏi làm sao khi Nguyễn Du đã xây dựng một Thúy Kiều hoàn hảo đến như thế? Kiều của Nguyễn Du không bao giờ làm ta khó chịu như Kiều của Thanh Tâm Tài Nhân.
+
+Một điều khác biệt nữa là, nếu Thanh Tâm Tài Nhân khẳng định về chuyện “Tạo hóa ghét sự hoàn toàn” thì Nguyễn Du ở một mức độ nào đấy còn hơi băn khoăn, ông đặt câu hỏi cho vấn đề này, liệu rằng có phải:
+
+_Trăm năm trong cõi người ta,_
+
+_Chữ tài chữ mệnh khéo là ghét nhau._
+
+Và:
+
+_Lạ gì bỉ sắc tư phong,_
+
+_Trời xanh quen thói má hồng đánh ghen._
+
+◊Một số nhân vật như Vệ Hoa Dương,Bộ Tân- kiểu thầy trọ của tên thầy kiện ở nông thôn, quân sư cho Thúc Sinh đối phó với Tú Bà, các thuộc tướng của Từ Hải( Lôi Phong, Sử Chiêu)… cũng các hành động và nhân vật của họ.
+
+Cũng như trên, cuốn truyện nhờ thế mà chặt chẽ, nhẹ nhàng, không rườm rà bởi những chi tiết lôi thôi làm rối trí người đọc hoặc đôi khi nhiều quá làm người đọc không thể nào nhớ hết những nhân vật không tạo ra một dấu ấn riêng nào.
+
+Đặc biệt nữa, ở _Truyện Kiều_ của Nguyễn Du nếu để ý thì ta thấy rằng hầu như từ hồi này qua hồi khác nhà thơ đều dùng những câu thơ để chuyển ý làm cho văn bản hết sức chặt chẽ, người đọc dễ theo dõi và sắp xếp được môi trường cho các nhân vật xuất hiện hành động.
+
+**c.1941 câu còn lại do chính công lao sáng tạo của Nguyễn Du viết ra**
+
+Khi viết _Đoạn Trường Tân Thanh_ , ngoài việc lược bỏ những đoạn hoặc rườm rà hoặc không cần thiết trong _Kim Vân Kiều truyện_ , cụ Nguyễn Du đã chứng tỏ biệt tài trong việc sử dụng ngôn ngữ qua những đoạn tả cảnh, tả tình, tả tình trong cảnh, tả cảnh trong tình; cũng như đã thành công trong việc miêu tả nhân vật và tô đậm cá tính nhân vật với chỉ vài câu thơ. Thêm nữa, cụ cũng đã trang bị cho các nhân vật một đời sống nội tâm phong phú với những suy tư, những khao khát, những rung động phù hợp với con người của họ theo từng hoàn cảnh của câu chuyện. Đây là những điều Thanh Tâm Tài Nhân đã thiếu xót khi sáng tác _Kim Vân Kiều Truyện._
+
+Chính tài nghệ của cụ Nguyễn Du đã cắt nghĩa được tại sao hai tác phẩm kể cùng một câu chuyện lại có hai số phận khác nhau. Một bên nhanh chóng chìm vào quên lãng ngay chính trên quê hương của nhân vật trong truyện, một đằng vừa xuất hiện đã được quần chúng mở rộng vòng tay đón nhận và trở thành tác phẩm bất hủ của dân tộc và cả thế giới.
+
+Từ sự thực đó nói lên một cách rõ ràng: Truyện Kiều không phải là một tác phẩm dịch. Dịch và viết bao giờ cũng là hai chuyện khác nhau. Điều đó có lý do của nó. Bởi vì ngôn ngữ chỉ là công cụ của nhà văn, nhà thơ dùng để diễn đạt một nội dung nào đấy qua một số hình tượng nào đấy trong một tác phẩm văn học. Cái vĩ đại, cái chủ yếu của một tác phẩm văn học chính là nội dung cùng với cả hệ thống hình tượng của nó được diễn tả, được xây dựng nên bằng một ngôn ngữ tương ứng. Không có cái nội dung được diễn tả qua hệ thống hình tượng ấy thì ngôn ngữ - hay nói một cách nôm na, thì văn có bóng bẩy đến đâu cũng không sao gọi là hay được.
+
+**d.Nguyễn Du đã rất tài tình khi sử dụng tất cả những gì gần gũi nhất để xây dựng nên những hình tượng nghệ thuật đẹp đẽ.**
+
+Nguyễn Du đã dựa theo cốt truyện _Kim Vân Kiều Truyện_ của Thanh Tâm Tài Nhân và sáng tạo ra một thi phẩm lớn với một nội dung, một hệ thống hình tượng riêng của mình. Nguyễn Du đã có biệt tài trong việc sử dụng ngôn ngữ kể chuyện của tác giả. Nhờ sử dụng phương tiện này mà chúng ta thấy được thái độ của Nguyễn Du đối với nhân vật.
+
+Thiên nhiên, cuộc sống nội tâm của con người (nhớ người yêu, nhớ cha mẹ, băn khoăn về cuộc đời, rạo rực yêu đương và cả đến những tâm lý ghen tuông)… Tất cả những cái đó được diễn tả bằng một ngôn ngữ thơ ca điêu luyện hầu như thâu góp bằng hết mọi tinh hoa của ngôn ngữ dân tộc.
+
+Thiên nhiên trong _Kim Vân Kiều truyện_ như đã trình bày ở trên hầu như vắng vẻ, chỉ thỉnh thoảng ta mới bắt gặp, song những lần thỉnh thoảng đó lại thấy không ăn nhập gì mấy với tâm trạng, tính cách của nhân vật. Mọi cảnh vật đều hiện lên rất mờ nhạt, lại mang phần rời rạc, loáng thoáng qua một số bài thơ của Kiều hay qua lời kể sơ lược của Thanh Tâm Tài Nhân. Còn trong _Truyện Kiều_ , thiên nhiên đi về khắp lượt. Thiên nhiên được Nguyễn Du miêu tả gắn liền với tâm trạng, số phận nhân vật. Qua thiên nhiên, người đọc có thể lờ mờ nhận ra được những suy nghĩ, lo lắng, hay tâm sự của nhân vật trữ tình. Chẳng hạn, cũng là mùa thu, nhưng mỗi lần xuất hiện, ngòi bút của Nguyễn Du lại mang cho nó mỗi sắc áo khác nhau:
+
+●Long lanh đáy nước in trời
+Thành xây khói biếc non phơi bóng vàng.
+
+
+●Người lên ngựa, kẻ chia bào,
+Rừng phong thu đã nhuốm màu quan san.
+
+●Giậu thu vừa nảy chồi sương,
+Gối yên đã thấy xuân đường đến nơi.
+
+●Đêm thu gió lọt song đào,
+Nửa vành trăng khuyết, ba sao giữa trời.
+
+Đối với các hiện tượng miêu tả, thấy được cuộc sống nội tâm của nhân vật. Ở Kim Vân Kiều Truyện, ngôn ngữ kể chuyện của tác giả không được sử dụng chặt chẽ và vừa phải, cho nên cuộc sống nội tâm của nhân vật cũng nghèo nàn vì không có một cuộc sống thực, một cuộc sống nghệ thuật…
+
+Đọc _Kim Vân Kiều truyện_ , có thể dễ dàng nhận thấy thế mạnh của Thanh Tâm Tài Nhân trong việc tạo dựng cốt truyện hấp dẫn với hệ thống chi tiết phong phú, có khả năng phản ánh hiện thực rộng lớn. Có lẽ đây cũng là lí do khiến Nguyễn Du mượn tác phẩm này làm cái bình để rót vào đó những suy ngẫm, trăn trở, khát khao, ước vọng... của riêng mình.
+
+Khi thực hiện mục đích đó, Nguyễn Du đã tìm đến một thế mạnh khác – sức mạnh của ngôn ngữ thơ, sự giàu có của tiếng mẹ đẻ. Ông lược bỏ cái thô nhám của ngôn ngữ văn xuôi, dùng khả năng biểu đạt, tính biểu cảm cao độ của từ ngữ thay cho nhiều chi tiết. Chẳng hạn, Thuý Kiều của Thanh Tâm Tài Nhân lúc bắt đầu trao duyên đã vừa khóc vừa nói (có Thuý Vân trước mặt): “Chàng Kim! Chàng Kim! Trước đây thiếp cố giữ vẹn tấm thân, không chiều ý chàng là sợ trong đêm hợp cẩn, không lấy gì làm tin. Nếu sớm biết có biến ngày nay như thế này thì lúc ấy còn giữ làm chi”.
+
+
+
+Thật khó hình dung một thiếu nữ được nuôi dạy trong nền nếp nho gia lại dễ dàng nói thẳng một vấn đề như thế trước mặt người khác, dù đó là em ruột. Mặt khác, có thật hợp lí không khi để cho những suy nghĩ ấy xuất hiện ngay khi Kiều chưa bán mình xong, chưa phải gánh chịu cái cảnh “Một cơn mưa gió nặng nề/ Thương gì đến ngọc, tiếc gì đến hương”?
+
+
+
+Nguyễn Du đã đưa câu nói kia khỏi cảnh trao duyên và chuyển thành ý nghĩ của Thuý Kiều trong tâm trạng nhục nhã, ê chề, phẫn uất sau khi thất thân với Mã Giám Sinh và diễn đạt bằng những từ ngữ hàm súc, tế nhị: “Biết thân đến bước lạc loài/ Nhị đào thà bẻ cho người tình chung”...
+
+_Kim Vân Kiều Truyện_ của Thanh Tâm Tài Nhân còn có tên là Song Kỳ Mộng, khi mới ra đời nó đã bị quên đi, ít ai nhắc đến. Còn Đoạn Trường Tân Thanh của Nguyễn Du, gần hai trăm năm nay chiếm một vị trí rực rỡ trong lịch sử văn học Việt Nam. Điều đó thì đã rõ.
+
+Tại sao _Kim Vân Kiều Truyện_ và _Đoạn Trường Tân Thanh_ có hai số phận khác nhau ấy? Điều đó không thể chỉ giải thích vì ngôn ngữ, vì văn chương họ Nguyễn hay hơn văn chương Thanh Tâm Tài Nhân; hay vì _Đoạn Trường Tân Thanh_ là một bài thơ dài, còn _Kim Vân Kiều Truyện_ là cuốn truyện văn xuôi. Nó chỉ có thể giải thích được bắng cái nội dung với những hình tượng được xây dựng của tác phẩm, hay nói một cách khác, nó chỉ có thể giải thích được bằng sự sáng tạo của Nguyễn Du trên cơ sở nhào nặn lại cốt truyện của Thanh Tâm Tài Nhân mà xây dựng những bức tranh sống của xã hội có một nội dung phong phú, sâu sắc.
+
+**3. ****Ý nghĩa sự sáng tạo của Nguyễn Du**
+
+Tuy được nhen nhóm từ _Kim Vân Kiều_ của Thanh Tâm tài nhân, nhưng _Truyện Kiều_ của Nguyễn Du đã tách khỏi nguyên tác ban đầu mà lựa chọn cho mình một con đường đi riêng. Nguyễn Du chỉ dựa vào cái sườn của cốt truyện văn xuôi của Thanh Tâm Tài Nhân mà sang tạo ra hẳn một thi phẩm của riêng mình.Cần phải nói rõ ràng rằng, trong lao động nghệ thuật thì sự sáng tạo của người nghệ sĩ là điều quan trọng hơn cả, không chỉ sáng tạo ở số liệu mà cái quan trọng hơn là cách nhào nặn dữ liệu để tạo nên những hình tượng nghệ thuật, những nhân vật điển hình có cá tính và có ý nghĩa khái quát.
+
+Hay như nh à phê bình v ăn học Hoài Thanh đã đánh giá trong quyển _Phê bình và tiểu luận (tập 1)_ rằng : “Nguyễn Du đã biến một quyển truyện tuy cũng có giá trị nhưng chưa phải là ưu tú thành một tác phẩm vô song trong văn học Việt Nam và có thể so sánh với vô luận tác phẩm ưu tú nào trong văn học thế giới.”
+
+**IV.KẾT LUẬN**
+
+Trải qua hàng trăm năm, với biết bao thăng trầm của cuộc sống, _Truyện Kiều_ vẫn nóng bỏng hơi thở của nó, vẫn trường tồn sức sống trong lòng mọi thế hệ độc giả. Đóng góp của Thanh Tâm Tài Nhân là không nhỏ, nhưng chúng ta cũng không thể không thừa nhận rằng chính Nguyễn Du mới là người mang đến thành công rực rỡ cho _Truyện Kiều_ , nâng _Truyện Kiều_ lên trở thành tiếng nói của dân tộc. “ _Truyện Kiều_ còn, tiếng ta còn, tiếng ta còn, nước ta còn,…” (Phạm Quỳnh). Và trong những đợt sóng mạnh mẽ của cuộc đời, ta vẫn nghe văng vẳng những câu thơ bộc trào niềm tự hào của đất nước:
+
+_“Hỡi sông Hồng tiếng nói bốn nghìn năm_
+
+_Tổ Quốc bao giờ đẹp thế này chăng?_
+
+_Chưa đâu! Và ngay cả trong những ngày đẹp nhất_
+
+_Khi Nguyễn Trãi làm thơ và đánh giặc_
+
+_Nguyễn Du viết Kiều, đất nước hóa thành văn…”_
+
+Đất nước ta bay lên cùng với những vần thơ _Truyện Kiều._
+
+Xin được mượn lời nhà nghiên cứu Trần Đình Sử để tạm khép lại bài tiểu luận này: “Tác động nhiều mặt của _Truyện Kiều_ đối với sáng tác đương thời và đời sau, đối với đời sống văn học, làm nảy sinh các hình thức sáng tác phê bình giải trí tao nhã, cũng như tạo hình một đời sống lịch sử của riêng nó suốt gần 200 năm và còn dài lâu nữa, đã chứng tỏ tầm vóc vĩ đại của nó có thể sánh ngang với bất kỳ tác phẩm vĩ đại nào của nhân loại.”
+
+
+
+**** ۞**HẾT** ۞****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[ ](https://www.blogger.com/email-post/1716227941066086099/3036950671322498652 "Email Post")
+
+[Email This](https://www.blogger.com/share-post.g?blogID=1716227941066086099&postID=3036950671322498652&target=email "Email This")[BlogThis!](https://www.blogger.com/share-post.g?blogID=1716227941066086099&postID=3036950671322498652&target=blog "BlogThis!")[Share to X](https://www.blogger.com/share-post.g?blogID=1716227941066086099&postID=3036950671322498652&target=twitter "Share to X")[Share to Facebook](https://www.blogger.com/share-post.g?blogID=1716227941066086099&postID=3036950671322498652&target=facebook "Share to Facebook")
