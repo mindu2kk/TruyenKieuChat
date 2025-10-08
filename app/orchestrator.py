@@ -6,12 +6,13 @@ from generation import generate_answer_gemini
 from faq import lookup_faq
 from cache import get_cached, set_cached
 from poem_tools import poem_ready, get_opening, get_range, get_single
-
-SMALL_TALK_SYS = "Bạn là một trợ lý thân thiện. Trả lời rất ngắn (≤ 2 câu), lịch sự."
-GENERIC_SYS    = "Bạn là một trợ lý kiến thức tổng quát. Trả lời chính xác, ngắn gọn, dễ hiểu."
-
-def _wrap_user_prompt(system: str, user: str) -> str:
-    return f"[SYSTEM]\n{system}\n\n[USER]\n{user}"
+from prompt_engineering import (
+    DEFAULT_LONG_TOKEN_BUDGET,
+    DEFAULT_SHORT_TOKEN_BUDGET,
+    build_generic_prompt,
+    build_poem_disambiguation_prompt,
+    build_smalltalk_prompt,
+)
 
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
@@ -35,6 +36,11 @@ def answer_with_router(
 ) -> Dict[str, Any]:
 
     qkey = _norm_key(query)
+    short_history = _history_to_text(history, max_turns=4)
+    full_history = _history_to_text(history, max_turns=8)
+
+    if max_tokens is None:
+        max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
 
     # 0) cache
     cached = get_cached(qkey)
@@ -52,13 +58,13 @@ def answer_with_router(
     intent = route_intent(query)
 
     if intent == "chitchat":
-        prompt = _wrap_user_prompt(SMALL_TALK_SYS, query)
+        prompt = build_smalltalk_prompt(query, history_text=short_history)
         ans = generate_answer_gemini(prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
     if intent == "generic":
-        prompt = _wrap_user_prompt(GENERIC_SYS, query)
+        prompt = build_generic_prompt(query, history_text=full_history, depth="expanded" if long_answer else "balanced")
         ans = generate_answer_gemini(prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
@@ -99,16 +105,12 @@ def answer_with_router(
                 return {"intent": "poem", "answer": ans, "sources": []}
 
         # không parse được — nhờ model hỏi lại ngắn
-        prompt = _wrap_user_prompt(
-            "Bạn giúp người dùng trích thơ theo số câu / khoảng câu (ví dụ: '10 câu đầu', 'câu 241–260', 'câu 11'). Nếu họ chưa nêu rõ, hãy hỏi lại cực ngắn.",
-            query
-        )
+        prompt = build_poem_disambiguation_prompt(query, history_text=short_history)
         ans = generate_answer_gemini(prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
         set_cached(qkey, ans)
         return {"intent": "poem", "answer": ans, "sources": []}
 
     # 3) Domain → RAG
-    hist_text = _history_to_text(history, max_turns=8)
     pack = answer_question(
         query,
         k=k,
@@ -116,7 +118,7 @@ def answer_with_router(
         gen_model=gemini_model,
         force_quote=True,
         long_answer=long_answer,
-        history_text=hist_text,
+        history_text=full_history,
         max_tokens=max_tokens,
     )
 

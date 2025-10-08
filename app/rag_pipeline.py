@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
-from typing import List, Dict, Any, Optional
+from typing import Dict, Any, Optional
 import importlib.util, sys
 from pathlib import Path
 from rerank import rerank
 from generation import generate_answer_gemini
+from prompt_engineering import (
+    DEFAULT_LONG_TOKEN_BUDGET,
+    DEFAULT_SHORT_TOKEN_BUDGET,
+    build_rag_synthesis_prompt,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 retr_path = ROOT / "scripts" / "04_retrieve.py"
@@ -13,27 +18,6 @@ sys.modules["retrieve_mod"] = retrieve_mod
 assert spec and spec.loader
 spec.loader.exec_module(retrieve_mod)  # type: ignore
 retrieve_context = retrieve_mod.retrieve_context
-
-SYNTH_SINGLE_TEMPLATE = """[NGỮ CẢNH]
-{ctx}
-
-[CHỈ DẪN]
-Bạn là người chấm bài nghị luận văn học, trả lời câu hỏi: "{query}".
-- Viết 1 đoạn 6–10 câu có mở–thân–kết, mạch lạc.
-- CHỈ dùng thông tin trong NGỮ CẢNH; nếu thiếu căn cứ, nói "chưa đủ căn cứ".
-- Nếu NGỮ CẢNH có câu thơ phù hợp: trích 1–2 câu nguyên văn trong ngoặc kép (không kèm nguồn).
-- Tránh gạch đầu dòng; diễn đạt mềm mại, có liên kết luận điểm–luận cứ–dẫn chứng–bình luận.
-"""
-
-def _merge_ctx(ctx_list: List[Dict[str, Any]]) -> str:
-    return "\n\n---\n\n".join(c["text"] for c in ctx_list)
-
-def _build_prompt(query: str, ctx_list: List[Dict[str, Any]], history_text: Optional[str]) -> str:
-    merged = _merge_ctx(ctx_list)
-    core = SYNTH_SINGLE_TEMPLATE.format(ctx=merged, query=query)
-    if history_text:
-        return f"[HỘI THOẠI GẦN NHẤT]\n{history_text}\n\n{core}"
-    return core
 
 def answer_question(
     query: str,
@@ -51,18 +35,21 @@ def answer_question(
     if filters is None:
         filters = {"meta.type": {"$in": ["analysis", "poem", "summary", "bio"]}}
 
+    if max_tokens is None:
+        max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+
     hits = retrieve_context(query, k=max(k, 10), filters=filters, num_candidates=num_candidates)
     if not hits:
-        prompt = _build_prompt(query, [], history_text)
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
         return {"query": query, "prompt": prompt, "contexts": []}
 
     avg_score = sum(h.get("score", 0.0) for h in hits) / max(1, len(hits))
     if avg_score < 0.2:
-        prompt = _build_prompt(query, [], history_text)
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
         return {"query": query, "prompt": prompt, "contexts": []}
 
     hits = rerank(query, hits, top_k=k)
-    prompt = _build_prompt(query, hits, history_text)
+    prompt = build_rag_synthesis_prompt(query, hits, history_text=history_text, long_answer=long_answer)
 
     if synthesize and synthesize != "mapreduce":
         if force_quote:

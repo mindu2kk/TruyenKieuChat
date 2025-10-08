@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import os, re
+from typing import Any, Dict
+
 import google.generativeai as genai
+
+from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
 
 def _setup():
     api_key = os.getenv("GOOGLE_API_KEY")
@@ -21,6 +25,19 @@ def _postprocess(ans: str) -> str:
     txt = re.sub(r"(?:\n\n)+", "\n\n", txt)
     return txt
 
+def _resolve_generation_config(long_answer: bool, max_tokens: int | None) -> Dict[str, Any]:
+    resolved_max = max_tokens
+    if resolved_max is None:
+        resolved_max = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+
+    return {
+        "temperature": 0.6 if long_answer else 0.55,
+        "top_p": 0.9,
+        "top_k": 40,
+        "max_output_tokens": int(resolved_max),
+    }
+
+
 def generate_answer_gemini(
     prompt: str,
     model: str = "gemini-2.0-flash",
@@ -28,9 +45,8 @@ def generate_answer_gemini(
     max_tokens: int | None = None,
 ) -> str:
     _setup()
-    generation_config = {}
-    if max_tokens:
-        generation_config["max_output_tokens"] = int(max_tokens)
+
+    generation_config = _resolve_generation_config(long_answer, max_tokens)
 
     if long_answer:
         prompt = f"""{prompt}
@@ -42,7 +58,15 @@ def generate_answer_gemini(
 """
 
     gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
-    res = gm.generate_content(prompt)
+    res = gm.generate_content(
+        prompt,
+        safety_settings={
+            "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
+            "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
+            "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
+            "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
+        },
+    )
 
     try:
         out = res.text
