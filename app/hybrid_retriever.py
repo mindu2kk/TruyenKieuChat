@@ -130,7 +130,7 @@ class HybridRetriever:
             if self._dense_disabled
             else None
         )
-        self._dense_embeddings: np.ndarray | None = None
+        self._dense_embeddings: NDArray | None = None
         self._colbert_model = None
         self._colbert_disabled = _truthy_env("TKC_DISABLE_COLBERT")
         self._colbert_error: Optional[str] = (
@@ -138,7 +138,7 @@ class HybridRetriever:
             if self._colbert_disabled
             else None
         )
-        self._colbert_embeddings: np.ndarray | None = None
+        self._colbert_embeddings: NDArray | None = None
         self._colbert_doc_index: List[int] | None = None
         self._colbert_segments: List[str] | None = None
 
