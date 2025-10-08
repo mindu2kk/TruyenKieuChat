@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Streamlit chat UI for Kiều Bot.
 
 This module wraps the orchestrator answer pipeline in a lightweight
@@ -212,3 +213,5 @@ if user_msg:
         _render_meta(meta, debug=debug_meta)
 
     chat.append({"role": "assistant", "content": answer_text, "meta": meta})
+    
+    

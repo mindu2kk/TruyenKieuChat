@@ -220,12 +220,15 @@ def answer_question(
         candidates: int,
         active_filters: Optional[Dict[str, Any]],
     ) -> None:
-        hits_local = _HYBRID_RETRIEVER.search(
-            variant,
-            top_k=limit,
-            filters=active_filters,
-            num_candidates=candidates,
-        )
+        try:
+            hits_local = _HYBRID_RETRIEVER.search(
+                variant,
+                top_k=limit,
+                filters=active_filters,
+                num_candidates=candidates,
+            )
+        except Exception:
+            return
         if not hits_local:
             return
         collected.extend(

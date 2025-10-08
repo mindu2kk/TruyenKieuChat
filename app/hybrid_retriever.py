@@ -48,32 +48,35 @@ except ImportError:  # pragma: no cover
     from corpus_loader import CorpusDocument, load_corpus
 
 
+def _truthy_env(name: str) -> bool:
+    value = os.environ.get(name)
+    if value is None:
+        return False
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
 def _prepare_hf_cache() -> Path:
     """Ensure Hugging Face models download into a writable directory."""
 
-    repo_root = Path(__file__).resolve().parent / ".." / ".hf_cache"
-    home_root = Path.home() / ".cache" / "huggingface"
+    env_override = os.environ.get("HF_HOME")
+    repo_default = Path(__file__).resolve().parent.parent / ".hf_cache"
+    home_cache = Path(os.environ.get("HOME", str(Path.home()))) / ".cache" / "huggingface"
 
-    candidates: List[Path] = []
-    env_home = os.environ.get("HF_HOME")
-    if env_home:
-        candidates.append(Path(env_home))
-    candidates.extend([repo_root, home_root])
+    candidates = [Path(env_override)] if env_override else []
+    candidates.extend([home_cache, repo_default])
 
     cache_root: Optional[Path] = None
-    for path in candidates:
+    for candidate in candidates:
         try:
-            path.mkdir(parents=True, exist_ok=True)
+            candidate.mkdir(parents=True, exist_ok=True)
         except PermissionError:
             continue
-        if os.access(path, os.W_OK):
-            cache_root = path
+        else:
+            cache_root = candidate
             break
 
     if cache_root is None:
-        # Final fallback: use a temporary directory inside the current working tree.
-        cache_root = Path.cwd() / ".hf_cache"
-        cache_root.mkdir(parents=True, exist_ok=True)
+        raise RuntimeError("Không tìm được thư mục cache Hugging Face khả dụng")
 
     # Align other libraries that respect their own environment flags.
     os.environ.setdefault("HF_HOME", str(cache_root))
@@ -121,8 +124,20 @@ class HybridRetriever:
         self._corpus: List[CorpusDocument] | None = None
         self._bm25 = None
         self._dense_model = None
+        self._dense_disabled = _truthy_env("TKC_DISABLE_DENSE")
+        self._dense_error: Optional[str] = (
+            "Dense retriever đang bị tắt qua biến môi trường TKC_DISABLE_DENSE."
+            if self._dense_disabled
+            else None
+        )
         self._dense_embeddings: np.ndarray | None = None
         self._colbert_model = None
+        self._colbert_disabled = _truthy_env("TKC_DISABLE_COLBERT")
+        self._colbert_error: Optional[str] = (
+            "ColBERT retriever đang bị tắt qua biến môi trường TKC_DISABLE_COLBERT."
+            if self._colbert_disabled
+            else None
+        )
         self._colbert_embeddings: np.ndarray | None = None
         self._colbert_doc_index: List[int] | None = None
         self._colbert_segments: List[str] | None = None
@@ -146,19 +161,36 @@ class HybridRetriever:
                 self._bm25 = _SimpleBM25(tokenised)
         return self._bm25
 
+    def _disable_dense(self, message: str) -> None:
+        self._dense_disabled = True
+        self._dense_error = message
+
+    def _disable_colbert(self, message: str) -> None:
+        self._colbert_disabled = True
+        self._colbert_error = message
+
     def _ensure_dense_model(self):
         if np is None:
             raise RuntimeError("numpy chưa được cài đặt")
+        if self._dense_disabled:
+            raise RuntimeError(self._dense_error or "dense retriever đang bị vô hiệu hoá")
         if self._dense_model is None:
             try:
                 from sentence_transformers import SentenceTransformer
             except ImportError as exc:  # pragma: no cover - optional dependency
                 raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
 
-            self._dense_model = SentenceTransformer(
-                self.dense_model_name,
-                cache_folder=str(_HF_CACHE_DIR),
-            )
+            try:
+                self._dense_model = SentenceTransformer(
+                    self.dense_model_name,
+                    cache_folder=str(_HF_CACHE_DIR),
+                )
+            except (OSError, RuntimeError) as exc:
+                self._disable_dense(
+                    "Không tải được mô hình dense, tạm dùng BM25."
+                )
+                message = self._dense_error or "Không tải được mô hình dense"
+                raise RuntimeError(f"{message} (lỗi: {exc})")
         return self._dense_model
 
     def _ensure_dense_embeddings(self) -> NDArray:
@@ -178,16 +210,25 @@ class HybridRetriever:
     def _ensure_colbert_model(self):
         if np is None:
             raise RuntimeError("numpy chưa được cài đặt")
+        if self._colbert_disabled:
+            raise RuntimeError(self._colbert_error or "ColBERT retriever đang bị vô hiệu hoá")
         if self._colbert_model is None:
             try:
                 from sentence_transformers import SentenceTransformer
             except ImportError as exc:  # pragma: no cover
                 raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
 
-            self._colbert_model = SentenceTransformer(
-                self.colbert_model_name,
-                cache_folder=str(_HF_CACHE_DIR),
-            )
+            try:
+                self._colbert_model = SentenceTransformer(
+                    self.colbert_model_name,
+                    cache_folder=str(_HF_CACHE_DIR),
+                )
+            except (OSError, RuntimeError) as exc:
+                self._disable_colbert(
+                    "Không tải được mô hình ColBERT, tạm bỏ qua tầng này."
+                )
+                message = self._colbert_error or "Không tải được mô hình ColBERT"
+                raise RuntimeError(f"{message} (lỗi: {exc})")
         return self._colbert_model
 
     def _ensure_colbert_index(self) -> Tuple[NDArray, List[int], List[str]]:
@@ -313,15 +354,19 @@ class HybridRetriever:
         ranked_lists: List[Tuple[str, List[Tuple[int, float]]]] = []
         ranked_lists.append(("bm25", self._search_bm25(query, candidates)))
 
-        try:
-            ranked_lists.append(("dense", self._search_dense(query, candidates)))
-        except RuntimeError:
-            pass
+        if not self._dense_disabled:
+            try:
+                ranked_lists.append(("dense", self._search_dense(query, candidates)))
+            except Exception as exc:
+                detail = str(exc).strip() or "Không dùng được dense retriever, chỉ còn BM25."
+                self._disable_dense(detail)
 
-        try:
-            ranked_lists.append(("colbert", self._search_colbert(query, candidates)))
-        except RuntimeError:
-            pass
+        if not self._colbert_disabled:
+            try:
+                ranked_lists.append(("colbert", self._search_colbert(query, candidates)))
+            except Exception as exc:
+                detail = str(exc).strip() or "Không dùng được ColBERT retriever, bỏ qua tầng này."
+                self._disable_colbert(detail)
 
         fused = self._rrf(ranked_lists)
         hits: List[RetrievalHit] = []
