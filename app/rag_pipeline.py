@@ -4,7 +4,7 @@ import unicodedata
 
 try:  # pragma: no cover - flexible import paths
     from .rerank import rerank
-    from .generation import GenerationError, generate_answer_gemini
+    from .generation import generate_answer_gemini
     from .prompt_engineering import (
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
@@ -12,47 +12,23 @@ try:  # pragma: no cover - flexible import paths
     )
     from .hybrid_retriever import HybridRetriever, RetrievalHit
 except ImportError:  # pragma: no cover
-    from rerank import rerank
-    from generation import GenerationError, generate_answer_gemini
-    from prompt_engineering import (
+    from rerank import rerank  # type: ignore
+    from generation import generate_answer_gemini  # type: ignore
+    from prompt_engineering import (  # type: ignore
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
         build_rag_synthesis_prompt,
     )
-    from hybrid_retriever import HybridRetriever, RetrievalHit
+    from hybrid_retriever import HybridRetriever, RetrievalHit  # type: ignore
+
 
 _CHARACTER_VARIANTS: Dict[str, Sequence[str]] = {
-    "thúy kiều": (
-        "thúy kiều",
-        "thuý kiều",
-        "thuy kieu",
-        "kiều",
-        "thụy kiều",
-    ),
-    "thúy vân": (
-        "thúy vân",
-        "thuý vân",
-        "thuy van",
-        "vân",
-    ),
-    "kim trọng": (
-        "kim trọng",
-        "kim trong",
-        "kim-trọng",
-    ),
-    "từ hải": (
-        "từ hải",
-        "tu hai",
-        "từ-hải",
-    ),
-    "hoạn thư": (
-        "hoạn thư",
-        "hoan thu",
-    ),
-    "giác duyên": (
-        "giác duyên",
-        "giac duyen",
-    ),
+    "thúy kiều": ("thúy kiều", "thuý kiều", "thuy kieu", "kiều", "thụy kiều"),
+    "thúy vân": ("thúy vân", "thuý vân", "thuy van", "vân"),
+    "kim trọng": ("kim trọng", "kim trong", "kim-trọng"),
+    "từ hải": ("từ hải", "tu hai", "từ-hải"),
+    "hoạn thư": ("hoạn thư", "hoan thu"),
+    "giác duyên": ("giác duyên", "giac duyen"),
 }
 
 
@@ -148,7 +124,7 @@ def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 def _as_hit_dict(hit: Dict[str, Any] | RetrievalHit) -> Dict[str, Any]:
     if isinstance(hit, RetrievalHit):
-        base = {
+        return {
             "text": hit.text,
             "score": hit.score,
             "meta": dict(hit.metadata),
@@ -156,7 +132,6 @@ def _as_hit_dict(hit: Dict[str, Any] | RetrievalHit) -> Dict[str, Any]:
             "doc_id": hit.doc_id,
             "debug": dict(hit.debug),
         }
-        return base
     return dict(hit)
 
 
@@ -185,6 +160,7 @@ def _annotate_hits(
         annotated.append(new_hit)
 
     return annotated
+
 
 def answer_question(
     query: str,
@@ -240,7 +216,7 @@ def answer_question(
             )
         )
 
-    # 1) Primary query with provided filters.
+    # 1) Primary
     _maybe_collect(
         query_variants[0],
         0,
@@ -250,7 +226,7 @@ def answer_question(
         active_filters=filters,
     )
 
-    # 2) Additional variants to boost recall under the same filters.
+    # 2) Variants
     if len(collected) < max(2, k):
         for idx, variant in enumerate(query_variants[1:], start=1):
             _maybe_collect(
@@ -264,7 +240,7 @@ def answer_question(
             if len(collected) >= max(3 * k, 25):
                 break
 
-    # 3) Relax filters if recall is still too low.
+    # 3) Relax filters
     if len(collected) < k and filters:
         relaxed_candidates = max(num_candidates, 180)
         for idx, variant in enumerate(query_variants):
@@ -298,7 +274,7 @@ def answer_question(
 
     prompt = build_rag_synthesis_prompt(query, contexts, history_text=history_text, long_answer=long_answer)
 
-    out = {"query": query, "prompt": prompt, "contexts": contexts}
+    out: Dict[str, Any] = {"query": query, "prompt": prompt, "contexts": contexts}
 
     if synthesize and synthesize != "mapreduce":
         if force_quote:
@@ -310,12 +286,13 @@ def answer_question(
                 long_answer=long_answer,
                 max_tokens=max_tokens,
             )
-        except GenerationError as exc:
+        except Exception as exc:  # <-- bắt mọi lỗi SDK
             out["generation_error"] = str(exc)
             return out
         if ans:
             out["answer"] = ans
 
     return out
+
 
 _HYBRID_RETRIEVER = HybridRetriever()

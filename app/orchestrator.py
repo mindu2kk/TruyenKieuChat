@@ -1,5 +1,6 @@
-
+# -*- coding: utf-8 -*-
 from typing import Dict, Any, List, Tuple, Optional
+
 try:  # pragma: no cover - support both package and script execution
     from .router import route_intent, parse_poem_request
     from .rag_pipeline import answer_question
@@ -23,19 +24,19 @@ try:  # pragma: no cover - support both package and script execution
     )
     from .verifier import verify_poem_quotes
 except ImportError:  # pragma: no cover - script mode
-    from router import route_intent, parse_poem_request
-    from rag_pipeline import answer_question
-    from generation import GenerationError, generate_answer_gemini
-    from faq import lookup_faq
-    from cache import get_cached, set_cached
-    from poem_tools import (
+    from router import route_intent, parse_poem_request  # type: ignore
+    from rag_pipeline import answer_question  # type: ignore
+    from generation import GenerationError, generate_answer_gemini  # type: ignore
+    from faq import lookup_faq  # type: ignore
+    from cache import get_cached, set_cached  # type: ignore
+    from poem_tools import (  # type: ignore
         poem_ready,
         get_opening,
         get_range,
         get_single,
         compare_lines,
     )
-    from prompt_engineering import (
+    from prompt_engineering import (  # type: ignore
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
         build_generic_prompt,
@@ -43,22 +44,26 @@ except ImportError:  # pragma: no cover - script mode
         build_smalltalk_prompt,
         build_poem_compare_prompt,
     )
-    from verifier import verify_poem_quotes
+    from verifier import verify_poem_quotes  # type: ignore
+
 
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
 
-def _history_to_text(history: Optional[List[Tuple[str,str]]], max_turns=6) -> str:
-    if not history: return ""
+
+def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 6) -> str:
+    if not history:
+        return ""
     h = history[-max_turns:]
     lines = []
     for role, txt in h:
-        role = "USER" if role=="user" else "ASSISTANT"
+        role = "USER" if role == "user" else "ASSISTANT"
         lines.append(f"[{role}]\n{txt}")
     return "\n\n".join(lines)
 
+
 def _generation_failure_response(intent: str, reason: str, *, sources: Optional[List[str]] = None) -> Dict[str, Any]:
-    detail = reason.strip()
+    detail = (reason or "").strip()
     message = (
         "🤖 Xin lỗi, hệ thống chưa thể gọi mô hình Gemini để tạo câu trả lời. "
         "Vui lòng kiểm tra GOOGLE_API_KEY và kết nối mạng."
@@ -79,10 +84,10 @@ def _safe_generate(
     *,
     sources: Optional[List[str]] = None,
     **gen_kwargs: Any,
-) -> Tuple[str | None, Dict[str, Any] | None]:
+) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
     try:
         return generate_answer_gemini(prompt, **gen_kwargs), None
-    except GenerationError as exc:
+    except Exception as exc:  # <-- bắt mọi lỗi từ SDK
         return None, _generation_failure_response(intent, str(exc), sources=sources)
 
 
@@ -90,7 +95,7 @@ def answer_with_router(
     query: str,
     k: int = 5,
     gemini_model: str = "gemini-2.0-flash",
-    history: Optional[List[Tuple[str,str]]] = None,
+    history: Optional[List[Tuple[str, str]]] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
 ) -> Dict[str, Any]:
@@ -117,6 +122,7 @@ def answer_with_router(
     # 2) route
     intent = route_intent(query)
 
+    # small talk
     if intent == "chitchat":
         prompt = build_smalltalk_prompt(query, history_text=short_history)
         ans, failure = _safe_generate(
@@ -128,10 +134,10 @@ def answer_with_router(
         )
         if failure:
             return failure
-        ans = ans or ""
-        set_cached(qkey, ans)
-        return {"intent": intent, "answer": ans, "sources": []}
+        set_cached(qkey, ans or "")
+        return {"intent": intent, "answer": ans or "", "sources": []}
 
+    # generic factual
     if intent == "generic":
         prompt = build_generic_prompt(query, history_text=full_history, depth="expanded" if long_answer else "balanced")
         ans, failure = _safe_generate(
@@ -143,8 +149,8 @@ def answer_with_router(
         )
         if failure:
             return failure
-        set_cached(qkey, ans)
-        return {"intent": intent, "answer": ans, "sources": []}
+        set_cached(qkey, ans or "")
+        return {"intent": intent, "answer": ans or "", "sources": []}
 
     # POEM MODE
     if intent == "poem":
@@ -159,15 +165,16 @@ def answer_with_router(
             if kind == "opening":
                 n = max(1, min(int(spec[1]), 1500))
                 lines = get_opening(n)
-                txt = "\n".join(f"{i+1:>4}: {ln}" for i, ln in enumerate(lines))
+                txt = "\n".join(f"{i + 1:>4}: {ln}" for i, ln in enumerate(lines))
                 ans = f"**{n} câu đầu Truyện Kiều:**\n\n{txt}"
                 set_cached(qkey, ans)
                 return {"intent": "poem", "answer": ans, "sources": []}
             if kind == "range":
                 a, b = int(spec[1]), int(spec[2])
-                if a > b: a, b = b, a
+                if a > b:
+                    a, b = b, a
                 lines = get_range(a, b)
-                txt = "\n".join(f"{a+i:>4}: {ln}" for i, ln in enumerate(lines))
+                txt = "\n".join(f"{a + i:>4}: {ln}" for i, ln in enumerate(lines))
                 ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}"
                 set_cached(qkey, ans)
                 return {"intent": "poem", "answer": ans, "sources": []}
@@ -199,16 +206,16 @@ def answer_with_router(
                     model=gemini_model,
                     long_answer=long_answer,
                     max_tokens=max_tokens,
-                    sources=[f"câu {line_a.number}", f"câu {line_b.number}"]
+                    sources=[f"câu {line_a.number}", f"câu {line_b.number}"],
                 )
                 if failure:
                     return failure
-                verification = verify_poem_quotes(ans)
-                set_cached(qkey, ans)
+                verification = verify_poem_quotes(ans or "")
+                set_cached(qkey, ans or "")
                 sources = [f"câu {line_a.number}", f"câu {line_b.number}"]
                 return {
                     "intent": "poem",
-                    "answer": ans,
+                    "answer": ans or "",
                     "sources": sources,
                     "verification": verification,
                 }
@@ -224,9 +231,9 @@ def answer_with_router(
         )
         if failure:
             return failure
-        verification = verify_poem_quotes(ans)
-        set_cached(qkey, ans)
-        return {"intent": "poem", "answer": ans, "sources": [], "verification": verification}
+        verification = verify_poem_quotes(ans or "")
+        set_cached(qkey, ans or "")
+        return {"intent": "poem", "answer": ans or "", "sources": [], "verification": verification}
 
     # 3) Domain → RAG
     pack = answer_question(
@@ -245,11 +252,11 @@ def answer_with_router(
 
     ans = pack.get("answer")
     if ans:
-        verification = verify_poem_quotes(ans)
-        set_cached(qkey, ans)
-        return {"intent": "domain", "answer": ans, "sources": [], "verification": verification}
+        verification = verify_poem_quotes(ans or "")
+        set_cached(qkey, ans or "")
+        return {"intent": "domain", "answer": ans or "", "sources": [], "verification": verification}
 
-    # 4) fallback
+    # 4) fallback — dùng prompt đã build
     ans, failure = _safe_generate(
         "domain",
         pack["prompt"],
@@ -259,6 +266,6 @@ def answer_with_router(
     )
     if failure:
         return failure
-    verification = verify_poem_quotes(ans)
-    set_cached(qkey, ans)
-    return {"intent": "domain", "answer": ans, "sources": [], "verification": verification}
+    verification = verify_poem_quotes(ans or "")
+    set_cached(qkey, ans or "")
+    return {"intent": "domain", "answer": ans or "", "sources": [], "verification": verification}
