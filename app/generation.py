@@ -32,9 +32,9 @@ def _setup() -> None:
 
 
 def _postprocess(ans: Optional[str]) -> str:
+    """Always return a string; strip boilerplate like 'Nguồn:' lines and collapse whitespace."""
     if not ans:
         return ""
-    # cắt mọi dòng kiểu "Nguồn:" / "Source:" nếu model tự sinh
     lines = []
     for ln in ans.splitlines():
         if re.match(r"^\s*(Nguồn|Source)\s*:.*$", ln, flags=re.I):
@@ -63,6 +63,43 @@ def _resolve_generation_config(long_answer: bool, max_tokens: Optional[int]) -> 
     }
 
 
+def _extract_text(res: Any) -> str:
+    """
+    Rút text an toàn từ nhiều phiên bản SDK:
+    - ưu tiên res.text
+    - nếu không có, duyệt candidates[0].content.parts[].text
+    - fallback: str(res)
+    """
+    # 1) res.text
+    try:
+        t = getattr(res, "text", None)
+        if isinstance(t, str) and t.strip():
+            return t.strip()
+    except Exception:
+        pass
+
+    # 2) candidates -> content.parts[].text
+    try:
+        cand = getattr(res, "candidates", None)
+        if cand:
+            content = getattr(cand[0], "content", None)
+            if content and getattr(content, "parts", None):
+                parts = []
+                for part in content.parts:
+                    if hasattr(part, "text") and part.text:
+                        parts.append(part.text)
+                if parts:
+                    return "".join(parts).strip()
+    except Exception:
+        pass
+
+    # 3) cuối cùng: str(res)
+    try:
+        return str(res).strip()
+    except Exception:
+        return ""
+
+
 def generate_answer_gemini(
     prompt: str,
     model: str = "gemini-2.0-flash",
@@ -73,6 +110,7 @@ def generate_answer_gemini(
         _setup()
         generation_config = _resolve_generation_config(long_answer, max_tokens)
 
+        # giữ nguyên phong cách khi long_answer
         if long_answer:
             prompt = f"""{prompt}
 
@@ -84,10 +122,11 @@ def generate_answer_gemini(
 
         gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
 
+        # ❗ Gọi tối giản (bỏ safety_settings kiểu cũ để tránh trả rỗng âm thầm)
         try:
             res = gm.generate_content(prompt)
         except TypeError as exc:
-            # 👉 thường gặp khi có biến sai kiểu ở phía trên (UI truyền nhầm), hoặc SDK đòi kiểu khác
+            # thường gặp khi tham số sai kiểu ở phía gọi
             raise GenerationError(
                 f"TypeError từ Gemini SDK: {exc}. "
                 f"debug types: prompt={type(prompt).__name__}, model={type(model).__name__}, "
@@ -95,7 +134,27 @@ def generate_answer_gemini(
             ) from exc
         except Exception as exc:
             raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
-        ...
+
+        # Nếu SDK có prompt_feedback và bị chặn, báo lỗi rõ ràng
+        try:
+            pf = getattr(res, "prompt_feedback", None)
+            br = getattr(pf, "block_reason", None) if pf is not None else None
+            if br:  # non-zero/khác None
+                raise GenerationError(f"Nội dung bị chặn (block_reason={br}).")
+        except Exception:
+            pass
+
+        out = _extract_text(res)
+        out = _postprocess(out or "")
+
+        # ❗ Không trả rỗng im lặng
+        if not out.strip():
+            raise GenerationError("Model không trả nội dung (empty response).")
+
+        return out
+
     except Exception as exc:
-        if isinstance(exc, GenerationError): raise
+        # Mọi lỗi được quy về GenerationError để tầng trên xử lý thống nhất
+        if isinstance(exc, GenerationError):
+            raise
         raise GenerationError(str(exc)) from exc
