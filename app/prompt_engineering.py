@@ -91,6 +91,8 @@ def _format_context(ctx_list: Sequence[Dict[str, Any]]) -> str:
 
 def _truncate(s: str, limit: int = 1200) -> str:
     s = (s or "").strip()
+    if not isinstance(s, str):
+        s = str(s)
     if len(s) <= limit:
         return s
     head = s[:limit]

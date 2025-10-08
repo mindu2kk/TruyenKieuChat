@@ -35,6 +35,15 @@ def _safe_topk(v: Any, default: int = 10) -> int:
         k = 1
     return k
 
+def _safe_len_tokens(x) -> int:
+    """Đếm token an toàn cho int/list/tuple/str/None."""
+    if isinstance(x, int):
+        return max(1, x)
+    try:
+        return max(1, len(x))
+    except Exception:
+        return 1
+
 def _lexical_fallback(query: str, hits: Sequence[Dict[str, Any]], top_k: int) -> List[Dict[str, Any]]:
     """Rerank nhẹ theo overlap từ vựng + trọng số điểm gốc."""
     qset = set(_tokens(query))
@@ -44,7 +53,7 @@ def _lexical_fallback(query: str, hits: Sequence[Dict[str, Any]], top_k: int) ->
         text = str(item.get("text", "") or "")
         base = float(item.get("score", 0.0) or 0.0)
         toks = _tokens(text)
-        denom = max(3, len(toks))
+        denom = max(3, _safe_len_tokens(toks))
         overlap = sum(1 for t in toks if t in qset)
         lex = overlap / denom
         item["re_score"] = 0.6 * lex + 0.4 * base

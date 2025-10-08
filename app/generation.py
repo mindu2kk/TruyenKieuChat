@@ -50,12 +50,16 @@ def _resolve_generation_config(long_answer: bool, max_tokens: Optional[int]) -> 
     resolved_max = max_tokens
     if resolved_max is None:
         resolved_max = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+    try:
+        resolved_max = int(resolved_max)
+    except Exception as e:
+        raise GenerationError(f"max_tokens không hợp lệ: {resolved_max!r} ({type(resolved_max).__name__})") from e
 
     return {
         "temperature": 0.6 if long_answer else 0.55,
         "top_p": 0.9,
         "top_k": 40,
-        "max_output_tokens": int(resolved_max),
+        "max_output_tokens": resolved_max,
     }
 
 
@@ -90,31 +94,16 @@ def generate_answer_gemini(
                     "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
                 },
             )
+        except TypeError as exc:
+            # 👉 thường gặp khi có biến sai kiểu ở phía trên (UI truyền nhầm), hoặc SDK đòi kiểu khác
+            raise GenerationError(
+                f"TypeError từ Gemini SDK: {exc}. "
+                f"debug types: prompt={type(prompt).__name__}, model={type(model).__name__}, "
+                f"long_answer={type(long_answer).__name__}, max_tokens={type(max_tokens).__name__}"
+            ) from exc
         except Exception as exc:
             raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
-
-        # Trích text an toàn cho mọi biến thể SDK
-        out = ""
-        try:
-            out = res.text  # type: ignore[attr-defined]
-        except Exception:
-            try:
-                parts = []
-                cand = getattr(res, "candidates", None)
-                if cand and len(cand) > 0:
-                    content = getattr(cand[0], "content", None)
-                    if content and getattr(content, "parts", None):
-                        for part in content.parts:
-                            if hasattr(part, "text") and part.text:
-                                parts.append(part.text)
-                out = "".join(parts).strip()
-            except Exception:
-                out = str(res)
-
-        return _postprocess(out or "")
-
+        ...
     except Exception as exc:
-        # Mọi lỗi được quy về GenerationError để tầng trên xử lý thống nhất
-        if isinstance(exc, GenerationError):
-            raise
+        if isinstance(exc, GenerationError): raise
         raise GenerationError(str(exc)) from exc
