@@ -89,14 +89,21 @@ def _format_context(ctx_list: Sequence[Dict[str, Any]]) -> str:
 
     return "\n\n---\n\n".join(blocks)
 
-def _truncate(s: str, limit: int = 1200) -> str:
-    s = (s or "").strip()
-    if not isinstance(s, str):
-        s = str(s)
+def _truncate(s: Any, limit: int = 1200) -> str:
+    # ép về chuỗi TRƯỚC khi strip
+    if s is None:
+        s = ""
+    elif not isinstance(s, str):
+        try:
+            s = str(s)
+        except Exception:
+            s = ""
+    s = s.strip()
+
     if len(s) <= limit:
         return s
+
     head = s[:limit]
-    # cắt gọn theo biên từ cho đẹp
     if " " in head:
         head = head.rsplit(" ", 1)[0]
     return head + "…"

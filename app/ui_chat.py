@@ -7,6 +7,7 @@ import time
 from typing import Any, Dict, Iterable, List, MutableMapping, Tuple
 import sys
 from pathlib import Path
+import traceback
 import streamlit as st
 
 # === ÉP đường dẫn gốc vào sys.path và import theo package "app" ===
@@ -194,6 +195,7 @@ if user_msg:
             )
         except Exception as exc:
             st.error(f"Lỗi khi trả lời: {exc}")
+            st.code(traceback.format_exc())
             ret = {"answer": "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi."}
 
         elapsed_ms = (time.time() - t0) * 1000

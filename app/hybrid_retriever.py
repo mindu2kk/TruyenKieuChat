@@ -20,6 +20,20 @@ if TYPE_CHECKING:
     NDArray = _np.ndarray[Any, Any]
 else:  # pragma: no cover - only needed when numpy missing at runtime
     NDArray = Any
+    
+def _safe_len_tokens(x) -> int:
+    """Trả về số token của x.
+    - Nếu x là int → dùng trực tiếp (ít nhất 1)
+    - Nếu x là chuỗi/sequence → len(x) (ít nhất 1)
+    - Nếu None/kiểu lạ → 1 (tránh chia 0)
+    """
+    if isinstance(x, int):
+        return max(1, x)
+    try:
+        return max(1, len(x))  # list/tuple/str
+    except Exception:
+        return 1
+
 
 
 class _SimpleBM25:
@@ -39,7 +53,8 @@ class _SimpleBM25:
                 scores.append(0.0)
                 continue
             overlap = sum(1 for token in doc_tokens if token in query_set)
-            scores.append(overlap / len(doc_tokens))
+            ntoks = _safe_len_tokens(doc_tokens)
+            scores.append(overlap / ntoks)
         return scores
 
 try:  # pragma: no cover - allow usage both as package and script
