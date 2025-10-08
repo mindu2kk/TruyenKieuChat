@@ -28,34 +28,47 @@ def _as_str(x: Any) -> str:
 try:  # pragma: no cover - rapidfuzz là optional
     from rapidfuzz import fuzz, process  # type: ignore
 
-    def _extract_one(query: str, choices: Dict[int, str]) -> Tuple[str, float, int] | None:
+    def _rf_extract_one(query: str, mapping: Dict[int, str]) -> Tuple[str, float, int] | None:
         """
-        RapidFuzz khi nhận dict sẽ trả về tuple (key, score, value)
-        - key: chính là khóa (ở đây là line_no: int)
-        - value: chuỗi text tương ứng
+        Cố gắng gọi RapidFuzz theo 2 cách:
+        1) dict {label(int) -> text(str)}  => (label, score, text)
+        2) list [text] + map index->label  => (text, score, index)
+        Trả về (matched_text, score, line_no) hoặc None.
         """
-        if not isinstance(choices, dict) or not choices:
-            return None
-        # Bảo đảm value là chuỗi
-        safe_choices: Dict[int, str] = {}
-        for k, v in choices.items():
+        # làm sạch & chuẩn hóa mapping
+        clean: Dict[int, str] = {}
+        for k, v in mapping.items():
+            try:
+                key = int(k)
+            except Exception:
+                continue
             s = _as_str(v).strip()
             if s:
-                safe_choices[int(k)] = s
-        if not safe_choices:
+                clean[key] = s
+
+        if not clean:
             return None
 
-        res = process.extractOne(_as_str(query), safe_choices, scorer=fuzz.token_set_ratio)
-        if not res:
-            return None
+        q = _as_str(query)
 
-        key, score, value = res  # RapidFuzz: (key, score, value) cho dict
+        # Thử dạng dict trước (phù hợp RapidFuzz >=3.x)
         try:
-            line_no = int(key)
+            # RapidFuzz dict form trả (key, score, value)
+            key, score, value = process.extractOne(q, clean, scorer=fuzz.token_set_ratio)
+            return _as_str(value), float(score), int(key)
         except Exception:
-            line_no = None  # hiếm gặp
-        matched_text = _as_str(value)
-        return matched_text, float(score), int(line_no) if line_no is not None else -1
+            pass  # thử list form
+
+        # Fallback list form (phiên bản khác/edge-case)
+        texts = list(clean.values())
+        line_nos = list(clean.keys())
+        try:
+            matched_text, score, idx = process.extractOne(q, texts, scorer=fuzz.token_set_ratio)
+            return _as_str(matched_text), float(score), int(line_nos[int(idx)])
+        except Exception:
+            return None
+
+    _extract_one = _rf_extract_one
 
 except ImportError:  # pragma: no cover - fallback difflib
     import difflib
@@ -63,20 +76,20 @@ except ImportError:  # pragma: no cover - fallback difflib
     def _simple_ratio(a: str, b: str) -> float:
         return difflib.SequenceMatcher(None, a, b).ratio() * 100.0
 
-    def _extract_one(query: str, choices: Dict[int, str]) -> Tuple[str, float, int] | None:
-        if not isinstance(choices, dict) or not choices:
-            return None
+    def _df_extract_one(query: str, mapping: Dict[int, str]) -> Tuple[str, float, int] | None:
         best: Tuple[str, float, int] | None = None
         q = _as_str(query)
-        for line_no, text in choices.items():
-            s = _as_str(text)
-            if not s:
+        for line_no, text in mapping.items():
+            t = _as_str(text).strip()
+            if not t:
                 continue
-            score = _simple_ratio(q, s)
-            cand = (s, float(score), int(line_no))
+            score = _simple_ratio(q, t)
+            cand = (t, float(score), int(line_no))
             if best is None or cand[1] > best[1]:
                 best = cand
         return best
+
+    _extract_one = _df_extract_one  # type: ignore
 
 
 # =========================
@@ -101,23 +114,22 @@ class QuoteCheck:
 
 def _best_match(quote: str, lines: List[PoemLine]) -> QuoteCheck:
     """
-    Dùng mapping {line_no:int -> text:str} cho RapidFuzz/difflib.
-    LƯU Ý: Không dùng {text -> line_no} vì RapidFuzz sẽ coi value (line_no) là 'sequence' và gọi len().
+    Dùng mapping {line_no:int -> text:str} để tương thích mọi phiên bản RapidFuzz.
     """
-    choices: Dict[int, str] = {}
+    mapping: Dict[int, str] = {}
     for ln in lines:
         try:
             n = int(getattr(ln, "number", None))
         except Exception:
             continue
-        t = _as_str(getattr(ln, "text", ""))
+        t = _as_str(getattr(ln, "text", "")).strip()
         if not t:
             continue
-        choices[n] = t
+        mapping[n] = t
 
-    result = _extract_one(quote, choices)
+    result = _extract_one(quote, mapping)
     if not result:
-        return QuoteCheck(quote=quote, score=0.0, matched_line=None, matched_text=None)
+        return QuoteCheck(quote=_as_str(quote), score=0.0, matched_line=None, matched_text=None)
 
     matched_text, score, line_no = result
     return QuoteCheck(
