@@ -2,60 +2,47 @@
 import os
 import re
 from typing import Any, Dict
-
 import google.generativeai as genai
 
-
 class GenerationError(RuntimeError):
-    """Raised when the Gemini client cannot be used."""
-
+    pass
 
 def is_gemini_configured() -> bool:
-    """Return ``True`` when a GOOGLE_API_KEY is available."""
-
     return bool(os.getenv("GOOGLE_API_KEY"))
 
-try:  # pragma: no cover - support package/script usage
-    from .prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
-except ImportError:  # pragma: no cover
-    from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
+try:
+    from app.prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET  # type: ignore
+except Exception:
+    # fallback an toàn nếu thiếu file
+    DEFAULT_LONG_TOKEN_BUDGET = 2048
+    DEFAULT_SHORT_TOKEN_BUDGET = 768
 
 def _setup() -> None:
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        raise GenerationError(
-            "Chưa thiết lập GOOGLE_API_KEY nên không thể gọi Gemini."
-        )
-    try:
-        genai.configure(api_key=api_key)
-    except Exception as exc:  # pragma: no cover - network/runtime error guard
-        raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
+        raise GenerationError("Chưa thiết lập GOOGLE_API_KEY nên không thể gọi Gemini.")
+    genai.configure(api_key=api_key)
 
 def _postprocess(ans: str) -> str:
-    if not ans: return ans
-    # cắt mọi dòng kiểu "Nguồn:" / "Source:" nếu model tự đẻ ra
+    if not ans:
+        return ans
     lines = []
     for ln in ans.splitlines():
         if re.match(r"^\s*(Nguồn|Source)\s*:.*$", ln, flags=re.I):
             continue
         lines.append(ln)
     txt = "\n".join(lines).strip()
-    # chống trùng lặp đoạn
     txt = re.sub(r"(?:\n\n)+", "\n\n", txt)
     return txt
 
 def _resolve_generation_config(long_answer: bool, max_tokens: int | None) -> Dict[str, Any]:
-    resolved_max = max_tokens
-    if resolved_max is None:
-        resolved_max = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
-
+    resolved_max = max_tokens or (DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET)
     return {
         "temperature": 0.6 if long_answer else 0.55,
         "top_p": 0.9,
         "top_k": 40,
         "max_output_tokens": int(resolved_max),
     }
-
 
 def generate_answer_gemini(
     prompt: str,
@@ -64,7 +51,6 @@ def generate_answer_gemini(
     max_tokens: int | None = None,
 ) -> str:
     _setup()
-
     generation_config = _resolve_generation_config(long_answer, max_tokens)
 
     if long_answer:
@@ -77,19 +63,7 @@ def generate_answer_gemini(
 """
 
     gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
-    try:
-        res = gm.generate_content(
-            prompt,
-            safety_settings={
-                "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
-                "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
-                "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
-                "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
-            },
-        )
-    except Exception as exc:  # pragma: no cover - network/runtime error guard
-        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
-
+    res = gm.generate_content(prompt)
     try:
         out = res.text
     except Exception:

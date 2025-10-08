@@ -1,47 +1,37 @@
 # -*- coding: utf-8 -*-
-"""Streamlit chat UI for Kiều Bot.
-
-This module wraps the orchestrator answer pipeline in a lightweight
-chat-style interface.  The UI exposes the most relevant controls for
-retrieval/generation while also surfacing the verification payload the
-backend returns (intent, sources, quote checks, etc.).
-"""
+"""Streamlit chat UI for Kiều Bot."""
 
 from __future__ import annotations
 
 import time
 from typing import Any, Dict, Iterable, List, MutableMapping, Tuple
-
+import sys
+from pathlib import Path
 import streamlit as st
 
-try:  # pragma: no cover - allow "python app/ui_chat.py" and module usage
-    from .orchestrator import answer_with_router
-    from .generation import is_gemini_configured
-    from .poem_tools import poem_ready
-except ImportError:  # pragma: no cover - script execution
-    from orchestrator import answer_with_router  # type: ignore
-    from generation import is_gemini_configured  # type: ignore
-    from poem_tools import poem_ready  # type: ignore
+# === ÉP đường dẫn gốc vào sys.path và import theo package "app" ===
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
+from app.orchestrator import answer_with_router  # type: ignore
+from app.generation import is_gemini_configured  # type: ignore
+from app.poem_tools import poem_ready  # type: ignore
 
 ChatHistory = List[MutableMapping[str, Any]]
 RawHistory = List[Tuple[str, str]]
 
 
 def _init_state() -> None:
-    """Prepare Streamlit session state structures."""
-
     if "chat" not in st.session_state:
         st.session_state.chat = []  # type: ignore[assignment]
 
 
 def _normalize_history(chat: Iterable[Any]) -> ChatHistory:
-    """Ensure legacy tuple-based history becomes dict-based."""
-
     normalized: ChatHistory = []
     for item in chat:
         if isinstance(item, dict):
-            normalized.append(item)  # already in the expected schema
+            normalized.append(item)
         elif isinstance(item, (list, tuple)) and len(item) == 2:
             role, content = item
             normalized.append({"role": role, "content": content})
@@ -49,13 +39,8 @@ def _normalize_history(chat: Iterable[Any]) -> ChatHistory:
 
 
 def _history_for_model(chat: ChatHistory, limit: int = 12) -> RawHistory:
-    """Return the last ``limit`` messages as (role, text) tuples."""
-
     window = chat[-limit:]
-    return [
-        (entry.get("role", "user"), entry.get("content", ""))
-        for entry in window
-    ]
+    return [(entry.get("role", "user"), entry.get("content", "")) for entry in window]
 
 
 def _render_sources(sources: Iterable[str]) -> None:
@@ -68,14 +53,11 @@ def _render_sources(sources: Iterable[str]) -> None:
 def _render_verification(payload: Dict[str, Any]) -> None:
     if not payload:
         return
-
     quotes: List[Dict[str, Any]] = payload.get("quotes") or []
     accepted: List[Dict[str, Any]] = payload.get("accepted") or []
     coverage = payload.get("coverage")
 
-    accepted_key = {
-        (item.get("quote"), item.get("matched_line")) for item in accepted
-    }
+    accepted_key = {(item.get("quote"), item.get("matched_line")) for item in accepted}
 
     summary_parts = []
     if coverage is not None:
@@ -116,19 +98,14 @@ def _render_meta(meta: Dict[str, Any], *, debug: bool) -> None:
 
     error_detail = meta.get("error")
     if error_detail:
-        st.warning(
-            "⚠️ Không thể gọi Gemini – vui lòng kiểm tra cấu hình API key.",
-            icon="⚠️",
-        )
-        if debug:
-            st.code(error_detail)
+        st.warning("⚠️ Không thể gọi Gemini – kiểm tra GOOGLE_API_KEY.", icon="⚠️")
 
     if not debug:
         return
 
     intent = meta.get("intent")
     elapsed_ms = meta.get("elapsed_ms")
-    if intent or elapsed_ms:
+    if intent or elapsed_ms is not None:
         parts = []
         if intent:
             parts.append(f"🧭 Intent: `{intent}`")
@@ -163,25 +140,17 @@ st.markdown(
 with st.sidebar:
     st.header("Thiết lập")
     k = st.slider("Top-k ngữ cảnh", 3, 8, 5)
-    model = st.selectbox(
-        "Gemini model",
-        ["gemini-2.0-flash", "gemini-2.0-flash-lite"],
-        index=0,
-    )
+    model = st.selectbox("Gemini model", ["gemini-2.0-flash"], index=0)
     long_ans = st.toggle("Văn phong luận văn (dài hơn)", value=True)
-    max_tok = st.slider(
-        "Giới hạn độ dài trả lời (tokens)", 256, 8096, 1024, step=128
-    )
-    debug_meta = st.toggle(
-        "Hiển thị intent & kiểm chứng", value=True, help="Ẩn/hiện metadata trả lời"
-    )
+    max_tok = st.slider("Giới hạn độ dài trả lời (tokens)", 256, 8096, 1024, step=128)
+    debug_meta = st.toggle("Hiển thị intent & kiểm chứng", value=True)
     if st.button("🧹 Xóa hội thoại", use_container_width=True):
         _clear_chat()
         st.rerun()
 
 if not is_gemini_configured():
     st.info(
-        "🔑 Chưa thấy GOOGLE_API_KEY. Một số câu trả lời sẽ báo lỗi cho tới khi bạn cấu hình khóa Gemini.",
+        "🔑 Chưa thấy GOOGLE_API_KEY. Một số câu trả lời sẽ lỗi cho đến khi bạn cấu hình khóa Gemini.",
         icon="ℹ️",
     )
 if not poem_ready():
@@ -210,7 +179,7 @@ if user_msg:
     with st.chat_message("user"):
         st.markdown(user_msg)
 
-    history = _history_for_model(chat, limit=12)  # ngắn hạn
+    history = _history_for_model(chat, limit=12)
 
     with st.chat_message("assistant"):
         t0 = time.time()
@@ -223,7 +192,7 @@ if user_msg:
                 long_answer=long_ans,
                 max_tokens=max_tok,
             )
-        except Exception as exc:  # pragma: no cover - runtime safeguard
+        except Exception as exc:
             st.error(f"Lỗi khi trả lời: {exc}")
             ret = {"answer": "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi."}
 
@@ -241,5 +210,3 @@ if user_msg:
         _render_meta(meta, debug=debug_meta)
 
     chat.append({"role": "assistant", "content": answer_text, "meta": meta})
-    
-    
