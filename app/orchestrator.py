@@ -1,5 +1,3 @@
-+76
--8
 
 from typing import Dict, Any, List, Tuple, Optional
 try:  # pragma: no cover - support both package and script execution
