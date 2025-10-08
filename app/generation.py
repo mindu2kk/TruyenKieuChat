@@ -31,9 +31,9 @@ def _setup() -> None:
         raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
 
 
-def _postprocess(ans: str) -> str:
+def _postprocess(ans: Optional[str]) -> str:
     if not ans:
-        return ans
+        return ""
     # cắt mọi dòng kiểu "Nguồn:" / "Source:" nếu model tự sinh
     lines = []
     for ln in ans.splitlines():
@@ -85,15 +85,7 @@ def generate_answer_gemini(
         gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
 
         try:
-            res = gm.generate_content(
-                prompt,
-                safety_settings={
-                    "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
-                    "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
-                    "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
-                    "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
-                },
-            )
+            res = gm.generate_content(prompt)
         except TypeError as exc:
             # 👉 thường gặp khi có biến sai kiểu ở phía trên (UI truyền nhầm), hoặc SDK đòi kiểu khác
             raise GenerationError(

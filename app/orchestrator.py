@@ -25,8 +25,19 @@ def _generation_failure_response(intent: str, reason: str, *, sources: Optional[
         message += f"\n\nChi tiết kỹ thuật: {detail}"
     return {"intent": intent, "answer": message, "sources": sources or [], "error": detail}
 
-def _safe_generate(intent: str, prompt: str, *, sources: Optional[List[str]] = None, **gen_kwargs: Any):
-    # Chuẩn hóa max_tokens (tránh lỗi kiểu)
+def _safe_generate(
+    intent: str,
+    prompt: str,
+    *,
+    sources: Optional[List[str]] = None,
+    **gen_kwargs: Any,
+) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
+    """
+    Gọi Gemini an toàn:
+    - ép kiểu max_tokens -> int (tránh len(int))
+    - nếu model trả rỗng -> quy thành lỗi để UI không im lặng
+    - bắt mọi exception -> trả payload lỗi thống nhất
+    """
     if "max_tokens" in gen_kwargs and gen_kwargs["max_tokens"] is not None:
         try:
             gen_kwargs["max_tokens"] = int(gen_kwargs["max_tokens"])
@@ -34,9 +45,12 @@ def _safe_generate(intent: str, prompt: str, *, sources: Optional[List[str]] = N
             del gen_kwargs["max_tokens"]
 
     try:
-        # lazy import ở đây để tránh circular/partial import
         from .generation import generate_answer_gemini
-        return generate_answer_gemini(prompt, **gen_kwargs), None
+        out: str = generate_answer_gemini(prompt, **gen_kwargs)
+        if not (out and out.strip()):
+            # ❗ Quan trọng: coi output rỗng là lỗi có thông báo rõ ràng
+            return None, _generation_failure_response(intent, "Model trả về nội dung rỗng.", sources=sources)
+        return out, None
     except Exception as exc:
         return None, _generation_failure_response(intent, str(exc), sources=sources)
 
