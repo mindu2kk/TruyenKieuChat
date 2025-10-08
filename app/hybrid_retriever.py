@@ -124,17 +124,19 @@ class HybridRetriever:
         self._corpus: List[CorpusDocument] | None = None
         self._bm25 = None
         self._dense_model = None
-        self._dense_disabled = _truthy_env("TKC_DISABLE_DENSE")
+        dense_disabled = _truthy_env("TKC_DISABLE_DENSE") or not _truthy_env("TKC_ENABLE_DENSE")
+        self._dense_disabled = dense_disabled
         self._dense_error: Optional[str] = (
-            "Dense retriever đang bị tắt qua biến môi trường TKC_DISABLE_DENSE."
+            "Dense retriever đang bị tắt (bật bằng TKC_ENABLE_DENSE=1)."
             if self._dense_disabled
             else None
         )
         self._dense_embeddings: NDArray | None = None
         self._colbert_model = None
-        self._colbert_disabled = _truthy_env("TKC_DISABLE_COLBERT")
+        colbert_disabled = _truthy_env("TKC_DISABLE_COLBERT") or not _truthy_env("TKC_ENABLE_COLBERT")
+        self._colbert_disabled = colbert_disabled
         self._colbert_error: Optional[str] = (
-            "ColBERT retriever đang bị tắt qua biến môi trường TKC_DISABLE_COLBERT."
+            "ColBERT retriever đang bị tắt (bật bằng TKC_ENABLE_COLBERT=1)."
             if self._colbert_disabled
             else None
         )

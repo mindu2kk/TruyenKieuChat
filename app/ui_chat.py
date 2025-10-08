@@ -16,8 +16,12 @@ import streamlit as st
 
 try:  # pragma: no cover - allow "python app/ui_chat.py" and module usage
     from .orchestrator import answer_with_router
+    from .generation import is_gemini_configured
+    from .poem_tools import poem_ready
 except ImportError:  # pragma: no cover - script execution
     from orchestrator import answer_with_router  # type: ignore
+    from generation import is_gemini_configured  # type: ignore
+    from poem_tools import poem_ready  # type: ignore
 
 
 ChatHistory = List[MutableMapping[str, Any]]
@@ -107,7 +111,19 @@ def _render_verification(payload: Dict[str, Any]) -> None:
 
 
 def _render_meta(meta: Dict[str, Any], *, debug: bool) -> None:
-    if not meta or not debug:
+    if not meta:
+        return
+
+    error_detail = meta.get("error")
+    if error_detail:
+        st.warning(
+            "⚠️ Không thể gọi Gemini – vui lòng kiểm tra cấu hình API key.",
+            icon="⚠️",
+        )
+        if debug:
+            st.code(error_detail)
+
+    if not debug:
         return
 
     intent = meta.get("intent")
@@ -163,6 +179,17 @@ with st.sidebar:
         _clear_chat()
         st.rerun()
 
+if not is_gemini_configured():
+    st.info(
+        "🔑 Chưa thấy GOOGLE_API_KEY. Một số câu trả lời sẽ báo lỗi cho tới khi bạn cấu hình khóa Gemini.",
+        icon="ℹ️",
+    )
+if not poem_ready():
+    st.info(
+        "📜 Kho thơ chưa sẵn sàng (thiếu data/interim/poem). Các câu hỏi về thơ sẽ dùng dữ liệu tối giản.",
+        icon="ℹ️",
+    )
+
 _init_state()
 st.session_state.chat = _normalize_history(st.session_state.chat)  # type: ignore[attr-defined]
 chat: ChatHistory = st.session_state.chat  # type: ignore[assignment]
@@ -209,6 +236,7 @@ if user_msg:
             "sources": ret.get("sources") or [],
             "verification": ret.get("verification"),
             "elapsed_ms": elapsed_ms,
+            "error": ret.get("error"),
         }
         _render_meta(meta, debug=debug_meta)
 

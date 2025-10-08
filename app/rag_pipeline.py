@@ -4,7 +4,7 @@ import unicodedata
 
 try:  # pragma: no cover - flexible import paths
     from .rerank import rerank
-    from .generation import generate_answer_gemini
+    from .generation import GenerationError, generate_answer_gemini
     from .prompt_engineering import (
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
@@ -13,7 +13,7 @@ try:  # pragma: no cover - flexible import paths
     from .hybrid_retriever import HybridRetriever, RetrievalHit
 except ImportError:  # pragma: no cover
     from rerank import rerank
-    from generation import generate_answer_gemini
+    from generation import GenerationError, generate_answer_gemini
     from prompt_engineering import (
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
@@ -298,21 +298,24 @@ def answer_question(
 
     prompt = build_rag_synthesis_prompt(query, contexts, history_text=history_text, long_answer=long_answer)
 
+    out = {"query": query, "prompt": prompt, "contexts": contexts}
+
     if synthesize and synthesize != "mapreduce":
         if force_quote:
             prompt += "\n\n[LƯU Ý] Nếu có câu thơ phù hợp, hãy trích 1–2 câu trong ngoặc kép."
-        ans = generate_answer_gemini(
-            prompt,
-            model=gen_model,
-            long_answer=long_answer,
-            max_tokens=max_tokens,
-        )
-    else:
-        ans = None
+        try:
+            ans = generate_answer_gemini(
+                prompt,
+                model=gen_model,
+                long_answer=long_answer,
+                max_tokens=max_tokens,
+            )
+        except GenerationError as exc:
+            out["generation_error"] = str(exc)
+            return out
+        if ans:
+            out["answer"] = ans
 
-    out = {"query": query, "prompt": prompt, "contexts": contexts}
-    if ans:
-        out["answer"] = ans
     return out
 
 _HYBRID_RETRIEVER = HybridRetriever()

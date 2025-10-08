@@ -5,16 +5,31 @@ from typing import Any, Dict
 
 import google.generativeai as genai
 
+
+class GenerationError(RuntimeError):
+    """Raised when the Gemini client cannot be used."""
+
+
+def is_gemini_configured() -> bool:
+    """Return ``True`` when a GOOGLE_API_KEY is available."""
+
+    return bool(os.getenv("GOOGLE_API_KEY"))
+
 try:  # pragma: no cover - support package/script usage
     from .prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
 except ImportError:  # pragma: no cover
     from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
 
-def _setup():
+def _setup() -> None:
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
-        raise RuntimeError("GOOGLE_API_KEY không tồn tại trong môi trường.")
-    genai.configure(api_key=api_key)
+        raise GenerationError(
+            "Chưa thiết lập GOOGLE_API_KEY nên không thể gọi Gemini."
+        )
+    try:
+        genai.configure(api_key=api_key)
+    except Exception as exc:  # pragma: no cover - network/runtime error guard
+        raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
 
 def _postprocess(ans: str) -> str:
     if not ans: return ans
@@ -62,15 +77,18 @@ def generate_answer_gemini(
 """
 
     gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
-    res = gm.generate_content(
-        prompt,
-        safety_settings={
-            "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
-            "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
-            "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
-            "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
-        },
-    )
+    try:
+        res = gm.generate_content(
+            prompt,
+            safety_settings={
+                "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
+                "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
+                "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
+                "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
+            },
+        )
+    except Exception as exc:  # pragma: no cover - network/runtime error guard
+        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
 
     try:
         out = res.text
