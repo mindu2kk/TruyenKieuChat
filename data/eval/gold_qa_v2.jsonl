@@ -1,0 +1,30 @@
+{"question": "So sánh chữ tài và chữ mệnh trong 4 câu mở đầu", "expected": {"lines": [1, 4], "motif": "Mở đầu: cảm hứng nhân sinh", "key": "tai-menh"}}
+{"question": "Nêu vẻ đẹp đoan trang của Thuý Vân", "expected": {"lines": [21, 26], "motif": "Chân dung chị em Thuý Kiều", "key": "thuy-van"}}
+{"question": "Phân tích bi kịch bán mình của Thuý Kiều", "expected": {"lines": [215, 250], "motif": "Gia biến và bán mình", "key": "ban-minh"}}
+{"question": "Ý nghĩa lời thề Kim Trọng", "expected": {"lines": [155, 170], "motif": "Mối tình Kiều – Kim Trọng", "key": "loi-the"}}
+{"question": "Trích dẫn chứng minh Từ Hải là bậc anh hùng", "expected": {"lines": [2145, 2160], "motif": "Chí khí Từ Hải", "key": "tu-hai"}}
+{"question": "Mô tả tâm trạng Kiều ở lầu Ngưng Bích", "expected": {"lines": [1033, 1050], "motif": "Gia đình Hoạn Thư", "key": "lau-ngung-bich"}}
+{"question": "Giải thích hình ảnh 'hoa ghen thua thắm, liễu hờn kém xanh'", "expected": {"lines": [27, 34], "motif": "Chân dung chị em Thuý Kiều", "key": "hoa-ghen"}}
+{"question": "Trích dẫn nói về tài đàn của Kiều", "expected": {"lines": [39, 60], "motif": "Chân dung chị em Thuý Kiều", "key": "tai-dan"}}
+{"question": "Ý nghĩa giấc mơ Đạm Tiên", "expected": {"lines": [245, 280], "motif": "Gia biến và bán mình", "key": "dam-tien"}}
+{"question": "Nội dung đoạn 'Trao duyên'", "expected": {"lines": [723, 756], "motif": "Gia đình Hoạn Thư", "key": "trao-duyen"}}
+{"question": "Phân tích đoạn 'Nỗi thương mình'", "expected": {"lines": [1173, 1200], "motif": "Gia đình Hoạn Thư", "key": "noi-thuong-minh"}}
+{"question": "Ý nghĩa đoàn tụ cuối truyện", "expected": {"lines": [2405, 2448], "motif": "Đoàn tụ và lời kết", "key": "doan-tu"}}
+{"question": "Các câu thơ nói về Thuý Kiều báo ân", "expected": {"lines": [2215, 2250], "motif": "Lưu lạc và báo ân báo oán", "key": "bao-an"}}
+{"question": "So sánh hình ảnh Kim Trọng trước và sau gia biến", "expected": {"lines": [151, 210], "motif": "Mối tình Kiều – Kim Trọng", "key": "kim-trong"}}
+{"question": "Phân tích cảnh ngày xuân", "expected": {"lines": [81, 120], "motif": "Ngày xuân và hội Đạp Thanh", "key": "ngay-xuan"}}
+{"question": "Minh hoạ sự tàn bạo của Hoạn Thư", "expected": {"lines": [964, 1000], "motif": "Gia đình Hoạn Thư", "key": "hoan-thu"}}
+{"question": "Giải thích triết lý chữ duyên cuối truyện", "expected": {"lines": [2418, 2440], "motif": "Đoàn tụ và lời kết", "key": "chu-duyen"}}
+{"question": "Các câu thơ về tài văn của Kiều", "expected": {"lines": [47, 60], "motif": "Chân dung chị em Thuý Kiều", "key": "tai-van"}}
+{"question": "Chứng minh Kiều hiếu thảo", "expected": {"lines": [281, 340], "motif": "Gia biến và bán mình", "key": "hieu-thao"}}
+{"question": "Những hình ảnh thiên nhiên báo hiệu tai ương", "expected": {"lines": [349, 380], "motif": "Gia biến và bán mình", "key": "diem-bao"}}
+{"question": "Vai trò Giác Duyên trong đời Kiều", "expected": {"lines": [1960, 1990], "motif": "Lưu lạc và báo ân báo oán", "key": "giac-duyen"}}
+{"question": "Từ Hải gặp Kiều như thế nào", "expected": {"lines": [1325, 1355], "motif": "Chí khí Từ Hải", "key": "tu-hai-gap-kieu"}}
+{"question": "Hình tượng sông Tiền Đường", "expected": {"lines": [2055, 2085], "motif": "Lưu lạc và báo ân báo oán", "key": "song-tien-duong"}}
+{"question": "Tâm trạng Kiều khi gảy đàn ở lầu Ngưng Bích", "expected": {"lines": [1055, 1090], "motif": "Gia đình Hoạn Thư", "key": "gay-dan"}}
+{"question": "Minh chứng lòng thuỷ chung của Thuý Kiều", "expected": {"lines": [158, 170], "motif": "Mối tình Kiều – Kim Trọng", "key": "thuy-chung"}}
+{"question": "Các câu thơ tả tiếng đàn bạc mệnh", "expected": {"lines": [585, 610], "motif": "Lầu xanh và mưu đồ Sở Khanh", "key": "bac-menh"}}
+{"question": "Những câu thơ nói về Mã Giám Sinh", "expected": {"lines": [361, 410], "motif": "Gia biến và bán mình", "key": "ma-giam-sinh"}}
+{"question": "Phân tích lời khuyên của sư Giác Duyên", "expected": {"lines": [1965, 1985], "motif": "Lưu lạc và báo ân báo oán", "key": "loi-khuyen"}}
+{"question": "Diễn biến vụ án hồ sơ Hoạn Thư", "expected": {"lines": [2040, 2065], "motif": "Lưu lạc và báo ân báo oán", "key": "vu-an"}}
+{"question": "Các câu thơ nhắc đến Đạm Tiên", "expected": {"lines": [243, 320], "motif": "Gia biến và bán mình", "key": "nhac-dam-tien"}}

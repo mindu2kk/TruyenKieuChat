@@ -1,0 +1,12 @@
+[
+  {"range": [1, 34], "motif": "Mở đầu: cảm hứng nhân sinh"},
+  {"range": [35, 80], "motif": "Chân dung chị em Thuý Kiều"},
+  {"range": [81, 150], "motif": "Ngày xuân và hội Đạp Thanh"},
+  {"range": [151, 210], "motif": "Mối tình Kiều – Kim Trọng"},
+  {"range": [211, 340], "motif": "Gia biến và bán mình"},
+  {"range": [341, 620], "motif": "Lầu xanh và mưu đồ Sở Khanh"},
+  {"range": [621, 1050], "motif": "Gia đình Hoạn Thư"},
+  {"range": [1051, 1500], "motif": "Chí khí Từ Hải"},
+  {"range": [1501, 2300], "motif": "Lưu lạc và báo ân báo oán"},
+  {"range": [2301, 2448], "motif": "Đoàn tụ và lời kết"}
+]

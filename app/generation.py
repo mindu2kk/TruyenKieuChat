@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-import os, re
+import os
+import re
 from typing import Any, Dict
 
 import google.generativeai as genai
 
-from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
+try:  # pragma: no cover - support package/script usage
+    from .prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
+except ImportError:  # pragma: no cover
+    from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET
 
 def _setup():
     api_key = os.getenv("GOOGLE_API_KEY")

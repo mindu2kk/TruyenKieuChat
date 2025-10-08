@@ -1,18 +1,48 @@
-# -*- coding: utf-8 -*-
 from typing import Dict, Any, List, Tuple, Optional
-from router import route_intent, parse_poem_request
-from rag_pipeline import answer_question
-from generation import generate_answer_gemini
-from faq import lookup_faq
-from cache import get_cached, set_cached
-from poem_tools import poem_ready, get_opening, get_range, get_single
-from prompt_engineering import (
-    DEFAULT_LONG_TOKEN_BUDGET,
-    DEFAULT_SHORT_TOKEN_BUDGET,
-    build_generic_prompt,
-    build_poem_disambiguation_prompt,
-    build_smalltalk_prompt,
-)
+try:  # pragma: no cover - support both package and script execution
+    from .router import route_intent, parse_poem_request
+    from .rag_pipeline import answer_question
+    from .generation import generate_answer_gemini
+    from .faq import lookup_faq
+    from .cache import get_cached, set_cached
+    from .poem_tools import (
+        poem_ready,
+        get_opening,
+        get_range,
+        get_single,
+        compare_lines,
+    )
+    from .prompt_engineering import (
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+        build_generic_prompt,
+        build_poem_disambiguation_prompt,
+        build_smalltalk_prompt,
+        build_poem_compare_prompt,
+    )
+    from .verifier import verify_poem_quotes
+except ImportError:  # pragma: no cover - script mode
+    from router import route_intent, parse_poem_request
+    from rag_pipeline import answer_question
+    from generation import generate_answer_gemini
+    from faq import lookup_faq
+    from cache import get_cached, set_cached
+    from poem_tools import (
+        poem_ready,
+        get_opening,
+        get_range,
+        get_single,
+        compare_lines,
+    )
+    from prompt_engineering import (
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+        build_generic_prompt,
+        build_poem_disambiguation_prompt,
+        build_smalltalk_prompt,
+        build_poem_compare_prompt,
+    )
+    from verifier import verify_poem_quotes
 
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
@@ -103,12 +133,41 @@ def answer_with_router(
                     ans = f"Chưa tra được câu {n} (vượt ngoài số dòng hiện có)."
                 set_cached(qkey, ans)
                 return {"intent": "poem", "answer": ans, "sources": []}
+            if kind == "compare":
+                a, b = int(spec[1]), int(spec[2])
+                line_a, line_b = compare_lines(a, b)
+                if not line_a or not line_b:
+                    ans = "Không đủ dữ liệu để so sánh hai câu được yêu cầu."
+                    set_cached(qkey, ans)
+                    return {"intent": "poem", "answer": ans, "sources": []}
+                prompt = build_poem_compare_prompt(
+                    query,
+                    line_a=line_a,
+                    line_b=line_b,
+                    history_text=short_history,
+                )
+                ans = generate_answer_gemini(
+                    prompt,
+                    model=gemini_model,
+                    long_answer=long_answer,
+                    max_tokens=max_tokens,
+                )
+                verification = verify_poem_quotes(ans)
+                set_cached(qkey, ans)
+                sources = [f"câu {line_a.number}", f"câu {line_b.number}"]
+                return {
+                    "intent": "poem",
+                    "answer": ans,
+                    "sources": sources,
+                    "verification": verification,
+                }
 
         # không parse được — nhờ model hỏi lại ngắn
         prompt = build_poem_disambiguation_prompt(query, history_text=short_history)
         ans = generate_answer_gemini(prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
+        verification = verify_poem_quotes(ans)
         set_cached(qkey, ans)
-        return {"intent": "poem", "answer": ans, "sources": []}
+        return {"intent": "poem", "answer": ans, "sources": [], "verification": verification}
 
     # 3) Domain → RAG
     pack = answer_question(
@@ -124,10 +183,12 @@ def answer_with_router(
 
     ans = pack.get("answer")
     if ans:
+        verification = verify_poem_quotes(ans)
         set_cached(qkey, ans)
-        return {"intent": "domain", "answer": ans, "sources": []}
+        return {"intent": "domain", "answer": ans, "sources": [], "verification": verification}
 
     # 4) fallback
     ans = generate_answer_gemini(pack["prompt"], model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
+    verification = verify_poem_quotes(ans)
     set_cached(qkey, ans)
-    return {"intent": "domain", "answer": ans, "sources": []}
+    return {"intent": "domain", "answer": ans, "sources": [], "verification": verification}

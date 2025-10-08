@@ -32,6 +32,10 @@ def parse_poem_request(q: str):
     m = re.search(r"(?:trích\s*)?(\d+)\s*câu\s*đầu\b", qs)
     if m:
         return ("opening", int(m.group(1)))
+    
+    m = re.search(r"so\s*sánh\s*câu\s*(\d+)\s*(?:với|vs|và)\s*câu\s*(\d+)", qs)
+    if m:
+        return ("compare", int(m.group(1)), int(m.group(2)))
 
     # câu 241–260 / từ câu 241 đến câu 260
     m = re.search(r"câu\s*(\d+)\s*[-–]\s*(\d+)", qs)

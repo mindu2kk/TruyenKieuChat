@@ -10,11 +10,12 @@ Reranker linh hoạt theo .env:
 import os
 from typing import List, Dict, Any
 
-MODE = os.getenv("RERANKER", "none").strip().lower()
+MODE = os.getenv("RERANKER", "cross_encoder").strip().lower()
 
 _tok = None
 _mdl = None
 _bge = None
+_cross_encoder = None
 
 def _ensure_jina():
     global _tok, _mdl
@@ -35,6 +36,23 @@ def rerank(query: str, hits: List[Dict[str, Any]], top_k: int = 5) -> List[Dict[
     if not hits:
         return hits
     if MODE == "none":
+        return hits[:top_k]
+
+    if MODE in {"cross_encoder", "cross-encoder", "ce"}:
+        from sentence_transformers import CrossEncoder
+
+        global _cross_encoder
+        if _cross_encoder is None:
+            ckpt = os.getenv("CROSS_ENCODER_CKPT", "keepitreal/vietnamese-cross-encoder")
+            try:
+                _cross_encoder = CrossEncoder(ckpt, max_length=384)
+            except Exception:
+                _cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-12-v2", max_length=384)
+        pairs = [(query, h["text"]) for h in hits]
+        scores = _cross_encoder.predict(pairs)
+        for h, s in zip(hits, scores):
+            h["re_score"] = float(s)
+        hits.sort(key=lambda x: x.get("re_score", 0.0), reverse=True)
         return hits[:top_k]
 
     if MODE == "cohere":
@@ -62,7 +80,3 @@ def rerank(query: str, hits: List[Dict[str, Any]], top_k: int = 5) -> List[Dict[
         scores = rr.compute_score([(query, h["text"]) for h in hits], normalize=True)
         for h, s in zip(hits, scores):
             h["re_score"] = float(s)
-        hits.sort(key=lambda x: x.get("re_score", 0.0), reverse=True)
-        return hits[:top_k]
-
-    return hits[:top_k]

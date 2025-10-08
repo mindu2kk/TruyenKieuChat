@@ -5,6 +5,11 @@ from __future__ import annotations
 
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 
+try:  # pragma: no cover - allow both package/script imports
+    from .poem_tools import PoemLine
+except ImportError:  # pragma: no cover
+    from poem_tools import PoemLine
+
 DEFAULT_SHORT_TOKEN_BUDGET = 640
 DEFAULT_LONG_TOKEN_BUDGET = 1152
 
@@ -189,7 +194,7 @@ def build_rag_synthesis_prompt(
 
     briefing = (
         "- Sử dụng dữ kiện trong NGỮ CẢNH để lập luận sâu, tránh suy đoán.\n"
-        "- Khi trích thơ, đặt trong ngoặc kép và ghi chú số câu nếu có sẵn trong ngữ cảnh.\n"
+        "- Khi trích thơ, đặt trong ngoặc kép và ghi rõ (câu X–Y) theo metadata.\n"
         "- Kết nối các đoạn bằng câu chuyển ý giàu hình ảnh.\n"
         f"{length_line}"
     )
@@ -210,6 +215,40 @@ def build_rag_synthesis_prompt(
     )
 
 
+def _format_line(line: PoemLine) -> str:
+    motifs = ", ".join(line.motifs) if line.motifs else ""
+    motif_note = f" · motif: {motifs}" if motifs else ""
+    return f"(câu {line.number}) {line.text}{motif_note}"
+
+
+def build_poem_compare_prompt(
+    query: str,
+    *,
+    line_a: PoemLine,
+    line_b: PoemLine,
+    history_text: Optional[str] = None,
+) -> str:
+    side_by_side = f"{_format_line(line_a)}\n{_format_line(line_b)}"
+    briefing = (
+        "- So sánh hai câu thơ dựa trên ngữ cảnh Truyện Kiều.\n"
+        "- Phân tích theo trục: hình ảnh, nhạc tính, tư tưởng, cảm xúc.\n"
+        "- Liên hệ motif để lý giải sự tương đồng và khác biệt."
+    )
+    response_plan = (
+        "1) Nhắc lại yêu cầu và giới thiệu hai câu thơ.\n"
+        "2) So sánh từng bình diện (hình ảnh, âm điệu, nội dung).\n"
+        "3) Kết luận giá trị nghệ thuật và thông điệp."
+    )
+    return _compose_prompt(
+        system="Bạn là chuyên gia chấm thi HSG Văn, nắm vững Truyện Kiều.",
+        briefing=briefing,
+        user_request=query,
+        history_text=history_text,
+        context_block=f"[TRÍCH DẪN]\n{side_by_side}",
+        response_plan=response_plan,
+    )
+
+
 __all__ = [
     "DEFAULT_LONG_TOKEN_BUDGET",
     "DEFAULT_SHORT_TOKEN_BUDGET",
@@ -217,4 +256,5 @@ __all__ = [
     "build_poem_disambiguation_prompt",
     "build_rag_synthesis_prompt",
     "build_smalltalk_prompt",
+    "build_poem_compare_prompt",
 ]

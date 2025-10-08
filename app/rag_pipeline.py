@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
 from typing import Dict, Any, Iterable, List, Optional, Sequence
 import unicodedata
-import importlib.util, sys
-from pathlib import Path
-from rerank import rerank
-from generation import generate_answer_gemini
-from prompt_engineering import (
-    DEFAULT_LONG_TOKEN_BUDGET,
-    DEFAULT_SHORT_TOKEN_BUDGET,
-    build_rag_synthesis_prompt,
-)
 
-ROOT = Path(__file__).resolve().parents[1]
-retr_path = ROOT / "scripts" / "04_retrieve.py"
-spec = importlib.util.spec_from_file_location("retrieve_mod", retr_path)
-retrieve_mod = importlib.util.module_from_spec(spec)
-sys.modules["retrieve_mod"] = retrieve_mod
-assert spec and spec.loader
-spec.loader.exec_module(retrieve_mod)  # type: ignore
-retrieve_context = retrieve_mod.retrieve_context
+try:  # pragma: no cover - flexible import paths
+    from .rerank import rerank
+    from .generation import generate_answer_gemini
+    from .prompt_engineering import (
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+        build_rag_synthesis_prompt,
+    )
+    from .hybrid_retriever import HybridRetriever, RetrievalHit
+except ImportError:  # pragma: no cover
+    from rerank import rerank
+    from generation import generate_answer_gemini
+    from prompt_engineering import (
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+        build_rag_synthesis_prompt,
+    )
+    from hybrid_retriever import HybridRetriever, RetrievalHit
 
 _CHARACTER_VARIANTS: Dict[str, Sequence[str]] = {
     "thúy kiều": (
@@ -117,6 +118,10 @@ def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
         meta = hit.get("meta") or hit.get("metadata") or {}
         key_parts: List[str] = []
 
+        doc_id = hit.get("doc_id")
+        if doc_id:
+            key_parts.append(str(doc_id))
+
         if isinstance(meta, dict):
             for attr in ("chunk_id", "_id", "id", "source_id"):
                 value = meta.get(attr)
@@ -141,8 +146,22 @@ def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return deduped
 
 
+def _as_hit_dict(hit: Dict[str, Any] | RetrievalHit) -> Dict[str, Any]:
+    if isinstance(hit, RetrievalHit):
+        base = {
+            "text": hit.text,
+            "score": hit.score,
+            "meta": dict(hit.metadata),
+            "metadata": dict(hit.metadata),
+            "doc_id": hit.doc_id,
+            "debug": dict(hit.debug),
+        }
+        return base
+    return dict(hit)
+
+
 def _annotate_hits(
-    hits: Sequence[Dict[str, Any]],
+    hits: Sequence[Dict[str, Any] | RetrievalHit],
     *,
     variant: str,
     variant_index: int,
@@ -152,7 +171,7 @@ def _annotate_hits(
     base_penalty = 0.06 * variant_index + (0.12 if relaxed_filters else 0.0)
 
     for local_rank, hit in enumerate(hits):
-        new_hit = dict(hit)
+        new_hit = _as_hit_dict(hit)
         meta = dict(new_hit.get("meta") or new_hit.get("metadata") or {})
         new_hit["meta"] = meta
         new_hit["metadata"] = meta
@@ -201,9 +220,9 @@ def answer_question(
         candidates: int,
         active_filters: Optional[Dict[str, Any]],
     ) -> None:
-        hits_local = retrieve_context(
+        hits_local = _HYBRID_RETRIEVER.search(
             variant,
-            k=limit,
+            top_k=limit,
             filters=active_filters,
             num_candidates=candidates,
         )
@@ -292,3 +311,5 @@ def answer_question(
     if ans:
         out["answer"] = ans
     return out
+
+_HYBRID_RETRIEVER = HybridRetriever()
