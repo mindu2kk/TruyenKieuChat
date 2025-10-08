@@ -1,0 +1,42 @@
+[
+  {
+    "patterns": ["nguyễn du là ai", "tiểu sử nguyễn du", "nguyễn du sinh năm nào"],
+    "answer": "Nguyễn Du (1765–1820), tự Tố Như, hiệu Thanh Hiên, đại thi hào dân tộc, danh nhân văn hoá thế giới, tác giả Truyện Kiều."
+  },
+  {
+    "patterns": ["truyện kiều là gì", "giới thiệu truyện kiều", "truyen kieu la gi"],
+    "answer": "Truyện Kiều là truyện thơ Nôm gồm 3.254 câu lục bát, khắc họa số phận Thúy Kiều và phản ánh xã hội phong kiến; phỏng theo Kim Vân Kiều truyện của Thanh Tâm Tài Nhân."
+  },
+  {
+    "patterns": ["truyện kiều có bao nhiêu câu", "bao nhieu cau", "so cau truyen kieu"],
+    "answer": "Truyện Kiều có 3.254 câu thơ."
+  },
+  {
+    "patterns": ["thể thơ truyện kiều", "the tho truyen kieu", "truyen kieu the nao"],
+    "answer": "Toàn bộ Truyện Kiều viết bằng thể lục bát."
+  },
+  {
+    "patterns": ["nhân vật chính truyện kiều", "nhan vat chinh truyen kieu", "nhan vat trong truyen kieu"],
+    "answer": "Nhân vật trung tâm là Thúy Kiều; các nhân vật quan trọng khác: Thúy Vân, Kim Trọng, Từ Hải, Mã Giám Sinh, Sở Khanh, Hoạn Thư, Giác Duyên, Thúc Sinh."
+  },
+  {
+    "patterns": ["bố cục truyện kiều", "bo cuc truyen kieu", "ket cau truyen kieu"],
+    "answer": "Bố cục thường chia 3 phần: (1) Gặp gỡ và đính ước (c.1–650); (2) Gia biến và lưu lạc (c.651–2944); (3) Đoàn tụ (c.2945–3254)."
+  },
+  {
+    "patterns": ["giá trị nội dung truyện kiều", "gia tri noi dung", "y nghia truyen kieu"],
+    "answer": "Giá trị nhân đạo sâu sắc: thương cảm con người tài hoa bạc mệnh, tố cáo bất công phong kiến, đề cao khát vọng tình yêu và quyền sống."
+  },
+  {
+    "patterns": ["giá trị nghệ thuật truyện kiều", "nghe thuat truyen kieu"],
+    "answer": "Ngôn ngữ Nôm điêu luyện, lục bát mẫu mực; tả cảnh ngụ tình, miêu tả nội tâm tinh vi; sử dụng điển cố, ước lệ và nghệ thuật kể chuyện hấp dẫn."
+  },
+  {
+    "patterns": ["tóm tắt truyện kiều", "tom tat truyen kieu", "noi dung chinh truyen kieu"],
+    "answer": "Thúy Kiều gặp Kim Trọng, vì gia biến phải bán mình chuộc cha, bị lừa vào lầu xanh, nhiều lần trầm luân rồi nương nhờ Từ Hải; Từ Hải bị diệt, Kiều tiếp tục khổ ải, sau được Giác Duyên cứu, cuối cùng đoàn tụ với gia đình và gặp lại Kim Trọng."
+  },
+  {
+    "patterns": ["nguồn gốc cốt truyện", "kim vân kiều truyện", "nguon goc truyen kieu"],
+    "answer": "Nguyễn Du phỏng theo tiểu thuyết chương hồi Trung Hoa 'Kim Vân Kiều truyện' của Thanh Tâm Tài Nhân để sáng tác Truyện Kiều."
+  }
+]
