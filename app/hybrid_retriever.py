@@ -51,9 +51,29 @@ except ImportError:  # pragma: no cover
 def _prepare_hf_cache() -> Path:
     """Ensure Hugging Face models download into a writable directory."""
 
-    default_root = Path(__file__).resolve().parent / ".." / ".hf_cache"
-    cache_root = Path(os.environ.get("HF_HOME", default_root))
-    cache_root.mkdir(parents=True, exist_ok=True)
+    repo_root = Path(__file__).resolve().parent / ".." / ".hf_cache"
+    home_root = Path.home() / ".cache" / "huggingface"
+
+    candidates: List[Path] = []
+    env_home = os.environ.get("HF_HOME")
+    if env_home:
+        candidates.append(Path(env_home))
+    candidates.extend([repo_root, home_root])
+
+    cache_root: Optional[Path] = None
+    for path in candidates:
+        try:
+            path.mkdir(parents=True, exist_ok=True)
+        except PermissionError:
+            continue
+        if os.access(path, os.W_OK):
+            cache_root = path
+            break
+
+    if cache_root is None:
+        # Final fallback: use a temporary directory inside the current working tree.
+        cache_root = Path.cwd() / ".hf_cache"
+        cache_root.mkdir(parents=True, exist_ok=True)
 
     # Align other libraries that respect their own environment flags.
     os.environ.setdefault("HF_HOME", str(cache_root))
@@ -101,9 +121,9 @@ class HybridRetriever:
         self._corpus: List[CorpusDocument] | None = None
         self._bm25 = None
         self._dense_model = None
-        self._dense_embeddings: NDArray | None = None
+        self._dense_embeddings: np.ndarray | None = None
         self._colbert_model = None
-        self._colbert_embeddings: NDArray | None = None
+        self._colbert_embeddings: np.ndarray | None = None
         self._colbert_doc_index: List[int] | None = None
         self._colbert_segments: List[str] | None = None
 
