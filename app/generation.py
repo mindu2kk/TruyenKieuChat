@@ -1,25 +1,31 @@
+# app/generation.py
 # -*- coding: utf-8 -*-
 import os
 import re
-from typing import Any, Dict
+from typing import Any, Dict, Optional
+
 import google.generativeai as genai
+
 
 class GenerationError(RuntimeError):
     """Raised when the Gemini client cannot be used."""
 
+
 def is_gemini_configured() -> bool:
-    """Return True when a GOOGLE_API_KEY is available."""
     return bool(os.getenv("GOOGLE_API_KEY"))
 
-# Optional tuning constants (safe defaults if module not present)
-try:
-    from app.prompt_engineering import (
+
+try:  # cho cả dạng package và chạy script
+    from .prompt_engineering import (
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
-    )  # type: ignore
-except Exception:
-    DEFAULT_LONG_TOKEN_BUDGET = 2048
-    DEFAULT_SHORT_TOKEN_BUDGET = 768
+    )
+except ImportError:
+    from prompt_engineering import (  # type: ignore
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+    )
+
 
 def _setup() -> None:
     api_key = os.getenv("GOOGLE_API_KEY")
@@ -30,44 +36,85 @@ def _setup() -> None:
     except Exception as exc:
         raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
 
+
 def _postprocess(ans: str) -> str:
     if not ans:
         return ans
-    # Bỏ mọi dòng model tự thêm "Nguồn:" / "Source:"
+    # bỏ các dòng “Nguồn: … / Source: …”
     lines = []
     for ln in ans.splitlines():
         if re.match(r"^\s*(Nguồn|Source)\s*:.*$", ln, flags=re.I):
             continue
         lines.append(ln)
     txt = "\n".join(lines).strip()
-    # Gọn khoảng trắng
     txt = re.sub(r"(?:\n\n)+", "\n\n", txt)
     return txt
 
-def _resolve_generation_config(long_answer: bool, max_tokens: int | None) -> Dict[str, Any]:
-    resolved_max = max_tokens if max_tokens is not None else (
-        DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
-    )
-    # Tránh truyền giá trị “None” vào SDK
-    cfg: Dict[str, Any] = {
-        "temperature": 0.6 if long_answer else 0.55,
-        "top_p": 0.9,
-        "top_k": 40,
+
+def _resolve_generation_config(long_answer: bool, max_tokens: Optional[int]) -> Dict[str, Any]:
+    resolved_max = max_tokens
+    if resolved_max is None:
+        resolved_max = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+
+    # BẮT BUỘC đúng kiểu dữ liệu (float/int)
+    return {
+        "temperature": float(0.6 if long_answer else 0.55),
+        "top_p": float(0.9),
+        "top_k": int(40),
         "max_output_tokens": int(resolved_max),
-        "candidate_count": 1,
     }
-    return cfg
+
+
+def _call_gemini_safe(model: str, prompt: str, generation_config: Optional[Dict[str, Any]]):
+    """
+    Gọi Gemini an toàn trên nhiều version SDK:
+    - Thử truyền generation_config vào generate_content (cách khuyến nghị)
+    - Nếu dính TypeError (len(int)), thử cực giản chỉ max_output_tokens
+    - Nếu vẫn lỗi, gọi mặc định không config
+    """
+    gm = genai.GenerativeModel(model_name=model)
+
+    # Cách 1: full config
+    try:
+        return gm.generate_content(
+            prompt,
+            generation_config=generation_config,
+        )
+    except TypeError as exc:
+        # Thường gặp “object of type 'int' has no len()” khi SDK đổi API nội bộ
+        last_err = exc
+    except Exception as exc:
+        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+
+    # Cách 2: chỉ giữ max_output_tokens
+    try:
+        minimal_cfg = None
+        if generation_config and "max_output_tokens" in generation_config:
+            minimal_cfg = {"max_output_tokens": int(generation_config["max_output_tokens"])}
+        return gm.generate_content(
+            prompt,
+            generation_config=minimal_cfg,
+        )
+    except TypeError:
+        pass
+    except Exception as exc:
+        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+
+    # Cách 3: không truyền config (mặc định SDK)
+    try:
+        return gm.generate_content(prompt)
+    except Exception as exc:
+        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+
 
 def generate_answer_gemini(
     prompt: str,
     model: str = "gemini-2.0-flash",
     long_answer: bool = False,
-    max_tokens: int | None = None,
+    max_tokens: Optional[int] = None,
 ) -> str:
-    """
-    Gọi Gemini an toàn (không set generation_config ở constructor để tránh bug len(int)).
-    """
     _setup()
+
     generation_config = _resolve_generation_config(long_answer, max_tokens)
 
     if long_answer:
@@ -79,32 +126,24 @@ def generate_answer_gemini(
 - Diễn đạt mềm mại, tránh liệt kê máy móc; ưu tiên sự sáng rõ và cô đọng.
 """
 
-    gm = genai.GenerativeModel(model_name=model)
-    try:
-        res = gm.generate_content(
-            prompt,
-            generation_config=generation_config,  # <— chuyển config sang đây
-            safety_settings={
-                "HARM_CATEGORY_HATE_SPEECH": "BLOCK_LOW_AND_ABOVE",
-                "HARM_CATEGORY_HARASSMENT": "BLOCK_LOW_AND_ABOVE",
-                "HARM_CATEGORY_SEXUAL": "BLOCK_MEDIUM_AND_ABOVE",
-                "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_MEDIUM_AND_ABOVE",
-            },
-        )
-    except Exception as exc:
-        raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+    res = _call_gemini_safe(model, prompt, generation_config)
 
-    # Lấy text robust
+    # Trích text an toàn
     out = ""
     try:
-        out = res.text
+        out = res.text  # type: ignore[attr-defined]
     except Exception:
         try:
-            out = "".join(
-                (part.text or "") for part in res.candidates[0].content.parts
-                if hasattr(part, "text")
-            ).strip()
+            parts = []
+            cand = getattr(res, "candidates", None)
+            if cand and len(cand) > 0:
+                content = getattr(cand[0], "content", None)
+                if content and getattr(content, "parts", None):
+                    for part in content.parts:
+                        if hasattr(part, "text") and part.text:
+                            parts.append(part.text)
+            out = "".join(parts).strip()
         except Exception:
             out = str(res)
 
-    return _postprocess(out)
+    return _postprocess(out or "")

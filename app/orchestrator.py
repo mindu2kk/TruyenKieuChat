@@ -128,6 +128,7 @@ def answer_with_router(
         )
         if failure:
             return failure
+        ans = ans or ""
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
