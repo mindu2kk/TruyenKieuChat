@@ -46,47 +46,55 @@ def _safe_generate(
     **gen_kwargs: Any,
 ) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
     """
-    Gọi Gemini an toàn:
-    - Ép kiểu max_tokens -> int (tránh lỗi len(int))
-    - Nếu model trả rỗng -> quy thành lỗi để UI không im lặng
+    - Ép max_tokens -> int (tránh len(int))
+    - Không coi prompt là string khi debug (tránh len() trên int)
+    - Nếu model trả rỗng -> báo lỗi
     - Bắt mọi exception -> trả payload lỗi thống nhất
-    - Khi DEBUG_ORCH=1 -> kèm metadata phục vụ debug
     """
-    # Chuẩn hóa max_tokens
+    # ép kiểu max_tokens
     if "max_tokens" in gen_kwargs and gen_kwargs["max_tokens"] is not None:
         try:
             gen_kwargs["max_tokens"] = int(gen_kwargs["max_tokens"])
         except Exception:
             del gen_kwargs["max_tokens"]
 
+    def _dbg_meta(p: Any) -> Dict[str, Any]:
+        # an toàn với mọi kiểu dữ liệu
+        try:
+            plen = len(p)  # chỉ OK nếu p có __len__
+        except Exception:
+            plen = 0
+        try:
+            head = (p if isinstance(p, str) else str(p))[:400]
+        except Exception:
+            head = ""
+        return {
+            "model": gen_kwargs.get("model"),
+            "max_tokens": gen_kwargs.get("max_tokens"),
+            "prompt_type": type(p).__name__,
+            "prompt_chars": plen,
+            "prompt_head": head,
+        }
+
     try:
-        # Lazy import để tránh circular/partial import khi Streamlit reload
         from .generation import generate_answer_gemini
+        # đảm bảo prompt là string trước khi gọi
+        if not isinstance(prompt, str):
+            prompt = str(prompt)
 
         out: str = generate_answer_gemini(prompt, **gen_kwargs)
         if not (out and out.strip()):
             failure = _generation_failure_response(intent, "Model trả về nội dung rỗng.", sources=sources)
             if _DEBUG_ORCH:
-                failure["debug"] = {
-                    "model": gen_kwargs.get("model"),
-                    "max_tokens": gen_kwargs.get("max_tokens"),
-                    "prompt_chars": len(prompt),
-                    "prompt_head": prompt[:400],
-                }
+                failure["debug"] = _dbg_meta(prompt)
             return None, failure
         return out, None
 
     except Exception as exc:
         failure = _generation_failure_response(intent, str(exc), sources=sources)
         if _DEBUG_ORCH:
-            failure["debug"] = {
-                "model": gen_kwargs.get("model"),
-                "max_tokens": gen_kwargs.get("max_tokens"),
-                "prompt_chars": len(prompt),
-                "prompt_head": prompt[:400],
-            }
+            failure["debug"] = _dbg_meta(prompt)
         return None, failure
-
 
 def answer_with_router(
     query: str,
@@ -268,9 +276,12 @@ def answer_with_router(
         return {"intent": "domain", "answer": ans or "", "sources": [], "verification": verification}
 
     # 4) Fallback — dùng prompt đã build
+    p = pack.get("prompt", "")
+    if not isinstance(p, str):
+        p = str(p)
     ans, failure = _safe_generate(
         "domain",
-        pack["prompt"],
+        p,
         model=gemini_model,
         long_answer=long_answer,
         max_tokens=max_tokens,
