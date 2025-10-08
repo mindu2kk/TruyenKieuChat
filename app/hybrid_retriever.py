@@ -4,13 +4,22 @@
 from __future__ import annotations
 
 import re
+import os
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Sequence, Tuple, TYPE_CHECKING
 
 try:
     import numpy as np
 except ImportError:  # pragma: no cover - optional dependency in some deployments
     np = None  # type: ignore[assignment]
+
+if TYPE_CHECKING:
+    import numpy as _np
+
+    NDArray = _np.ndarray[Any, Any]
+else:  # pragma: no cover - only needed when numpy missing at runtime
+    NDArray = Any
 
 
 class _SimpleBM25:
@@ -37,6 +46,30 @@ try:  # pragma: no cover - allow usage both as package and script
     from .corpus_loader import CorpusDocument, load_corpus
 except ImportError:  # pragma: no cover
     from corpus_loader import CorpusDocument, load_corpus
+
+
+def _prepare_hf_cache() -> Path:
+    """Ensure Hugging Face models download into a writable directory."""
+
+    default_root = Path(__file__).resolve().parent / ".." / ".hf_cache"
+    cache_root = Path(os.environ.get("HF_HOME", default_root))
+    cache_root.mkdir(parents=True, exist_ok=True)
+
+    # Align other libraries that respect their own environment flags.
+    os.environ.setdefault("HF_HOME", str(cache_root))
+
+    transformers_cache = cache_root / "transformers"
+    sentence_cache = cache_root / "sentence-transformers"
+    transformers_cache.mkdir(parents=True, exist_ok=True)
+    sentence_cache.mkdir(parents=True, exist_ok=True)
+
+    os.environ.setdefault("TRANSFORMERS_CACHE", str(transformers_cache))
+    os.environ.setdefault("SENTENCE_TRANSFORMERS_HOME", str(sentence_cache))
+
+    return cache_root
+
+
+_HF_CACHE_DIR = _prepare_hf_cache()
 
 
 def _tokenize(text: str) -> List[str]:
@@ -68,9 +101,9 @@ class HybridRetriever:
         self._corpus: List[CorpusDocument] | None = None
         self._bm25 = None
         self._dense_model = None
-        self._dense_embeddings: np.ndarray | None = None
+        self._dense_embeddings: NDArray | None = None
         self._colbert_model = None
-        self._colbert_embeddings: np.ndarray | None = None
+        self._colbert_embeddings: NDArray | None = None
         self._colbert_doc_index: List[int] | None = None
         self._colbert_segments: List[str] | None = None
 
@@ -102,10 +135,13 @@ class HybridRetriever:
             except ImportError as exc:  # pragma: no cover - optional dependency
                 raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
 
-            self._dense_model = SentenceTransformer(self.dense_model_name)
+            self._dense_model = SentenceTransformer(
+                self.dense_model_name,
+                cache_folder=str(_HF_CACHE_DIR),
+            )
         return self._dense_model
 
-    def _ensure_dense_embeddings(self) -> np.ndarray:
+    def _ensure_dense_embeddings(self) -> NDArray:
         if np is None:
             raise RuntimeError("numpy chưa được cài đặt")
         if self._dense_embeddings is None:
@@ -128,10 +164,13 @@ class HybridRetriever:
             except ImportError as exc:  # pragma: no cover
                 raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
 
-            self._colbert_model = SentenceTransformer(self.colbert_model_name)
+            self._colbert_model = SentenceTransformer(
+                self.colbert_model_name,
+                cache_folder=str(_HF_CACHE_DIR),
+            )
         return self._colbert_model
 
-    def _ensure_colbert_index(self) -> Tuple[np.ndarray, List[int], List[str]]:
+    def _ensure_colbert_index(self) -> Tuple[NDArray, List[int], List[str]]:
         if np is None:
             raise RuntimeError("numpy chưa được cài đặt")
         if self._colbert_embeddings is None or self._colbert_doc_index is None or self._colbert_segments is None:
