@@ -52,21 +52,35 @@ def _render_sources(sources: Iterable[str]) -> None:
 
 
 def _render_verification(payload: Dict[str, Any]) -> None:
-    if not payload:
+    """Render kiểm chứng trích dẫn; an toàn kiểu dữ liệu để tránh len(int)."""
+    if not isinstance(payload, dict):
         return
-    quotes: List[Dict[str, Any]] = payload.get("quotes") or []
-    accepted: List[Dict[str, Any]] = payload.get("accepted") or []
+
+    def _as_list(x):
+        return x if isinstance(x, list) else []
+
+    quotes = _as_list(payload.get("quotes"))
+    accepted = _as_list(payload.get("accepted"))
     coverage = payload.get("coverage")
 
-    accepted_key = {(item.get("quote"), item.get("matched_line")) for item in accepted}
+    # key để đánh dấu quote nào match
+    try:
+        accepted_key = {(item.get("quote"), item.get("matched_line")) for item in accepted if isinstance(item, dict)}
+    except Exception:
+        accepted_key = set()
 
-    summary_parts = []
-    if coverage is not None:
-        summary_parts.append(f"coverage ~{coverage * 100:.0f}%")
-    if accepted:
-        summary_parts.append(f"{len(accepted)}/{len(quotes) or 1} trích dẫn khớp")
-    elif quotes:
-        summary_parts.append("chưa khớp trích dẫn nào")
+    summary_parts: List[str] = []
+    try:
+        if isinstance(coverage, (int, float)):
+            summary_parts.append(f"coverage ~{float(coverage) * 100:.0f}%")
+    except Exception:
+        pass
+
+    if isinstance(accepted, list) and isinstance(quotes, list):
+        if accepted:
+            summary_parts.append(f"{len(accepted)}/{len(quotes) or 1} trích dẫn khớp")
+        elif quotes:
+            summary_parts.append("chưa khớp trích dẫn nào")
 
     if summary_parts:
         st.caption("🔍 Kiểm chứng trích dẫn: " + " · ".join(summary_parts))
@@ -76,17 +90,19 @@ def _render_verification(payload: Dict[str, Any]) -> None:
 
     with st.expander("Chi tiết kiểm chứng", expanded=False):
         for item in quotes:
-            quote = item.get("quote", "")
-            matched = item.get("matched_text") or "(không trùng khớp)"
+            if not isinstance(item, dict):
+                continue
+            quote = str(item.get("quote") or "")
+            matched = str(item.get("matched_text") or "(không trùng khớp)")
             number = item.get("matched_line")
-            score = item.get("score", 0.0)
+            try:
+                score = float(item.get("score", 0.0) or 0.0)
+            except Exception:
+                score = 0.0
             key = (item.get("quote"), item.get("matched_line"))
             icon = "✅" if key in accepted_key else "⚠️"
             header = f"{icon} "
-            if number:
-                header += f"Câu {number}"
-            else:
-                header += "Không rõ câu"
+            header += f"Câu {number}" if isinstance(number, int) else "Không rõ câu"
             header += f" · score={score:.1f}"
             st.markdown(f"**{header}**")
             st.markdown(f"• Trích: `{quote}`")
@@ -115,10 +131,14 @@ def _render_meta(meta: Dict[str, Any], *, debug: bool) -> None:
         if parts:
             st.caption(" · ".join(parts))
 
-    _render_sources(meta.get("sources") or [])
-    verification = meta.get("verification")
-    if isinstance(verification, dict):
-        _render_verification(verification)
+    try:
+        _render_sources(meta.get("sources") or [])
+        verification = meta.get("verification")
+        if isinstance(verification, dict):
+            _render_verification(verification)
+    except Exception as e:
+        st.error(f"Lỗi khi hiển thị meta: {e}")
+        st.code(traceback.format_exc())
 
 
 def _clear_chat() -> None:
@@ -167,12 +187,16 @@ chat: ChatHistory = st.session_state.chat  # type: ignore[assignment]
 
 # history view
 for item in chat:
-    role = item.get("role", "assistant")
-    content = item.get("content", "")
-    with st.chat_message(role):
-        st.markdown(content)
-        if role == "assistant":
-            _render_meta(item.get("meta") or {}, debug=debug_meta)
+    try:
+        role = item.get("role", "assistant")
+        content = item.get("content", "")
+        with st.chat_message(role):
+            st.markdown(content)
+            if role == "assistant":
+                _render_meta(item.get("meta") or {}, debug=debug_meta)
+    except Exception as e:
+        st.error(f"Lỗi khi hiển thị tin nhắn: {e}")
+        st.code(traceback.format_exc())
 
 # input
 user_msg = st.chat_input("Hỏi về Truyện Kiều…")
@@ -186,19 +210,24 @@ if user_msg:
     with st.chat_message("assistant"):
         t0 = time.time()
         try:
+            # Bullet mode: ép router vào intent 'facts' bằng tiền tố vững chắc
             send_text = user_msg
-            if bullet_mode and not user_msg.lower().startswith(("liệt kê", "kể tên", "cho biết", "nêu", "đưa ra")):
-                send_text = "Liệt kê các điểm chính về: " + user_msg
+            if bullet_mode and not user_msg.lower().startswith(
+                ("liệt kê:", "liet ke:", "bullet:", "tldr:", "tóm tắt:", "tom tat:")
+            ):
+                send_text = f"liệt kê: {user_msg}"
+
+            # Hiệu lực cấu hình
+            eff_long = (long_ans and not bullet_mode)           # bullet_mode => không long answer
+            eff_max = min(max_tok, 640) if bullet_mode else max_tok
+
             ret = answer_with_router(
-                user_msg,
                 send_text,
                 k=k,
                 gemini_model=model,
                 history=history,
-                long_answer=long_ans,
-                max_tokens=max_tok,
-                long_answer = long_ans if not bullet_mode else False,
-                max_tokens = max_tok if not bullet_mode else min(max_tok, 640)
+                long_answer=eff_long,
+                max_tokens=eff_max,
             )
         except Exception as exc:
             st.error(f"Lỗi khi trả lời: {exc}")
@@ -216,6 +245,10 @@ if user_msg:
             "elapsed_ms": elapsed_ms,
             "error": ret.get("error"),
         }
-        _render_meta(meta, debug=debug_meta)
+        try:
+            _render_meta(meta, debug=debug_meta)
+        except Exception as e:
+            st.error(f"Lỗi khi hiển thị meta: {e}")
+            st.code(traceback.format_exc())
 
     chat.append({"role": "assistant", "content": answer_text, "meta": meta})
