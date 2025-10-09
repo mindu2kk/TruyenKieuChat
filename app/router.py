@@ -26,7 +26,8 @@ def _parse_list_request(q: str):
         m = re.search(r"\b(\d{1,2})\b", qs)
         n = int(m.group(1)) if m else 5
         return ("facts", max(3, min(n, 12)))
-
+    if _parse_list_request(qs) is not None:
+        return "facts"
     return None
 
 

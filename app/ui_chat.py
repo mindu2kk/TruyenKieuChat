@@ -144,6 +144,7 @@ with st.sidebar:
     model = st.selectbox("Gemini model", ["gemini-2.0-flash"], index=0)
     long_ans = st.toggle("Văn phong luận văn (dài hơn)", value=True)
     max_tok = st.slider("Giới hạn độ dài trả lời (tokens)", 256, 8096, 1024, step=128)
+    bullet_mode = st.toggle("Trả lời dạng gạch đầu dòng", value=False)
     debug_meta = st.toggle("Hiển thị intent & kiểm chứng", value=True)
     if st.button("🧹 Xóa hội thoại", use_container_width=True):
         _clear_chat()
@@ -185,13 +186,19 @@ if user_msg:
     with st.chat_message("assistant"):
         t0 = time.time()
         try:
+            send_text = user_msg
+            if bullet_mode and not user_msg.lower().startswith(("liệt kê", "kể tên", "cho biết", "nêu", "đưa ra")):
+                send_text = "Liệt kê các điểm chính về: " + user_msg
             ret = answer_with_router(
                 user_msg,
+                send_text,
                 k=k,
                 gemini_model=model,
                 history=history,
                 long_answer=long_ans,
                 max_tokens=max_tok,
+                long_answer = long_ans if not bullet_mode else False,
+                max_tokens = max_tok if not bullet_mode else min(max_tok, 640)
             )
         except Exception as exc:
             st.error(f"Lỗi khi trả lời: {exc}")
