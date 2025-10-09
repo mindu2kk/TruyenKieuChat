@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 from typing import Dict, Any, List, Tuple, Optional
 import os
+import inspect  # NEW: để lọc kwargs theo chữ ký hàm thực tế
 
 # Bật debug (in kèm một ít metadata khi lỗi) bằng cách đặt biến môi trường: DEBUG_ORCH=1
 _DEBUG_ORCH = os.getenv("DEBUG_ORCH", "0") == "1"
 
-# ==== Heuristics cho close-reading & poem-only (NEW) =========================
+# ==== Heuristics cho close-reading & poem-only (giữ như cũ) ==================
 _TRICH_DAN_TRIGGER = ["trích", "câu thơ", "nguyên văn", "dẫn", "lục bát", "nhịp", "vần", "điệp", "đối"]
 _CLOSE_READING_TRIGGER = ["trữ tình ngoại đề", "điểm nhìn", "ẩn dụ", "nhịp điệu", "mapping", "bản đồ ý niệm"]
 
@@ -22,7 +23,6 @@ def _make_cache_key(q: str, *, long_answer: bool, intent: str) -> str:
     return f"{_norm_key(q)}|la={int(bool(long_answer))}|intent={intent}"
 
 # ==== Utilities ===============================================================
-
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
 
@@ -60,7 +60,6 @@ def _safe_generate(
 ) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
     """
     - Ép max_tokens -> int (tránh len(int))
-    - Không coi prompt là string khi debug (tránh len() trên int)
     - Nếu model trả rỗng -> báo lỗi
     - Bắt mọi exception -> trả payload lỗi thống nhất
     """
@@ -72,9 +71,8 @@ def _safe_generate(
             del gen_kwargs["max_tokens"]
 
     def _dbg_meta(p: Any) -> Dict[str, Any]:
-        # an toàn với mọi kiểu dữ liệu
         try:
-            plen = len(p)  # chỉ OK nếu p có __len__
+            plen = len(p)
         except Exception:
             plen = 0
         try:
@@ -91,10 +89,8 @@ def _safe_generate(
 
     try:
         from .generation import generate_answer_gemini
-        # đảm bảo prompt là string trước khi gọi
         if not isinstance(prompt, str):
             prompt = str(prompt)
-
         out: str = generate_answer_gemini(prompt, **gen_kwargs)
         if not (out and out.strip()):
             failure = _generation_failure_response(intent, "Model trả về nội dung rỗng.", sources=sources)
@@ -102,13 +98,40 @@ def _safe_generate(
                 failure["debug"] = _dbg_meta(prompt)
             return None, failure
         return out, None
-
     except Exception as exc:
         failure = _generation_failure_response(intent, str(exc), sources=sources)
         if _DEBUG_ORCH:
             failure["debug"] = _dbg_meta(prompt)
         return None, failure
 
+# ==== Wrapper gọi RAG an toàn với khác biệt chữ ký ============================
+def _call_answer_question(query: str, **kwargs) -> Dict[str, Any]:
+    """
+    Gọi rag_pipeline.answer_question nhưng chỉ truyền những kwargs
+    có trong chữ ký thực tế của hàm ở môi trường đang chạy.
+    Nếu vẫn lỗi TypeError, fallback sang bộ tham số tối thiểu.
+    """
+    from .rag_pipeline import answer_question as _aq
+
+    # Lọc kwargs theo chữ ký thật
+    try:
+        sig = inspect.signature(_aq)
+        allowed = {name for name in sig.parameters.keys()}
+        filtered = {k: v for k, v in kwargs.items() if k in allowed}
+    except Exception:
+        # nếu không lấy được chữ ký, dùng kwargs thô (có thể lỗi và sẽ được bắt)
+        filtered = dict(kwargs)
+
+    try:
+        return _aq(query, **filtered)
+    except TypeError:
+        # Fallback tối thiểu (giữ logic cũ)
+        minimal_keys = ("k", "synthesize", "gen_model", "force_quote",
+                        "long_answer", "history_text", "max_tokens")
+        minimal = {k: v for k, v in filtered.items() if k in minimal_keys}
+        return _aq(query, **minimal)
+
+# ==== Orchestrator chính ======================================================
 def answer_with_router(
     query: str,
     k: int = 5,
@@ -119,11 +142,9 @@ def answer_with_router(
 ) -> Dict[str, Any]:
     """
     Hàm điều phối chính — được UI gọi.
-    Mọi import nội bộ được dời vào trong hàm (lazy import) để tránh KeyError khi reload.
+    Import nội bộ (lazy) để tránh lỗi reload nóng.
     """
-    # ⬇️ Lazy import các submodule phụ thuộc
     from .router import route_intent, parse_poem_request
-    from .rag_pipeline import answer_question
     from .faq import lookup_faq
     from .cache import get_cached, set_cached
     from .poem_tools import poem_ready, get_opening, get_range, get_single, compare_lines
@@ -134,6 +155,7 @@ def answer_with_router(
         build_poem_disambiguation_prompt,
         build_smalltalk_prompt,
         build_poem_compare_prompt,
+        build_bullets_prompt,  # đã thêm trước đó
     )
     from .verifier import verify_poem_quotes
 
@@ -143,22 +165,18 @@ def answer_with_router(
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
 
-    # 1) FAQ (không in nguồn) — vẫn ưu tiên trước
+    # 1) FAQ
     hit = lookup_faq(query)
     if hit:
         ans = hit["answer"]
-        # Cache theo intent cụ thể
         intent = "faq"
-        qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)  # NEW
+        qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
         set_cached(qkey, ans)
         return {"intent": intent, "answer": ans, "sources": []}
 
-    # 2) Route intent
+    # 2) Route intent + cache theo intent
     intent = route_intent(query)
-    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)  # NEW
-
-    # 0) Cache sau khi biết intent (NEW)
-    from .cache import get_cached, set_cached  # re-import safe
+    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
     cached = get_cached(qkey)
     if cached:
         return {"intent": "cache", "answer": cached, "sources": []}
@@ -188,6 +206,35 @@ def answer_with_router(
             return failure
         set_cached(qkey, ans or "")
         return {"intent": intent, "answer": ans or "", "sources": []}
+
+    # ---- Facts / bullets
+    if intent == "facts":
+        # lấy số mục nếu router phát hiện (không bắt buộc)
+        try:
+            from .router import _parse_list_request  # type: ignore
+            parsed = _parse_list_request(query)  # type: ignore
+            n_items = parsed[1] if parsed else 5
+        except Exception:
+            n_items = 5
+
+        prompt = build_bullets_prompt(query, history_text=short_history, max_items=n_items)
+        _max_tok = min(int(max_tokens or 512), 640)
+        ans, failure = _safe_generate(
+            intent,
+            prompt,
+            model=gemini_model,
+            long_answer=False,
+            max_tokens=_max_tok,
+        )
+        if failure:
+            return failure
+        set_cached(qkey, ans or "")
+        return {
+            "intent": intent,
+            "answer": ans or "",
+            "sources": [],
+            "verification": verify_poem_quotes(ans or ""),
+        }
 
     # ---- Poem mode
     if intent == "poem":
@@ -271,11 +318,11 @@ def answer_with_router(
         set_cached(qkey, ans or "")
         return {"intent": "poem", "answer": ans or "", "sources": [], "verification": verification}
 
-    # ---- 3) Domain → RAG
-    poem_only = _needs_poem_only(query)       # NEW
-    close_reading = _is_close_reading(query)  # NEW
+    # ---- 3) Domain → RAG (dùng wrapper an toàn)
+    poem_only = _needs_poem_only(query)
+    close_reading = _is_close_reading(query)
 
-    pack = answer_question(
+    pack = _call_answer_question(
         query,
         k=k,
         synthesize="single",
@@ -284,31 +331,21 @@ def answer_with_router(
         long_answer=long_answer,
         history_text=full_history,
         max_tokens=max_tokens,
-        # ===== Hints cho RAG pipeline (NEW) =====
-        prefer_poem_source=poem_only,                 # ưu tiên chunk poem/poem.txt
-        top_evidence=6,                               # chọn tối đa 6 chứng cứ
-        essay_mode=("hsg" if close_reading else None) # gợi ý composer sinh skeleton HSG
+        # Hints (sẽ tự bị lọc nếu hàm không hỗ trợ)
+        prefer_poem_source=poem_only,
+        top_evidence=6,
+        essay_mode=("hsg" if close_reading else None),
     )
 
     if pack.get("generation_error"):
         return _generation_failure_response("domain", str(pack["generation_error"]))
 
     ans = pack.get("answer")
-    sources = pack.get("sources", [])     # NEW: nhận list nguồn từ pipeline
-    evidence = pack.get("evidence", [])   # NEW: nếu pipeline trả về
+    sources = pack.get("sources", [])
+    evidence = pack.get("evidence", [])
     verification = verify_poem_quotes(ans or "") if ans else None
 
-    # Nếu phát hiện quá nhiều trích dẫn không chuẩn → hạ tông hoặc gợi ý xem câu gốc (NEW)
-    bad_count = 0
-    if isinstance(verification, dict):
-        bad_count = len(verification.get("invalid_quotes", [])) + len(verification.get("non_exact", []))
-
     if ans:
-        if poem_only and bad_count >= 2:
-            ans += (
-                "\n\n**Lưu ý:** Phát hiện vài trích dẫn chưa khớp nguyên văn. "
-                "Bạn có thể yêu cầu: `trích câu n–m` hoặc `kiểm tra các câu ...` để xem bản gốc."
-            )
         set_cached(qkey, ans or "")
         return {
             "intent": "domain",
@@ -336,6 +373,6 @@ def answer_with_router(
     return {
         "intent": "domain",
         "answer": ans or "",
-        "sources": pack.get("sources", []),   # NEW
-        "verification": verification
+        "sources": pack.get("sources", []),
+        "verification": verification,
     }
