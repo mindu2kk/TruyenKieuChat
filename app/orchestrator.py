@@ -6,10 +6,25 @@ import os
 # Bật debug (in kèm một ít metadata khi lỗi) bằng cách đặt biến môi trường: DEBUG_ORCH=1
 _DEBUG_ORCH = os.getenv("DEBUG_ORCH", "0") == "1"
 
+# ==== Heuristics cho close-reading & poem-only (NEW) =========================
+_TRICH_DAN_TRIGGER = ["trích", "câu thơ", "nguyên văn", "dẫn", "lục bát", "nhịp", "vần", "điệp", "đối"]
+_CLOSE_READING_TRIGGER = ["trữ tình ngoại đề", "điểm nhìn", "ẩn dụ", "nhịp điệu", "mapping", "bản đồ ý niệm"]
+
+def _needs_poem_only(q: str) -> bool:
+    ql = (q or "").lower()
+    return any(t in ql for t in _TRICH_DAN_TRIGGER)
+
+def _is_close_reading(q: str) -> bool:
+    ql = (q or "").lower()
+    return any(t in ql for t in _CLOSE_READING_TRIGGER)
+
+def _make_cache_key(q: str, *, long_answer: bool, intent: str) -> str:
+    return f"{_norm_key(q)}|la={int(bool(long_answer))}|intent={intent}"
+
+# ==== Utilities ===============================================================
 
 def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
-
 
 def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 6) -> str:
     if not history:
@@ -20,7 +35,6 @@ def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 
         role = "USER" if role == "user" else "ASSISTANT"
         lines.append(f"[{role}]\n{txt}")
     return "\n\n".join(lines)
-
 
 def _generation_failure_response(
     intent: str,
@@ -36,7 +50,6 @@ def _generation_failure_response(
     if detail:
         message += f"\n\nChi tiết kỹ thuật: {detail}"
     return {"intent": intent, "answer": message, "sources": sources or [], "error": detail}
-
 
 def _safe_generate(
     intent: str,
@@ -124,27 +137,31 @@ def answer_with_router(
     )
     from .verifier import verify_poem_quotes
 
-    qkey = _norm_key(query)
     short_history = _history_to_text(history, max_turns=4)
     full_history = _history_to_text(history, max_turns=8)
 
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
 
-    # 0) Cache
-    cached = get_cached(qkey)
-    if cached:
-        return {"intent": "cache", "answer": cached, "sources": []}
-
-    # 1) FAQ (không in nguồn)
+    # 1) FAQ (không in nguồn) — vẫn ưu tiên trước
     hit = lookup_faq(query)
     if hit:
         ans = hit["answer"]
+        # Cache theo intent cụ thể
+        intent = "faq"
+        qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)  # NEW
         set_cached(qkey, ans)
-        return {"intent": "faq", "answer": ans, "sources": []}
+        return {"intent": intent, "answer": ans, "sources": []}
 
     # 2) Route intent
     intent = route_intent(query)
+    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)  # NEW
+
+    # 0) Cache sau khi biết intent (NEW)
+    from .cache import get_cached, set_cached  # re-import safe
+    cached = get_cached(qkey)
+    if cached:
+        return {"intent": "cache", "answer": cached, "sources": []}
 
     # ---- Small talk
     if intent == "chitchat":
@@ -255,6 +272,9 @@ def answer_with_router(
         return {"intent": "poem", "answer": ans or "", "sources": [], "verification": verification}
 
     # ---- 3) Domain → RAG
+    poem_only = _needs_poem_only(query)       # NEW
+    close_reading = _is_close_reading(query)  # NEW
+
     pack = answer_question(
         query,
         k=k,
@@ -264,16 +284,39 @@ def answer_with_router(
         long_answer=long_answer,
         history_text=full_history,
         max_tokens=max_tokens,
+        # ===== Hints cho RAG pipeline (NEW) =====
+        prefer_poem_source=poem_only,                 # ưu tiên chunk poem/poem.txt
+        top_evidence=6,                               # chọn tối đa 6 chứng cứ
+        essay_mode=("hsg" if close_reading else None) # gợi ý composer sinh skeleton HSG
     )
 
     if pack.get("generation_error"):
         return _generation_failure_response("domain", str(pack["generation_error"]))
 
     ans = pack.get("answer")
+    sources = pack.get("sources", [])     # NEW: nhận list nguồn từ pipeline
+    evidence = pack.get("evidence", [])   # NEW: nếu pipeline trả về
+    verification = verify_poem_quotes(ans or "") if ans else None
+
+    # Nếu phát hiện quá nhiều trích dẫn không chuẩn → hạ tông hoặc gợi ý xem câu gốc (NEW)
+    bad_count = 0
+    if isinstance(verification, dict):
+        bad_count = len(verification.get("invalid_quotes", [])) + len(verification.get("non_exact", []))
+
     if ans:
-        verification = verify_poem_quotes(ans or "")
+        if poem_only and bad_count >= 2:
+            ans += (
+                "\n\n**Lưu ý:** Phát hiện vài trích dẫn chưa khớp nguyên văn. "
+                "Bạn có thể yêu cầu: `trích câu n–m` hoặc `kiểm tra các câu ...` để xem bản gốc."
+            )
         set_cached(qkey, ans or "")
-        return {"intent": "domain", "answer": ans or "", "sources": [], "verification": verification}
+        return {
+            "intent": "domain",
+            "answer": ans or "",
+            "sources": sources,
+            "verification": verification,
+            "evidence": evidence,
+        }
 
     # 4) Fallback — dùng prompt đã build
     p = pack.get("prompt", "")
@@ -290,4 +333,9 @@ def answer_with_router(
         return failure
     verification = verify_poem_quotes(ans or "")
     set_cached(qkey, ans or "")
-    return {"intent": "domain", "answer": ans or "", "sources": [], "verification": verification}
+    return {
+        "intent": "domain",
+        "answer": ans or "",
+        "sources": pack.get("sources", []),   # NEW
+        "verification": verification
+    }
