@@ -284,3 +284,26 @@ __all__ = [
     "build_smalltalk_prompt",
     "build_poem_compare_prompt",
 ]
+def build_bullets_prompt(
+    message: str,
+    history_text: Optional[str] = None,
+    *,
+    max_items: int = 5,
+) -> str:
+    return _compose_prompt(
+        system="Bạn là biên tập viên tóm tắt, chuyên chắt lọc ý chính.",
+        briefing=(
+            f"- Trả lời đúng {max_items} mục, dạng gạch đầu dòng.\n"
+            "- Mỗi mục tối đa 28 từ, tránh văn hoa, không dẫn dắt rườm rà.\n"
+            "- Không thêm tiêu đề, không mục 'Nguồn'.\n"
+            "- Nếu có số liệu/ngày tháng → đưa trực tiếp trong mỗi dòng.\n"
+            "- Không lặp ý giữa các mục."
+        ),
+        history_text=history_text,
+        user_request=message,
+        response_plan=(
+            "1) Xác định các trục thông tin cốt lõi.\n"
+            "2) Mỗi mục: 1 mệnh đề độc lập, rõ ràng.\n"
+            "3) Loại bỏ bổ ngữ cảm tính và trùng lặp."
+        ),
+    )
