@@ -6,6 +6,14 @@ import os
 # Bật debug (in kèm một ít metadata khi lỗi) bằng cách đặt biến môi trường: DEBUG_ORCH=1
 _DEBUG_ORCH = os.getenv("DEBUG_ORCH", "0") == "1"
 
+# Mặc định ẩn nguồn; đặt TKC_SHOW_SOURCES=1 để bật lại
+_SHOW_SOURCES = os.getenv("TKC_SHOW_SOURCES", "0").strip().lower() in {"1", "true", "yes", "on"}
+
+def _maybe_sources(srcs: Optional[List[str]]) -> List[str]:
+    if not _SHOW_SOURCES:
+        return []
+    return list(srcs or [])
+
 # ==== Heuristics cho close-reading & poem-only ====
 _TRICH_DAN_TRIGGER = ["trích", "câu thơ", "nguyên văn", "dẫn", "lục bát", "nhịp", "vần", "điệp", "đối", "Lầu Ngưng Bích", "Đoạn trường"]
 _CLOSE_READING_TRIGGER = ["trữ tình ngoại đề", "điểm nhìn", "ẩn dụ", "nhịp điệu", "mapping", "bản đồ ý niệm", "close reading"]
@@ -47,7 +55,8 @@ def _generation_failure_response(
     )
     if detail:
         message += f"\n\nChi tiết kỹ thuật: {detail}"
-    return {"intent": intent, "answer": message, "sources": sources or [], "error": detail}
+    # nguồn luôn rỗng nếu _SHOW_SOURCES = False
+    return {"intent": intent, "answer": message, "sources": _maybe_sources(sources), "error": detail}
 
 def _safe_generate(
     intent: str,
@@ -137,7 +146,7 @@ def answer_with_router(
         intent = "faq"
         qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
         set_cached(qkey, ans)
-        return {"intent": intent, "answer": ans, "sources": []}
+        return {"intent": intent, "answer": ans, "sources": _maybe_sources([])}
 
     # 2) Route
     intent = route_intent(query)
@@ -146,7 +155,7 @@ def answer_with_router(
     # 0) Cache sau khi biết intent
     cached = get_cached(qkey)
     if cached:
-        return {"intent": "cache", "answer": cached, "sources": []}
+        return {"intent": "cache", "answer": cached, "sources": _maybe_sources([])}
 
     # ---- Small talk
     if intent == "chitchat":
@@ -157,7 +166,7 @@ def answer_with_router(
         if failure:
             return failure
         set_cached(qkey, ans or "")
-        return {"intent": intent, "answer": ans or "", "sources": []}
+        return {"intent": intent, "answer": ans or "", "sources": _maybe_sources([])}
 
     # ---- Generic factual
     if intent == "generic":
@@ -172,14 +181,14 @@ def answer_with_router(
         if failure:
             return failure
         set_cached(qkey, ans or "")
-        return {"intent": intent, "answer": ans or "", "sources": []}
+        return {"intent": intent, "answer": ans or "", "sources": _maybe_sources([])}
 
     # ---- Poem mode
     if intent == "poem":
         if not poem_ready():
             msg = "Kho thơ chưa sẵn sàng (cần data/interim/poem/poem.txt, mỗi câu 1 dòng)."
             set_cached(qkey, msg)
-            return {"intent": "poem", "answer": msg, "sources": []}
+            return {"intent": "poem", "answer": msg, "sources": _maybe_sources([])}
 
         spec = parse_poem_request(query)
         if spec:
@@ -190,7 +199,7 @@ def answer_with_router(
                 txt = "\n".join(f"{i + 1:>4}: {ln}" for i, ln in enumerate(lines))
                 ans = f"**{n} câu đầu Truyện Kiều:**\n\n{txt}"
                 set_cached(qkey, ans)
-                return {"intent": "poem", "answer": ans, "sources": []}
+                return {"intent": "poem", "answer": ans, "sources": _maybe_sources([])}
 
             if kind == "range":
                 a, b = int(spec[1]), int(spec[2])
@@ -200,7 +209,7 @@ def answer_with_router(
                 txt = "\n".join(f"{a + i:>4}: {ln}" for i, ln in enumerate(lines))
                 ans = f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}"
                 set_cached(qkey, ans)
-                return {"intent": "poem", "answer": ans, "sources": []}
+                return {"intent": "poem", "answer": ans, "sources": _maybe_sources([])}
 
             if kind == "single":
                 n = int(spec[1])
@@ -210,7 +219,7 @@ def answer_with_router(
                 else:
                     ans = f"Chưa tra được câu {n} (vượt ngoài số dòng hiện có)."
                 set_cached(qkey, ans)
-                return {"intent": "poem", "answer": ans, "sources": []}
+                return {"intent": "poem", "answer": ans, "sources": _maybe_sources([])}
 
             if kind == "compare":
                 a, b = int(spec[1]), int(spec[2])
@@ -218,7 +227,7 @@ def answer_with_router(
                 if not line_a or not line_b:
                     ans = "Không đủ dữ liệu để so sánh hai câu được yêu cầu."
                     set_cached(qkey, ans)
-                    return {"intent": "poem", "answer": ans, "sources": []}
+                    return {"intent": "poem", "answer": ans, "sources": _maybe_sources([])}
                 prompt = build_poem_compare_prompt(
                     query,
                     line_a=line_a,
@@ -237,11 +246,11 @@ def answer_with_router(
                     return failure
                 verification = verify_poem_quotes(ans or "")
                 set_cached(qkey, ans or "")
-                sources = [f"câu {line_a.number}", f"câu {line_b.number}"]
+                # nguồn luôn rỗng/ẩn
                 return {
                     "intent": "poem",
                     "answer": ans or "",
-                    "sources": sources,
+                    "sources": _maybe_sources([f"câu {line_a.number}", f"câu {line_b.number}"]),
                     "verification": verification,
                 }
 
@@ -254,7 +263,7 @@ def answer_with_router(
             return failure
         verification = verify_poem_quotes(ans or "")
         set_cached(qkey, ans or "")
-        return {"intent": "poem", "answer": ans or "", "sources": [], "verification": verification}
+        return {"intent": "poem", "answer": ans or "", "sources": _maybe_sources([]), "verification": verification}
 
     # ---- Domain → RAG
     poem_only = _needs_poem_only(query)
@@ -297,7 +306,7 @@ def answer_with_router(
         return {
             "intent": "domain",
             "answer": ans or "",
-            "sources": sources,
+            "sources": _maybe_sources(sources),  # sẽ là [] nếu không bật TKC_SHOW_SOURCES
             "verification": verification,
             "evidence": evidence,
         }
@@ -320,6 +329,6 @@ def answer_with_router(
     return {
         "intent": "domain",
         "answer": ans or "",
-        "sources": pack.get("sources", []),
+        "sources": _maybe_sources(pack.get("sources", [])),
         "verification": verification,
     }
