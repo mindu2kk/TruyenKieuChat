@@ -1,347 +1,352 @@
 # app/prompt_engineering.py
 # -*- coding: utf-8 -*-
-"""High level prompt engineering utilities for Kieu-Bot (robust & safe)."""
+"""
+Prompt templates cho Kiểu bot RAG văn học – Truyện Kiều.
+Bao gồm:
+- Small talk / Generic factual
+- Poem disambiguation & compare
+- RAG synthesis (citation-aware) + essay_mode="hsg"
+- Literature Review + các prompt tiện ích citation-aware
+"""
 
-from __future__ import annotations
-from typing import Any, Dict, Iterable, List, Optional, Sequence
+from typing import List, Dict, Any, Optional
 
-try:  # pragma: no cover
-    from .poem_tools import PoemLine
-except ImportError:  # pragma: no cover
-    from poem_tools import PoemLine  # type: ignore
+# =========================================================
+# Token budgets (cứ để rộng rãi, có thể sửa qua orchestrator)
+# =========================================================
+DEFAULT_SHORT_TOKEN_BUDGET = 600
+DEFAULT_LONG_TOKEN_BUDGET = 1400
 
-# ==== Token budgets (ints) ====================================================
-DEFAULT_SHORT_TOKEN_BUDGET: int = 640
-DEFAULT_LONG_TOKEN_BUDGET: int = 1152
 
-# ==== Global style guardrails =================================================
-_GLOBAL_STYLE_GUARDRAILS = (
-    "- Giữ giọng học giả văn chương, mềm mại nhưng súc tích.\n"
-    "- Tránh liệt kê khô, ưu tiên câu ghép cân đối 18–28 từ.\n"
-    "- Tuyệt đối không nhắc tới nguồn tài liệu hay tài liệu tham khảo.\n"
-    "- Trước khi trả lời, hãy lập dàn ý trong đầu (KHÔNG in ra)."
-)
+# =========================================================
+# Tiện ích dựng nhãn trích dẫn [SOURCE: ...]
+# =========================================================
+def _cite_tag(meta: Dict[str, Any]) -> str:
+    """
+    Sinh nhãn trích dẫn gọn, ưu tiên info dòng thơ / offset.
+    """
+    src = meta.get("source") or meta.get("title") or "unknown"
+    if meta.get("type") == "poem" and meta.get("line_start") and meta.get("line_end"):
+        return f"[SOURCE: {src} L{meta['line_start']}-{meta['line_end']}]"
+    if meta.get("char_start") is not None and meta.get("char_end") is not None:
+        return f"[SOURCE: {src} {meta['char_start']}-{meta['char_end']}]"
+    if meta.get("chunk_index") is not None:
+        return f"[SOURCE: {src}#chunk{meta['chunk_index']}]"
+    return f"[SOURCE: {src}]"
 
-# ==== Helpers ================================================================
-def _as_str(x: Any) -> str:
-    """Ép an toàn về chuỗi (tránh .strip trên int / object)."""
-    if x is None:
-        return ""
-    if isinstance(x, str):
-        return x
-    try:
-        return str(x)
-    except Exception:
-        return ""
 
-def _normalise(x: Any) -> str:
-    return _as_str(x).strip()
-
-def _history_section(history_text: Optional[str]) -> str:
-    s = _normalise(history_text)
-    return f"[NHẬT KÝ HỘI THOẠI]\n{s}" if s else ""
-
-def _compose_sections(sections: Iterable[Any]) -> str:
-    parts: List[str] = []
-    for s in sections:
-        txt = _normalise(s)
-        if txt:
-            parts.append(txt)
-    return "\n\n".join(parts)
-
-def _format_context(ctx_list: Sequence[Dict[str, Any]]) -> str:
-    if not ctx_list:
-        return "(không có ngữ cảnh phù hợp – hãy dựa vào tri thức đã nạp, tránh suy đoán)."
-
-    blocks: List[str] = []
-    for idx, ctx in enumerate(ctx_list, start=1):
-        # text
-        text = _normalise(ctx.get("text") or ctx.get("content") or ctx.get("body") or ctx.get("snippet"))
-        # meta
-        meta = ctx.get("metadata") or ctx.get("meta") or {}
-        if not isinstance(meta, dict):
-            meta = {}
-
-        label_bits: List[str] = []
-        title = _normalise(meta.get("title") or meta.get("section_title"))
-        if title:
-            label_bits.append(title)
-        doc_type = _normalise(meta.get("type"))
-        if doc_type:
-            label_bits.append(doc_type)
-        source = _normalise(meta.get("source"))
-        if source:
-            label_bits.append(source)
-
-        ls = meta.get("line_start")
-        le = meta.get("line_end")
-        if isinstance(ls, int) and isinstance(le, int):
-            label_bits.append(f"L{ls}" if ls == le else f"L{ls}–L{le}")
-        elif isinstance(ls, int):
-            label_bits.append(f"L{ls}")
-
-        score = ctx.get("score")
-        if isinstance(score, (int, float)):
-            label_bits.append(f"score={float(score):.3f}")
-
-        header = f"[ĐOẠN {idx}" + (": " + " | ".join(label_bits) if label_bits else "") + "]"
-        blocks.append(f"{header}\n{_truncate(text)}")
-
-    return "\n\n---\n\n".join(blocks)
-
-def _truncate(s: Any, limit: int = 1200) -> str:
-    # ép về chuỗi TRƯỚC khi strip
-    if s is None:
-        s = ""
-    elif not isinstance(s, str):
-        try:
-            s = str(s)
-        except Exception:
-            s = ""
-    s = s.strip()
-
-    if len(s) <= limit:
-        return s
-
-    head = s[:limit]
-    if " " in head:
-        head = head.rsplit(" ", 1)[0]
-    return head + "…"
-
-def _compose_prompt(
-    *,
-    system: Any,
-    briefing: Any,
-    user_request: Any,
-    history_text: Optional[str] = None,
-    context_block: Optional[str] = None,
-    response_plan: Optional[str] = None,
-) -> str:
-    sections: List[str] = [f"[SYSTEM]\n{_normalise(system)}"]
-
-    hist_section = _history_section(history_text)
-    if hist_section:
-        sections.append(hist_section)
-
-    if context_block:
-        sections.append(f"[NGỮ CẢNH]\n{_normalise(context_block)}")
-
-    sections.append(f"[CHIẾN LƯỢC]\n{_GLOBAL_STYLE_GUARDRAILS}\n{_normalise(briefing)}")
-
-    if response_plan:
-        sections.append(f"[KẾ HOẠCH TRẢ LỜI]\n{_normalise(response_plan)}")
-
-    sections.append(f"[YÊU CẦU NGƯỜI DÙNG]\n{_normalise(user_request)}")
-
-    return _compose_sections(sections)
-
-# ==== Builders ===============================================================
-def build_smalltalk_prompt(message: str, history_text: Optional[str] = None) -> str:
-    return _compose_prompt(
-        system="Bạn là người bạn tri kỷ am hiểu thơ ca và Truyện Kiều.",
-        briefing=(
-            "- Ưu tiên 3–5 câu thân mật, gợi hình ảnh từ Truyện Kiều khi tự nhiên.\n"
-            "- Giữ thái độ nâng đỡ cảm xúc, tránh phán xét.\n"
-            "- Có thể kết câu bằng một gợi ý mở rộng hội thoại."
-        ),
-        history_text=history_text,
-        user_request=message,
-        response_plan=(
-            "1) Nhìn lại lịch sử trò chuyện để nắm tâm trạng.\n"
-            "2) Chọn 1 hình ảnh hoặc câu thơ phù hợp (không cần trích dẫn nếu không tự nhiên).\n"
-            "3) Trả lời ấm áp, tối đa một câu hỏi ngắn để tiếp tục trò chuyện."
-        ),
+# =========================================================
+# Small talk
+# =========================================================
+def build_smalltalk_prompt(user_msg: str, *, history_text: Optional[str] = None, **kwargs) -> str:
+    hist = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+    return (
+        "Bạn là một trợ lý thân thiện, lịch sự, trả lời ngắn gọn, tự nhiên bằng tiếng Việt.\n"
+        "Tránh bịa đặt sự kiện. Nếu người dùng chuyển chủ đề học thuật, mời họ cung cấp thêm chi tiết.\n\n"
+        f"[USER]\n{user_msg.strip()}{hist}\n\n"
+        "Trả lời:"
     )
 
+
+# =========================================================
+# Generic factual (không RAG)
+# =========================================================
 def build_generic_prompt(
-    message: str,
-    history_text: Optional[str] = None,
+    query: str,
     *,
+    history_text: Optional[str] = None,
     depth: str = "balanced",
+    **kwargs,
 ) -> str:
-    depth_line = {
-        "concise": "- Độ dài 6–8 câu, tập trung ý chính.",
-        "expanded": "- Độ dài 10–12 câu, triển khai từng bước lập luận.",
-    }.get(_normalise(depth).lower(), "- Độ dài 8–10 câu, triển khai từng luận điểm rõ ràng.")
-
-    return _compose_prompt(
-        system="Bạn là học giả bách khoa giàu trải nghiệm giáo dục.",
-        briefing=(
-            "- Giải thích khái niệm bằng ví dụ gần gũi rồi khái quát hóa.\n"
-            "- Chia câu trả lời thành các đoạn ngắn với câu chủ đề rõ ràng.\n"
-            f"{depth_line}\n"
-            "- Nhấn mạnh ứng dụng/thông điệp rút ra cuối cùng.\n"
-            "- Không thêm mục 'Nguồn'."
-        ),
-        history_text=history_text,
-        user_request=message,
-        response_plan=(
-            "1) Xác định 2–3 ý chính.\n"
-            "2) Minh họa mỗi ý bằng ví dụ ngắn.\n"
-            "3) Kết thúc bằng lời khuyên hoặc tổng kết."
-        ),
+    hist = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+    style = {
+        "brief": "ngắn gọn, trọng tâm",
+        "balanced": "cân bằng giữa ngắn gọn và đầy đủ",
+        "expanded": "đầy đủ, có ví dụ minh hoạ khi cần",
+    }.get(depth, "cân bằng")
+    return (
+        "Bạn là một trợ lý cung cấp thông tin chính xác. "
+        f"Hãy trả lời bằng tiếng Việt, văn phong {style}. Nếu thiếu dữ liệu, nói rõ 'tôi chưa đủ dữ liệu'.\n\n"
+        f"[USER QUESTION]\n{query.strip()}{hist}\n\n"
+        "Trả lời:"
     )
 
-def build_poem_disambiguation_prompt(message: str, history_text: Optional[str] = None) -> str:
-    return _compose_prompt(
-        system="Bạn phụ trách tra cứu Truyện Kiều, giúp người dùng xác định rõ câu cần trích.",
-        briefing=(
-            "- Giữ câu trả lời tối đa 2 câu.\n"
-            "- Nếu thiếu thông tin (số câu/bối cảnh), hỏi lại thật cụ thể.\n"
-            "- Không đưa ra câu thơ khi chưa rõ yêu cầu."
-        ),
-        history_text=history_text,
-        user_request=message,
-        response_plan=(
-            "1) Kiểm tra lịch sử xem người dùng đã nêu chỉ số câu chưa.\n"
-            "2) Nếu chưa đủ, hỏi lại theo dạng \"Bạn muốn trích ...?\" với lựa chọn cụ thể.\n"
-            "3) Cảm ơn và chờ phản hồi."
-        ),
+
+# =========================================================
+# Poem disambiguation – khi user hỏi mơ hồ về thơ
+# =========================================================
+def build_poem_disambiguation_prompt(
+    user_query: str,
+    *,
+    history_text: Optional[str] = None,
+    **kwargs,
+) -> str:
+    hist = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+    return (
+        "Bạn đang hỗ trợ tra cứu 'Truyện Kiều' (mỗi câu 1 dòng). "
+        "Câu hỏi hiện chưa đủ rõ. Hãy đặt 1–2 câu hỏi làm rõ (rất ngắn), "
+        "ví dụ: 'bạn cần khoảng câu số mấy?' hoặc 'bạn muốn trích nguyên văn hay phân tích?'\n\n"
+        f"[USER]\n{user_query.strip()}{hist}\n\n"
+        "Câu hỏi làm rõ:"
     )
 
+
+# =========================================================
+# Poem compare – so sánh hai câu thơ đã xác định
+# =========================================================
+def build_poem_compare_prompt(
+    query: str,
+    *,
+    line_a: Any,
+    line_b: Any,
+    history_text: Optional[str] = None,
+    **kwargs,
+) -> str:
+    """
+    line_a, line_b: object từ poem_tools.compare_lines(...) có .number, .text
+    """
+    hist = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+    a_no = getattr(line_a, "number", None)
+    b_no = getattr(line_b, "number", None)
+    a_tx = getattr(line_a, "text", "")
+    b_tx = getattr(line_b, "text", "")
+    return (
+        "So sánh hai câu thơ trong Truyện Kiều theo các trục: nhịp–vần–điệp–đối–ngữ nghĩa–tu từ.\n"
+        "Ưu tiên phân tích kỹ close-reading, trích đúng nguyên văn trong ngoặc kép, giữ dấu câu.\n\n"
+        f"[CÂU A – {a_no}]\n{a_tx}\n"
+        f"[CÂU B – {b_no}]\n{b_tx}\n\n"
+        f"[YÊU CẦU]\n{query.strip()}{hist}\n\n"
+        "Phân tích:"
+    )
+
+
+# =========================================================
+# RAG synthesis (citation-aware) — hỗ trợ essay_mode="hsg"
+# =========================================================
 def build_rag_synthesis_prompt(
     query: str,
-    contexts: Sequence[Dict[str, Any]],
+    contexts: List[Dict[str, Any]],
     *,
     history_text: Optional[str] = None,
     long_answer: bool = False,
+    essay_mode: Optional[str] = None,   # bổ sung để tương thích orchestrator/rag_pipeline
+    **kwargs,                            # nuốt an toàn tham số mới
 ) -> str:
-    ctx_block = _format_context(contexts)
-    length_line = (
-        "- Độ dài mục tiêu: 320–420 từ, chia 3 đoạn rõ mở–thân–kết."
-        if long_answer
-        else "- Độ dài mục tiêu: 220–300 từ, vẫn đảm bảo mở–thân–kết."
-    )
-    briefing = (
-        "- Sử dụng dữ kiện trong NGỮ CẢNH để lập luận, tránh suy đoán.\n"
-        "- Khi trích thơ, đặt trong ngoặc kép; nếu biết số câu, có thể ghi (câu X–Y).\n"
-        "- Kết nối các đoạn bằng câu chuyển ý giàu hình ảnh.\n"
-        "- Không thêm mục 'Nguồn'.\n"
-        f"{length_line}"
-    )
-    plan = (
-        "1) Chọn 3 luận điểm then chốt.\n"
-        "2) Mỗi luận điểm: ngữ liệu -> phân tích -> tiểu kết.\n"
-        "3) Kết luận khái quát tư tưởng và mở rộng hiện đại."
-    )
-    return _compose_prompt(
-        system="Bạn là giám khảo kỳ cựu môn Văn học trung đại, chuyên sâu Truyện Kiều.",
-        briefing=briefing,
-        user_request=query,
-        history_text=history_text,
-        context_block=ctx_block,
-        response_plan=plan,
-    )
-    
-def build_lit_review_prompt(topic: str, evidence_blocks: List[dict], min_citations: int = 5) -> str:
-    """
-    evidence_blocks: list[{"text": "...", "meta": {...}}]
-      - với thơ: meta.source + line_start/line_end
-      - với văn xuôi: meta.source + char_start/char_end
-    """
-    def cite_tag(m):
-        if m.get("type") == "poem" and m.get("line_start") and m.get("line_end"):
-            return f"[SOURCE: {m.get('source')} L{m['line_start']}-{m['line_end']}]"
-        if m.get("char_start") is not None and m.get("char_end") is not None:
-            return f"[SOURCE: {m.get('source')} {m['char_start']}-{m['char_end']}]"
-        return f"[SOURCE: {m.get('source')}]"
+    # Gói evidence (giới hạn 12 block cho gọn)
+    blocks = []
+    for i, ctx in enumerate(contexts[:12], start=1):
+        text = (ctx.get("text") or "").strip()
+        meta = dict(ctx.get("meta") or {})
+        cite = _cite_tag(meta)
+        if text:
+            blocks.append(f"- EXCERPT {i}: {text}\n  {cite}")
+    context_dump = "\n".join(blocks) if blocks else "(no evidence)"
 
-    ev_txt = []
-    for b in evidence_blocks[:max(min_citations, 12)]:
-        m = b.get("meta", {})
-        tag = cite_tag(m)
-        ev_txt.append(f"- {b.get('text','').strip()} {tag}")
-    ev_str = "\n".join(ev_txt)
+    # Quy ước chung
+    common_rules = (
+        "YÊU CẦU:\n"
+        "1) Bám sát trích dẫn trong [EVIDENCE]; không bịa.\n"
+        "2) Mọi luận điểm quan trọng phải gắn nhãn trích dẫn dạng [SOURCE: …].\n"
+        "3) Nếu trích câu thơ, đặt trong ngoặc kép và giữ nguyên văn.\n"
+        "4) Nếu không đủ bằng chứng, hãy nói rõ: 'Không đủ bằng chứng từ corpus.'\n"
+    )
+
+    # Khung cấu trúc
+    if (essay_mode or "").lower() == "hsg":
+        structure = (
+            "CẤU TRÚC BÀI (HSG):\n"
+            "- Mở bài: nêu vấn đề/ngữ cảnh ngắn gọn.\n"
+            "- Luận điểm 1 → Dẫn chứng → Phân tích → Tiểu kết. [SOURCE bắt buộc]\n"
+            "- Luận điểm 2 → Dẫn chứng → Phân tích → Tiểu kết. [SOURCE bắt buộc]\n"
+            "- (Có thể thêm luận điểm 3 nếu đủ chứng cứ.)\n"
+            "- Kết luận: khái quát giá trị nghệ thuật/ý nghĩa.\n"
+        )
+        task = "Viết bài phân tích theo dàn ý HSG, súc tích nhưng có dẫn chứng cụ thể."
+    else:
+        structure = (
+            "CẤU TRÚC TRẢ LỜI:\n"
+            "- Trả lời trực tiếp câu hỏi.\n"
+            "- Chèn dẫn chứng theo mạch lập luận, mỗi ý chính kèm [SOURCE].\n"
+            "- Một đoạn kết ngắn tổng kết phát hiện chính.\n"
+        )
+        task = "Trả lời trực tiếp, có dẫn chứng và nhãn [SOURCE]."
+
+    history_section = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+
+    prompt = (
+        "Bạn là nhà nghiên cứu văn học Việt Nam, chuyên về Truyện Kiều. "
+        "Hãy tổng hợp và lập luận dựa trên chứng cứ trong corpus nội bộ dưới đây.\n\n"
+        f"{common_rules}{structure}\n"
+        f"NHIỆM VỤ: {task}\n\n"
+        "[USER QUESTION]\n"
+        f"{query.strip()}\n\n"
+        "[EVIDENCE]\n"
+        f"{context_dump}\n"
+        f"{history_section}\n\n"
+        "BẮT ĐẦU TRẢ LỜI:\n"
+    )
+    return prompt
+
+
+# =========================================================
+# Literature Review (citations required)
+# =========================================================
+def build_lit_review_prompt(
+    topic: str,
+    evidence_blocks: List[Dict[str, Any]],
+    *,
+    min_citations: int = 5,
+    history_text: Optional[str] = None,
+    **kwargs,
+) -> str:
+    lines = []
+    for b in evidence_blocks[: max(min_citations, 12)]:
+        txt = (b.get("text") or "").strip()
+        meta = dict(b.get("meta") or {})
+        if txt:
+            lines.append(f"- {txt}\n  {_cite_tag(meta)}")
+    ev_dump = "\n".join(lines) if lines else "(no evidence)"
+    history_section = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
 
     return f"""
 Bạn là nhà nghiên cứu văn học. Hãy viết **tổng quan tài liệu** về chủ đề: "{topic}".
 
-YÊU CẦU:
-- Cấu trúc: (1) Bối cảnh & phạm vi; (2) Nhóm chủ đề chính (bullet) kèm so sánh đối chiếu; (3) Các phát hiện quan trọng; (4) Khoảng trống nghiên cứu; (5) Hướng mở/đề xuất.
-- **BẮT BUỘC**: Mọi luận điểm đều phải có trích dẫn dạng [SOURCE: <meta.source> Lstart-Lend hoặc start-end].
-- Không bịa. Nếu thiếu chứng cứ, nói rõ: "Không đủ bằng chứng từ corpus."
-- Cuối bài: mục **Danh mục trích dẫn trong corpus** (list nguồn đã dùng).
+YÊU CẦU CHUNG:
+- Cấu trúc: (1) Bối cảnh & phạm vi; (2) Nhóm chủ đề chính (gộp & đặt nhan đề con);
+  (3) So sánh/đối chiếu quan điểm; (4) Khoảng trống nghiên cứu; (5) Hướng mở.
+- **BẮT BUỘC**: Mọi luận điểm phải gắn trích dẫn dạng [SOURCE: …] từ [EVIDENCE].
+- Không bịa. Nếu thiếu bằng chứng, nêu rõ: "Không đủ bằng chứng từ corpus."
+- Văn phong học thuật, súc tích, liền mạch; tránh trích dẫn thừa.
 
-MIN_SOURCES = {min_citations}
+[USER TOPIC]
+{topic}
 
-Nguồn gợi ý (trích từ corpus):
-{ev_str}
+[EVIDENCE]
+{ev_dump}
+{history_section}
 
-Viết rõ ràng, súc tích, tôn trọng dữ kiện từ nguồn.
-"""
+BẮT ĐẦU VIẾT:
+""".strip()
 
 
-def _format_line(line: PoemLine | Dict[str, Any]) -> str:
-    if isinstance(line, dict):
-        num = line.get("number")
-        txt = _normalise(line.get("text"))
-        motifs = line.get("motifs") or []
-    else:
-        num = getattr(line, "number", None)
-        txt = _normalise(getattr(line, "text", ""))
-        motifs = getattr(line, "motifs", []) or []
-    motif_note = f" · motif: {', '.join(motifs)}" if motifs else ""
-    if num is not None:
-        return f"(câu {num}) {txt}{motif_note}"
-    return txt + motif_note
-
-def build_poem_compare_prompt(
-    query: str,
+# =========================================================
+# Claim–Evidence Matrix (bảng luận điểm–chứng cứ)
+# =========================================================
+def build_claim_evidence_prompt(
+    question: str,
+    evidence_blocks: List[Dict[str, Any]],
     *,
-    line_a: PoemLine | Dict[str, Any],
-    line_b: PoemLine | Dict[str, Any],
-    history_text: Optional[str] = None,
+    max_rows: int = 8,
+    **kwargs,
 ) -> str:
-    side_by_side = f"{_format_line(line_a)}\n{_format_line(line_b)}"
-    briefing = (
-        "- So sánh hai câu thơ dựa trên ngữ cảnh Truyện Kiều.\n"
-        "- Phân tích: hình ảnh, nhạc tính, tư tưởng, cảm xúc.\n"
-        "- Liên hệ motif để lý giải tương đồng/khác biệt.\n"
-        "- Không thêm mục 'Nguồn'."
-    )
-    plan = (
-        "1) Nhắc lại yêu cầu và giới thiệu hai câu thơ.\n"
-        "2) So sánh theo các bình diện đã nêu.\n"
-        "3) Kết luận giá trị nghệ thuật và thông điệp."
-    )
-    return _compose_prompt(
-        system="Bạn là chuyên gia chấm thi HSG Văn, nắm vững Truyện Kiều.",
-        briefing=briefing,
-        user_request=query,
-        history_text=history_text,
-        context_block=f"[TRÍCH DẪN]\n{side_by_side}",
-        response_plan=plan,
-    )
+    rows = []
+    for b in evidence_blocks[:max_rows]:
+        txt = (b.get("text") or "").strip()
+        meta = dict(b.get("meta") or {})
+        if txt:
+            rows.append(f"- EVID: {txt}\n  {_cite_tag(meta)}")
+    ev_dump = "\n".join(rows) if rows else "(no evidence)"
+    return f"""
+Nhiệm vụ: Lập **bảng luận điểm–chứng cứ** (Claim–Evidence Matrix) cho câu hỏi sau,
+bảo đảm mỗi luận điểm có trích dẫn [SOURCE: …] và 1 câu bình luận phương pháp (vì sao dẫn chứng phù hợp).
 
-__all__ = [
-    "DEFAULT_LONG_TOKEN_BUDGET",
-    "DEFAULT_SHORT_TOKEN_BUDGET",
-    "build_generic_prompt",
-    "build_poem_disambiguation_prompt",
-    "build_rag_synthesis_prompt",
-    "build_smalltalk_prompt",
-    "build_poem_compare_prompt",
-]
-def build_bullets_prompt(
-    message: str,
-    history_text: Optional[str] = None,
+[CÂU HỎI]
+{question}
+
+[DỮ LIỆU]
+{ev_dump}
+
+Định dạng đầu ra (markdown):
+
+| Luận điểm | Dẫn chứng (trích ngắn) | Nguồn | Bình luận phương pháp |
+|---|---|---|---|
+| ... | "..." | [SOURCE: ...] | ... |
+""".strip()
+
+
+# =========================================================
+# Counterargument mode (phản biện – “hai vế”)
+# =========================================================
+def build_counterargument_prompt(
+    thesis: str,
+    evidence_blocks: List[Dict[str, Any]],
     *,
-    max_items: int = 5,
+    min_pairs: int = 2,
+    **kwargs,
 ) -> str:
-    return _compose_prompt(
-        system="Bạn là biên tập viên tóm tắt, chuyên chắt lọc ý chính.",
-        briefing=(
-            f"- Trả lời đúng {max_items} mục, dạng gạch đầu dòng.\n"
-            "- Mỗi mục tối đa 28 từ, tránh văn hoa, không dẫn dắt rườm rà.\n"
-            "- Không thêm tiêu đề, không mục 'Nguồn'.\n"
-            "- Nếu có số liệu/ngày tháng → đưa trực tiếp trong mỗi dòng.\n"
-            "- Không lặp ý giữa các mục."
-        ),
-        history_text=history_text,
-        user_request=message,
-        response_plan=(
-            "1) Xác định các trục thông tin cốt lõi.\n"
-            "2) Mỗi mục: 1 mệnh đề độc lập, rõ ràng.\n"
-            "3) Loại bỏ bổ ngữ cảm tính và trùng lặp."
-        ),
-    )
+    ev = []
+    for b in evidence_blocks[:min_pairs * 3]:
+        t = (b.get("text") or "").strip()
+        if t:
+            ev.append(f"- {t}  {_cite_tag(dict(b.get('meta') or {}))}")
+    ev_dump = "\n".join(ev) if ev else "(no evidence)"
+    return f"""
+Đề bài: Viết phân tích hai vế cho luận đề sau, mỗi vế **đều phải** dùng [SOURCE: …].
+- Vế A (Ủng hộ luận đề) → Dẫn chứng → Lập luận.
+- Vế B (Phản biện luận đề) → Dẫn chứng → Lập luận.
+- Kết đoạn: đánh giá cân bằng (khi nào A đúng hơn, khi nào B thuyết phục).
+
+[LUẬN ĐỀ]
+{thesis}
+
+[EVIDENCE]
+{ev_dump}
+
+Bắt đầu:
+""".strip()
+
+
+# =========================================================
+# Quote verification checklist (kiểm tra trích dẫn)
+# =========================================================
+def build_quote_verification_prompt(
+    answer_draft: str,
+    **kwargs,
+) -> str:
+    return f"""
+Bạn là biên tập viên khoa học. Hãy kiểm tra bản thảo dưới đây bằng **checklist 6 mục**:
+1) Có trích nguyên văn câu thơ? 2) Có sai chữ/dấu? 3) Có cắt ghép làm đổi nghĩa?
+4) Có gắn [SOURCE] đúng vị trí (Lstart–Lend) hoặc offset? 5) Có suy diễn vượt bằng chứng?
+6) Các kết luận chính đều có ít nhất 1 [SOURCE]?
+
+[ANSWER DRAFT]
+{answer_draft}
+
+Trả về: Danh sách mục đạt/chưa đạt + đề xuất sửa ngắn gọn.
+""".strip()
+
+
+# =========================================================
+# Evidence-first outline (từ chứng cứ → dàn ý)
+# =========================================================
+def build_evidence_outline_prompt(
+    question: str,
+    evidence_blocks: List[Dict[str, Any]],
+    *,
+    max_points: int = 6,
+    **kwargs,
+) -> str:
+    ev = []
+    for b in evidence_blocks[:max_points * 2]:
+        t = (b.get("text") or "").strip()
+        if t:
+            ev.append(f"- {t}  {_cite_tag(dict(b.get('meta') or {}))}")
+    ev_dump = "\n".join(ev) if ev else "(no evidence)"
+
+    return f"""
+Nhiệm vụ: Sắp xếp các **evidence** thành dàn ý trả lời cho câu hỏi, mỗi mục trong dàn ý gắn [SOURCE: …].
+Sau đó ghi 1 câu **tiểu kết** cho từng mục.
+
+[CÂU HỎI]
+{question}
+
+[EVIDENCE]
+{ev_dump}
+
+Đầu ra (markdown):
+- I. Luận điểm 1 — [SOURCE: …]
+  - Dẫn chứng: …
+  - Tiểu kết: …
+- II. Luận điểm 2 — [SOURCE: …]
+  ...
+""".strip()
