@@ -1,409 +1,223 @@
+# app/hybrid_retriever.py
 # -*- coding: utf-8 -*-
-"""Hybrid retriever combining lexical, dense and pseudo-ColBERT scoring."""
+"""Hybrid retriever on MongoDB Atlas: vectorSearch (+ optional text search) with RRF fusion."""
 
 from __future__ import annotations
-
-import re
 import os
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple, TYPE_CHECKING
+from typing import Any, Dict, List, Optional
 
-try:
-    import numpy as np
-except ImportError:  # pragma: no cover - optional dependency in some deployments
-    np = None  # type: ignore[assignment]
+from dotenv import load_dotenv
+from pymongo import MongoClient
 
-if TYPE_CHECKING:
-    import numpy as _np
+# load .env ở tầng app
+load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
 
-    NDArray = _np.ndarray[Any, Any]
-else:  # pragma: no cover - only needed when numpy missing at runtime
-    NDArray = Any
-    
-def _safe_len_tokens(x) -> int:
-    """Trả về số token của x.
-    - Nếu x là int → dùng trực tiếp (ít nhất 1)
-    - Nếu x là chuỗi/sequence → len(x) (ít nhất 1)
-    - Nếu None/kiểu lạ → 1 (tránh chia 0)
-    """
-    if isinstance(x, int):
-        return max(1, x)
-    try:
-        return max(1, len(x))  # list/tuple/str
-    except Exception:
-        return 1
+# ====== ENV / Defaults ======
+MONGO_URI    = os.getenv("MONGO_URI")
+DB_NAME      = os.getenv("MONGO_DB", "kieu_bot")
+COL_NAME     = os.getenv("MONGO_COL", "chunks")
+INDEX_NAME   = os.getenv("INDEX_NAME", "vector_index")  # Atlas Vector index name
+RETRIEVER    = (os.getenv("RETRIEVER", "sbert") or "sbert").lower()  # "sbert" | "gemini"
+EMB_MODEL    = os.getenv("EMBEDDING_MODEL", "intfloat/multilingual-e5-base")
+GOOGLE_API_KEY = (os.getenv("GOOGLE_API_KEY") or "").strip()
+RRF_K        = int(os.getenv("RRF_K", "60"))
 
+# ====== Embedding providers ======
+class _SbertProvider:
+    def __init__(self, model_name: str):
+        from sentence_transformers import SentenceTransformer
+        self.model = SentenceTransformer(model_name)
+        self.is_e5 = "e5" in (model_name or "").lower()
 
+    def encode_query(self, q: str) -> List[float]:
+        t = f"query: {q}" if self.is_e5 else q
+        return self.model.encode(t, normalize_embeddings=True).tolist()
 
-class _SimpleBM25:
-    """Fallback lexical scorer when rank_bm25 isn't available."""
+class _GeminiProvider:
+    def __init__(self, api_key: str):
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY trống — không thể dùng GEMINI retriever.")
+        import google.generativeai as genai
+        genai.configure(api_key=api_key)
+        self.genai = genai
+        # nên khớp với script embed/query khác của bạn
+        self.model_name = os.getenv("GEMINI_EMB_MODEL", "models/text-embedding-004")
 
-    def __init__(self, tokenised_docs: List[List[str]]) -> None:
-        self._docs = tokenised_docs
+    @staticmethod
+    def _looks_like_vec(x) -> bool:
+        from numbers import Real
+        return isinstance(x, (list, tuple)) and x and all(isinstance(v, Real) for v in x)
 
-    def get_scores(self, query_tokens: List[str]) -> List[float]:
-        if not query_tokens:
-            return [0.0] * len(self._docs)
+    def _parse_single(self, res) -> list[float]:
+        # Hỗ trợ các layout: dict|object; embedding.values|embedding|res["data"][0]["embedding"] ...
+        # 1) Kiểu dict
+        if isinstance(res, dict):
+            if "error" in res:
+                raise RuntimeError(f"Gemini error: {res.get('error')}")
+            emb = res.get("embedding")
+            if isinstance(emb, dict) and self._looks_like_vec(emb.get("values")):
+                return list(emb["values"])
+            if self._looks_like_vec(emb):
+                return list(emb)
+            # một số SDK có res["data"][0]["embedding"]
+            data = res.get("data")
+            if isinstance(data, list) and data:
+                emb2 = data[0].get("embedding") if isinstance(data[0], dict) else None
+                if isinstance(emb2, dict) and self._looks_like_vec(emb2.get("values")):
+                    return list(emb2["values"])
+                if self._looks_like_vec(emb2):
+                    return list(emb2)
 
-        query_set = set(query_tokens)
-        scores: List[float] = []
-        for doc_tokens in self._docs:
-            if not doc_tokens:
-                scores.append(0.0)
-                continue
-            overlap = sum(1 for token in doc_tokens if token in query_set)
-            ntoks = _safe_len_tokens(doc_tokens)
-            scores.append(overlap / ntoks)
-        return scores
+        # 2) Kiểu object có .embedding hoặc .embedding.values
+        emb_obj = getattr(res, "embedding", None)
+        vals = getattr(emb_obj, "values", None) if emb_obj is not None else None
+        if self._looks_like_vec(vals):
+            return list(vals)
+        if self._looks_like_vec(emb_obj):
+            return list(emb_obj)
 
-try:  # pragma: no cover - allow usage both as package and script
-    from .corpus_loader import CorpusDocument, load_corpus
-except ImportError:  # pragma: no cover
-    from corpus_loader import CorpusDocument, load_corpus
+        raise RuntimeError("Không đọc được embedding từ phản hồi Gemini (query).")
 
+    def encode_query(self, q: str) -> list[float]:
+        res = self.genai.embed_content(
+            model=self.model_name,
+            content=q,
+            task_type="RETRIEVAL_QUERY",
+            output_dimensionality=768,  # khớp với Atlas index dim
+        )
+        return self._parse_single(res)
+@lru_cache(maxsize=1)
+def _get_clients():
+    assert MONGO_URI, "Thiếu MONGO_URI — kiểm tra .env"
+    client = MongoClient(MONGO_URI)
+    col = client[DB_NAME][COL_NAME]
+    embedder = _SbertProvider(EMB_MODEL) if RETRIEVER != "gemini" else _GeminiProvider(GOOGLE_API_KEY)
+    return col, embedder
 
-def _truthy_env(name: str) -> bool:
-    value = os.environ.get(name)
-    if value is None:
-        return False
-    return value.strip().lower() in {"1", "true", "yes", "on"}
-
-
-def _prepare_hf_cache() -> Path:
-    """Ensure Hugging Face models download into a writable directory."""
-
-    env_override = os.environ.get("HF_HOME")
-    repo_default = Path(__file__).resolve().parent.parent / ".hf_cache"
-    home_cache = Path(os.environ.get("HOME", str(Path.home()))) / ".cache" / "huggingface"
-
-    candidates = [Path(env_override)] if env_override else []
-    candidates.extend([home_cache, repo_default])
-
-    cache_root: Optional[Path] = None
-    for candidate in candidates:
-        try:
-            candidate.mkdir(parents=True, exist_ok=True)
-        except PermissionError:
-            continue
-        else:
-            cache_root = candidate
-            break
-
-    if cache_root is None:
-        raise RuntimeError("Không tìm được thư mục cache Hugging Face khả dụng")
-
-    # Align other libraries that respect their own environment flags.
-    os.environ.setdefault("HF_HOME", str(cache_root))
-
-    transformers_cache = cache_root / "transformers"
-    sentence_cache = cache_root / "sentence-transformers"
-    transformers_cache.mkdir(parents=True, exist_ok=True)
-    sentence_cache.mkdir(parents=True, exist_ok=True)
-
-    os.environ.setdefault("TRANSFORMERS_CACHE", str(transformers_cache))
-    os.environ.setdefault("SENTENCE_TRANSFORMERS_HOME", str(sentence_cache))
-
-    return cache_root
-
-
-_HF_CACHE_DIR = _prepare_hf_cache()
-
-
-def _tokenize(text: str) -> List[str]:
-    tokens = re.findall(r"[\wÀ-ỹ']+", text.lower())
-    return tokens
-
-
+# ====== Dataclass hit ======
 @dataclass
 class RetrievalHit:
-    doc_id: str
     text: str
     score: float
     metadata: Dict[str, Any]
-    debug: Dict[str, float]
+    doc_id: Optional[str]
+    debug: Dict[str, Any]
 
+# ====== Helper: fusion RRF ======
+def _rrf_fuse(*ranked_lists: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    ranked_lists: mỗi danh sách gồm dict {"_key": str, "score": float, "doc": {...}, "debug": {...}}
+    """
+    fused: Dict[str, Dict[str, Any]] = {}
+    for rl in ranked_lists:
+        for rank, item in enumerate(rl, start=1):
+            key = item["_key"]
+            entry = fused.setdefault(key, {"doc": item["doc"], "score": 0.0, "debug": {}})
+            entry["score"] += 1.0 / (RRF_K + rank)
+            entry["debug"].update(item.get("debug", {}))
+    # sort desc by fused score
+    return [
+        {"_key": k, "doc": v["doc"], "score": v["score"], "debug": v["debug"]}
+        for k, v in sorted(fused.items(), key=lambda x: x[1]["score"], reverse=True)
+    ]
 
+# ====== Retriever main ======
 class HybridRetriever:
-    def __init__(
-        self,
-        *,
-        dense_model: str | None = None,
-        colbert_model: str | None = None,
-        rrf_k: int = 60,
-    ) -> None:
-        self.dense_model_name = dense_model or "keepitreal/vietnamese-sbert"
-        self.colbert_model_name = colbert_model or self.dense_model_name
-        self.rrf_k = rrf_k
+    def __init__(self):
+        self.col, self.embedder = _get_clients()
 
-        self._corpus: List[CorpusDocument] | None = None
-        self._bm25 = None
-        self._dense_model = None
-        dense_disabled = _truthy_env("TKC_DISABLE_DENSE") or not _truthy_env("TKC_ENABLE_DENSE")
-        self._dense_disabled = dense_disabled
-        self._dense_error: Optional[str] = (
-            "Dense retriever đang bị tắt (bật bằng TKC_ENABLE_DENSE=1)."
-            if self._dense_disabled
-            else None
-        )
-        self._dense_embeddings: NDArray | None = None
-        self._colbert_model = None
-        colbert_disabled = _truthy_env("TKC_DISABLE_COLBERT") or not _truthy_env("TKC_ENABLE_COLBERT")
-        self._colbert_disabled = colbert_disabled
-        self._colbert_error: Optional[str] = (
-            "ColBERT retriever đang bị tắt (bật bằng TKC_ENABLE_COLBERT=1)."
-            if self._colbert_disabled
-            else None
-        )
-        self._colbert_embeddings: NDArray | None = None
-        self._colbert_doc_index: List[int] | None = None
-        self._colbert_segments: List[str] | None = None
+    def _vector_search(self, query: str, k: int, num_candidates: int, filters: Optional[Dict[str, Any]]):
+        qvec = self.embedder.encode_query(query)
+        stage = {
+            "$vectorSearch": {
+                "index": INDEX_NAME,
+                "path": "vector",
+                "queryVector": qvec,
+                "numCandidates": int(num_candidates),
+                "limit": int(k),
+            }
+        }
+        if filters:
+            stage["$vectorSearch"]["filter"] = filters
+        pipeline = [
+            stage,
+            {"$project": {
+                "_id": 0,
+                "text": 1,
+                "meta": 1,
+                "score": {"$meta": "vectorSearchScore"}
+            }},
+        ]
+        docs = list(self.col.aggregate(pipeline))
+        out = []
+        for d in docs:
+            meta = d.get("meta", {})
+            doc_key = meta.get("id") or meta.get("source_id") or meta.get("source") or d.get("text", "")[:60]
+            out.append({
+                "_key": str(doc_key),
+                "score": float(d.get("score", 0.0) or 0.0),
+                "doc": d,
+                "debug": {"vector": float(d.get("score", 0.0) or 0.0), "index": INDEX_NAME},
+            })
+        return out
 
-    # ------------------------------------------------------------------
-    # lazy loaders
-    def _ensure_corpus(self) -> List[CorpusDocument]:
-        if self._corpus is None:
-            self._corpus = load_corpus()
-        return self._corpus
-
-    def _ensure_bm25(self):
-        if self._bm25 is None:
-            corpus = self._ensure_corpus()
-            tokenised = [_tokenize(doc.text) for doc in corpus]
-            try:
-                from rank_bm25 import BM25Okapi
-
-                self._bm25 = BM25Okapi(tokenised)
-            except ImportError:  # pragma: no cover - optional dependency
-                self._bm25 = _SimpleBM25(tokenised)
-        return self._bm25
-
-    def _disable_dense(self, message: str) -> None:
-        self._dense_disabled = True
-        self._dense_error = message
-
-    def _disable_colbert(self, message: str) -> None:
-        self._colbert_disabled = True
-        self._colbert_error = message
-
-    def _ensure_dense_model(self):
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        if self._dense_disabled:
-            raise RuntimeError(self._dense_error or "dense retriever đang bị vô hiệu hoá")
-        if self._dense_model is None:
-            try:
-                from sentence_transformers import SentenceTransformer
-            except ImportError as exc:  # pragma: no cover - optional dependency
-                raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
-
-            try:
-                self._dense_model = SentenceTransformer(
-                    self.dense_model_name,
-                    cache_folder=str(_HF_CACHE_DIR),
-                )
-            except (OSError, RuntimeError) as exc:
-                self._disable_dense(
-                    "Không tải được mô hình dense, tạm dùng BM25."
-                )
-                message = self._dense_error or "Không tải được mô hình dense"
-                raise RuntimeError(f"{message} (lỗi: {exc})")
-        return self._dense_model
-
-    def _ensure_dense_embeddings(self) -> NDArray:
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        if self._dense_embeddings is None:
-            model = self._ensure_dense_model()
-            corpus = self._ensure_corpus()
-            self._dense_embeddings = model.encode(
-                [doc.text for doc in corpus],
-                convert_to_numpy=True,
-                normalize_embeddings=True,
-                show_progress_bar=False,
-            )
-        return self._dense_embeddings
-
-    def _ensure_colbert_model(self):
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        if self._colbert_disabled:
-            raise RuntimeError(self._colbert_error or "ColBERT retriever đang bị vô hiệu hoá")
-        if self._colbert_model is None:
-            try:
-                from sentence_transformers import SentenceTransformer
-            except ImportError as exc:  # pragma: no cover
-                raise RuntimeError("sentence-transformers chưa được cài đặt") from exc
-
-            try:
-                self._colbert_model = SentenceTransformer(
-                    self.colbert_model_name,
-                    cache_folder=str(_HF_CACHE_DIR),
-                )
-            except (OSError, RuntimeError) as exc:
-                self._disable_colbert(
-                    "Không tải được mô hình ColBERT, tạm bỏ qua tầng này."
-                )
-                message = self._colbert_error or "Không tải được mô hình ColBERT"
-                raise RuntimeError(f"{message} (lỗi: {exc})")
-        return self._colbert_model
-
-    def _ensure_colbert_index(self) -> Tuple[NDArray, List[int], List[str]]:
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        if self._colbert_embeddings is None or self._colbert_doc_index is None or self._colbert_segments is None:
-            model = self._ensure_colbert_model()
-            corpus = self._ensure_corpus()
-            segments: List[str] = []
-            mapping: List[int] = []
-            splitter = re.compile(r"[\n.!?;]+")
-            for idx, doc in enumerate(corpus):
-                raw_segments = [seg.strip() for seg in splitter.split(doc.text) if seg.strip()]
-                if not raw_segments:
-                    raw_segments = [doc.text.strip()]
-                for seg in raw_segments:
-                    segments.append(seg)
-                    mapping.append(idx)
-            if not segments:
-                segments.append("Truyện Kiều")
-                mapping.append(0)
-            self._colbert_embeddings = model.encode(
-                segments,
-                convert_to_numpy=True,
-                normalize_embeddings=True,
-                show_progress_bar=False,
-            )
-            self._colbert_doc_index = mapping
-            self._colbert_segments = segments
-        return self._colbert_embeddings, self._colbert_doc_index, self._colbert_segments
-
-    # ------------------------------------------------------------------
-    # retrieval strategies
-    def _search_bm25(self, query: str, top_k: int) -> List[Tuple[int, float]]:
-        bm25 = self._ensure_bm25()
-        scores = bm25.get_scores(_tokenize(query))
-        if np is not None:
-            ranking = np.argsort(scores)[::-1][:top_k]
-        else:
-            ranking = sorted(range(len(scores)), key=lambda idx: scores[idx], reverse=True)[:top_k]
-        return [(int(idx), float(scores[idx])) for idx in ranking if scores[idx] > 0]
-
-    def _search_dense(self, query: str, top_k: int) -> List[Tuple[int, float]]:
-        embeddings = self._ensure_dense_embeddings()
-        model = self._ensure_dense_model()
-        qvec = model.encode(query, convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        sims = np.dot(embeddings, qvec)
-        ranking = np.argsort(sims)[::-1][:top_k]
-        return [(int(idx), float(sims[idx])) for idx in ranking if sims[idx] > 0]
-
-    def _search_colbert(self, query: str, top_k: int) -> List[Tuple[int, float]]:
-        emb_matrix, mapping, _segments = self._ensure_colbert_index()
-        model = self._ensure_colbert_model()
-        qvec = model.encode(query, convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)
-        if np is None:
-            raise RuntimeError("numpy chưa được cài đặt")
-        sims = emb_matrix @ qvec
-        best: Dict[int, float] = {}
-        for score, doc_idx in zip(sims, mapping):
-            score = float(score)
-            if doc_idx not in best or score > best[doc_idx]:
-                best[doc_idx] = score
-        ranking = sorted(best.items(), key=lambda item: item[1], reverse=True)[:top_k]
-        return ranking
-
-    # ------------------------------------------------------------------
-    def _rrf(self, ranked_lists: Sequence[Tuple[str, List[Tuple[int, float]]]]) -> Dict[str, Dict[str, Any]]:
-        fused: Dict[str, Dict[str, Any]] = {}
-        corpus = self._ensure_corpus()
-        for label, results in ranked_lists:
-            for rank, (doc_idx, raw_score) in enumerate(results, start=1):
-                if doc_idx < 0 or doc_idx >= len(corpus):
-                    continue
-                doc = corpus[doc_idx]
-                key = doc.doc_id
-                entry = fused.setdefault(
-                    key,
-                    {
-                        "doc": doc,
-                        "score": 0.0,
-                        "debug": {},
-                    },
-                )
-                entry["score"] += 1.0 / (self.rrf_k + rank)
-                entry["debug"][label] = float(raw_score)
-        return fused
-
-    @staticmethod
-    def _allow_document(doc: CorpusDocument, filters: Optional[Dict[str, Any]]) -> bool:
-        if not filters:
-            return True
-        allowed_types: Optional[Sequence[str]] = None
-        meta_filters = filters.get("meta.type") if isinstance(filters, dict) else None
-        if isinstance(meta_filters, dict) and "$in" in meta_filters:
-            val = meta_filters.get("$in")
-            if isinstance(val, Sequence):
-                allowed_types = [str(v) for v in val]
-        if allowed_types:
-            return str(doc.metadata.get("type")) in allowed_types
-        return True
+    def _text_search(self, query: str, k: int, filters: Optional[Dict[str, Any]]):
+        """Optional lexical path using classic Mongo text index (if exists)."""
+        try:
+            f = {"$text": {"$search": query}}
+            if filters:
+                f.update(filters)
+            cur = self.col.find(f, {
+                "_id": 0, "text": 1, "meta": 1,
+                "score": {"$meta": "textScore"}
+            }).sort([("score", {"$meta": "textScore"})]).limit(int(k))
+            docs = list(cur)
+        except Exception:
+            return []
+        out = []
+        for d in docs:
+            meta = d.get("meta", {})
+            doc_key = meta.get("id") or meta.get("source_id") or meta.get("source") or d.get("text", "")[:60]
+            out.append({
+                "_key": str(doc_key),
+                "score": float(d.get("score", 0.0) or 0.0),
+                "doc": d,
+                "debug": {"text": float(d.get("score", 0.0) or 0.0)},
+            })
+        return out
 
     def search(
         self,
         query: str,
-        *,
-        top_k: int = 20,
+        top_k: int = 5,
         filters: Optional[Dict[str, Any]] = None,
-        num_candidates: int = 60,
+        num_candidates: int = 120,
     ) -> List[RetrievalHit]:
-        query = (query or "").strip()
-        if not query:
+        if not (query or "").strip():
             return []
 
-        corpus = self._ensure_corpus()
-        if not corpus:
-            return []
+        # Vector path luôn có
+        vec_ranked = self._vector_search(query, k=max(top_k, 6), num_candidates=num_candidates, filters=filters)
+        # Text path nếu có text index
+        txt_ranked = self._text_search(query, k=max(top_k, 6), filters=filters)
 
-        k = max(top_k, 1)
-        candidates = max(num_candidates, k)
+        # Nếu có cả hai → RRF; nếu chỉ một → dùng một
+        ranked = _rrf_fuse(vec_ranked, txt_ranked) if txt_ranked else vec_ranked
 
-        ranked_lists: List[Tuple[str, List[Tuple[int, float]]]] = []
-        ranked_lists.append(("bm25", self._search_bm25(query, candidates)))
-
-        if not self._dense_disabled:
-            try:
-                ranked_lists.append(("dense", self._search_dense(query, candidates)))
-            except Exception as exc:
-                detail = str(exc).strip() or "Không dùng được dense retriever, chỉ còn BM25."
-                self._disable_dense(detail)
-
-        if not self._colbert_disabled:
-            try:
-                ranked_lists.append(("colbert", self._search_colbert(query, candidates)))
-            except Exception as exc:
-                detail = str(exc).strip() or "Không dùng được ColBERT retriever, bỏ qua tầng này."
-                self._disable_colbert(detail)
-
-        fused = self._rrf(ranked_lists)
         hits: List[RetrievalHit] = []
-        for entry in sorted(fused.values(), key=lambda item: item["score"], reverse=True):
-            doc = entry["doc"]
-            if not self._allow_document(doc, filters):
-                continue
+        for item in ranked[:top_k]:
+            d = item["doc"]
+            meta = d.get("meta", {})
             hits.append(
                 RetrievalHit(
-                    doc_id=doc.doc_id,
-                    text=doc.text,
-                    score=float(entry["score"]),
-                    metadata=dict(doc.metadata),
-                    debug=entry["debug"],
+                    text=d.get("text", ""),
+                    score=float(item.get("score", 0.0) or 0.0),
+                    metadata=meta,
+                    doc_id=meta.get("id"),
+                    debug=item.get("debug", {}),
                 )
             )
-            if len(hits) >= k:
-                break
-
         return hits
-
-
-__all__ = ["HybridRetriever", "RetrievalHit"]

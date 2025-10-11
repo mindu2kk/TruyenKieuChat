@@ -128,15 +128,27 @@ def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 def _as_hit_dict(hit: Dict[str, Any] | RetrievalHit) -> Dict[str, Any]:
     if isinstance(hit, RetrievalHit):
-        return {
+        d = {
             "text": hit.text,
-            "score": hit.score,
-            "meta": dict(hit.metadata or {}),
-            "metadata": dict(hit.metadata or {}),
+            "score": float(hit.score),
+            "meta": dict(hit.metadata),
+            "metadata": dict(hit.metadata),
             "doc_id": hit.doc_id,
-            "debug": dict(hit.debug or {}),
+            "debug": dict(hit.debug),
         }
-    return dict(hit)
+        # QUAN TRỌNG: dùng score hiện có làm _raw_score cho bước threshold
+        d["_raw_score"] = d["score"]
+        return d
+    # hit đã là dict (ví dụ từ Atlas pipeline khác)
+    d = dict(hit)
+    # nếu chưa có _raw_score thì fallback = score
+    if "_raw_score" not in d:
+        try:
+            d["_raw_score"] = float(d.get("score", 0.0) or 0.0)
+        except Exception:
+            d["_raw_score"] = 0.0
+    return d
+
 
 
 def _annotate_hits(
@@ -338,10 +350,20 @@ def answer_question(
 
     # sanity-check chất lượng tín hiệu
     top_for_avg = collected[: max(1, k)]
-    avg_score = sum(h.get("_raw_score", 0.0) for h in top_for_avg) / max(1, len(top_for_avg))
-    if avg_score < 0.06:
-        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
+    avg_score = sum(h.get("_raw_score", h.get("score", 0.0)) for h in top_for_avg) / max(1, len(top_for_avg))
+
+    # Với RRF/Atlas, điểm thường nhỏ. Dùng ngưỡng rất thấp, hoặc chỉ chặn khi KHÔNG có hit.
+    LOW_CONF_THRESH = 0.002  # hoặc 0.0 để tắt
+
+    if not collected:
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
         return {"query": query, "prompt": prompt, "contexts": []}
+
+    # Nếu vẫn muốn chặn cực thấp:
+    if avg_score < LOW_CONF_THRESH and len(collected) < k:
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
+        return {"query": query, "prompt": prompt, "contexts": []}
+
 
     # rerank sâu
     rerank_depth = min(len(collected), max(k * 2, 12))
