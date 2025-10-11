@@ -129,47 +129,47 @@ def build_rag_synthesis_prompt(
     *,
     history_text: Optional[str] = None,
     long_answer: bool = False,
-    essay_mode: Optional[str] = None,   # bổ sung để tương thích orchestrator/rag_pipeline
-    **kwargs,                            # nuốt an toàn tham số mới
+    essay_mode: Optional[str] = None,   # giữ nguyên để tương thích
+    **kwargs,                            # nuốt an toàn tham số khác
 ) -> str:
-    # Gói evidence (giới hạn 12 block cho gọn)
+    # Gói evidence (giới hạn 12 block cho gọn) — KHÔNG yêu cầu model dùng [SOURCE] trong câu trả lời
     blocks = []
     for i, ctx in enumerate(contexts[:12], start=1):
         text = (ctx.get("text") or "").strip()
         meta = dict(ctx.get("meta") or {})
-        cite = _cite_tag(meta)
+        cite = _cite_tag(meta)  # vẫn hiển thị nguồn trong prompt để model hiểu bối cảnh
         if text:
             blocks.append(f"- EXCERPT {i}: {text}\n  {cite}")
     context_dump = "\n".join(blocks) if blocks else "(no evidence)"
 
-    # Quy ước chung
+    # Quy ước chung — BỎ YÊU CẦU GẮN [SOURCE]
     common_rules = (
         "YÊU CẦU:\n"
         "1) Bám sát trích dẫn trong [EVIDENCE]; không bịa.\n"
-        "2) Mọi luận điểm quan trọng phải gắn nhãn trích dẫn dạng [SOURCE: …].\n"
+        "2) Không chèn bất kỳ ký hiệu trích dẫn dạng [SOURCE: …] trong câu trả lời.\n"
         "3) Nếu trích câu thơ, đặt trong ngoặc kép và giữ nguyên văn.\n"
         "4) Nếu không đủ bằng chứng, hãy nói rõ: 'Không đủ bằng chứng từ corpus.'\n"
     )
 
-    # Khung cấu trúc
+    # Khung cấu trúc — bỏ ràng buộc citation inline
     if (essay_mode or "").lower() == "hsg":
         structure = (
             "CẤU TRÚC BÀI (HSG):\n"
             "- Mở bài: nêu vấn đề/ngữ cảnh ngắn gọn.\n"
-            "- Luận điểm 1 → Dẫn chứng → Phân tích → Tiểu kết. [SOURCE bắt buộc]\n"
-            "- Luận điểm 2 → Dẫn chứng → Phân tích → Tiểu kết. [SOURCE bắt buộc]\n"
+            "- Luận điểm 1 → Dẫn chứng → Phân tích → Tiểu kết.\n"
+            "- Luận điểm 2 → Dẫn chứng → Phân tích → Tiểu kết.\n"
             "- (Có thể thêm luận điểm 3 nếu đủ chứng cứ.)\n"
             "- Kết luận: khái quát giá trị nghệ thuật/ý nghĩa.\n"
         )
-        task = "Viết bài phân tích theo dàn ý HSG, súc tích nhưng có dẫn chứng cụ thể."
+        task = "Viết bài phân tích theo dàn ý HSG, súc tích nhưng có dẫn chứng; KHÔNG chèn [SOURCE]."
     else:
         structure = (
             "CẤU TRÚC TRẢ LỜI:\n"
             "- Trả lời trực tiếp câu hỏi.\n"
-            "- Chèn dẫn chứng theo mạch lập luận, mỗi ý chính kèm [SOURCE].\n"
+            "- Chèn dẫn chứng theo mạch lập luận khi phù hợp (không cần [SOURCE]).\n"
             "- Một đoạn kết ngắn tổng kết phát hiện chính.\n"
         )
-        task = "Trả lời trực tiếp, có dẫn chứng và nhãn [SOURCE]."
+        task = "Trả lời trực tiếp, có dẫn chứng khi phù hợp; KHÔNG chèn [SOURCE]."
 
     history_section = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
 

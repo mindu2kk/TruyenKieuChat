@@ -247,7 +247,6 @@ def answer_question(
         "prompt": str,           # nếu không synthesize
         "contexts": list,        # danh sách hit đã rerank
         "answer": str,           # nếu synthesize thành công
-        "sources": [label...],   # ví dụ: "poem/poem.txt:L123-126"
         "evidence": [ {"text": "...", "meta": {...}}, ... ],
         "generation_error": "...",   # nếu model lỗi
       }
