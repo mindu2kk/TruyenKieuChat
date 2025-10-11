@@ -28,6 +28,7 @@ col = client[DB_NAME][COL_NAME]
 
 col.create_index("meta.type")
 col.create_index("meta.source")
+col.create_index([("text", "text")]) 
 
 embedder = SentenceTransformer(EMB_MODEL)
 
@@ -40,6 +41,10 @@ def embed_texts_passage(texts: List[str]) -> List[List[float]]:
         batch_size=BATCH_SZ,
         show_progress_bar=False
     ).tolist()
+    
+def embed_query(q: str) -> List[float]:
+    # E5: prefix "query: "
+    return embedder.encode(["query: " + q], normalize_embeddings=True).tolist()[0]
 
 def iter_chunks() -> Iterator[Dict]:
     for p in sorted(CHUNKS_DIR.glob("*.txt")):

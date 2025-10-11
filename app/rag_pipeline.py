@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import Dict, Any, Iterable, List, Optional, Sequence
+from typing import Dict, Any, Iterable, List, Optional, Sequence, Tuple
 import unicodedata
 
 try:  # pragma: no cover - flexible import paths
@@ -22,6 +22,7 @@ except ImportError:  # pragma: no cover
     from hybrid_retriever import HybridRetriever, RetrievalHit  # type: ignore
 
 
+# ====== alias/biến thể tên nhân vật để tăng recall khi tạo query variants ======
 _CHARACTER_VARIANTS: Dict[str, Sequence[str]] = {
     "thúy kiều": ("thúy kiều", "thuý kiều", "thuy kieu", "kiều", "thụy kiều"),
     "thúy vân": ("thúy vân", "thuý vân", "thuy van", "vân"),
@@ -32,13 +33,14 @@ _CHARACTER_VARIANTS: Dict[str, Sequence[str]] = {
 }
 
 
+# ====== helpers chuẩn hoá văn bản ======
 def _strip_accents(text: str) -> str:
     normalized = unicodedata.normalize("NFD", text)
     return "".join(ch for ch in normalized if unicodedata.category(ch) != "Mn")
 
 
 def _normalise_space(text: str) -> str:
-    return " ".join(text.split())
+    return " ".join((text or "").split())
 
 
 def _build_query_variants(query: str) -> List[str]:
@@ -86,6 +88,7 @@ def _build_query_variants(query: str) -> List[str]:
     return variants
 
 
+# ====== hợp nhất & khử trùng lặp hit ======
 def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
     deduped: List[Dict[str, Any]] = []
     seen_keys: set[str] = set()
@@ -94,12 +97,13 @@ def _dedupe_hits(hits: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
         meta = hit.get("meta") or hit.get("metadata") or {}
         key_parts: List[str] = []
 
+        # ưu tiên các khoá ổn định
         doc_id = hit.get("doc_id")
         if doc_id:
             key_parts.append(str(doc_id))
 
         if isinstance(meta, dict):
-            for attr in ("chunk_id", "_id", "id", "source_id"):
+            for attr in ("id", "_id", "chunk_id", "source_id"):
                 value = meta.get(attr)
                 if value:
                     key_parts.append(str(value))
@@ -127,10 +131,10 @@ def _as_hit_dict(hit: Dict[str, Any] | RetrievalHit) -> Dict[str, Any]:
         return {
             "text": hit.text,
             "score": hit.score,
-            "meta": dict(hit.metadata),
-            "metadata": dict(hit.metadata),
+            "meta": dict(hit.metadata or {}),
+            "metadata": dict(hit.metadata or {}),
             "doc_id": hit.doc_id,
-            "debug": dict(hit.debug),
+            "debug": dict(hit.debug or {}),
         }
     return dict(hit)
 
@@ -162,6 +166,51 @@ def _annotate_hits(
     return annotated
 
 
+# ====== boost nhẹ cho thơ khi cần close-reading ======
+def _boost_poem_hits(collected: List[Dict[str, Any]], bonus: float = 0.5) -> None:
+    for h in collected:
+        m = h.get("meta", {})
+        if isinstance(m, dict) and m.get("type") == "poem":
+            try:
+                h["score"] = float(h.get("score", 0.0)) + bonus
+            except Exception:
+                pass
+
+
+# ====== dựng SOURCES & EVIDENCE ======
+def _format_source_label(meta: Dict[str, Any]) -> str:
+    src = meta.get("source") or meta.get("src") or meta.get("title") or "unknown"
+    # thơ ưu tiên line_start/line_end
+    if meta.get("type") == "poem" and meta.get("line_start") and meta.get("line_end"):
+        return f"{src}:L{meta['line_start']}-{meta['line_end']}"
+    # văn xuôi có offset
+    if meta.get("char_start") is not None and meta.get("char_end") is not None:
+        return f"{src}:{meta['char_start']}-{meta['char_end']}"
+    # fallback chunk index
+    if meta.get("chunk_index") is not None:
+        return f"{src}#chunk{meta['chunk_index']}"
+    return str(src)
+
+
+def _build_sources_and_evidence(contexts: List[Dict[str, Any]], top_evidence: int) -> Tuple[List[str], List[Dict[str, Any]]]:
+    ev = []
+    for c in contexts[: max(1, top_evidence)]:
+        ev.append({"text": c.get("text", ""), "meta": dict(c.get("meta", {}))})
+    # unique sources theo label
+    labels: List[str] = []
+    seen: set[str] = set()
+    for c in contexts:
+        lab = _format_source_label(dict(c.get("meta", {})))
+        if lab not in seen:
+            seen.add(lab)
+            labels.append(lab)
+    return labels, ev
+
+
+# ====== Hybrid retriever instance ======
+_HYBRID_RETRIEVER = HybridRetriever()
+
+
 def answer_question(
     query: str,
     k: int = 5,
@@ -173,20 +222,40 @@ def answer_question(
     long_answer: bool = False,
     history_text: str | None = None,
     max_tokens: Optional[int] = None,
+    *,
+    # ==== bổ sung theo P0 ====
+    prefer_poem_source: bool = False,
+    top_evidence: int = 6,
+    essay_mode: Optional[str] = None,
 ) -> Dict[str, Any]:
+    """
+    Trả về tối thiểu:
+      {
+        "query": str,
+        "prompt": str,           # nếu không synthesize
+        "contexts": list,        # danh sách hit đã rerank
+        "answer": str,           # nếu synthesize thành công
+        "sources": [label...],   # ví dụ: "poem/poem.txt:L123-126"
+        "evidence": [ {"text": "...", "meta": {...}}, ... ],
+        "generation_error": "...",   # nếu model lỗi
+      }
+    """
 
+    # -------- defaults --------
     if filters is None:
         filters = {"meta.type": {"$in": ["analysis", "poem", "summary", "bio"]}}
 
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
 
+    # -------- variants for recall --------
     query_variants = _build_query_variants(query)
     if not query_variants:
         query_variants = [_normalise_space(query) or "Truyện Kiều"]
 
     collected: List[Dict[str, Any]] = []
 
+    # -------- local collector wrapper --------
     def _maybe_collect(
         variant: str,
         variant_index: int,
@@ -256,29 +325,47 @@ def answer_question(
                 break
 
     if not collected:
-        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
         return {"query": query, "prompt": prompt, "contexts": []}
 
+    # ưu tiên thơ nếu cần
+    if prefer_poem_source:
+        _boost_poem_hits(collected, bonus=0.5)
+
+    # dedupe + sort
     collected = _dedupe_hits(collected)
     collected.sort(key=lambda item: item.get("score", 0.0), reverse=True)
 
+    # sanity-check chất lượng tín hiệu
     top_for_avg = collected[: max(1, k)]
     avg_score = sum(h.get("_raw_score", 0.0) for h in top_for_avg) / max(1, len(top_for_avg))
     if avg_score < 0.12:
-        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
+        prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
         return {"query": query, "prompt": prompt, "contexts": []}
 
+    # rerank sâu
     rerank_depth = min(len(collected), max(k * 2, 12))
     reranked = rerank(query, collected, top_k=rerank_depth)
     contexts = reranked[: max(k, 6 if long_answer else k)]
 
-    prompt = build_rag_synthesis_prompt(query, contexts, history_text=history_text, long_answer=long_answer)
+    # dựng prompt synthesis
+    prompt = build_rag_synthesis_prompt(query, contexts, history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
 
-    out: Dict[str, Any] = {"query": query, "prompt": prompt, "contexts": contexts}
+    # dựng sources/evidence (dùng cho cả synthesize lẫn UI)
+    sources, evidence = _build_sources_and_evidence(contexts, top_evidence=top_evidence)
 
+    out: Dict[str, Any] = {
+        "query": query,
+        "prompt": prompt,
+        "contexts": contexts,
+        "sources": sources,
+        "evidence": evidence,
+    }
+
+    # synthesize nếu được yêu cầu
     if synthesize and synthesize != "mapreduce":
         if force_quote:
-            prompt += "\n\n[LƯU Ý] Nếu có câu thơ phù hợp, hãy trích 1–2 câu trong ngoặc kép."
+            prompt += "\n\n[LƯU Ý] Nếu có câu thơ phù hợp, hãy trích đúng nguyên văn 1–2 câu trong ngoặc kép."
         try:
             ans = generate_answer_gemini(
                 prompt,
@@ -286,13 +373,10 @@ def answer_question(
                 long_answer=long_answer,
                 max_tokens=max_tokens,
             )
-        except Exception as exc:  # <-- bắt mọi lỗi SDK
+        except Exception as exc:  # bắt mọi lỗi SDK
             out["generation_error"] = str(exc)
             return out
         if ans:
             out["answer"] = ans
 
     return out
-
-
-_HYBRID_RETRIEVER = HybridRetriever()

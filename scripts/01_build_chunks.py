@@ -136,54 +136,99 @@ def extract_tags(text: str, ftype: str) -> list[str]:
     return sorted(tags)
 
 # ==== Chunkers ====
-def split_poem(text: str) -> list[str]:
-    """Chia theo 2–4 câu lục bát, có overlap để giữ mạch."""
-    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+def split_poem(text: str, min_lines=2, max_lines=4, overlap=1) -> list[dict]:
+    """
+    Trả list dict:
+      {"lines": "...\n...", "line_start": int, "line_end": int}
+    """
+    lines = [ln.rstrip() for ln in text.splitlines() if ln.strip()]
     blocks = []
     i = 0
-    minL, maxL = POEM_LINES_PER_BLOCK
-    while i < len(lines):
-        L = min(maxL, max(minL, maxL))  # mặc định dùng 4 nếu set (2,4)
-        blk = "\n".join(lines[i:i+L])
-        blocks.append(blk)
-        i += (L - POEM_OVERLAP_LINES)
+    n = len(lines)
+    L = max_lines
+    while i < n:
+        j = min(i + L, n)
+        blk_text = "\n".join(lines[i:j])
+        blocks.append({"lines": blk_text, "line_start": i + 1, "line_end": j})
+        i += max(1, (L - overlap))
     return blocks
 
-def split_prose(text: str, max_words=PROSE_MAX_WORDS) -> list[str]:
-    """Chia theo đoạn 150–250 từ, hạn chế xén giữa câu."""
+def split_prose(text: str, max_words=PROSE_MAX_WORDS) -> list[dict]:
+    """
+    Trả list dict:
+      {"text": "...", "char_start": int|None, "char_end": int|None}
+    """
     paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
-    blocks, cur = [], ""
+    blocks, cur, cur_start = [], "", 0
+    cursor = 0
+
+    def find_span(haystack: str, needle: str, start_at: int) -> tuple[int, int]:
+        pos = haystack.find(needle, start_at)
+        return (pos, pos + len(needle)) if pos >= 0 else (-1, -1)
+
     for p in paras:
         if len((cur + " " + p).split()) <= max_words:
+            if not cur:
+                cur_start, _ = find_span(text, p, cursor)
             cur = (cur + "\n\n" + p).strip()
         else:
             if cur:
-                blocks.append(cur); cur = p
+                s = text.find(cur, cur_start if cur_start >= 0 else 0)
+                e = s + len(cur) if s >= 0 else -1
+                blocks.append({"text": cur, "char_start": s if s >= 0 else None, "char_end": e if e >= 0 else None})
+                cursor = e if e and e > 0 else cursor
+                cur = p
+                cur_start, _ = find_span(text, p, cursor)
             else:
-                # đoạn quá dài → cắt mềm theo câu
                 sentences = re.split(r"(?<=[\.\?\!…:;])\s+", p)
-                buf = ""
-                for s in sentences:
-                    if len((buf + " " + s).split()) <= max_words:
-                        buf = (buf + " " + s).strip()
+                buf, buf_start = "", None
+                for snt in sentences:
+                    if len((buf + " " + snt).split()) <= max_words:
+                        if not buf:
+                            buf_start, _ = find_span(text, snt, cursor)
+                        buf = (buf + " " + snt).strip()
                     else:
-                        if buf: blocks.append(buf); buf = s
-                        else:   blocks.append(s)
-                if buf: blocks.append(buf)
+                        if buf:
+                            s0 = buf_start
+                            e0 = s0 + len(buf) if s0 and s0 >= 0 else None
+                            blocks.append({"text": buf, "char_start": s0 if s0 and s0 >= 0 else None, "char_end": e0})
+                            cursor = e0 if e0 else cursor
+                            buf = snt; buf_start, _ = find_span(text, snt, cursor)
+                        else:
+                            s1, e1 = find_span(text, snt, cursor)
+                            blocks.append({"text": snt, "char_start": s1 if s1 >= 0 else None, "char_end": e1 if e1 >= 0 else None})
+                            cursor = e1 if e1 else cursor
+                if buf:
+                    s2 = buf_start
+                    e2 = s2 + len(buf) if s2 and s2 >= 0 else None
+                    blocks.append({"text": buf, "char_start": s2 if s2 and s2 >= 0 else None, "char_end": e2})
+                    cursor = e2 if e2 else cursor
                 cur = ""
-    if cur: blocks.append(cur)
+    if cur:
+        s = cur_start
+        e = s + len(cur) if s and s >= 0 else None
+        blocks.append({"text": cur, "char_start": s if s and s >= 0 else None, "char_end": e})
     return blocks
 
-def write_chunks(blocks: list[str], meta_base: dict, base_name: str):
+def write_chunks(blocks: list, meta_base: dict, base_name: str):
     for idx, blk in enumerate(blocks):
         meta = dict(meta_base)
         meta["chunk_index"] = idx
-        meta["id"] = f"{meta_base['source_id']}_{idx:04d}_{make_id(blk)[:6]}"
-        # gắn TAGS (dựa trên chính nội dung chunk)
-        meta["tags"] = extract_tags(blk, meta_base["type"])
+        if meta_base["type"] == "poem":
+            meta["line_start"] = blk["line_start"]
+            meta["line_end"]   = blk["line_end"]
+            content = blk["lines"].strip()
+            meta["id"] = f"{meta_base['source_id']}_L{meta['line_start']:04d}-{meta['line_end']:04d}_{make_id(content)[:6]}"
+        else:
+            meta["char_start"] = blk.get("char_start")
+            meta["char_end"]   = blk.get("char_end")
+            content = blk["text"].strip()
+            meta["id"] = f"{meta_base['source_id']}_{idx:04d}_{make_id(content)[:6]}"
+
+        meta["tags"] = extract_tags(content, meta_base["type"])
         hdr = "###META### " + json.dumps(meta, ensure_ascii=False)
         outp = DST / f"{base_name}_{idx:04d}.txt"
-        outp.write_text(hdr + "\n" + blk.strip() + "\n", encoding="utf-8")
+        outp.write_text(hdr + "\n" + content + "\n", encoding="utf-8")
 
 # ==== Main ====
 def main():

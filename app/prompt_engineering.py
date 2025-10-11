@@ -232,6 +232,44 @@ def build_rag_synthesis_prompt(
         context_block=ctx_block,
         response_plan=plan,
     )
+    
+def build_lit_review_prompt(topic: str, evidence_blocks: List[dict], min_citations: int = 5) -> str:
+    """
+    evidence_blocks: list[{"text": "...", "meta": {...}}]
+      - với thơ: meta.source + line_start/line_end
+      - với văn xuôi: meta.source + char_start/char_end
+    """
+    def cite_tag(m):
+        if m.get("type") == "poem" and m.get("line_start") and m.get("line_end"):
+            return f"[SOURCE: {m.get('source')} L{m['line_start']}-{m['line_end']}]"
+        if m.get("char_start") is not None and m.get("char_end") is not None:
+            return f"[SOURCE: {m.get('source')} {m['char_start']}-{m['char_end']}]"
+        return f"[SOURCE: {m.get('source')}]"
+
+    ev_txt = []
+    for b in evidence_blocks[:max(min_citations, 12)]:
+        m = b.get("meta", {})
+        tag = cite_tag(m)
+        ev_txt.append(f"- {b.get('text','').strip()} {tag}")
+    ev_str = "\n".join(ev_txt)
+
+    return f"""
+Bạn là nhà nghiên cứu văn học. Hãy viết **tổng quan tài liệu** về chủ đề: "{topic}".
+
+YÊU CẦU:
+- Cấu trúc: (1) Bối cảnh & phạm vi; (2) Nhóm chủ đề chính (bullet) kèm so sánh đối chiếu; (3) Các phát hiện quan trọng; (4) Khoảng trống nghiên cứu; (5) Hướng mở/đề xuất.
+- **BẮT BUỘC**: Mọi luận điểm đều phải có trích dẫn dạng [SOURCE: <meta.source> Lstart-Lend hoặc start-end].
+- Không bịa. Nếu thiếu chứng cứ, nói rõ: "Không đủ bằng chứng từ corpus."
+- Cuối bài: mục **Danh mục trích dẫn trong corpus** (list nguồn đã dùng).
+
+MIN_SOURCES = {min_citations}
+
+Nguồn gợi ý (trích từ corpus):
+{ev_str}
+
+Viết rõ ràng, súc tích, tôn trọng dữ kiện từ nguồn.
+"""
+
 
 def _format_line(line: PoemLine | Dict[str, Any]) -> str:
     if isinstance(line, dict):
