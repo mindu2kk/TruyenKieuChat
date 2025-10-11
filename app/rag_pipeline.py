@@ -339,7 +339,7 @@ def answer_question(
     # sanity-check chất lượng tín hiệu
     top_for_avg = collected[: max(1, k)]
     avg_score = sum(h.get("_raw_score", 0.0) for h in top_for_avg) / max(1, len(top_for_avg))
-    if avg_score < 0.12:
+    if avg_score < 0.06:
         prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
         return {"query": query, "prompt": prompt, "contexts": []}
 
