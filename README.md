@@ -144,7 +144,7 @@ pytest --cov=app --cov-report=html # With coverage
 
 ## 👤 Author
 
-**[Your Name]**  
+**[Minh Duc]**  
 GitHub: [mindu2kk](https://github.com/mindu2kk)  •  Email: minhducphan2005@gmail.com
 
 ---
