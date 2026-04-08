@@ -84,7 +84,7 @@ streamlit run app/ui_streamlit.py
 | Response Time | ~2-3s |
 | Cache Hit Rate | ~40-50% |
 | Quote Accuracy | ~95% |
-| Retrieval Precision | ~85% |
+| Retrieval Precision@5 | ~85% |
 
 ---
 

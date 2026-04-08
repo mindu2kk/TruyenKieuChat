@@ -22,7 +22,7 @@ TEMPLATE_MERGE = """[NOTES]
 - Văn phong học thuật, ≤180 từ.
 """
 
-def map_reduce_answer(query: str, ctx_list: List[Dict[str, Any]], model: str = "gemini-2.0-flash") -> str:
+def map_reduce_answer(query: str, ctx_list: List[Dict[str, Any]], model: str = "gemini-1.5-flash") -> str:
     if not ctx_list:
         return "Hiện chưa đủ căn cứ trong kho tri thức để trả lời chính xác."
     notes = []

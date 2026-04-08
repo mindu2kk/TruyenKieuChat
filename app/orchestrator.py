@@ -14,6 +14,19 @@ def _maybe_sources(srcs: Optional[List[str]]) -> List[str]:
         return []
     return list(srcs or [])
 
+import re
+
+_CHAR_NAMES = ["thúy kiều","thuy kieu","thúy vân","thuy van","kim trọng","kim trong",
+               "từ hải","tu hai","hoạn thư","hoan thu","mã giám sinh","ma giam sinh",
+               "thúc sinh","thuc sinh","bạc bà","bac ba","bạc hạnh","bac hanh"]
+
+def _who_is_character(q: str) -> bool:
+    ql = (q or "").lower().strip()
+    if not re.search(r"\b(là ai|la ai)\b", ql):
+        return False
+    return any(name in ql for name in _CHAR_NAMES)
+
+
 # ==== Heuristics cho close-reading & poem-only ====
 _TRICH_DAN_TRIGGER = ["trích", "câu thơ", "nguyên văn", "dẫn", "lục bát", "nhịp", "vần", "điệp", "đối", "Lầu Ngưng Bích", "Đoạn trường"]
 _CLOSE_READING_TRIGGER = ["trữ tình ngoại đề", "điểm nhìn", "ẩn dụ", "nhịp điệu", "mapping", "bản đồ ý niệm", "close reading"]
@@ -109,7 +122,7 @@ def _safe_generate(
 def answer_with_router(
     query: str,
     k: int = 5,
-    gemini_model: str = "gemini-2.0-flash",
+    gemini_model: str = "gemini-1.5-flash",
     history: Optional[List[Tuple[str, str]]] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
@@ -268,13 +281,16 @@ def answer_with_router(
     # ---- Domain → RAG
     poem_only = _needs_poem_only(query)
     close_reading = _is_close_reading(query)
+    is_char_who  = _who_is_character(query)
+
 
     pack = answer_question(
         query,
         k=k,
         synthesize="single",
         gen_model=gemini_model,
-        force_quote=True,
+        force_quote=not is_char_who,
+        
         long_answer=long_answer,
         history_text=full_history,
         max_tokens=max_tokens,
@@ -310,6 +326,21 @@ def answer_with_router(
             "verification": verification,
             "evidence": evidence,
         }
+        
+    if not ans and is_char_who:
+        from .prompt_engineering import build_generic_prompt
+        hint = "Giải thích ngắn gọn nhân vật trong Truyện Kiều (kiến thức phổ thông, không cần trích dẫn)."
+        prompt = build_generic_prompt(f"{query}\n\n{hint}", history_text=full_history, depth="balanced")
+        ans2, failure2 = _safe_generate("domain", prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens)
+        if not failure2 and ans2:
+            set_cached(qkey, ans2 or "")
+            return {
+                "intent": "domain",
+                "answer": ans2 or "",
+                "sources": _maybe_sources([]),  # vẫn ẩn nguồn như trước
+                "verification": verify_poem_quotes(ans2 or ""),
+            }
+    
 
     # Fallback — dùng prompt đã build (nếu có)
     p = pack.get("prompt", "")

@@ -1,0 +1,380 @@
+{% load static %}
+<!doctype html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>📜 Kiều Bot - Hỏi Đáp Truyện Kiều</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAR5JREFUSEvtlt0RgjAUhL+LgBO4gk7gCu4g6AQu4Aqig06gjqAjcARX0FHcwR38v1/Ah7sguEG4/M3lcu9y98gik8l8pLXWIIqI45hSSgC2JO8lVRtJtgFQUr/3dZ332Q2ADIQQ6k4Fq3wS1zVN80YQBNOu6x4I/pe3sjyvChAiqmrBfW+j6HoYhj8L4d56qZT6SgGMMXKk5z3JPM/zC0L4y/a+qGqYstY2Nq/bLpum+VzV9Z+vB8iyLBNR3EeKOANgrXVvGLquY4xZALbneQcAW2sB2Hqe5/cAWPN+lXwKKL33M0Q8W2u3zHjO2L+tlNrW2l8AbOuqys531bV2S5KzLwA0TdOkKIp/DwB2RC+ZTOZ7/gJ1K27vUPv2AAAAAElFTkSuQmCC">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <style>
+    :root {
+      --bg-start: #111827;
+      --bg-end: #1a1a2e;
+      --surface: #1f2937;
+      --primary: #5eead4; /* Teal */
+      --primary-hover: #2dd4bf;
+      --text-main: #e5e7eb;
+      --text-secondary: #9ca3af;
+      --border: #374151;
+      --font-sans: 'Inter', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
+
+    html { color-scheme: dark; }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-start);
+      background-image: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%),
+                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%2327272a' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 677 440 599 237 522 0 478'/%3E%3Cpath d='M-17 422L265 717 380 554 532 417 724 404 840 219'/%3E%3Cpath d='M-24 682L4 616 76 600 132 550 181 480 207 410 215 362 216 299 209 256 189 208 154 153 107 108 49 76'/%3E%3Cpath d='M-47 905L13 817 36 727 75 628 115 525 139 423 149 322 151 220 139 129 120 42 91-38'/%3E%3Cpath d='M-49 873L-3 792 34 706 85 607 131 509 161 413 175 319 179 226 173 134 160 46 135-41'/%3E%3Cpath d='M-51 900L-18 821 28 726 89 618 140 514 171 412 184 313 186 215 178 120 160 29 131-60'/%3E%3Cpath d='M837 855L759 791 639 725 544 650 454 564 363 475 272 382 193 293 125 208 69 129 25 57'/%3E%3C/g%3E%3Cg fill='%234f46e5'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='1037' cy='260' r='5'/%3E%3Ccircle cx='927' cy='880' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='677' r='5'/%3E%3Ccircle cx='440' cy='599' r='5'/%3E%3Ccircle cx='237' cy='522' r='5'/%3E%3Ccircle cx='0' cy='478' r='5'/%3E%3Ccircle cx='-17' cy='422' r='5'/%3E%3Ccircle cx='265' cy='717' r='5'/%3E%3Ccircle cx='380' cy='554' r='5'/%3E%3Ccircle cx='532' cy='417' r='5'/%3E%3Ccircle cx='724' cy='404' r='5'/%3E%3Ccircle cx='840' cy='219' r='5'/%3E%3Ccircle cx='-24' cy='682' r='5'/%3E%3Ccircle cx='4' cy='616' r='5'/%3E%3Ccircle cx='76' cy='600' r='5'/%3E%3Ccircle cx='132' cy='550' r='5'/%3E%3Ccircle cx='181' cy='480' r='5'/%3E%3Ccircle cx='207' cy='410' r='5'/%3E%3Ccircle cx='215' cy='362' r='5'/%3E%3Ccircle cx='216' cy='299' r='5'/%3E%3Ccircle cx='209' cy='256' r='5'/%3E%3Ccircle cx='189' cy='208' r='5'/%3E%3Ccircle cx='154' cy='153' r='5'/%3E%3Ccircle cx='107' cy='108' r='5'/%3E%3Ccircle cx='49' cy='76' r='5'/%3E%3Ccircle cx='-47' cy='905' r='5'/%3E%3Ccircle cx='13' cy='817' r='5'/%3E%3Ccircle cx='36' cy='727' r='5'/%3E%3Ccircle cx='75' cy='628' r='5'/%3E%3Ccircle cx='115' cy='525' r='5'/%3E%3Ccircle cx='139' cy='423' r='5'/%3E%3Ccircle cx='149' cy='322' r='5'/%3E%3Ccircle cx='151' cy='220' r='5'/%3E%3Ccircle cx='139' cy='129' r='5'/%3E%3Ccircle cx='120' cy='42' r='5'/%3E%3Ccircle cx='91' cy='-38' r='5'/%3E%3Ccircle cx='-49' cy='873' r='5'/%3E%3Ccircle cx='-3' cy='792' r='5'/%3E%3Ccircle cx='34' cy='706' r='5'/%3E%3Ccircle cx='85' cy='607' r='5'/%3E%3Ccircle cx='131' cy='509' r='5'/%3E%3Ccircle cx='161' cy='413' r='5'/%3E%3Ccircle cx='175' cy='319' r='5'/%3E%3Ccircle cx='179' cy='226' r='5'/%3E%3Ccircle cx='173' cy='134' r='5'/%3E%3Ccircle cx='160' cy='46' r='5'/%3E%3Ccircle cx='135' cy='-41' r='5'/%3E%3Ccircle cx='-51' cy='900' r='5'/%3E%3Ccircle cx='-18' cy='821' r='5'/%3E%3Ccircle cx='28' cy='726' r='5'/%3E%3Ccircle cx='89' cy='618' r='5'/%3E%3Ccircle cx='140' cy='514' r='5'/%3E%3Ccircle cx='171' cy='412' r='5'/%3E%3Ccircle cx='184' cy='313' r='5'/%3E%3Ccircle cx='186' cy='215' r='5'/%3E%3Ccircle cx='178' cy='120' r='5'/%3E%3Ccircle cx='160' cy='29' r='5'/%3E%3Ccircle cx='131' cy='-60' r='5'/%3E%3Ccircle cx='837' cy='855' r='5'/%3E%3Ccircle cx='759' cy='791' r='5'/%3E%3Ccircle cx='639' cy='725' r='5'/%3E%3Ccircle cx='544' cy='650' r='5'/%3E%3Ccircle cx='454' cy='564' r='5'/%3E%3Ccircle cx='363' cy='475' r='5'/%3E%3Ccircle cx='272' cy='382' r='5'/%3E%3Ccircle cx='193' cy='293' r='5'/%3E%3Ccircle cx='125' cy='208' r='5'/%3E%3Ccircle cx='69' cy='129' r='5'/%3E%3Ccircle cx='25' cy='57' r='5'/%3E%3C/g%3E%3C/svg%3E");
+      background-blend-mode: overlay;
+    }
+
+    .prose p { margin:.4rem 0 }
+    .msg { max-width: 78ch }
+    .chip { @apply text-xs px-2 py-0.5 rounded-full bg-zinc-700/50 border border-zinc-600; }
+    .glass { @apply bg-black/30 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20; }
+    
+    .chat-message { animation: fadeIn .5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Custom Form Elements */
+    input[type="range"] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 6px;
+      background: var(--surface); border-radius: 5px;
+      outline: none; transition: opacity .2s;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 16px; height: 16px;
+      background: var(--primary); border-radius: 50%;
+      cursor: pointer; transition: background .3s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover { background: var(--primary-hover); }
+
+    input[type="checkbox"] {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px;
+      border: 2px solid var(--border); border-radius: 4px;
+      position: relative; cursor: pointer;
+      vertical-align: middle; transition: all .2s;
+    }
+    input[type="checkbox"]:checked {
+      background-color: var(--primary); border-color: var(--primary-hover);
+    }
+    input[type="checkbox"]:checked::after {
+      content: '✔';
+      color: black; font-size: 14px;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+      -webkit-appearance: none; appearance: none;
+    }
+  </style>
+</head>
+<body class="h-full text-[var(--text-main)]" x-data="ChatUI()" x-init="init()">
+
+<header class="border-b border-[var(--border)] sticky top-0 z-40 glass">
+  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-3">
+    <button @click="openSidebar=true" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
+    <div class="flex-1">
+      <h1 class="text-xl font-semibold tracking-tight" style="font-family: var(--font-serif);">📜 Kiều Bot</h1>
+      <p class="text-[var(--text-secondary)] text-sm -mt-0.5">Tra thơ chuẩn, phân tích mượt — không lộ nguồn.</p>
+    </div>
+
+    {% if user.is_authenticated %}
+      <div class="hidden sm:block text-sm text-[var(--text-secondary)]">Xin chào, <span class="font-medium text-[var(--text-main)]">{{ user.first_name|default:user.username }}</span></div>
+      <a href="{% url 'account_logout' %}" class="ml-3 text-sm px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors">Đăng xuất</a>
+    {% else %}
+      <a href="{% url 'account_login' %}" class="text-sm px-4 py-2 rounded-lg bg-[var(--primary)] text-slate-900 font-semibold hover:bg-[var(--primary-hover)] transition-all transform hover:scale-105">Đăng nhập</a>
+    {% endif %}
+  </div>
+</header>
+
+<div class="mx-auto max-w-6xl grid md:grid-cols-[280px_1fr] gap-8 px-4 py-6">
+
+  <aside class="md:sticky md:top-20 md:h-[calc(100dvh-7rem)] md:overflow-y-auto">
+    <div class="md:block" :class="{'fixed inset-0 z-50 glass p-4 md:p-0 md:static md:glass-none': openSidebar}">
+      <div class="md:hidden absolute inset-0" @click="openSidebar=false"></div>
+      <div class="md:static relative max-w-sm w-full md:w-auto mx-auto md:mx-0" :class="{'mt-16': openSidebar}">
+        <div class="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-5 shadow-lg">
+          <h2 class="font-semibold text-lg mb-4">Thiết lập</h2>
+
+          <label class="block text-sm font-medium mb-1.5">Top-k ngữ cảnh: <span class="text-[var(--text-secondary)]" x-text="settings.k"></span></label>
+          <input type="range" min="3" max="8" step="1" x-model.number="settings.k" class="w-full mb-4">
+
+          <label class="block text-sm font-medium mb-1.5">Model</label>
+          <select x-model="settings.model" class="w-full bg-zinc-900 border border-[var(--border)] rounded-md px-3 py-2 mb-4 focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] outline-none transition">
+            <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+          </select>
+
+          <div class="space-y-3 mb-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Văn phong luận văn</span>
+              <input type="checkbox" x-model="settings.long_answer">
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Gạch đầu dòng</span>
+              <input type="checkbox" x-model="settings.bullet_mode">
+            </div>
+          </div>
+
+          <label class="block text-sm font-medium mt-2 mb-1.5">Giới hạn tokens</label>
+          <input type="range" min="256" max="8096" step="128" x-model.number="settings.max_tokens" class="w-full mb-1">
+          <div class="text-xs text-[var(--text-secondary)] mb-4"><span x-text="settings.max_tokens"></span> tokens</div>
+          
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-sm font-medium">Hiện kiểm chứng</span>
+            <input type="checkbox" x-model="settings.debug_meta">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <button @click="clearChat()" class="px-3 py-2 text-sm rounded-lg border border-[var(--border)] hover:bg-rose-500/10 hover:border-rose-500/50 text-rose-300 transition-colors">
+                <span class="inline-block align-middle">🧹</span> Xóa
+            </button>
+            <button @click="reloadHistory()" class="px-3 py-2 text-sm rounded-lg border border-[var(--border)] bg-white/5 hover:bg-white/10 transition-colors">
+                <span class="inline-block align-middle">↻</span> Tải lại
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex flex-col h-full">
+    <template x-if="!isConfigured.gemini">
+      <div class="rounded-xl border border-amber-600/40 bg-amber-950/40 px-4 py-3 text-amber-200 mb-4">
+        🔑 Chưa thấy <code>GOOGLE_API_KEY</code>. Một số câu sẽ lỗi khi gọi model.
+      </div>
+    </template>
+    <template x-if="!isConfigured.poem">
+      <div class="rounded-xl border border-sky-600/40 bg-sky-950/40 px-4 py-3 text-sky-200 mb-4">
+        📜 Kho thơ chưa sẵn sàng (thiếu <code>data/interim/poem</code>).
+      </div>
+    </template>
+
+    <div id="chat" class="flex-1 space-y-6"></div>
+
+    <div x-show="typing" class="flex gap-3 items-start chat-message">
+      <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--surface)] grid place-items-center text-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10c5.515 0 10-4.486 10-10S17.515 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM7 16H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM19 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/></svg>
+      </div>
+      <div class="rounded-2xl rounded-tl-none px-4 py-3 bg-[var(--surface)] border border-[var(--border)]">
+        <span class="inline-flex gap-1.5 items-center">
+          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce"></i>
+          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:.15s]"></i>
+          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:.3s]"></i>
+        </span>
+      </div>
+    </div>
+
+    <form @submit.prevent="send()" class="sticky bottom-4 mt-6">
+      <div class="rounded-2xl border border-[var(--border)] p-2 bg-zinc-900/60 shadow-xl glass transition-all focus-within:ring-2 focus-within:ring-[var(--primary)]">
+        <textarea
+            x-model="draft"
+            rows="1"
+            placeholder="Hỏi về Truyện Kiều…"
+            class="w-full bg-transparent outline-none resize-none px-3 py-2 placeholder:text-zinc-500"
+            @input="$event.target.style.height='auto'; $event.target.style.height=Math.min(200,$event.target.scrollHeight)+'px'"
+            @keydown="if($event.key==='Enter'){ if($event.shiftKey){ return; } $event.preventDefault(); send(); }"
+        ></textarea>
+
+        <div class="flex items-center justify-between px-2 pb-1">
+          <div class="text-xs text-zinc-500">Shift+Enter: xuống dòng</div>
+          <button :disabled="sending||!draft.trim()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-slate-900 font-semibold disabled:opacity-50 disabled:scale-100 transition-all transform hover:scale-105">
+            Gửi
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m21.426 11.095-17-8A1 1 0 0 0 3.001 4.058l.001 5.942a1 1 0 0 0 .736.97L15.53 12 3.738 13.03a1 1 0 0 0-.737.97l-.001 5.942a1 1 0 0 0 1.425.962l17-8a1 1 0 0 0 0-1.81z"/></svg>
+          </button>
+        </div>
+      </div>
+    </form>
+  </main>
+</div>
+
+<template id="tpl-user">
+  <div class="flex gap-3 items-start justify-end chat-message">
+    <div class="msg order-1 rounded-2xl rounded-br-none px-4 py-2 bg-[var(--primary)] text-slate-900"></div>
+    <div class="shrink-0 w-8 h-8 rounded-full bg-zinc-700 grid place-items-center order-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-zinc-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 0 1-1.498.07 7.5 7.5 0 0 0-14.992 0 .75.75 0 0 1-1.5-.07 9.005 9.005 0 0 1 5.9-8.181A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/></svg>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-bot">
+  <div class="flex gap-3 items-start chat-message">
+    <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--surface)] grid place-items-center text-lg">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10c5.515 0 10-4.486 10-10S17.515 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM7 16H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM19 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/></svg>
+    </div>
+    <div class="flex-1 space-y-2">
+      <div class="msg prose prose-invert max-w-full prose-p:text-[var(--text-main)] prose-headings:text-white prose-strong:text-white prose-code:text-amber-300 prose-code:bg-black/20 prose-code:p-1 prose-code:rounded-sm rounded-2xl rounded-tl-none px-4 py-2 bg-[var(--surface)] border border-[var(--border)]"></div>
+      <div class="text-xs text-[var(--text-secondary)] space-x-2 pl-1" x-show="$root.settings.debug_meta">
+        <span class="chip" x-text="metaIntent"></span>
+        <span class="chip" x-text="metaElapsed"></span>
+      </div>
+      <div class="mt-1 pl-1" x-show="$root.settings.debug_meta" x-html="metaDetails"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+// ----- LOGIC JAVASCRIPT KHÔNG THAY ĐỔI -----
+function ChatUI(){
+  return {
+    openSidebar:false,
+    typing:false,
+    sending:false,
+    draft:"",
+    settings: JSON.parse(localStorage.getItem("kieu.settings") || '{"k":5,"model":"gemini-1.5-flash","long_answer":true,"max_tokens":1024,"bullet_mode":false,"debug_meta":true}'),
+    isConfigured: { gemini: {{ gemini_ok|yesno:"true,false" }}, poem: {{ poem_ok|yesno:"true,false" }} },
+
+    init(){
+      this.reloadHistory();
+      this.$watch('settings', () => this.saveSettings(), { deep: true });
+    },
+    saveSettings(){ localStorage.setItem("kieu.settings", JSON.stringify(this.settings)); },
+
+    async reloadHistory(){
+      try{
+        const r = await fetch("{% url 'history_api' %}", {credentials:"same-origin"});
+        const data = await r.json();
+        const box = document.getElementById("chat");
+        box.innerHTML = "";
+        (data.messages || []).forEach(m => this.render(m.role, m.content, m.meta||null));
+        this.scrollBottom(true); // no smooth scroll on initial load
+      }catch(e){ console.error(e); }
+    },
+
+    clearChat(){
+      fetch("{% url 'history_api' %}?clear=1",{credentials:"same-origin"})
+        .then(()=>this.reloadHistory());
+    },
+
+    render(role, content, meta){
+      const box = document.getElementById("chat");
+      const tpl = document.getElementById(role==="user"?"tpl-user":"tpl-bot").content.cloneNode(true);
+      const msg = tpl.querySelector(".msg");
+      if (role==="assistant") {
+        msg.innerHTML = this.markdown(content);
+        if (meta){
+          const chipIntent = tpl.querySelector('[x-text="metaIntent"]');
+          const chipElapsed = tpl.querySelector('[x-text="metaElapsed"]');
+          const detail = tpl.querySelector('[x-html="metaDetails"]');
+          if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"}`;
+          if (chipElapsed) chipElapsed.textContent = `⏱️ ${Math.round(meta.elapsed_ms||0)} ms`;
+          if (detail) detail.innerHTML = this.renderMeta(meta);
+        }
+      } else {
+        msg.textContent = content;
+      }
+      box.appendChild(tpl);
+    },
+
+    renderMeta(meta){
+      let html = "";
+      if (meta.verification && meta.verification.coverage !== undefined){
+        const cv = Math.round((meta.verification.coverage||0)*100);
+        html += `<div class="text-xs text-[var(--text-secondary)]">🔍 Kiểm chứng trích dẫn: coverage ~${cv}%</div>`;
+        if (Array.isArray(meta.verification.quotes) && meta.verification.quotes.length){
+          html += `<details class="mt-1 text-xs text-zinc-300/90"><summary class="cursor-pointer">Chi tiết kiểm chứng</summary>`;
+          meta.verification.quotes.forEach(q=>{
+            const ok = (meta.verification.accepted||[]).some(a=>a.quote===q.quote && a.matched_line===q.matched_line);
+            const icon = ok ? "✅" : "⚠️";
+            const line = Number.isInteger(q.matched_line) ? `Câu ${q.matched_line}`:"Không rõ câu";
+            const score = (q.score||0).toFixed(1);
+            html += `<div class="mt-2 pl-2 border-l border-zinc-700"><b>${icon} ${line} · score=${score}</b>
+                        <div class="break-all">• Trích: <code class="text-amber-300">${this.escape(q.quote||"")}</code></div>
+                        <div class="break-all">• Khớp: <code class="text-amber-300">${this.escape(q.matched_text||"(không trùng khớp)")}</code></div>
+                        </div>`;
+          });
+          html += `</details>`;
+        }
+      }
+      return html;
+    },
+
+    escape(s){ return (s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m])) },
+    markdown(s){
+        let escaped = this.escape(s);
+        // Basic Markdown-like conversions
+        // Bold: **text** -> <strong>text</strong>
+        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Italic: *text* -> <em>text</em>
+        escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
+        // Newlines to <br> and paragraph breaks
+        let html = escaped.split(/\n\s*\n/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
+        return html;
+    },
+    scrollBottom(instant = false){ requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight, behavior: instant ? "auto" : "smooth"})); },
+
+    async send(){
+      if (!this.draft.trim()) return;
+      
+      const msg = this.draft.trim();
+      this.render("user", msg);
+      this.$nextTick(() => this.draft = ""); // Clear after rendering
+      this.scrollBottom();
+      this.typing = true; this.sending = true;
+
+      const payload = {
+        message: (this.settings.bullet_mode && !/^(\s*liệt kê:|\s*liet ke:|\s*bullet:|\s*tldr:|\s*tóm tắt:|\s*tom tat:)/i.test(msg))
+                  ? `liệt kê: ${msg}` : msg,
+        k: this.settings.k,
+        model: this.settings.model,
+        long_answer: (this.settings.long_answer && !this.settings.bullet_mode),
+        max_tokens: this.settings.bullet_mode ? Math.min(this.settings.max_tokens,640) : this.settings.max_tokens
+      };
+
+      try{
+        const r = await fetch("{% url 'chat_api' %}", {
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+            "X-CSRFToken": document.querySelector('meta[name="csrf-token"]').content
+          },
+          body: JSON.stringify(payload),
+          credentials:"same-origin"
+        });
+        const data = await r.json();
+        this.typing = false;
+        
+        const meta = {
+          intent: data.intent, verification: data.verification,
+          elapsed_ms: data.elapsed_ms, error: data.error
+        };
+        this.render("assistant", data.answer || "(không có câu trả lời)", meta);
+        this.scrollBottom();
+
+      }catch(e){
+        this.typing = false;
+        this.render("assistant", "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi.");
+      } finally {
+        this.sending = false;
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
