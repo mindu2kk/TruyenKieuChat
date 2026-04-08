@@ -26,7 +26,7 @@ with st.sidebar:
         index=1  # mặc định chọn Gemini
     )
     if engine == "Gemini (Google)":
-        st.caption("Cần GOOGLE_API_KEY trong .env · Mặc định dùng gemini-1.5-flash")
+        st.caption("Cần GOOGLE_API_KEY trong .env · Mặc định dùng gemini-2.0-flash")
     elif engine == "Local Transformers":
         st.caption("Tải model lần đầu (~1GB).")
 
