@@ -87,7 +87,7 @@ def test_chat_api_post_success(mock_save, mock_count, mock_router, authenticated
     payload = {
         "message": "Thúy Kiều là ai?",
         "k": 5,
-        "model": "gemini-1.5-flash",
+        "model": "gemini-2.0-flash",
         "long_answer": False
     }
     

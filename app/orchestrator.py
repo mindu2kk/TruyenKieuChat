@@ -122,7 +122,7 @@ def _safe_generate(
 def answer_with_router(
     query: str,
     k: int = 5,
-    gemini_model: str = "gemini-1.5-flash",
+    gemini_model: str = "gemini-2.0-flash",
     history: Optional[List[Tuple[str, str]]] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,

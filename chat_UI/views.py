@@ -62,7 +62,7 @@ def chat_api(request):
 
     # --- Phần xử lý payload giữ nguyên ---
     k = int(payload.get("k") or 5)
-    model = payload.get("model") or "gemini-1.5-flash"
+    model = payload.get("model") or "gemini-2.0-flash"
     long_answer = bool(payload.get("long_answer"))
     max_tokens = int(payload.get("max_tokens") or 1024)
     # ... (xử lý bullet mode)
