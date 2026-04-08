@@ -102,7 +102,7 @@ def _extract_text(res: Any) -> str:
 
 def generate_answer_gemini(
     prompt: str,
-    model: str = "gemini-2.0-flash",
+    model: str = "gemini-1.5-flash",
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
 ) -> str:
