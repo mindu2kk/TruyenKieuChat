@@ -229,7 +229,7 @@ def answer_question(
     filters: Dict[str, Any] | None = None,
     num_candidates: int = 120,
     synthesize: str | bool = "single",
-    gen_model: str = "gemini-2.5-flash",
+    gen_model: str = "gemini-2.0-flash",
     force_quote: bool = True,
     long_answer: bool = False,
     history_text: str | None = None,

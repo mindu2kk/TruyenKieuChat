@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import time
 from typing import Any, Dict, Optional
 
 import google.generativeai as genai
@@ -102,7 +103,7 @@ def _extract_text(res: Any) -> str:
 
 def generate_answer_gemini(
     prompt: str,
-    model: str = "gemini-2.5-flash",
+    model: str = "gemini-2.0-flash",
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
 ) -> str:
@@ -124,7 +125,23 @@ def generate_answer_gemini(
 
         # ❗ Gọi tối giản (bỏ safety_settings kiểu cũ để tránh trả rỗng âm thầm)
         try:
-            res = gm.generate_content(prompt)
+            res = None
+            for attempt in range(3):
+                try:
+                    res = gm.generate_content(prompt)
+                    break
+                except Exception as exc:
+                    err_str = str(exc)
+                    if "429" in err_str and attempt < 2:
+                        # parse retry_delay từ message nếu có, fallback 30s
+                        import re as _re
+                        m = _re.search(r"retry.*?(\d+)s", err_str)
+                        wait = int(m.group(1)) + 2 if m else 30
+                        time.sleep(wait)
+                        continue
+                    raise
+            if res is None:
+                raise GenerationError("Không nhận được phản hồi từ Gemini sau 3 lần thử.")
         except TypeError as exc:
             # thường gặp khi tham số sai kiểu ở phía gọi
             raise GenerationError(
