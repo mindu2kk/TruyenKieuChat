@@ -161,7 +161,7 @@ st.markdown(
 with st.sidebar:
     st.header("Thiết lập")
     k = st.slider("Top-k ngữ cảnh", 3, 8, 5)
-    model = st.selectbox("Gemini model", ["gemini-2.0-flash"], index=0)
+    model = st.selectbox("Gemini model", ["gemini-2.5-flash"], index=0)
     long_ans = st.toggle("Văn phong luận văn (dài hơn)", value=True)
     max_tok = st.slider("Giới hạn độ dài trả lời (tokens)", 256, 8096, 1024, step=128)
     bullet_mode = st.toggle("Trả lời dạng gạch đầu dòng", value=False)

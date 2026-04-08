@@ -98,7 +98,7 @@ def test_rag_pipeline_end_to_end(mock_rerank, mock_gen):
             "Thúy Kiều là ai?",
             k=5,
             synthesize="single",
-            gen_model="gemini-2.0-flash"
+            gen_model="gemini-2.5-flash"
         )
         
         assert "answer" in result
