@@ -57,6 +57,20 @@ def route_intent(q: str) -> str:
     return "domain"
 
 
+_CHITCHAT_RESPONSES = {
+    "hi": "Xin chào! Tôi là trợ lý về Truyện Kiều. Bạn muốn hỏi gì về tác phẩm này?",
+    "hello": "Xin chào! Tôi là trợ lý về Truyện Kiều. Bạn muốn hỏi gì về tác phẩm này?",
+    "xin chào": "Xin chào! Tôi là trợ lý về Truyện Kiều. Bạn muốn hỏi gì về tác phẩm này?",
+    "chào": "Chào bạn! Tôi có thể giúp gì cho bạn về Truyện Kiều?",
+    "chào bạn": "Chào bạn! Tôi có thể giúp gì cho bạn về Truyện Kiều?",
+}
+
+
+def get_chitchat_response(q: str) -> str | None:
+    """Trả về câu trả lời cứng nếu là chitchat đơn giản, ngược lại None."""
+    return _CHITCHAT_RESPONSES.get((q or "").lower().strip())
+
+
 def parse_poem_request(q: str):
     """Trả về:
        ("opening", n)             -> '10 câu đầu', 'trích 20 câu đầu'

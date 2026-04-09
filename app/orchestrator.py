@@ -131,7 +131,7 @@ def answer_with_router(
     Hàm điều phối chính — được UI gọi.
     """
     # Lazy import
-    from .router import route_intent, parse_poem_request
+    from .router import route_intent, parse_poem_request, get_chitchat_response
     from .rag_pipeline import answer_question
     from .faq import lookup_faq
     from .cache import get_cached, set_cached
@@ -172,6 +172,11 @@ def answer_with_router(
 
     # ---- Small talk
     if intent == "chitchat":
+        # Trả lời cứng nếu là câu chào đơn giản — không cần gọi LLM
+        quick = get_chitchat_response(query)
+        if quick:
+            set_cached(qkey, quick)
+            return {"intent": intent, "answer": quick, "sources": _maybe_sources([])}
         prompt = build_smalltalk_prompt(query, history_text=short_history)
         ans, failure = _safe_generate(
             intent, prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens
