@@ -123,34 +123,30 @@ def generate_answer_gemini(
 
         gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
 
-        # ❗ Gọi tối giản (bỏ safety_settings kiểu cũ để tránh trả rỗng âm thầm)
-        try:
-            res = None
-            for attempt in range(3):
-                try:
-                    res = gm.generate_content(prompt)
-                    break
-                except Exception as exc:
-                    err_str = str(exc)
-                    if "429" in err_str and attempt < 2:
-                        # parse retry_delay từ message nếu có, fallback 30s
-                        import re as _re
-                        m = _re.search(r"retry.*?(\d+)s", err_str)
-                        wait = int(m.group(1)) + 2 if m else 30
-                        time.sleep(wait)
-                        continue
-                    raise
-            if res is None:
-                raise GenerationError("Không nhận được phản hồi từ Gemini sau 3 lần thử.")
-        except TypeError as exc:
-            # thường gặp khi tham số sai kiểu ở phía gọi
-            raise GenerationError(
-                f"TypeError từ Gemini SDK: {exc}. "
-                f"debug types: prompt={type(prompt).__name__}, model={type(model).__name__}, "
-                f"long_answer={type(long_answer).__name__}, max_tokens={type(max_tokens).__name__}"
-            ) from exc
-        except Exception as exc:
-            raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+        # ❗ Gọi với retry tự động khi bị 429
+        res = None
+        last_exc = None
+        for attempt in range(3):
+            try:
+                res = gm.generate_content(prompt)
+                break
+            except TypeError as exc:
+                raise GenerationError(
+                    f"TypeError từ Gemini SDK: {exc}. "
+                    f"debug types: prompt={type(prompt).__name__}, model={type(model).__name__}, "
+                    f"long_answer={type(long_answer).__name__}, max_tokens={type(max_tokens).__name__}"
+                ) from exc
+            except Exception as exc:
+                err_str = str(exc)
+                if "429" in err_str and attempt < 2:
+                    m = re.search(r"retry[^\d]*(\d+)s", err_str)
+                    wait = int(m.group(1)) + 2 if m else 30
+                    time.sleep(wait)
+                    last_exc = exc
+                    continue
+                raise GenerationError(f"Gọi Gemini thất bại ({exc}).") from exc
+        if res is None:
+            raise GenerationError(f"Gọi Gemini thất bại sau 3 lần thử ({last_exc}).")
 
         # Nếu SDK có prompt_feedback và bị chặn, báo lỗi rõ ràng
         try:
