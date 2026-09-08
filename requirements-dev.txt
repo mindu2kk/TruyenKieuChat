@@ -3,7 +3,7 @@
 # Local ML/data tooling. Do not install this file on Vercel: model packages
 # make a serverless function needlessly large and the production retriever uses
 # Gemini embeddings.
-streamlit>=1.36
+streamlit>=1.63.0
 sentence-transformers>=3.0
 rank-bm25>=0.2
 html2text>=2024.2.26
