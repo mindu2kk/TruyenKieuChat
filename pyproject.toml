@@ -105,6 +105,11 @@ skip_covered = false
 [tool.vercel]
 entrypoint = "project.wsgi:app"
 
+[tool.vercel.scripts]
+# Vercel runs this after installing Python dependencies and before the WSGI
+# application is deployed. Neon supplies an isolated DATABASE_URL to previews.
+build = "python manage.py migrate --noinput"
+
 [tool.mypy]
 python_version = "3.11"
 warn_return_any = true
