@@ -34,7 +34,7 @@ jobs:
           flake8 app chat_UI project --count --select=E9,F63,F7,F82 --show-source --statistics --max-line-length=120
       - name: Test and enforce coverage
         env:
-          DJANGO_SETTINGS_MODULE: project.settings
+          DJANGO_SETTINGS_MODULE: project.test_settings
           DJANGO_SECRET_KEY: ci-test-secret-not-for-production-9wJ6bRt8mQ2vK5xL
           DEBUG: "0"
           ALLOWED_HOSTS: testserver
