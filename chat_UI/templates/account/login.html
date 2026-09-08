@@ -46,7 +46,7 @@
         <!-- Username / Email -->
         <div class="space-y-2">
           <label class="block text-sm font-medium text-foreground/90" for="{{ form.login.id_for_label }}">
-            Tên đăng nhập hoặc Email
+            Tên đăng nhập hoặc email
           </label>
           <input
             id="{{ form.login.id_for_label }}"
@@ -114,19 +114,9 @@
         </p>
       </form>
 
-      <!-- Divider -->
-      <div class="my-6 flex items-center gap-3 text-zinc-500">
-        <div class="h-px flex-1 bg-zinc-800/60"></div>
-        <span class="text-xs">hoặc</span>
-        <div class="h-px flex-1 bg-zinc-800/60"></div>
-      </div>
-
-      <!-- Social: Google -->
-      <a href="{% provider_login_url 'google' %}"
-         class="btn w-full inline-flex items-center justify-center gap-2 border border-zinc-800/60 bg-background px-4 py-2.5 hover:bg-muted transition-colors">
-        <img alt="Google" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="h-5 w-5"/>
-        <span>Tiếp tục với Google</span>
-      </a>
+      <p class="mt-6 text-center text-xs text-zinc-500">
+        Đăng nhập bằng tên đăng nhập hoặc email đã đăng ký.
+      </p>
     </div>
 
     <!-- Footer -->

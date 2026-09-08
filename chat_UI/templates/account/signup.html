@@ -63,11 +63,10 @@
           {% endif %}
         </div>
 
-        <!-- Email (nếu form có) -->
-        {% if form.email %}
+        <!-- Email -->
         <div class="space-y-2">
           <label class="block text-sm font-medium text-foreground/90" for="{{ form.email.id_for_label }}">
-            Email (tuỳ chọn)
+            Email
           </label>
           <input
             id="{{ form.email.id_for_label }}"
@@ -75,6 +74,7 @@
             type="email"
             value="{{ form.email.value|default_if_none:'' }}"
             autocomplete="email"
+            required
             class="field w-full border border-input px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all"
           />
           {% if form.email.errors %}
@@ -83,7 +83,6 @@
             </div>
           {% endif %}
         </div>
-        {% endif %}
 
         <!-- Password1 -->
         <div class="space-y-2">
@@ -141,19 +140,9 @@
         </p>
       </form>
 
-      <!-- Divider -->
-      <div class="my-6 flex items-center gap-3 text-zinc-500">
-        <div class="h-px flex-1 bg-zinc-800/60"></div>
-        <span class="text-xs">hoặc</span>
-        <div class="h-px flex-1 bg-zinc-800/60"></div>
-      </div>
-
-      <!-- Social: Google -->
-      <a href="{% provider_login_url 'google' %}"
-         class="btn w-full inline-flex items-center justify-center gap-2 border border-zinc-800/60 bg-background px-4 py-2.5 hover:bg-muted transition-colors">
-        <img alt="Google" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="h-5 w-5"/>
-        <span>Tiếp tục với Google</span>
-      </a>
+      <p class="mt-6 text-center text-xs text-zinc-500">
+        Email được dùng để nhận diện và quản lý tài khoản; mật khẩu luôn được Django mã hoá.
+      </p>
     </div>
 
     <!-- Footer -->

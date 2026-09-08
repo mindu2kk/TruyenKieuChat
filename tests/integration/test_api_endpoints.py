@@ -13,7 +13,10 @@ import pytest
 import json
 from django.test import Client
 from django.contrib.auth.models import User
+from django.urls import reverse
 from unittest.mock import patch, Mock
+
+from chat_UI.models import UserProfile
 
 
 @pytest.fixture
@@ -46,6 +49,44 @@ def test_home_view_requires_login(client):
 
     # Nếu chưa login, redirect đến login page
     assert response.status_code in [302, 401]
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+def test_signup_creates_persistent_user_and_profile(client, db):
+    response = client.post(
+        reverse("account_signup"),
+        data={
+            "username": "new_kieu_reader",
+            "email": "new-kieu-reader@example.com",
+            "password1": "VerySafePass123!",
+            "password2": "VerySafePass123!",
+        },
+    )
+
+    assert response.status_code == 302
+    user = User.objects.get(username="new_kieu_reader")
+    assert user.email == "new-kieu-reader@example.com"
+    assert user.check_password("VerySafePass123!")
+    assert UserProfile.objects.filter(user=user).exists()
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+def test_login_accepts_registered_email(client, db):
+    user = User.objects.create_user(
+        username="email_login_reader",
+        email="email-login@example.com",
+        password="VerySafePass123!",
+    )
+
+    response = client.post(
+        reverse("account_login"),
+        data={"login": user.email, "password": "VerySafePass123!"},
+    )
+
+    assert response.status_code == 302
+    assert response.url == "/"
 
 
 @pytest.mark.integration
