@@ -1,3 +1,21 @@
+[project]
+name = "kieu-bot"
+version = "0.1.0"
+description = "Django RAG chatbot for Truyen Kieu"
+requires-python = ">=3.12"
+dependencies = [
+    "Django>=4.2,<5.1",
+    "django-allauth>=0.63",
+    "dj-database-url>=2.2",
+    "whitenoise>=6.7",
+    "pymongo[srv]>=4.6",
+    "psycopg[binary]>=3.2",
+    "google-generativeai>=0.8,<0.9",
+    "python-dotenv>=1.0",
+    "rapidfuzz>=3.9",
+    "regex>=2024.7.24",
+]
+
 [tool.black]
 line-length = 120
 target-version = ['py311']
