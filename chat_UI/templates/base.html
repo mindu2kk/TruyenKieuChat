@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="vi">
 <head>
@@ -5,17 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% block title %}Kiều Bot{% endblock %}</title>
 
-  <!-- Tailwind (CDN, dùng dev) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { brand: { 50:"#f5f7ff", 100:"#eef2ff", 600:"#4f46e5", 700:"#4338ca" } }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="{% static 'chat_UI/tailwind.css' %}">
   <style>
     /* Ẩn scrollbar thô trên Webkit cho vùng chat */
     .no-scrollbar::-webkit-scrollbar { display:none; }

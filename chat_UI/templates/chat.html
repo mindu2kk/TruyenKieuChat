@@ -7,7 +7,7 @@
   <title>📜 Kiều Bot - Hỏi Đáp Truyện Kiều</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAR5JREFUSEvtlt0RgjAUhL+LgBO4gk7gCu4g6AQu4Aqig06gjqAjcARX0FHcwR38v1/Ah7sguEG4/M3lcu9y98gik8l8pLXWIIqI45hSSgC2JO8lVRtJtgFQUr/3dZ332Q2ADIQQ6k4Fq3wS1zVN80YQBNOu6x4I/pe3sjyvChAiqmrBfW+j6HoYhj8L4d56qZT6SgGMMXKk5z3JPM/zC0L4y/a+qGqYstY2Nq/bLpum+VzV9Z+vB8iyLBNR3EeKOANgrXVvGLquY4xZALbneQcAW2sB2Hqe5/cAWPN+lXwKKL33M0Q8W2u3zHjO2L+tlNrW2l8AbOuqys531bV2S5KzLwA0TdOkKIp/DwB2RC+ZTOZ7/gJ1K27vUPv2AAAAAElFTkSuQmCC">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'chat_UI/tailwind.css' %}">
 
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -42,9 +42,6 @@
 
     .prose p { margin:.4rem 0 }
     .msg { max-width: 78ch }
-    .chip { @apply text-xs px-2 py-0.5 rounded-full bg-zinc-700/50 border border-zinc-600; }
-    .glass { @apply bg-black/30 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20; }
-
     .chat-message { animation: fadeIn .5s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 

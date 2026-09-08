@@ -147,3 +147,21 @@ def test_chat_template_metadata_has_no_broken_alpine_scope():
     assert 'x-text="metaElapsed"' not in template
     assert "$root.settings.debug_meta" not in template
     assert "data-meta-quality" in template
+
+
+@pytest.mark.unit
+def test_ui_uses_compiled_tailwind_instead_of_production_cdn():
+    root = Path(__file__).resolve().parents[2]
+    templates = [
+        root / "chat_UI" / "templates" / "chat.html",
+        root / "chat_UI" / "templates" / "base.html",
+        root / "chat_UI" / "templates" / "account" / "login.html",
+        root / "chat_UI" / "templates" / "account" / "signup.html",
+    ]
+    for template_path in templates:
+        template = template_path.read_text(encoding="utf-8")
+        assert "cdn.tailwindcss.com" not in template
+        assert "{% static 'chat_UI/tailwind.css' %}" in template
+
+    compiled_css = root / "chat_UI" / "static" / "chat_UI" / "tailwind.css"
+    assert compiled_css.stat().st_size > 10_000

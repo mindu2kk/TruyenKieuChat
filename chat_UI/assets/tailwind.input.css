@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .chip {
+    @apply rounded-full border border-zinc-600 bg-zinc-700/50 px-2 py-0.5 text-xs;
+  }
+
+  .glass {
+    @apply bg-black/30 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20;
+  }
+}
