@@ -13,6 +13,7 @@ import pytest
 import json
 from django.test import Client
 from django.contrib.auth.models import User
+from django.core.management import call_command
 from django.urls import reverse
 from unittest.mock import patch, Mock
 
@@ -87,6 +88,19 @@ def test_login_accepts_registered_email(client, db):
 
     assert response.status_code == 302
     assert response.url == "/"
+
+
+def test_bootstrap_superuser_creates_administrator(monkeypatch, db):
+    monkeypatch.setenv("DJANGO_SUPERUSER_USERNAME", "kieu_admin_test")
+    monkeypatch.setenv("DJANGO_SUPERUSER_EMAIL", "kieu-admin-test@example.com")
+    monkeypatch.setenv("DJANGO_SUPERUSER_PASSWORD", "VerySafePass123!")
+
+    call_command("bootstrap_superuser")
+
+    user = User.objects.get(username="kieu_admin_test")
+    assert user.is_staff
+    assert user.is_superuser
+    assert user.check_password("VerySafePass123!")
 
 
 @pytest.mark.integration
