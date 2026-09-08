@@ -234,11 +234,12 @@
     </div>
     <div class="flex-1 space-y-2">
       <div class="msg prose prose-invert max-w-full prose-p:text-[var(--text-main)] prose-headings:text-white prose-strong:text-white prose-code:text-amber-300 prose-code:bg-black/20 prose-code:p-1 prose-code:rounded-sm rounded-2xl rounded-tl-none px-4 py-2 bg-[var(--surface)] border border-[var(--border)]"></div>
-      <div class="text-xs text-[var(--text-secondary)] space-x-2 pl-1" x-show="$root.settings.debug_meta">
-        <span class="chip" x-text="metaIntent"></span>
-        <span class="chip" x-text="metaElapsed"></span>
+      <div class="text-xs text-[var(--text-secondary)] space-x-2 pl-1" data-meta-summary hidden>
+        <span class="chip" data-meta-intent></span>
+        <span class="chip" data-meta-elapsed></span>
+        <span class="chip" data-meta-quality></span>
       </div>
-      <div class="mt-1 pl-1" x-show="$root.settings.debug_meta" x-html="metaDetails"></div>
+      <div class="mt-1 pl-1" data-meta-details hidden></div>
     </div>
   </div>
 </template>
@@ -251,14 +252,14 @@ function ChatUI(){
     typing:false,
     sending:false,
     draft:"",
-    settings: JSON.parse(localStorage.getItem("kieu.settings") || '{"k":5,"model":"{{ gemini_model }}","long_answer":true,"max_tokens":1024,"bullet_mode":false,"debug_meta":true}'),
+    settings: JSON.parse(localStorage.getItem("kieu.settings.v2") || '{"k":5,"model":"{{ gemini_model }}","long_answer":false,"max_tokens":640,"bullet_mode":false,"debug_meta":true}'),
     isConfigured: { gemini: {{ gemini_ok|yesno:"true,false" }}, poem: {{ poem_ok|yesno:"true,false" }} },
 
     init(){
       this.reloadHistory();
       this.$watch('settings', () => this.saveSettings(), { deep: true });
     },
-    saveSettings(){ localStorage.setItem("kieu.settings", JSON.stringify(this.settings)); },
+    saveSettings(){ localStorage.setItem("kieu.settings.v2", JSON.stringify(this.settings)); },
 
     async reloadHistory(){
       try{
@@ -287,12 +288,21 @@ function ChatUI(){
       if (role==="assistant") {
         msg.innerHTML = this.markdown(content);
         if (meta){
-          const chipIntent = tpl.querySelector('[x-text="metaIntent"]');
-          const chipElapsed = tpl.querySelector('[x-text="metaElapsed"]');
-          const detail = tpl.querySelector('[x-html="metaDetails"]');
-          if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"}`;
+          const summary = tpl.querySelector('[data-meta-summary]');
+          const chipIntent = tpl.querySelector('[data-meta-intent]');
+          const chipElapsed = tpl.querySelector('[data-meta-elapsed]');
+          const chipQuality = tpl.querySelector('[data-meta-quality]');
+          const detail = tpl.querySelector('[data-meta-details]');
+          const harness = meta.harness || {};
+          const quality = harness.quality || {};
+          if (summary) summary.hidden = !this.settings.debug_meta;
+          if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"} · ${harness.flow||"default"}`;
           if (chipElapsed) chipElapsed.textContent = `⏱️ ${Math.round(meta.elapsed_ms||0)} ms`;
-          if (detail) detail.innerHTML = this.renderMeta(meta);
+          if (chipQuality) chipQuality.textContent = `🛡️ ${quality.status||"unchecked"}`;
+          if (detail) {
+            detail.hidden = !this.settings.debug_meta;
+            detail.innerHTML = this.renderMeta(meta);
+          }
         }
       } else {
         msg.textContent = content;
@@ -302,6 +312,15 @@ function ChatUI(){
 
     renderMeta(meta){
       let html = "";
+      const harness = meta.harness || {};
+      const quality = harness.quality || {};
+      if (harness.route_reason){
+        const confidence = Math.round((harness.route_confidence||0)*100);
+        html += `<div class="text-xs text-[var(--text-secondary)]">🧪 Route: ${this.escape(harness.route_reason)} · confidence ${confidence}%</div>`;
+      }
+      if (Array.isArray(quality.issues) && quality.issues.length){
+        html += `<div class="text-xs text-amber-300">⚠️ ${this.escape(quality.issues.join(", "))}</div>`;
+      }
       if (meta.verification && meta.verification.coverage !== undefined){
         const cv = Math.round((meta.verification.coverage||0)*100);
         html += `<div class="text-xs text-[var(--text-secondary)]">🔍 Kiểm chứng trích dẫn: coverage ~${cv}%</div>`;
@@ -370,9 +389,11 @@ function ChatUI(){
 
         const meta = {
           intent: data.intent, verification: data.verification,
-          elapsed_ms: data.elapsed_ms, error: data.error
+          elapsed_ms: data.elapsed_ms, error: data.error,
+          harness: data.harness
         };
-        this.render("assistant", data.answer || "(không có câu trả lời)", meta);
+        const visibleAnswer = data.answer || data.message || "Xin lỗi, yêu cầu chưa được xử lý.";
+        this.render("assistant", visibleAnswer, meta);
         this.scrollBottom();
 
       }catch(e){

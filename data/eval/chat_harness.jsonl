@@ -1,0 +1,12 @@
+{"id":"greeting","query":"Xin chào Kiều Bot, bạn có thể giúp tôi học Truyện Kiều không?","intent":"chitchat","flow":"smalltalk","answer_contains":["Truyện Kiều"]}
+{"id":"main-character","query":"Hãy cho biết nhân vật chính của Truyện Kiều là ai?","intent":"core_fact","flow":"verified-core-fact","answer_contains":["Thúy Kiều"]}
+{"id":"main-character-paraphrase","query":"Nhân vật trung tâm của Truyện Kiều là ai?","intent":"core_fact","flow":"verified-core-fact","answer_contains":["Thúy Kiều"]}
+{"id":"author-and-origin","query":"Ai là tác giả của Truyện Kiều? Hãy nêu tên tác phẩm gốc bằng chữ Hán.","intent":"core_fact","flow":"verified-core-fact","answer_contains":["Nguyễn Du","Đoạn trường tân thanh","Kim Vân Kiều truyện"]}
+{"id":"opening-words","query":"Hãy trích nguyên văn hai câu mở đầu Truyện Kiều.","intent":"poem","flow":"exact-poem-lookup","answer_contains":["Trăm năm","Chữ tài"]}
+{"id":"opening-number","query":"Trích 2 câu đầu.","intent":"poem","flow":"exact-poem-lookup","answer_contains":["Trăm năm","Chữ tài"]}
+{"id":"plot-accented","query":"Thúy Kiều gặp Kim Trọng trong hoàn cảnh nào?","intent":"plot","flow":"plot-and-character"}
+{"id":"plot-unaccented","query":"thuy kieu gap kim trong o dau vay?","intent":"plot","flow":"plot-and-character"}
+{"id":"literary-analysis","query":"Phân tích nghệ thuật tả cảnh ngụ tình trong Truyện Kiều.","intent":"analysis","flow":"literary-analysis"}
+{"id":"safe-refusal","query":"Tổng thống Hoa Kỳ năm 2026 là ai?","intent":"out_of_scope","flow":"safe-refusal","answer_contains":["ngoài phạm vi Truyện Kiều"]}
+{"id":"structured-list","query":"Liệt kê 5 phẩm chất của Thúy Kiều.","intent":"facts","flow":"structured-domain"}
+{"id":"exact-line","query":"Cho câu số 1","intent":"poem","flow":"exact-poem-lookup","answer_contains":["Trăm năm"]}

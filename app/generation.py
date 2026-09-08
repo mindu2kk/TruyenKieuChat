@@ -57,9 +57,9 @@ def _resolve_generation_config(long_answer: bool, max_tokens: Optional[int]) -> 
         raise GenerationError(f"max_tokens không hợp lệ: {resolved_max!r} ({type(resolved_max).__name__})") from e
 
     return {
-        "temperature": 0.6 if long_answer else 0.55,
-        "top_p": 0.9,
-        "top_k": 40,
+        "temperature": 0.45 if long_answer else 0.2,
+        "top_p": 0.85,
+        "top_k": 32,
         "max_output_tokens": resolved_max,
     }
 

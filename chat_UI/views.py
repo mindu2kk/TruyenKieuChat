@@ -14,6 +14,7 @@ from app.orchestrator import answer_with_router
 from app.generation import is_gemini_configured
 from app.poem_tools import poem_ready
 import logging, traceback
+
 logger = logging.getLogger(__name__)
 
 from .mongo_utils import (
@@ -37,12 +38,17 @@ def _bounded_int(value, *, default: int, minimum: int, maximum: int) -> int:
 @login_required
 def home(request: HttpRequest):
     # 🔴 đổi "chat_UI/chat.html" -> "chat.html"
-    return render(request, "chat.html", {
-        "gemini_ok": is_gemini_configured(),
-        "poem_ok": poem_ready(),
-        "gemini_model": settings.GEMINI_MODEL,
-        "gemini_models": settings.GEMINI_MODELS,
-    })
+    return render(
+        request,
+        "chat.html",
+        {
+            "gemini_ok": is_gemini_configured(),
+            "poem_ok": poem_ready(),
+            "gemini_model": settings.GEMINI_MODEL,
+            "gemini_models": settings.GEMINI_MODELS,
+        },
+    )
+
 
 # alias route /
 def chat_page(request: HttpRequest):
@@ -83,19 +89,20 @@ def chat_api(request):
     max_tokens = _bounded_int(payload.get("max_tokens"), default=1024, minimum=256, maximum=8096)
     # ... (xử lý bullet mode)
 
-    # <<< THAY ĐỔI: Lưu tin nhắn người dùng vào MongoDB >>>
-    save_message_to_mongo(user, "user", msg)
-
     try:
         t0 = now()
-        # <<< THAY ĐỔI: Lấy lịch sử từ MongoDB cho bot >>>
+        # Read the prior conversation before storing the current turn. This
+        # prevents the active question from being duplicated in the model prompt.
         chat_history = get_history_for_bot(user, limit=12)
+        save_message_to_mongo(user, "user", msg)
 
         ret = answer_with_router(
-            msg, k=k, gemini_model=model,
+            msg,
+            k=k,
+            gemini_model=model,
             history=chat_history,
-            long_answer=long_answer, max_tokens=max_tokens,
-
+            long_answer=long_answer,
+            max_tokens=max_tokens,
         )
         elapsed_ms = (now() - t0).total_seconds() * 1000.0
 
@@ -113,16 +120,14 @@ def chat_api(request):
         "verification": ret.get("verification"),
         "elapsed_ms": elapsed_ms,
         "error": ret.get("error"),
+        "harness": ret.get("harness"),
     }
 
     # <<< THAY ĐỔI: Lưu câu trả lời của bot vào MongoDB >>>
     save_message_to_mongo(user, "assistant", answer, meta=meta_data)
 
-    return JsonResponse({
-        "ok": True,
-        "answer": answer,
-        **meta_data
-    })
+    return JsonResponse({"ok": True, "answer": answer, **meta_data})
+
 
 # --- View history_api được viết lại hoàn toàn ---
 @require_http_methods(["GET", "DELETE"])
@@ -166,6 +171,7 @@ def health_api(request: HttpRequest):
         "poem_ready": poem_ready(),
     }
     return JsonResponse(payload, status=200 if payload["ok"] else 503)
+
 
 @require_POST
 @login_required

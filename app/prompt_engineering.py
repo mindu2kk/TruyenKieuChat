@@ -14,8 +14,8 @@ from typing import List, Dict, Any, Optional
 # =========================================================
 # Token budgets (cứ để rộng rãi, có thể sửa qua orchestrator)
 # =========================================================
-DEFAULT_SHORT_TOKEN_BUDGET = 600
-DEFAULT_LONG_TOKEN_BUDGET = 1400
+DEFAULT_SHORT_TOKEN_BUDGET = 480
+DEFAULT_LONG_TOKEN_BUDGET = 1200
 
 
 # =========================================================
@@ -120,6 +120,26 @@ def build_poem_compare_prompt(
     )
 
 
+def build_grounded_poem_explanation_prompt(
+    query: str,
+    *,
+    poem_text: str,
+    history_text: Optional[str] = None,
+    **kwargs,
+) -> str:
+    """Explain only the exact poem lines supplied by the deterministic lookup flow."""
+    hist = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
+    return (
+        "Bạn là trợ lý văn học về Truyện Kiều. Chỉ giải thích dựa trên [NGUYÊN VĂN] bên dưới.\n"
+        "Trả lời bằng 2–4 câu tiếng Việt, đi thẳng vào ý nghĩa; không lặp lại hay trích thêm câu thơ, "
+        "không nói về quá trình tra cứu và không suy diễn ngoài đoạn đã cho.\n\n"
+        f"[YÊU CẦU]\n{query.strip()}\n\n"
+        f"[NGUYÊN VĂN]\n{poem_text.strip()}"
+        f"{hist}\n\n"
+        "[GIẢI THÍCH NGẮN]\n"
+    )
+
+
 # =========================================================
 # RAG synthesis (citation-aware) — hỗ trợ essay_mode="hsg"
 # =========================================================
@@ -129,8 +149,8 @@ def build_rag_synthesis_prompt(
     *,
     history_text: Optional[str] = None,
     long_answer: bool = False,
-    essay_mode: Optional[str] = None,   # giữ nguyên để tương thích
-    **kwargs,                            # nuốt an toàn tham số khác
+    essay_mode: Optional[str] = None,  # giữ nguyên để tương thích
+    **kwargs,  # nuốt an toàn tham số khác
 ) -> str:
     # Gói evidence (giới hạn 12 block cho gọn) — KHÔNG yêu cầu model dùng [SOURCE] trong câu trả lời
     blocks = []
@@ -145,10 +165,11 @@ def build_rag_synthesis_prompt(
     # Quy ước chung — BỎ YÊU CẦU GẮN [SOURCE]
     common_rules = (
         "YÊU CẦU:\n"
-        "1) Bám sát trích dẫn trong [EVIDENCE]; không bịa.\n"
-        "2) Không chèn bất kỳ ký hiệu trích dẫn dạng [SOURCE: …] trong câu trả lời.\n"
-        "3) Nếu trích câu thơ, đặt trong ngoặc kép và giữ nguyên văn.\n"
-        "4) Nếu không đủ bằng chứng, hãy nói rõ: 'Không đủ bằng chứng từ corpus.'\n"
+        "1) Trả lời trực tiếp ngay ở câu đầu; không kể lại quá trình tìm kiếm hay rà soát corpus.\n"
+        "2) Bám sát [EVIDENCE], phân biệt dữ kiện với nhận xét và không bịa.\n"
+        "3) Không chèn ký hiệu [SOURCE: …] trong câu trả lời.\n"
+        "4) Chỉ trích thơ khi câu hỏi cần; đã trích thì phải giữ đúng nguyên văn trong ngoặc kép.\n"
+        "5) Nếu không đủ bằng chứng, nói ngắn gọn điều còn thiếu và gợi ý cách hỏi cụ thể hơn.\n"
     )
 
     # Khung cấu trúc — bỏ ràng buộc citation inline
@@ -165,11 +186,11 @@ def build_rag_synthesis_prompt(
     else:
         structure = (
             "CẤU TRÚC TRẢ LỜI:\n"
-            "- Trả lời trực tiếp câu hỏi.\n"
-            "- Chèn dẫn chứng theo mạch lập luận khi phù hợp (không cần [SOURCE]).\n"
-            "- Một đoạn kết ngắn tổng kết phát hiện chính.\n"
+            "- Tối đa 120 từ và 1–3 đoạn ngắn.\n"
+            "- Không lặp câu hỏi, không có mở bài xã giao, không thêm phần tổng kết nếu không cần.\n"
+            "- Chèn tối đa một dẫn chứng khi thật sự giúp trả lời.\n"
         )
-        task = "Trả lời trực tiếp, có dẫn chứng khi phù hợp; KHÔNG chèn [SOURCE]."
+        task = "Trả lời sáng rõ, tự nhiên và cô đọng; KHÔNG chèn [SOURCE]."
 
     history_section = f"\n[HISTORY]\n{history_text.strip()}" if history_text else ""
 
@@ -275,7 +296,7 @@ def build_counterargument_prompt(
     **kwargs,
 ) -> str:
     ev = []
-    for b in evidence_blocks[:min_pairs * 3]:
+    for b in evidence_blocks[: min_pairs * 3]:
         t = (b.get("text") or "").strip()
         if t:
             ev.append(f"- {t}  {_cite_tag(dict(b.get('meta') or {}))}")
@@ -327,7 +348,7 @@ def build_evidence_outline_prompt(
     **kwargs,
 ) -> str:
     ev = []
-    for b in evidence_blocks[:max_points * 2]:
+    for b in evidence_blocks[: max_points * 2]:
         t = (b.get("text") or "").strip()
         if t:
             ev.append(f"- {t}  {_cite_tag(dict(b.get('meta') or {}))}")

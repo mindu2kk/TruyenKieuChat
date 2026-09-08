@@ -11,6 +11,7 @@ from typing import Dict, List, Optional, Tuple
 
 # ------------------- Utilities (normalize/canonicalize) -------------------
 
+
 def _strip_diacritics(s: str) -> str:
     if not s:
         return ""
@@ -19,6 +20,7 @@ def _strip_diacritics(s: str) -> str:
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
     s = s.replace("Đ", "D").replace("đ", "d")
     return unicodedata.normalize("NFC", s)
+
 
 def _canon(s: str) -> str:
     """Chuẩn hoá để so khớp: lower, bỏ dấu, bỏ ký tự lạ, gộp khoảng trắng."""
@@ -29,8 +31,16 @@ def _canon(s: str) -> str:
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
+
+def _exact_text(s: str) -> str:
+    """Normalize encoding/spacing while preserving Vietnamese spelling and punctuation."""
+    s = unicodedata.normalize("NFC", (s or "").strip().lower())
+    return re.sub(r"\s+", " ", s)
+
+
 # Hỗ trợ cả "..." và “...”
 _QUOTE_ITER = re.compile(r'("([^"\n]{4,200})"|“([^”\n]{4,200})”)')
+
 
 def _iter_quote_spans(text: str) -> List[Tuple[int, int, str]]:
     """Trả danh sách (start, end, inner_text) theo thứ tự xuất hiện."""
@@ -41,15 +51,17 @@ def _iter_quote_spans(text: str) -> List[Tuple[int, int, str]]:
         spans.append((start, end, inner))
     return spans
 
+
 def _find_quotes(text: str) -> List[str]:
     return [inner for _, _, inner in _iter_quote_spans(text)]
+
 
 # --------------------- RapidFuzz / difflib backend ------------------------
 
 try:  # pragma: no cover - rapidfuzz là tuỳ chọn
     from rapidfuzz import fuzz, process  # type: ignore
 
-    def _extract_one(query: str, choices: Dict[str, Tuple[str,int]]) -> Tuple[str, float, int] | None:
+    def _extract_one(query: str, choices: Dict[str, Tuple[str, int]]) -> Tuple[str, float, int] | None:
         """
         choices: map canonical_text -> (original_text, line_no)
         """
@@ -66,7 +78,7 @@ except ImportError:  # pragma: no cover - fallback stdlib
     def _simple_ratio(a: str, b: str) -> float:
         return difflib.SequenceMatcher(None, a, b).ratio() * 100.0
 
-    def _extract_one(query: str, choices: Dict[str, Tuple[str,int]]) -> Tuple[str, float, int] | None:
+    def _extract_one(query: str, choices: Dict[str, Tuple[str, int]]) -> Tuple[str, float, int] | None:
         best: Tuple[str, float, int] | None = None
         cq = _canon(query)
         for ccanon, (orig, ln) in choices.items():
@@ -74,6 +86,7 @@ except ImportError:  # pragma: no cover - fallback stdlib
             if best is None or score > best[1]:
                 best = (orig, score, ln)
         return best
+
 
 # --------------------------- Poem lines access -----------------------------
 
@@ -94,6 +107,7 @@ class QuoteCheck:
 
 # ------------------------------ API ---------------------------------------
 
+
 def verify_poem_quotes(answer: str, *, threshold: float = 88.0) -> Dict[str, object]:
     """
     Trả về:
@@ -113,7 +127,7 @@ def verify_poem_quotes(answer: str, *, threshold: float = 88.0) -> Dict[str, obj
         return {"quotes": [], "accepted": [], "non_exact": [], "suggested_fixes": [], "coverage": 0.0}
 
     # build canonical choices
-    choices: Dict[str, Tuple[str,int]] = {}
+    choices: Dict[str, Tuple[str, int]] = {}
     for line in lines:
         orig = getattr(line, "text", "")
         ln = int(getattr(line, "number", 0) or 0)
@@ -131,15 +145,24 @@ def verify_poem_quotes(answer: str, *, threshold: float = 88.0) -> Dict[str, obj
             checks.append(QuoteCheck(quote=q, score=0.0, matched_line=None, matched_text=None, exact=False))
             continue
         matched_text, score, line_no = result
-        exact = _canon(q) == _canon(matched_text)
-        checks.append(QuoteCheck(quote=q, score=float(score), matched_line=int(line_no), matched_text=str(matched_text), exact=exact))
+        # Fuzzy matching may ignore accents and punctuation to find the likely
+        # source line. Exactness must not: a quoted poem line needs the corpus
+        # spelling before it can pass the harness.
+        exact = _exact_text(q) == _exact_text(matched_text)
+        checks.append(
+            QuoteCheck(
+                quote=q, score=float(score), matched_line=int(line_no), matched_text=str(matched_text), exact=exact
+            )
+        )
         if score >= threshold and not exact:
-            non_exact.append({
-                "quote": q,
-                "matched_text": matched_text,
-                "matched_line": line_no,
-                "score": float(score),
-            })
+            non_exact.append(
+                {
+                    "quote": q,
+                    "matched_text": matched_text,
+                    "matched_line": line_no,
+                    "score": float(score),
+                }
+            )
             fixes.append((q, matched_text))
 
     accepted = [chk for chk in checks if chk.score >= threshold]
@@ -184,7 +207,9 @@ def apply_quote_corrections(answer: str, fixes: List[Tuple[str, str]]) -> str:
     return "".join(out)
 
 
-def verify_and_autocorrect(answer: str, *, threshold: float = 88.0, autocorrect: bool = True) -> Tuple[str, Dict[str, object]]:
+def verify_and_autocorrect(
+    answer: str, *, threshold: float = 88.0, autocorrect: bool = True
+) -> Tuple[str, Dict[str, object]]:
     """
     Trả về (answer_có_thể_đã_sửa, verification_payload).
     """
