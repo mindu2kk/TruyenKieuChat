@@ -78,13 +78,15 @@ def test_grounded_poem_analysis_keeps_exact_lines_before_explanation():
     with (
         patch("app.cache.get_cached", return_value=None),
         patch("app.cache.set_cached"),
-        patch("app.orchestrator._safe_generate", return_value=("Hai câu nêu xung đột giữa tài và mệnh.", None)),
+        patch("app.orchestrator._safe_generate") as generate,
     ):
         result = answer_with_router(query)
     assert "Trăm năm, trong cõi người ta," in result["answer"]
     assert "Chữ tài, chữ mệnh" in result["answer"]
     assert "Giải thích ngắn" in result["answer"]
+    assert "tài mệnh tương đố" in result["answer"]
     assert result["harness"]["flow"] == "grounded-poem-analysis"
+    generate.assert_not_called()
 
 
 @pytest.mark.unit

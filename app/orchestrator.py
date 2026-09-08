@@ -195,6 +195,7 @@ def answer_with_router(
         build_poem_compare_prompt,
     )
     from .answer_harness import (
+        curated_poem_explanation,
         deterministic_quality,
         grounded_quality,
         out_of_scope_answer,
@@ -241,6 +242,13 @@ def answer_with_router(
         quality = deterministic_quality("verified-poem-text")
         if decision.flow != "grounded-poem-analysis":
             return base_answer, quality
+
+        curated = curated_poem_explanation(poem_text)
+        if curated:
+            return (
+                f"{base_answer}\n\n**Giải thích ngắn:**\n\n{curated}",
+                deterministic_quality("verified-poem-analysis"),
+            )
 
         prompt = build_grounded_poem_explanation_prompt(
             query,

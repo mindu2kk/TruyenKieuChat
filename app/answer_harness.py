@@ -56,6 +56,22 @@ def out_of_scope_answer() -> str:
     )
 
 
+def curated_poem_explanation(poem_text: str) -> Optional[str]:
+    """Return a reviewed explanation for high-frequency canonical excerpts."""
+    lines = [normalize_query(line) for line in (poem_text or "").splitlines() if line.strip()]
+    if (
+        len(lines) >= 2
+        and lines[0].startswith("tram nam trong coi nguoi ta")
+        and lines[1].startswith("chu tai chu menh kheo la ghet nhau")
+    ):
+        return (
+            "Nguyễn Du mở đầu bằng một nhận xét có tính khái quát về kiếp người, rồi nêu nghịch lý "
+            "“tài mệnh tương đố”: người có tài thường phải chịu số phận éo le. Hai câu này đặt nền tư tưởng "
+            "cho những biến cố và bi kịch của Thúy Kiều về sau."
+        )
+    return None
+
+
 def deterministic_quality(status: str = "verified") -> QualityReport:
     return QualityReport(status=status, grounded=True, quote_check="not-required")
 
@@ -115,6 +131,7 @@ def verify_generated_answer(
 
 __all__ = [
     "QualityReport",
+    "curated_poem_explanation",
     "deterministic_quality",
     "grounded_quality",
     "out_of_scope_answer",
