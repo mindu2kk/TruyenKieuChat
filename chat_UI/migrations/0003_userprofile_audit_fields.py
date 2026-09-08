@@ -37,14 +37,4 @@ class Migration(migrations.Migration):
             "WHERE created_at IS NULL OR updated_at IS NULL",
             migrations.RunSQL.noop,
         ),
-        migrations.AlterField(
-            model_name="userprofile",
-            name="created_at",
-            field=models.DateTimeField(auto_now_add=True),
-        ),
-        migrations.AlterField(
-            model_name="userprofile",
-            name="updated_at",
-            field=models.DateTimeField(auto_now=True),
-        ),
     ]
