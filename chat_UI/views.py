@@ -142,15 +142,26 @@ def history_api(request: HttpRequest):
 def health_api(request: HttpRequest):
     """Readiness probe safe for Vercel and container health checks."""
     mongo_ok = False
+    mongo_status = "unavailable"
     try:
         get_mongo_client().admin.command("ping")
         mongo_ok = True
+        mongo_status = "ready"
+    except ValueError:
+        # Missing configuration is actionable, but the URI itself must never be
+        # returned by a public health endpoint.
+        mongo_status = "not_configured"
+        logger.warning("health check: MongoDB is not configured", exc_info=True)
     except Exception:
+        # Keep the response stable and non-sensitive while distinguishing a
+        # real connection failure from a missing environment variable.
+        mongo_status = "connection_failed"
         logger.warning("health check: MongoDB unavailable", exc_info=True)
 
     payload = {
         "ok": mongo_ok and is_gemini_configured() and poem_ready(),
         "mongo": mongo_ok,
+        "mongo_status": mongo_status,
         "gemini_configured": is_gemini_configured(),
         "poem_ready": poem_ready(),
     }

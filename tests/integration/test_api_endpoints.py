@@ -248,9 +248,24 @@ def test_health_api_ready(mock_gemini, mock_poem, mock_client, client):
     assert response.json() == {
         "ok": True,
         "mongo": True,
+        "mongo_status": "ready",
         "gemini_configured": True,
         "poem_ready": True,
     }
+
+
+@pytest.mark.integration
+@patch('chat_UI.views.get_mongo_client', side_effect=ValueError("MONGO_URI missing"))
+@patch('chat_UI.views.poem_ready', return_value=True)
+@patch('chat_UI.views.is_gemini_configured', return_value=True)
+def test_health_api_reports_missing_mongo_configuration(
+    mock_gemini, mock_poem, mock_client, client
+):
+    response = client.get('/api/health/')
+
+    assert response.status_code == 503
+    assert response.json()["mongo"] is False
+    assert response.json()["mongo_status"] == "not_configured"
 
 
 @pytest.mark.integration
