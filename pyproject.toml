@@ -85,7 +85,7 @@ show_missing = true
 skip_covered = false
 
 [tool.vercel]
-entrypoint = "project/wsgi.py"
+entrypoint = "project.wsgi:app"
 
 [tool.mypy]
 python_version = "3.11"
