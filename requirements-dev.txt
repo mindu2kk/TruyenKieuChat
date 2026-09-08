@@ -6,7 +6,7 @@
 streamlit>=1.36
 sentence-transformers>=3.0
 rank-bm25>=0.2
-html2text>=2024.2.26
+html2text>=2025.4.15
 beautifulsoup4>=4.12
 lxml>=5.2
 tqdm>=4.66
