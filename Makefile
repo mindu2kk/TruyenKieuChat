@@ -1,8 +1,8 @@
-.PHONY: setup chunks index ui test test-unit test-integration test-e2e test-coverage test-watch test-fast test-parallel pre-commit-install pre-commit-run pre-commit-update
+.PHONY: setup chunks index ui django test test-unit test-integration test-e2e test-coverage test-watch test-fast test-parallel pre-commit-install pre-commit-run pre-commit-update
 
 # Setup
 setup:
-	python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
+	python -m venv .venv && . .venv/bin/activate && pip install -r requirements-dev.txt
 
 # Data processing
 chunks:
@@ -12,7 +12,11 @@ index:
 
 # UI
 ui:
-	. .venv/bin/activate && streamlit run app/ui_streamlit.py
+	. .venv/bin/activate && streamlit run app/ui_chat.py
+
+# Django UI used in staging/production through Vercel.
+django:
+	. .venv/bin/activate && python manage.py runserver
 
 # Testing
 test:

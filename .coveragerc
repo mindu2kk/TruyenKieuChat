@@ -1,0 +1,31 @@
+[run]
+source = app,chat_UI
+omit =
+    */migrations/*
+    */venv/*
+    */env/*
+    */__pycache__/*
+    */tests/*
+    */test_*.py
+    */manage.py
+    */settings.py
+    */urls.py
+    */wsgi.py
+    */asgi.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    @abstractmethod
+precision = 2
+show_missing = True
+skip_covered = False
+fail_under = 80
+
+[html]
+directory = htmlcov

@@ -122,7 +122,7 @@ def _safe_generate(
 def answer_with_router(
     query: str,
     k: int = 5,
-    gemini_model: str = "gemini-2.0-flash",
+    gemini_model: Optional[str] = None,
     history: Optional[List[Tuple[str, str]]] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
@@ -151,6 +151,8 @@ def answer_with_router(
 
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+
+    gemini_model = (gemini_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
 
     # 1) FAQ
     hit = lookup_faq(query)
@@ -295,7 +297,7 @@ def answer_with_router(
         synthesize="single",
         gen_model=gemini_model,
         force_quote=not is_char_who,
-        
+
         long_answer=long_answer,
         history_text=full_history,
         max_tokens=max_tokens,
@@ -331,7 +333,7 @@ def answer_with_router(
             "verification": verification,
             "evidence": evidence,
         }
-        
+
     if not ans and is_char_who:
         from .prompt_engineering import build_generic_prompt
         hint = "Giải thích ngắn gọn nhân vật trong Truyện Kiều (kiến thức phổ thông, không cần trích dẫn)."
@@ -345,7 +347,7 @@ def answer_with_router(
                 "sources": _maybe_sources([]),  # vẫn ẩn nguồn như trước
                 "verification": verify_poem_quotes(ans2 or ""),
             }
-    
+
 
     # Fallback — dùng prompt đã build (nếu có)
     p = pack.get("prompt", "")

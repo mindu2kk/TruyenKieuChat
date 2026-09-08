@@ -21,7 +21,7 @@ def test_build_query_variants():
     """Test tạo query variants từ query gốc."""
     query = "Thúy Kiều là ai"
     variants = _build_query_variants(query)
-    
+
     assert len(variants) > 0
     assert query in variants
     # Kiểm tra có variants không dấu
@@ -35,7 +35,7 @@ def test_build_query_variants_with_character():
     """Test query variants với tên nhân vật."""
     query = "thúy kiều"
     variants = _build_query_variants(query)
-    
+
     # Kiểm tra có nhiều variants cho tên nhân vật
     assert len(variants) > 1
     assert any("thúy kiều" in v.lower() for v in variants)
@@ -50,9 +50,9 @@ def test_dedupe_hits():
         {"text": "Text 1", "meta": {"source": "source1", "line_number": 1}, "score": 0.8},  # Trùng lặp
         {"text": "Text 2", "meta": {"source": "source2", "line_number": 2}, "score": 0.7},
     ]
-    
+
     deduped = _dedupe_hits(hits)
-    
+
     # Chỉ còn 2 hits (bỏ trùng lặp)
     assert len(deduped) == 2
     assert deduped[0]["text"] == "Text 1"
@@ -79,28 +79,28 @@ def test_rag_pipeline_end_to_end(mock_rerank, mock_gen):
             "score": 0.80
         }
     ]
-    
+
     # Mock the retriever instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     mock_retriever_instance = Mock()
-    mock_retriever_instance.retrieve.return_value = mock_hits
+    mock_retriever_instance.search.return_value = mock_hits
     rag_module._HYBRID_RETRIEVER = mock_retriever_instance
-    
+
     try:
         # Setup mock rerank
         mock_rerank.return_value = mock_hits
-        
+
         # Setup mock generation
         mock_gen.return_value = "Thúy Kiều là nhân vật chính trong Truyện Kiều của Nguyễn Du."
-        
+
         result = answer_question(
             "Thúy Kiều là ai?",
             k=5,
             synthesize="single",
             gen_model="gemini-2.0-flash"
         )
-        
+
         assert "answer" in result
         assert "Thúy Kiều" in result["answer"]
         assert "contexts" in result
@@ -117,19 +117,19 @@ def test_rag_pipeline_no_results(mock_retriever):
     """Test RAG pipeline khi không có kết quả retrieval."""
     # Mock retriever instance
     mock_instance = Mock()
-    mock_instance.retrieve.return_value = []
+    mock_instance.search.return_value = []
     # Replace the module-level instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     rag_module._HYBRID_RETRIEVER = mock_instance
-    
+
     try:
         result = answer_question(
             "Câu hỏi không có kết quả",
             k=5,
             synthesize="single"
         )
-        
+
         assert "prompt" in result
         assert "contexts" in result
         assert len(result["contexts"]) == 0
@@ -152,25 +152,25 @@ def test_rag_pipeline_long_answer(mock_rerank, mock_gen):
             "score": 0.8
         }
     ]
-    
+
     # Mock the retriever instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     mock_retriever_instance = Mock()
-    mock_retriever_instance.retrieve.return_value = mock_hits
+    mock_retriever_instance.search.return_value = mock_hits
     rag_module._HYBRID_RETRIEVER = mock_retriever_instance
-    
+
     try:
         mock_rerank.return_value = mock_hits
         mock_gen.return_value = "Long answer"
-        
+
         result = answer_question(
             "Test query",
             k=5,
             long_answer=True,
             synthesize="single"
         )
-        
+
         assert "answer" in result
         # Kiểm tra long_answer được xử lý đúng
         assert result["answer"] == "Long answer"
@@ -197,25 +197,25 @@ def test_rag_pipeline_with_sources(mock_rerank, mock_gen):
             "score": 0.8
         }
     ]
-    
+
     # Mock the retriever instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     mock_retriever_instance = Mock()
-    mock_retriever_instance.retrieve.return_value = mock_hits
+    mock_retriever_instance.search.return_value = mock_hits
     rag_module._HYBRID_RETRIEVER = mock_retriever_instance
-    
+
     try:
         mock_rerank.return_value = mock_hits
         mock_gen.return_value = "Answer with sources"
-        
+
         result = answer_question(
             "Test query",
             k=5,
             synthesize="single",
             top_evidence=2
         )
-        
+
         assert "sources" in result or "evidence" in result
         if "sources" in result:
             assert len(result["sources"]) > 0
@@ -227,7 +227,8 @@ def test_rag_pipeline_with_sources(mock_rerank, mock_gen):
 @pytest.mark.requires_api
 @pytest.mark.requires_mongo
 @patch('app.rag_pipeline.generate_answer_gemini')
-def test_rag_pipeline_generation_error(mock_gen):
+@patch('app.rag_pipeline.rerank', side_effect=lambda _query, hits, top_k: list(hits)[:top_k])
+def test_rag_pipeline_generation_error(mock_rerank, mock_gen):
     """Test RAG pipeline xử lý lỗi generation."""
     mock_hits = [
         {
@@ -236,23 +237,23 @@ def test_rag_pipeline_generation_error(mock_gen):
             "score": 0.8
         }
     ]
-    
+
     # Mock the retriever instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     mock_retriever_instance = Mock()
-    mock_retriever_instance.retrieve.return_value = mock_hits
+    mock_retriever_instance.search.return_value = mock_hits
     rag_module._HYBRID_RETRIEVER = mock_retriever_instance
-    
+
     try:
         mock_gen.side_effect = Exception("Generation error")
-        
+
         result = answer_question(
             "Test query",
             k=5,
             synthesize="single"
         )
-        
+
         assert "generation_error" in result
         assert "Generation error" in result["generation_error"]
     finally:
@@ -277,24 +278,24 @@ def test_rag_pipeline_prefer_poem_source(mock_rerank):
             "score": 0.8
         }
     ]
-    
+
     # Mock the retriever instance
     import app.rag_pipeline as rag_module
     original_retriever = rag_module._HYBRID_RETRIEVER
     mock_retriever_instance = Mock()
-    mock_retriever_instance.retrieve.return_value = mock_hits
+    mock_retriever_instance.search.return_value = mock_hits
     rag_module._HYBRID_RETRIEVER = mock_retriever_instance
-    
+
     try:
         mock_rerank.return_value = mock_hits
-        
+
         result = answer_question(
             "Test query",
             k=5,
             prefer_poem_source=True,
             synthesize=False
         )
-        
+
         # Kiểm tra poem hits được boost
         assert "contexts" in result
         # Poem hits nên có score cao hơn sau khi boost
@@ -302,4 +303,3 @@ def test_rag_pipeline_prefer_poem_source(mock_rerank):
         assert len(poem_hits) > 0
     finally:
         rag_module._HYBRID_RETRIEVER = original_retriever
-

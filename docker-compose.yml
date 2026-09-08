@@ -15,6 +15,12 @@ services:
       HF_HOME: /cache/hf_home
       TRANSFORMERS_CACHE: /cache/transformers
       RAG_CACHE_DIR: /cache/rag_cache
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://127.0.0.1:8501/_stcore/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
     volumes:
       # Cache model / câu trả lời để lần sau nhanh hơn
       - hf_home:/cache/hf_home

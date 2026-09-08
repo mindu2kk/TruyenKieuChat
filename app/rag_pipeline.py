@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from typing import Dict, Any, Iterable, List, Optional, Sequence, Tuple
+import os
 import unicodedata
 
 try:  # pragma: no cover - flexible import paths
@@ -220,7 +221,19 @@ def _build_sources_and_evidence(contexts: List[Dict[str, Any]], top_evidence: in
 
 
 # ====== Hybrid retriever instance ======
-_HYBRID_RETRIEVER = HybridRetriever()
+#
+# Do not create network/model clients while importing this module.  Importing a
+# view or running a unit test should not require a live MongoDB Atlas cluster.
+# The client is instead constructed only when a domain query actually needs
+# retrieval.  Tests can still replace ``_HYBRID_RETRIEVER`` with a mock.
+_HYBRID_RETRIEVER: Optional[HybridRetriever] = None
+
+
+def _get_hybrid_retriever() -> HybridRetriever:
+    global _HYBRID_RETRIEVER
+    if _HYBRID_RETRIEVER is None:
+        _HYBRID_RETRIEVER = HybridRetriever()
+    return _HYBRID_RETRIEVER
 
 
 def answer_question(
@@ -229,7 +242,7 @@ def answer_question(
     filters: Dict[str, Any] | None = None,
     num_candidates: int = 120,
     synthesize: str | bool = "single",
-    gen_model: str = "gemini-2.0-flash",
+    gen_model: Optional[str] = None,
     force_quote: bool = True,
     long_answer: bool = False,
     history_text: str | None = None,
@@ -253,6 +266,7 @@ def answer_question(
     """
 
     # -------- defaults --------
+    gen_model = (gen_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
     if filters is None:
         filters = {"meta.type": {"$in": ["analysis", "poem", "summary", "bio"]}}
 
@@ -277,7 +291,7 @@ def answer_question(
         active_filters: Optional[Dict[str, Any]],
     ) -> None:
         try:
-            hits_local = _HYBRID_RETRIEVER.search(
+            hits_local = _get_hybrid_retriever().search(
                 variant,
                 top_k=limit,
                 filters=active_filters,

@@ -1,0 +1,40 @@
+name: Legacy lint workflow
+
+on: workflow_dispatch
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+        cache: 'pip'
+
+    - name: Install linting dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black flake8 isort mypy bandit
+        pip install -r requirements.txt
+
+    - name: Run Black (code formatter)
+      run: black --check --diff .
+      continue-on-error: true
+
+    - name: Run isort (import sorter)
+      run: isort --check-only --diff .
+      continue-on-error: true
+
+    - name: Run Flake8 (linter)
+      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --max-line-length=120
+      continue-on-error: true
+
+    - name: Run MyPy (type checking)
+      run: mypy app/ chat_UI/ --ignore-missing-imports || true
+
+    - name: Run Bandit (security linter)
+      run: bandit -r app/ chat_UI/ -ll || true

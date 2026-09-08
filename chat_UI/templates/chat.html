@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>📜 Kiều Bot - Hỏi Đáp Truyện Kiều</title>
   <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAR5JREFUSEvtlt0RgjAUhL+LgBO4gk7gCu4g6AQu4Aqig06gjqAjcARX0FHcwR38v1/Ah7sguEG4/M3lcu9y98gik8l8pLXWIIqI45hSSgC2JO8lVRtJtgFQUr/3dZ332Q2ADIQQ6k4Fq3wS1zVN80YQBNOu6x4I/pe3sjyvChAiqmrBfW+j6HoYhj8L4d56qZT6SgGMMXKk5z3JPM/zC0L4y/a+qGqYstY2Nq/bLpum+VzV9Z+vB8iyLBNR3EeKOANgrXVvGLquY4xZALbneQcAW2sB2Hqe5/cAWPN+lXwKKL33M0Q8W2u3zHjO2L+tlNrW2l8AbOuqys531bV2S5KzLwA0TdOkKIp/DwB2RC+ZTOZ7/gJ1K27vUPv2AAAAAElFTkSuQmCC">
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  
+
   <meta name="csrf-token" content="{{ csrf_token }}">
   <style>
     :root {
@@ -31,7 +31,7 @@
     }
 
     html { color-scheme: dark; }
-    
+
     body {
       font-family: var(--font-sans);
       background-color: var(--bg-start);
@@ -44,7 +44,7 @@
     .msg { max-width: 78ch }
     .chip { @apply text-xs px-2 py-0.5 rounded-full bg-zinc-700/50 border border-zinc-600; }
     .glass { @apply bg-black/30 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20; }
-    
+
     .chat-message { animation: fadeIn .5s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -106,7 +106,10 @@
 
     {% if user.is_authenticated %}
       <div class="hidden sm:block text-sm text-[var(--text-secondary)]">Xin chào, <span class="font-medium text-[var(--text-main)]">{{ user.first_name|default:user.username }}</span></div>
-      <a href="{% url 'account_logout' %}" class="ml-3 text-sm px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors">Đăng xuất</a>
+      <form method="post" action="{% url 'account_logout' %}" class="inline">
+        {% csrf_token %}
+        <button type="submit" class="ml-3 text-sm px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors">Đăng xuất</button>
+      </form>
     {% else %}
       <a href="{% url 'account_login' %}" class="text-sm px-4 py-2 rounded-lg bg-[var(--primary)] text-slate-900 font-semibold hover:bg-[var(--primary-hover)] transition-all transform hover:scale-105">Đăng nhập</a>
     {% endif %}
@@ -127,7 +130,9 @@
 
           <label class="block text-sm font-medium mb-1.5">Model</label>
           <select x-model="settings.model" class="w-full bg-zinc-900 border border-[var(--border)] rounded-md px-3 py-2 mb-4 focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] outline-none transition">
-            <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+            {% for model_name in gemini_models %}
+            <option value="{{ model_name }}">{{ model_name }}</option>
+            {% endfor %}
           </select>
 
           <div class="space-y-3 mb-4">
@@ -144,7 +149,7 @@
           <label class="block text-sm font-medium mt-2 mb-1.5">Giới hạn tokens</label>
           <input type="range" min="256" max="8096" step="128" x-model.number="settings.max_tokens" class="w-full mb-1">
           <div class="text-xs text-[var(--text-secondary)] mb-4"><span x-text="settings.max_tokens"></span> tokens</div>
-          
+
           <div class="flex items-center justify-between mb-5">
             <span class="text-sm font-medium">Hiện kiểm chứng</span>
             <input type="checkbox" x-model="settings.debug_meta">
@@ -246,7 +251,7 @@ function ChatUI(){
     typing:false,
     sending:false,
     draft:"",
-    settings: JSON.parse(localStorage.getItem("kieu.settings") || '{"k":5,"model":"gemini-2.0-flash","long_answer":true,"max_tokens":1024,"bullet_mode":false,"debug_meta":true}'),
+    settings: JSON.parse(localStorage.getItem("kieu.settings") || '{"k":5,"model":"{{ gemini_model }}","long_answer":true,"max_tokens":1024,"bullet_mode":false,"debug_meta":true}'),
     isConfigured: { gemini: {{ gemini_ok|yesno:"true,false" }}, poem: {{ poem_ok|yesno:"true,false" }} },
 
     init(){
@@ -267,7 +272,11 @@ function ChatUI(){
     },
 
     clearChat(){
-      fetch("{% url 'history_api' %}?clear=1",{credentials:"same-origin"})
+      fetch("{% url 'history_api' %}",{
+        method:"DELETE",
+        headers:{"X-CSRFToken": document.querySelector('meta[name="csrf-token"]').content},
+        credentials:"same-origin"
+      })
         .then(()=>this.reloadHistory());
     },
 
@@ -330,7 +339,7 @@ function ChatUI(){
 
     async send(){
       if (!this.draft.trim()) return;
-      
+
       const msg = this.draft.trim();
       this.render("user", msg);
       this.$nextTick(() => this.draft = ""); // Clear after rendering
@@ -358,7 +367,7 @@ function ChatUI(){
         });
         const data = await r.json();
         this.typing = false;
-        
+
         const meta = {
           intent: data.intent, verification: data.verification,
           elapsed_ms: data.elapsed_ms, error: data.error

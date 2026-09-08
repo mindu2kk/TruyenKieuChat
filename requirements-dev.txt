@@ -1,0 +1,29 @@
+-r requirements.txt
+
+# Local ML/data tooling. Do not install this file on Vercel: model packages
+# make a serverless function needlessly large and the production retriever uses
+# Gemini embeddings.
+streamlit>=1.36
+sentence-transformers>=3.0
+rank-bm25>=0.2
+html2text>=2024.2.26
+beautifulsoup4>=4.12
+lxml>=5.2
+tqdm>=4.66
+chardet>=5.0.0
+
+# Tests and developer tooling.
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-django>=4.5.2
+pytest-mock>=3.11.1
+pytest-asyncio>=0.21.0
+pytest-xdist>=3.3.1
+coverage>=7.3.0
+pytest-timeout>=2.1.0
+pre-commit>=3.4.0
+black>=23.11.0
+isort>=5.12.0
+flake8>=6.1.0
+mypy>=1.7.0
+bandit>=1.7.5

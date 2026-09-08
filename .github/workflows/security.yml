@@ -1,0 +1,47 @@
+name: Legacy security workflow
+
+on: workflow_dispatch
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+
+    - name: Run Bandit (security linter)
+      uses: securecodewarrior/github-action-bandit@v1
+      with:
+        python-version: "3.11"
+      continue-on-error: true
+
+    - name: Run Safety (dependency check)
+      run: |
+        pip install safety
+        safety check --json || true
+
+    - name: Run Trivy (vulnerability scanner)
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+      continue-on-error: true
+
+    - name: Upload Trivy results
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'

@@ -1,0 +1,127 @@
+name: CI/CD
+
+on:
+  pull_request:
+    branches: [main, master]
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+env:
+  PYTHON_VERSION: "3.12"
+  COVERAGE_MINIMUM: "35"
+
+jobs:
+  verify:
+    name: Lint, test, coverage, and Django readiness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install development dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Lint
+        run: |
+          python -m compileall -q app chat_UI project
+          flake8 app chat_UI project --count --select=E9,F63,F7,F82 --show-source --statistics --max-line-length=120
+      - name: Test and enforce coverage
+        env:
+          DJANGO_SETTINGS_MODULE: project.settings
+          DJANGO_SECRET_KEY: ci-test-secret-not-for-production-9wJ6bRt8mQ2vK5xL
+          DEBUG: "0"
+          ALLOWED_HOSTS: testserver
+          RERANKER: none
+        run: |
+          pytest tests \
+            --cov=app \
+            --cov=chat_UI \
+            --cov-report=term-missing \
+            --cov-report=xml:coverage.xml \
+            --junitxml=junit.xml \
+            --cov-fail-under="${COVERAGE_MINIMUM}"
+      - name: Verify production Django configuration
+        env:
+          DJANGO_SECRET_KEY: ci-only-secret
+          DEBUG: "0"
+          ALLOWED_HOSTS: testserver
+          RERANKER: none
+        run: python manage.py check --deploy
+      - name: Validate Vercel configuration
+        run: python -m json.tool vercel.json > /dev/null
+      - name: Upload test and coverage reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports-${{ github.sha }}
+          path: |
+            coverage.xml
+            junit.xml
+            htmlcov/
+          if-no-files-found: warn
+
+  staging:
+    name: Deploy Vercel preview
+    needs: verify
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and deploy preview
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx vercel@latest pull --yes --environment=preview --token="$VERCEL_TOKEN"
+          npx vercel@latest build --token="$VERCEL_TOKEN"
+          url="$(npx vercel@latest deploy --prebuilt --token="$VERCEL_TOKEN")"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 "$url/api/health/"
+
+  production:
+    name: Migrate and deploy Vercel production
+    needs: staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install production dependencies
+        run: pip install -r requirements.txt
+      - name: Migrate and deploy production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+          set -a
+          source .vercel/.env.production.local
+          set +a
+          python manage.py migrate --noinput
+          npx vercel@latest build --token="$VERCEL_TOKEN"
+          url="$(npx vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          if ! curl --fail --silent --show-error --retry 5 --retry-delay 2 "$url/api/health/"; then
+            npx vercel@latest rollback --token="$VERCEL_TOKEN"
+            exit 1
+          fi

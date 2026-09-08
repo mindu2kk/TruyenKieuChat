@@ -5,7 +5,7 @@ Retrieve ngữ cảnh từ MongoDB Atlas Vector Search.
 
 HỖ TRỢ 2 CHẾ ĐỘ TRUY VẤN VECTORS:
 - SBERT/E5:  dùng SentenceTransformer để encode query (mặc định trước đây).
-- GEMINI:    dùng Gemini text-embedding-004 với task_type="RETRIEVAL_QUERY".
+- GEMINI:    dùng Gemini gemini-embedding-001 với task_type="RETRIEVAL_QUERY".
 
 Cấu hình qua ENV:
   MONGO_URI            : URI Atlas
@@ -66,7 +66,7 @@ class _GeminiProvider:
         genai.configure(api_key=api_key)
         self.genai = genai
         # tên model chuẩn; giữ đồng bộ với script embed_gemini.py
-        self.model_name = os.getenv("GEMINI_EMB_MODEL", "models/text-embedding-004")
+        self.model_name = os.getenv("GEMINI_EMB_MODEL", "models/gemini-embedding-001")
 
     @staticmethod
     def _looks_like_vec(x) -> bool:

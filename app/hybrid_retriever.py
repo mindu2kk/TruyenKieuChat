@@ -44,7 +44,7 @@ class _GeminiProvider:
         genai.configure(api_key=api_key)
         self.genai = genai
         # nên khớp với script embed/query khác của bạn
-        self.model_name = os.getenv("GEMINI_EMB_MODEL", "models/text-embedding-004")
+        self.model_name = os.getenv("GEMINI_EMB_MODEL", "models/gemini-embedding-001")
 
     @staticmethod
     def _looks_like_vec(x) -> bool:

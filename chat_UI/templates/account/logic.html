@@ -1,0 +1,54 @@
+{% extends "account/base.html" %}
+{% load socialaccount %}
+
+{% block account_title %}Đăng nhập{% endblock %}
+{% block account_subtitle %}Chọn một cách bên dưới để vào Kiều Bot{% endblock %}
+
+{% block account_body %}
+<form method="post" action="{% url 'account_login' %}" class="space-y-3">
+  {% csrf_token %}
+  {% if form.non_field_errors %}
+    <div class="text-sm p-2 rounded bg-red-100 text-red-800">{{ form.non_field_errors }}</div>
+  {% endif %}
+
+  <label class="block text-sm">Tên đăng nhập
+    <input type="text" name="login" value="{{ form.login.value|default:'' }}"
+           class="mt-1 w-full rounded-md border-slate-300" autofocus required>
+  </label>
+
+  <label class="block text-sm">Mật khẩu
+    <input type="password" name="password"
+           class="mt-1 w-full rounded-md border-slate-300" required>
+  </label>
+
+  <div class="flex items-center justify-between pt-1">
+    <label class="inline-flex items-center gap-2 text-sm">
+      <input type="checkbox" name="remember" class="rounded border-slate-300">
+      Ghi nhớ tôi
+    </label>
+    <a class="text-sm text-slate-500 underline" href="{% url 'account_reset_password' %}">
+      Quên mật khẩu?
+    </a>
+  </div>
+
+  <button class="w-full mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700">
+    Đăng nhập
+  </button>
+</form>
+
+<div class="my-5 flex items-center gap-3 text-slate-400">
+  <div class="flex-1 h-px bg-slate-200"></div><span class="text-xs">hoặc</span><div class="flex-1 h-px bg-slate-200"></div>
+</div>
+
+<a href="{% provider_login_url 'google' %}"
+   class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl border
+          hover:bg-slate-50">
+  <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="h-5" alt="">
+  <span>Đăng nhập bằng Google</span>
+</a>
+
+<p class="text-xs text-slate-500 mt-4">
+  Chưa có tài khoản?
+  <a class="underline" href="{% url 'account_signup' %}">Đăng ký</a>
+</p>
+{% endblock %}

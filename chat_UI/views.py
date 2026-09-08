@@ -22,7 +22,16 @@ from .mongo_utils import (
     get_history_for_bot,
     clear_user_history,
     count_user_messages_today,
+    get_mongo_client,
 )
+
+
+def _bounded_int(value, *, default: int, minimum: int, maximum: int) -> int:
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError):
+        return default
+    return max(minimum, min(parsed, maximum))
 
 
 @login_required
@@ -31,6 +40,8 @@ def home(request: HttpRequest):
     return render(request, "chat.html", {
         "gemini_ok": is_gemini_configured(),
         "poem_ok": poem_ready(),
+        "gemini_model": settings.GEMINI_MODEL,
+        "gemini_models": settings.GEMINI_MODELS,
     })
 
 # alias route /
@@ -57,14 +68,19 @@ def chat_api(request):
 
     # <<< THAY ĐỔI: Kiểm tra quota bằng hàm từ MongoDB >>>
     used_today = count_user_messages_today(user)
-    if used_today >= 20:
-        return JsonResponse({"ok": False, "error": "quota", "message": "Bạn đã dùng 20 câu hỏi hôm nay."}, status=429)
+    daily_limit = settings.DAILY_MESSAGE_LIMIT
+    if used_today >= daily_limit:
+        return JsonResponse(
+            {"ok": False, "error": "quota", "message": f"Bạn đã dùng {daily_limit} câu hỏi hôm nay."},
+            status=429,
+        )
 
     # --- Phần xử lý payload giữ nguyên ---
-    k = int(payload.get("k") or 5)
-    model = payload.get("model") or "gemini-2.0-flash"
+    k = _bounded_int(payload.get("k"), default=5, minimum=3, maximum=8)
+    requested_model = str(payload.get("model") or "").strip()
+    model = requested_model if requested_model in settings.GEMINI_MODELS else settings.GEMINI_MODEL
     long_answer = bool(payload.get("long_answer"))
-    max_tokens = int(payload.get("max_tokens") or 1024)
+    max_tokens = _bounded_int(payload.get("max_tokens"), default=1024, minimum=256, maximum=8096)
     # ... (xử lý bullet mode)
 
     # <<< THAY ĐỔI: Lưu tin nhắn người dùng vào MongoDB >>>
@@ -74,7 +90,7 @@ def chat_api(request):
         t0 = now()
         # <<< THAY ĐỔI: Lấy lịch sử từ MongoDB cho bot >>>
         chat_history = get_history_for_bot(user, limit=12)
-        
+
         ret = answer_with_router(
             msg, k=k, gemini_model=model,
             history=chat_history,
@@ -89,7 +105,7 @@ def chat_api(request):
         error_content = "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi."
         # <<< THAY ĐỔI: Lưu lỗi vào MongoDB >>>
         save_message_to_mongo(user, "assistant", error_content, meta={"error": str(exc), "trace": trace})
-        return JsonResponse({"ok": False, "error": "backend", "detail": str(exc)}, status=500)
+        return JsonResponse({"ok": False, "error": "backend"}, status=500)
 
     answer = ret.get("answer") or "(không có câu trả lời)"
     meta_data = {
@@ -98,10 +114,10 @@ def chat_api(request):
         "elapsed_ms": elapsed_ms,
         "error": ret.get("error"),
     }
-    
+
     # <<< THAY ĐỔI: Lưu câu trả lời của bot vào MongoDB >>>
     save_message_to_mongo(user, "assistant", answer, meta=meta_data)
-    
+
     return JsonResponse({
         "ok": True,
         "answer": answer,
@@ -109,9 +125,10 @@ def chat_api(request):
     })
 
 # --- View history_api được viết lại hoàn toàn ---
+@require_http_methods(["GET", "DELETE"])
 @login_required
 def history_api(request: HttpRequest):
-    if request.GET.get("clear") == "1":
+    if request.method == "DELETE":
         # <<< THAY ĐỔI: Xóa lịch sử trong MongoDB >>>
         clear_user_history(request.user)
         return JsonResponse({"ok": True, "messages": []})
@@ -119,6 +136,25 @@ def history_api(request: HttpRequest):
     # <<< THAY ĐỔI: Lấy lịch sử từ MongoDB >>>
     messages = get_history_for_api(request.user)
     return JsonResponse({"ok": True, "messages": messages})
+
+
+@require_http_methods(["GET"])
+def health_api(request: HttpRequest):
+    """Readiness probe safe for Vercel and container health checks."""
+    mongo_ok = False
+    try:
+        get_mongo_client().admin.command("ping")
+        mongo_ok = True
+    except Exception:
+        logger.warning("health check: MongoDB unavailable", exc_info=True)
+
+    payload = {
+        "ok": mongo_ok and is_gemini_configured() and poem_ready(),
+        "mongo": mongo_ok,
+        "gemini_configured": is_gemini_configured(),
+        "poem_ready": poem_ready(),
+    }
+    return JsonResponse(payload, status=200 if payload["ok"] else 503)
 
 @require_POST
 @login_required

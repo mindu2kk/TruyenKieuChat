@@ -1,0 +1,139 @@
+{% load static %}
+{% load account socialaccount %}
+
+<!doctype html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Đăng nhập · Kiều Bot</title>
+  <link rel="icon" href="data:,📚">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    /* Khớp hệ màu & bo góc trong globals.css */
+    .card { border-radius: var(--radius); }
+    .btn  { border-radius: var(--radius); }
+    .field{
+      border-radius: var(--radius);
+      background: var(--background);
+    }
+  </style>
+</head>
+<body class="min-h-dvh flex items-center justify-center bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 text-zinc-100 p-6">
+
+  <div class="w-full max-w-md">
+    <!-- Logo / Title -->
+    <div class="text-center mb-10">
+      <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary text-2xl animate-fade-in">
+        📚
+      </div>
+      <h1 class="mt-4 text-3xl font-semibold tracking-tight">Đăng nhập Kiều Bot</h1>
+      <p class="text-sm text-zinc-400 mt-2">Tiếp tục hội thoại đã lưu & đồng bộ thiết lập cá nhân.</p>
+    </div>
+
+    <!-- Card -->
+    <div class="card border border-zinc-800/60 bg-card/70 backdrop-blur-xl shadow-2xl p-6">
+      {% if form.non_field_errors %}
+        <div class="mb-6 rounded-lg border border-rose-500/40 bg-rose-950/40 px-3 py-2 text-rose-200 text-sm">
+          {% for e in form.non_field_errors %}{{ e }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+        </div>
+      {% endif %}
+
+      <form method="post" action="{% url 'account_login' %}" novalidate class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Username / Email -->
+        <div class="space-y-2">
+          <label class="block text-sm font-medium text-foreground/90" for="{{ form.login.id_for_label }}">
+            Tên đăng nhập hoặc Email
+          </label>
+          <input
+            id="{{ form.login.id_for_label }}"
+            name="{{ form.login.html_name }}"
+            type="text"
+            value="{{ form.login.value|default_if_none:'' }}"
+            autocomplete="username"
+            required
+            class="field w-full border border-input px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+          />
+          {% if form.login.errors %}
+            <div class="text-xs text-rose-400">
+              {% for e in form.login.errors %}{{ e }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Password -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="text-sm font-medium text-foreground/90" for="{{ form.password.id_for_label }}">Mật khẩu</label>
+            {% if redirect_field_value %}
+              <!-- giữ redirect trong link quên mật khẩu nếu bạn có trang đó -->
+            {% endif %}
+            <a href="{% url 'account_reset_password' %}" class="text-xs text-zinc-400 hover:text-primary transition-colors">
+              Quên mật khẩu?
+            </a>
+          </div>
+          <input
+            id="{{ form.password.id_for_label }}"
+            name="{{ form.password.html_name }}"
+            type="password"
+            autocomplete="current-password"
+            required
+            class="field w-full border border-input px-3 py-2.5 text-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all"
+          />
+          {% if form.password.errors %}
+            <div class="text-xs text-rose-400">
+              {% for e in form.password.errors %}{{ e }}{% if not forloop.last %}<br>{% endif %}{% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Remember (nếu form có) -->
+        {% if form.remember %}
+          <div class="flex items-center gap-2 text-sm text-zinc-300">
+            <input type="checkbox" id="{{ form.remember.id_for_label }}" name="{{ form.remember.html_name }}" class="accent-[var(--primary)] rounded">
+            <label for="{{ form.remember.id_for_label }}">Ghi nhớ đăng nhập</label>
+          </div>
+        {% endif %}
+
+        <!-- Hidden redirect field nếu có -->
+        {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+
+        <!-- Submit -->
+        <button type="submit" class="btn w-full bg-primary text-primary-foreground px-4 py-2.5 font-medium hover:bg-primary/90 transition-all">
+          Đăng nhập
+        </button>
+
+        <p class="text-center text-sm text-zinc-400">
+          Chưa có tài khoản?
+          <a href="{% url 'account_signup' %}" class="text-primary hover:text-primary/80 underline underline-offset-4">Đăng ký</a>
+        </p>
+      </form>
+
+      <!-- Divider -->
+      <div class="my-6 flex items-center gap-3 text-zinc-500">
+        <div class="h-px flex-1 bg-zinc-800/60"></div>
+        <span class="text-xs">hoặc</span>
+        <div class="h-px flex-1 bg-zinc-800/60"></div>
+      </div>
+
+      <!-- Social: Google -->
+      <a href="{% provider_login_url 'google' %}"
+         class="btn w-full inline-flex items-center justify-center gap-2 border border-zinc-800/60 bg-background px-4 py-2.5 hover:bg-muted transition-colors">
+        <img alt="Google" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="h-5 w-5"/>
+        <span>Tiếp tục với Google</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <p class="mt-8 text-center text-xs text-zinc-500">
+      Bằng việc đăng nhập, bạn đồng ý với điều khoản sử dụng của Kiều Bot.
+    </p>
+  </div>
+
+</body>
+</html>

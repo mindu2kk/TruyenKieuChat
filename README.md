@@ -4,7 +4,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-UI-red.svg)
+![Django](https://img.shields.io/badge/Django-web_UI-0C4B33.svg)
 
 ---
 
@@ -24,9 +24,9 @@ An intelligent chatbot that answers questions about Vietnam's classic literary m
 
 ## 🛠️ Tech Stack
 
-**Core:** Python 3.10+ • MongoDB Atlas • Google Gemini API  
-**ML/AI:** Sentence Transformers (SBERT/E5) • Cross-encoder • RapidFuzz  
-**Framework:** Streamlit • PyMongo • Pytest
+**Core:** Python 3.10+ • MongoDB Atlas • Google Gemini API
+**ML/AI:** Sentence Transformers (SBERT/E5) • Cross-encoder • RapidFuzz
+**Framework:** Django (production) • Streamlit (local development) • PyMongo • Pytest
 
 **Architecture Highlights:**
 - Modular RAG pipeline with clean separation of concerns
@@ -42,20 +42,35 @@ An intelligent chatbot that answers questions about Vietnam's classic literary m
 # 1. Setup
 git clone https://github.com/yourusername/kieu-bot.git
 cd kieu-bot
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env  # Add your MONGO_URI and GOOGLE_API_KEY
+python -m venv .venv
+# PowerShell: .\.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+copy .env.example .env  # Add MONGO_URI and GOOGLE_API_KEY
 
 # 2. Prepare data
 python scripts/01_build_chunks.py
 python scripts/02_embed_and_index_mongo.py
 # Create Vector Search Index in MongoDB Atlas (use scripts/03_create_mongo_vector_index.js)
 
-# 3. Run
-streamlit run app/ui_streamlit.py
+# 3. Run the production-equivalent Django UI
+python manage.py migrate
+python manage.py runserver
+# Open http://127.0.0.1:8000/ then create an account.
+
+# Optional: Streamlit development UI
+streamlit run app/ui_chat.py
 ```
 
-**Requirements:** Python 3.10+, MongoDB Atlas (free tier), Google API key, 4GB RAM
+**Requirements:** Python 3.12, MongoDB Atlas, Google API key. Streamlit local mode
+also needs the development dependencies in `requirements-dev.txt`.
+
+### Deploy to Vercel
+
+Vercel deploys the Django UI, not the Streamlit process. Configure the environment
+variables listed in [docs/VERCEL.md](docs/VERCEL.md), provision `DATABASE_URL` with
+managed PostgreSQL, run `python manage.py migrate`, then verify `/api/health/`.
+The repository CI/CD workflow deploys a preview first and promotes only after its
+health check succeeds.
 
 ---
 
@@ -91,7 +106,7 @@ streamlit run app/ui_streamlit.py
 ## 🏗️ Architecture
 
 ```
-UI (Streamlit)
+UI (Django on Vercel; Streamlit locally)
     ↓
 Orchestrator → [FAQ|Chat|Poem|Generic|Domain]
     ↓
@@ -144,7 +159,7 @@ pytest --cov=app --cov-report=html # With coverage
 
 ## 👤 Author
 
-**[Minh Duc]**  
+**[Minh Duc]**
 GitHub: [mindu2kk](https://github.com/mindu2kk)  •  Email: minhducphan2005@gmail.com
 
 ---

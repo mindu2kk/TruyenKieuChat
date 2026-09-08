@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Đăng nhập · Kiều Bot{% endblock %}
+{% block content %}
+<div class="mx-auto max-w-md px-3 sm:px-0 py-10">
+  <div class="bg-white rounded-2xl shadow p-6 sm:p-8">
+    <h1 class="text-xl font-semibold mb-1">{% block account_title %}{% endblock %}</h1>
+    <p class="text-sm text-slate-500 mb-4">{% block account_subtitle %}{% endblock %}</p>
+    {% block account_body %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

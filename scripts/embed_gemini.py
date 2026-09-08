@@ -1,7 +1,7 @@
 # scripts/embed_gemini.py
 # -*- coding: utf-8 -*-
 """
-Embed corpus bằng Gemini text-embedding-004 và upsert vào Mongo Atlas.
+Embed corpus bằng Gemini gemini-embedding-001 và upsert vào Mongo Atlas.
 
 ENV cần:
   GOOGLE_API_KEY
@@ -28,7 +28,7 @@ COL_NAME  = os.getenv("MONGO_COL", "chunks")
 CHUNKS_DIR = Path("data/rag_chunks")
 
 # Model tên chuẩn của Gemini Embeddings:
-EMB_MODEL = os.getenv("GEMINI_EMB_MODEL", "models/text-embedding-004")
+EMB_MODEL = os.getenv("GEMINI_EMB_MODEL", "models/gemini-embedding-001")
 BATCH_SIZE = int(os.getenv("EMBED_BATCH", "64"))
 TASK_TYPE = os.getenv("EMB_TASK_TYPE", "RETRIEVAL_DOCUMENT")  # hoặc RETRIEVAL_QUERY
 

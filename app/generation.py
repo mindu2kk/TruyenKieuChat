@@ -103,7 +103,7 @@ def _extract_text(res: Any) -> str:
 
 def generate_answer_gemini(
     prompt: str,
-    model: str = "gemini-2.0-flash",
+    model: Optional[str] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
 ) -> str:
@@ -121,7 +121,8 @@ def generate_answer_gemini(
 - Diễn đạt mềm mại, tránh liệt kê máy móc; ưu tiên sự sáng rõ và cô đọng.
 """
 
-        gm = genai.GenerativeModel(model_name=model, generation_config=generation_config)
+        resolved_model = (model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
+        gm = genai.GenerativeModel(model_name=resolved_model, generation_config=generation_config)
 
         # ❗ Gọi với retry tự động khi bị 429
         res = None

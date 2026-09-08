@@ -43,7 +43,7 @@ def authenticated_client(client, test_user):
 def test_home_view_requires_login(client):
     """Test home view yêu cầu login."""
     response = client.get('/')
-    
+
     # Nếu chưa login, redirect đến login page
     assert response.status_code in [302, 401]
 
@@ -53,7 +53,7 @@ def test_home_view_requires_login(client):
 def test_home_view_authenticated(authenticated_client):
     """Test home view khi đã authenticated."""
     response = authenticated_client.get('/')
-    
+
     assert response.status_code == 200
     assert 'gemini_ok' in response.context or 'gemini_ok' in str(response.content)
     assert 'poem_ok' in response.context or 'poem_ok' in str(response.content)
@@ -64,7 +64,7 @@ def test_home_view_authenticated(authenticated_client):
 def test_chat_api_get(authenticated_client):
     """Test chat API GET request."""
     response = authenticated_client.get('/api/chat')
-    
+
     assert response.status_code == 200
     data = json.loads(response.content)
     assert data.get("ok") is True
@@ -75,7 +75,8 @@ def test_chat_api_get(authenticated_client):
 @patch('chat_UI.views.answer_with_router')
 @patch('chat_UI.views.count_user_messages_today')
 @patch('chat_UI.views.save_message_to_mongo')
-def test_chat_api_post_success(mock_save, mock_count, mock_router, authenticated_client):
+@patch('chat_UI.views.get_history_for_bot', return_value=[])
+def test_chat_api_post_success(mock_history, mock_save, mock_count, mock_router, authenticated_client):
     """Test chat API POST request thành công."""
     mock_count.return_value = 0  # Chưa dùng quota
     mock_router.return_value = {
@@ -83,20 +84,20 @@ def test_chat_api_post_success(mock_save, mock_count, mock_router, authenticated
         "answer": "Câu trả lời test",
         "sources": []
     }
-    
+
     payload = {
         "message": "Thúy Kiều là ai?",
         "k": 5,
         "model": "gemini-2.0-flash",
         "long_answer": False
     }
-    
+
     response = authenticated_client.post(
         '/api/chat',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     assert response.status_code == 200
     data = json.loads(response.content)
     assert data.get("ok") is True
@@ -113,18 +114,18 @@ def test_chat_api_post_success(mock_save, mock_count, mock_router, authenticated
 def test_chat_api_quota_exceeded(mock_count, authenticated_client):
     """Test chat API khi vượt quota."""
     mock_count.return_value = 20  # Đã dùng hết quota
-    
+
     payload = {
         "message": "Test query",
         "k": 5
     }
-    
+
     response = authenticated_client.post(
         '/api/chat',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     assert response.status_code == 429
     data = json.loads(response.content)
     assert data.get("ok") is False
@@ -141,7 +142,7 @@ def test_chat_api_invalid_json(authenticated_client):
         data="invalid json",
         content_type='application/json'
     )
-    
+
     assert response.status_code == 400
     data = json.loads(response.content)
     assert data.get("ok") is False
@@ -156,13 +157,13 @@ def test_chat_api_empty_message(authenticated_client):
         "message": "",
         "k": 5
     }
-    
+
     response = authenticated_client.post(
         '/api/chat',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     assert response.status_code == 400
     data = json.loads(response.content)
     assert data.get("ok") is False
@@ -174,22 +175,23 @@ def test_chat_api_empty_message(authenticated_client):
 @patch('chat_UI.views.answer_with_router')
 @patch('chat_UI.views.count_user_messages_today')
 @patch('chat_UI.views.save_message_to_mongo')
-def test_chat_api_error_handling(mock_save, mock_count, mock_router, authenticated_client):
+@patch('chat_UI.views.get_history_for_bot', return_value=[])
+def test_chat_api_error_handling(mock_history, mock_save, mock_count, mock_router, authenticated_client):
     """Test chat API xử lý lỗi từ orchestrator."""
     mock_count.return_value = 0
     mock_router.side_effect = Exception("Backend error")
-    
+
     payload = {
         "message": "Test query",
         "k": 5
     }
-    
+
     response = authenticated_client.post(
         '/api/chat',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     assert response.status_code == 500
     data = json.loads(response.content)
     assert data.get("ok") is False
@@ -206,9 +208,9 @@ def test_history_api_get(mock_get_history, authenticated_client):
         {"role": "user", "content": "Câu hỏi 1"},
         {"role": "assistant", "content": "Câu trả lời 1"}
     ]
-    
+
     response = authenticated_client.get('/api/history/')
-    
+
     assert response.status_code == 200
     data = json.loads(response.content)
     assert data.get("ok") is True
@@ -222,9 +224,9 @@ def test_history_api_get(mock_get_history, authenticated_client):
 def test_history_api_clear(mock_clear, authenticated_client):
     """Test history API clear history."""
     mock_clear.return_value = None
-    
-    response = authenticated_client.get('/api/history/?clear=1')
-    
+
+    response = authenticated_client.delete('/api/history/')
+
     assert response.status_code == 200
     data = json.loads(response.content)
     assert data.get("ok") is True
@@ -234,11 +236,30 @@ def test_history_api_clear(mock_clear, authenticated_client):
 
 
 @pytest.mark.integration
+@patch('chat_UI.views.get_mongo_client')
+@patch('chat_UI.views.poem_ready', return_value=True)
+@patch('chat_UI.views.is_gemini_configured', return_value=True)
+def test_health_api_ready(mock_gemini, mock_poem, mock_client, client):
+    mock_client.return_value.admin.command.return_value = {"ok": 1}
+
+    response = client.get('/api/health/')
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "ok": True,
+        "mongo": True,
+        "gemini_configured": True,
+        "poem_ready": True,
+    }
+
+
+@pytest.mark.integration
 @pytest.mark.requires_db
 @patch('chat_UI.views.answer_with_router')
 @patch('chat_UI.views.count_user_messages_today')
 @patch('chat_UI.views.save_message_to_mongo')
-def test_chat_api_with_metadata(mock_save, mock_count, mock_router, authenticated_client):
+@patch('chat_UI.views.get_history_for_bot', return_value=[])
+def test_chat_api_with_metadata(mock_history, mock_save, mock_count, mock_router, authenticated_client):
     """Test chat API trả về metadata đầy đủ."""
     mock_count.return_value = 0
     mock_router.return_value = {
@@ -248,18 +269,18 @@ def test_chat_api_with_metadata(mock_save, mock_count, mock_router, authenticate
         "verification": {"quotes": []},
         "elapsed_ms": 100.0
     }
-    
+
     payload = {
         "message": "Test query",
         "k": 5
     }
-    
+
     response = authenticated_client.post(
         '/api/chat',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     assert response.status_code == 200
     data = json.loads(response.content)
     assert "intent" in data
@@ -275,13 +296,12 @@ def test_chat_api_requires_login(client):
         "message": "Test query",
         "k": 5
     }
-    
+
     response = client.post(
         '/api/chat/',
         data=json.dumps(payload),
         content_type='application/json'
     )
-    
+
     # Redirect to login hoặc 401/403
     assert response.status_code in [302, 401, 403]
-

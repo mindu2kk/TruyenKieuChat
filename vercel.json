@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "project/wsgi.py": {
+      "includeFiles": "data/interim/poem/**",
+      "excludeFiles": "{.git/**,.venv/**,.hf_cache/**,tests/**,docs/**,scripts/**,data/raw_pdf/**,data/interim/analysis/**,data/interim/bio/**,data/interim/summary/**,htmlcov/**}"
+    }
+  }
+}
