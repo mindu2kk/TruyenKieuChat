@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
         ),
         migrations.RunPython(create_missing_profiles, migrations.RunPython.noop),
         migrations.RunSQL(
-            "UPDATE chat_UI_userprofile SET created_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP "
+            'UPDATE "chat_UI_userprofile" SET created_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP '
             "WHERE created_at IS NULL OR updated_at IS NULL",
             migrations.RunSQL.noop,
         ),
