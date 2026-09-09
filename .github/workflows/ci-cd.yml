@@ -12,6 +12,8 @@ permissions:
 env:
   PYTHON_VERSION: "3.12"
   COVERAGE_MINIMUM: "35"
+  UV_VERSION: "0.12.10"
+  VERCEL_CLI_VERSION: "59.12.0"
 
 jobs:
   verify:
@@ -76,6 +78,10 @@ jobs:
       name: staging
     steps:
       - uses: actions/checkout@v4
+      - name: Install uv for Vercel Python builds
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: ${{ env.UV_VERSION }}
       - name: Build and deploy preview
         id: deploy
         env:
@@ -85,11 +91,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          npx vercel@latest pull --yes --environment=preview --token="$VERCEL_TOKEN"
-          npx vercel@latest build --token="$VERCEL_TOKEN"
-          url="$(npx vercel@latest deploy --prebuilt --token="$VERCEL_TOKEN")"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" whoami --token="$VERCEL_TOKEN"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" pull --yes --environment=preview --token="$VERCEL_TOKEN"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" build --token="$VERCEL_TOKEN"
+          url="$(npx --yes "vercel@${VERCEL_CLI_VERSION}" deploy --prebuilt --token="$VERCEL_TOKEN")"
           echo "url=$url" >> "$GITHUB_OUTPUT"
-          curl --fail --silent --show-error --retry 5 --retry-delay 2 "$url/api/health/"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" curl /api/health/ \
+            --deployment "$url" \
+            --token="$VERCEL_TOKEN" \
+            -- --fail --silent --show-error --retry 5 --retry-delay 2
 
   production:
     name: Migrate and deploy Vercel production
@@ -104,6 +114,10 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
           cache-dependency-path: requirements.txt
+      - name: Install uv for Vercel Python builds
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: ${{ env.UV_VERSION }}
       - name: Install production dependencies
         run: pip install -r requirements.txt
       - name: Migrate and deploy production
@@ -114,14 +128,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" whoami --token="$VERCEL_TOKEN"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" pull --yes --environment=production --token="$VERCEL_TOKEN"
           set -a
           source .vercel/.env.production.local
           set +a
           python manage.py migrate --noinput
-          npx vercel@latest build --token="$VERCEL_TOKEN"
-          url="$(npx vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" build --prod --token="$VERCEL_TOKEN"
+          url="$(npx --yes "vercel@${VERCEL_CLI_VERSION}" deploy --prebuilt --prod --token="$VERCEL_TOKEN")"
           if ! curl --fail --silent --show-error --retry 5 --retry-delay 2 "$url/api/health/"; then
-            npx vercel@latest rollback --token="$VERCEL_TOKEN"
             exit 1
           fi
