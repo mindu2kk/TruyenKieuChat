@@ -96,9 +96,8 @@ jobs:
           npx --yes "vercel@${VERCEL_CLI_VERSION}" build --token="$VERCEL_TOKEN"
           url="$(npx --yes "vercel@${VERCEL_CLI_VERSION}" deploy --prebuilt --token="$VERCEL_TOKEN")"
           echo "url=$url" >> "$GITHUB_OUTPUT"
-          npx --yes "vercel@${VERCEL_CLI_VERSION}" curl /api/health/ \
+          npx --yes "vercel@${VERCEL_CLI_VERSION}" --token="$VERCEL_TOKEN" curl /api/health/ \
             --deployment "$url" \
-            --token="$VERCEL_TOKEN" \
             -- --fail --silent --show-error --retry 5 --retry-delay 2
 
   production:
