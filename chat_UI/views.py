@@ -1,5 +1,7 @@
 # chat_UI/views.py
 import json
+from threading import Lock
+from time import monotonic
 from django.http import JsonResponse, HttpRequest
 from django.shortcuts import render
 from django.views.decorators.http import require_POST, require_http_methods
@@ -17,6 +19,9 @@ from app.poem_tools import poem_ready
 import logging, traceback
 
 logger = logging.getLogger(__name__)
+
+_health_cache_lock = Lock()
+_health_cache = None
 
 from .mongo_utils import (
     save_message_to_mongo,
@@ -147,6 +152,13 @@ def history_api(request: HttpRequest):
 @require_http_methods(["GET"])
 def health_api(request: HttpRequest):
     """Readiness probe safe for Vercel and container health checks."""
+    global _health_cache
+    cache_seconds = max(0.0, float(getattr(settings, "HEALTH_CHECK_CACHE_SECONDS", 0)))
+    with _health_cache_lock:
+        if _health_cache and monotonic() - _health_cache[0] < cache_seconds:
+            payload = dict(_health_cache[1])
+            return JsonResponse(payload, status=200 if payload["ok"] else 503)
+
     database_ok = False
     database_status = "unavailable"
     try:
@@ -191,6 +203,9 @@ def health_api(request: HttpRequest):
         "gemini_configured": gemini_ok,
         "poem_ready": poem_ok,
     }
+    if payload["ok"] and cache_seconds:
+        with _health_cache_lock:
+            _health_cache = (monotonic(), dict(payload))
     return JsonResponse(payload, status=200 if payload["ok"] else 503)
 
 

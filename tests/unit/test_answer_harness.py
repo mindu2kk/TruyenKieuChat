@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from app.answer_harness import verify_generated_answer, verified_core_answer
+from app.answer_harness import answer_completeness_issues, verify_generated_answer, verified_core_answer
 from app.orchestrator import answer_with_router
 from app.router import parse_poem_request, route_query
 
@@ -114,6 +114,41 @@ def test_quote_verifier_blocks_unverifiable_poem(mock_lines):
     )
     assert quality.status == "blocked-by-verifier"
     assert "không đưa ra câu thơ có thể sai" in answer
+
+
+@pytest.mark.parametrize(
+    ("answer", "query", "expected_issue"),
+    [
+        ("Thúy Kiều bán mình vì ba lý do:\n\n1.", "Trả lời đúng 3 ý", "dangling-list-marker"),
+        ("1. Gia biến", "Liệt kê 3 ý", "requested-items-missing"),
+        ("Câu trả lời gồm:", "Giải thích ngắn", "dangling-ending"),
+    ],
+)
+def test_completeness_verifier_detects_truncated_answers(answer, query, expected_issue):
+    assert expected_issue in answer_completeness_issues(answer, query)
+
+
+def test_completeness_verifier_accepts_completed_requested_list():
+    answer = "1. Gia biến.\n2. Chữ hiếu.\n3. Sự hy sinh."
+    assert answer_completeness_issues(answer, "Trả lời đúng 3 ý") == ()
+
+
+def test_completeness_verifier_accepts_markdown_numbered_list():
+    answer = "**1. Gia biến.**\n**2. Chữ hiếu.**\n**3. Sự hy sinh.**"
+    assert answer_completeness_issues(answer, "Trả lời đúng 3 ý") == ()
+
+
+def test_incomplete_answer_is_not_marked_verified():
+    answer, verification, quality = verify_generated_answer(
+        "Thúy Kiều bán mình vì ba lý do:\n\n1.",
+        require_exact_quotes=False,
+        has_evidence=True,
+        query="Trả lời đúng 3 ý",
+    )
+
+    assert quality.status == "incomplete"
+    assert verification["completeness"]["status"] == "failed"
+    assert "chưa thể xác nhận" in answer
 
 
 @pytest.mark.unit

@@ -9,6 +9,8 @@ Bao gồm:
 - Literature Review + các prompt tiện ích citation-aware
 """
 
+import re
+import unicodedata
 from typing import List, Dict, Any, Optional
 
 # =========================================================
@@ -16,6 +18,46 @@ from typing import List, Dict, Any, Optional
 # =========================================================
 DEFAULT_SHORT_TOKEN_BUDGET = 480
 DEFAULT_LONG_TOKEN_BUDGET = 1200
+MAX_RAG_CONTEXT_CHARS = 1400
+
+
+def _fold_text(value: str) -> str:
+    normalized = unicodedata.normalize("NFD", value.casefold())
+    return "".join(ch for ch in normalized if unicodedata.category(ch) != "Mn")
+
+
+def _compact_evidence_text(text: str, query: str, max_chars: int = MAX_RAG_CONTEXT_CHARS) -> str:
+    """Keep the most query-relevant contiguous window from an oversized chunk."""
+    text = " ".join((text or "").split())
+    if len(text) <= max_chars:
+        return text
+
+    folded_text = _fold_text(text)
+    query_terms = {
+        token
+        for token in re.findall(r"[a-z0-9]+", _fold_text(query))
+        if len(token) >= 3 and token not in {"cho", "hay", "cua", "trong", "truyen", "kieu", "tra", "loi"}
+    }
+    step = max(200, max_chars // 3)
+    starts = list(range(0, max(1, len(text) - max_chars + 1), step))
+    starts.append(max(0, len(text) - max_chars))
+
+    def score(start: int) -> tuple[int, int]:
+        window = folded_text[start : start + max_chars]
+        return (sum(window.count(term) * len(term) for term in query_terms), -start)
+
+    best_start = max(starts, key=score)
+    if best_start:
+        next_space = text.find(" ", best_start)
+        if 0 <= next_space - best_start <= 80:
+            best_start = next_space + 1
+    end = min(len(text), best_start + max_chars)
+    if end < len(text):
+        previous_space = text.rfind(" ", best_start, end)
+        if previous_space > best_start:
+            end = previous_space
+    excerpt = text[best_start:end].strip()
+    return f"{'… ' if best_start else ''}{excerpt}{' …' if end < len(text) else ''}"
 
 
 # =========================================================
@@ -154,8 +196,8 @@ def build_rag_synthesis_prompt(
 ) -> str:
     # Gói evidence (giới hạn 12 block cho gọn) — KHÔNG yêu cầu model dùng [SOURCE] trong câu trả lời
     blocks = []
-    for i, ctx in enumerate(contexts[:12], start=1):
-        text = (ctx.get("text") or "").strip()
+    for i, ctx in enumerate(contexts[:6], start=1):
+        text = _compact_evidence_text(ctx.get("text") or "", query)
         meta = dict(ctx.get("meta") or {})
         cite = _cite_tag(meta)  # vẫn hiển thị nguồn trong prompt để model hiểu bối cảnh
         if text:

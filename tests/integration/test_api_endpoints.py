@@ -275,6 +275,28 @@ def test_health_api_ready(mock_gemini, mock_poem, mock_client, mock_cursor, clie
 
 
 @pytest.mark.integration
+@patch("chat_UI.views.connection.cursor")
+@patch("chat_UI.views.get_mongo_client")
+@patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_gemini_configured", return_value=True)
+def test_health_api_reuses_short_lived_success(
+    mock_gemini, mock_poem, mock_client, mock_cursor, client, monkeypatch, settings
+):
+    import chat_UI.views as views
+
+    settings.HEALTH_CHECK_CACHE_SECONDS = 10
+    monkeypatch.setattr(views, "_health_cache", None)
+    mock_cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
+    mock_client.return_value.admin.command.return_value = {"ok": 1}
+
+    assert client.get("/api/health/").status_code == 200
+    assert client.get("/api/health/").status_code == 200
+
+    assert mock_cursor.call_count == 1
+    assert mock_client.return_value.admin.command.call_count == 1
+
+
+@pytest.mark.integration
 @patch("chat_UI.views.connection.cursor", side_effect=Exception("sensitive database details"))
 @patch("chat_UI.views.get_mongo_client")
 @patch("chat_UI.views.poem_ready", return_value=True)

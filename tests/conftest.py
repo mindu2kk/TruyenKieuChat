@@ -1,21 +1,22 @@
 """
 Shared test fixtures and configurations for pytest.
 """
+
 import os
 import pytest
 from unittest.mock import Mock, patch
 
 # Configure Django settings before importing Django modules
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings")
 
 # Configure test database
-pytest_plugins = ['pytest_django']
+pytest_plugins = ["pytest_django"]
 
 
 @pytest.fixture
 def mock_mongo_client():
     """Mock MongoDB client for tests."""
-    with patch('pymongo.MongoClient') as mock_client:
+    with patch("pymongo.MongoClient") as mock_client:
         mock_db = Mock()
         mock_collection = Mock()
         mock_db.__getitem__ = Mock(return_value=mock_collection)
@@ -26,13 +27,11 @@ def mock_mongo_client():
 @pytest.fixture
 def mock_gemini_client():
     """Mock Google Gemini API client for tests."""
-    with patch('google.generativeai.GenerativeModel') as mock_model:
+    with patch("app.generation._setup") as mock_setup:
         mock_response = Mock()
         mock_response.text = "Mocked response from Gemini"
-        mock_instance = Mock()
-        mock_instance.generate_content.return_value = mock_response
-        mock_model.return_value = mock_instance
-        yield mock_model
+        mock_setup.return_value.models.generate_content.return_value = mock_response
+        yield mock_setup
 
 
 @pytest.fixture
@@ -56,7 +55,7 @@ def sample_chunk():
             "source": "poem.txt",
             "line_number": 1,
             "char_offset": 0,
-        }
+        },
     }
 
 

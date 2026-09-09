@@ -2,9 +2,11 @@
 import os
 import re
 import time
+from functools import lru_cache
 from typing import Any, Dict, Optional
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 
 class GenerationError(RuntimeError):
@@ -22,12 +24,17 @@ except ImportError:  # pragma: no cover
     from prompt_engineering import DEFAULT_LONG_TOKEN_BUDGET, DEFAULT_SHORT_TOKEN_BUDGET  # type: ignore
 
 
-def _setup() -> None:
-    api_key = os.getenv("GOOGLE_API_KEY")
+@lru_cache(maxsize=1)
+def _client_for_key(api_key: str) -> genai.Client:
+    return genai.Client(api_key=api_key)
+
+
+def _setup() -> genai.Client:
+    api_key = (os.getenv("GOOGLE_API_KEY") or "").strip()
     if not api_key:
         raise GenerationError("Chưa thiết lập GOOGLE_API_KEY nên không thể gọi Gemini.")
     try:
-        genai.configure(api_key=api_key)
+        return _client_for_key(api_key)
     except Exception as exc:  # pragma: no cover - network/runtime error guard
         raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
 
@@ -108,7 +115,7 @@ def generate_answer_gemini(
     max_tokens: Optional[int] = None,
 ) -> str:
     try:
-        _setup()
+        client = _setup()
         generation_config = _resolve_generation_config(long_answer, max_tokens)
 
         # giữ nguyên phong cách khi long_answer
@@ -122,14 +129,24 @@ def generate_answer_gemini(
 """
 
         resolved_model = (model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
-        gm = genai.GenerativeModel(model_name=resolved_model, generation_config=generation_config)
+        thinking_config = None
+        if resolved_model.startswith("gemini-2.5-flash"):
+            thinking_config = types.ThinkingConfig(thinking_budget=int(os.getenv("GEMINI_THINKING_BUDGET", "0")))
+        config = types.GenerateContentConfig(
+            **generation_config,
+            thinking_config=thinking_config,
+        )
 
         # ❗ Gọi với retry tự động khi bị 429
         res = None
         last_exc = None
         for attempt in range(3):
             try:
-                res = gm.generate_content(prompt)
+                res = client.models.generate_content(
+                    model=resolved_model,
+                    contents=prompt,
+                    config=config,
+                )
                 break
             except TypeError as exc:
                 raise GenerationError(

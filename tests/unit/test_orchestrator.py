@@ -9,8 +9,9 @@ Test các tính năng:
 - Poem mode handling
 - Domain RAG pipeline integration
 """
+
 import pytest
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import ANY, Mock, patch, MagicMock
 from app.orchestrator import answer_with_router, _make_cache_key, _history_to_text
 
 
@@ -68,13 +69,10 @@ def test_history_to_text_max_turns():
 
 
 @pytest.mark.unit
-@patch('app.faq.lookup_faq')
+@patch("app.faq.lookup_faq")
 def test_orchestrator_faq(mock_faq):
     """Test orchestrator trả về FAQ khi tìm thấy."""
-    mock_faq.return_value = {
-        "answer": "Đây là câu trả lời FAQ",
-        "question": "Câu hỏi FAQ"
-    }
+    mock_faq.return_value = {"answer": "Đây là câu trả lời FAQ", "question": "Câu hỏi FAQ"}
 
     result = answer_with_router("Câu hỏi FAQ", k=5)
 
@@ -84,8 +82,8 @@ def test_orchestrator_faq(mock_faq):
 
 
 @pytest.mark.unit
-@patch('app.cache.get_cached')
-@patch('app.faq.lookup_faq')
+@patch("app.cache.get_cached")
+@patch("app.faq.lookup_faq")
 def test_orchestrator_cache(mock_faq, mock_cache):
     """Test orchestrator trả về cache khi có."""
     mock_faq.return_value = None
@@ -99,15 +97,15 @@ def test_orchestrator_cache(mock_faq, mock_cache):
 
 
 @pytest.mark.unit
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_chitchat(mock_cache, mock_faq):
     """Test orchestrator xử lý chitchat intent."""
     mock_faq.return_value = None
     mock_cache.return_value = None
 
-    with patch('app.router.route_intent', return_value="chitchat"):
-        with patch('app.orchestrator._safe_generate') as mock_gen:
+    with patch("app.router.route_intent", return_value="chitchat"):
+        with patch("app.orchestrator._safe_generate") as mock_gen:
             mock_gen.return_value = ("Xin chào! Tôi có thể giúp gì cho bạn?", None)
 
             result = answer_with_router("Bạn có thể giúp gì cho tôi?", k=5)
@@ -118,10 +116,10 @@ def test_orchestrator_chitchat(mock_cache, mock_faq):
 
 
 @pytest.mark.unit
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
-@patch('app.poem_tools.poem_ready')
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
+@patch("app.poem_tools.poem_ready")
 def test_orchestrator_poem_single(mock_poem_ready, mock_cache, mock_faq, mock_route):
     """Test orchestrator xử lý poem intent - single line."""
     mock_faq.return_value = None
@@ -129,10 +127,10 @@ def test_orchestrator_poem_single(mock_poem_ready, mock_cache, mock_faq, mock_ro
     mock_route.return_value = "poem"
     mock_poem_ready.return_value = True
 
-    with patch('app.router.parse_poem_request') as mock_parse:
+    with patch("app.router.parse_poem_request") as mock_parse:
         mock_parse.return_value = ("single", 1)
 
-        with patch('app.poem_tools.get_single') as mock_get:
+        with patch("app.poem_tools.get_single") as mock_get:
             mock_get.return_value = "Trăm năm trong cõi người ta"
 
             result = answer_with_router("câu 1", k=5)
@@ -144,10 +142,10 @@ def test_orchestrator_poem_single(mock_poem_ready, mock_cache, mock_faq, mock_ro
 
 
 @pytest.mark.unit
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
-@patch('app.poem_tools.poem_ready')
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
+@patch("app.poem_tools.poem_ready")
 def test_orchestrator_poem_range(mock_poem_ready, mock_cache, mock_faq, mock_route):
     """Test orchestrator xử lý poem intent - range."""
     mock_faq.return_value = None
@@ -155,14 +153,14 @@ def test_orchestrator_poem_range(mock_poem_ready, mock_cache, mock_faq, mock_rou
     mock_route.return_value = "poem"
     mock_poem_ready.return_value = True
 
-    with patch('app.router.parse_poem_request') as mock_parse:
+    with patch("app.router.parse_poem_request") as mock_parse:
         mock_parse.return_value = ("range", 1, 3)
 
-        with patch('app.poem_tools.get_range') as mock_get:
+        with patch("app.poem_tools.get_range") as mock_get:
             mock_get.return_value = [
                 "Trăm năm trong cõi người ta",
                 "Chữ tài chữ mệnh khéo là ghét nhau",
-                "Trải qua một cuộc bể dâu"
+                "Trải qua một cuộc bể dâu",
             ]
 
             result = answer_with_router("câu 1-3", k=5)
@@ -174,23 +172,19 @@ def test_orchestrator_poem_range(mock_poem_ready, mock_cache, mock_faq, mock_rou
 
 
 @pytest.mark.unit
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_domain_rag(mock_cache, mock_faq, mock_route):
     """Test orchestrator xử lý domain intent với RAG pipeline."""
     mock_faq.return_value = None
     mock_cache.return_value = None
     mock_route.return_value = "domain"
 
-    with patch('app.rag_pipeline.answer_question') as mock_rag:
-        mock_rag.return_value = {
-            "answer": "Câu trả lời từ RAG",
-            "sources": ["source1", "source2"],
-            "evidence": []
-        }
+    with patch("app.rag_pipeline.answer_question") as mock_rag:
+        mock_rag.return_value = {"answer": "Câu trả lời từ RAG", "sources": ["source1", "source2"], "evidence": []}
 
-        with patch('app.verifier.verify_poem_quotes') as mock_verify:
+        with patch("app.verifier.verify_poem_quotes") as mock_verify:
             mock_verify.return_value = {"quotes": [], "accepted": []}
 
             result = answer_with_router("Thúy Kiều là ai?", k=5)
@@ -202,20 +196,16 @@ def test_orchestrator_domain_rag(mock_cache, mock_faq, mock_route):
 
 
 @pytest.mark.unit
-@patch('app.orchestrator._safe_generate')
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
+@patch("app.orchestrator._safe_generate")
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_generation_failure(mock_cache, mock_faq, mock_route, mock_gen):
     """Test orchestrator xử lý lỗi generation."""
     mock_faq.return_value = None
     mock_cache.return_value = None
     mock_route.return_value = "chitchat"
-    mock_gen.return_value = (None, {
-        "intent": "chitchat",
-        "answer": "Lỗi generation",
-        "error": "API error"
-    })
+    mock_gen.return_value = (None, {"intent": "chitchat", "answer": "Lỗi generation", "error": "API error"})
 
     result = answer_with_router("Bạn có thể giúp gì cho tôi?", k=5)
 
@@ -224,23 +214,19 @@ def test_orchestrator_generation_failure(mock_cache, mock_faq, mock_route, mock_
 
 
 @pytest.mark.unit
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_long_answer(mock_cache, mock_faq, mock_route):
     """Test orchestrator với long_answer=True."""
     mock_faq.return_value = None
     mock_cache.return_value = None
     mock_route.return_value = "domain"
 
-    with patch('app.rag_pipeline.answer_question') as mock_rag:
-        mock_rag.return_value = {
-            "answer": "Câu trả lời dài",
-            "sources": [],
-            "evidence": []
-        }
+    with patch("app.rag_pipeline.answer_question") as mock_rag:
+        mock_rag.return_value = {"answer": "Câu trả lời dài", "sources": [], "evidence": []}
 
-        with patch('app.verifier.verify_poem_quotes') as mock_verify:
+        with patch("app.verifier.verify_poem_quotes") as mock_verify:
             mock_verify.return_value = {"quotes": []}
 
             result = answer_with_router("Câu hỏi", k=5, long_answer=True)
@@ -251,27 +237,74 @@ def test_orchestrator_long_answer(mock_cache, mock_faq, mock_route):
 
 
 @pytest.mark.unit
-@patch('app.cache.set_cached')
-@patch('app.router.route_intent')
-@patch('app.faq.lookup_faq')
-@patch('app.cache.get_cached')
+@patch("app.cache.set_cached")
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_cache_setting(mock_cache, mock_faq, mock_route, mock_set_cache):
     """Test orchestrator lưu vào cache sau khi trả lời."""
     mock_faq.return_value = None
     mock_cache.return_value = None
     mock_route.return_value = "domain"
 
-    with patch('app.rag_pipeline.answer_question') as mock_rag:
-        mock_rag.return_value = {
-            "answer": "Câu trả lời",
-            "sources": [],
-            "evidence": []
-        }
+    with patch("app.rag_pipeline.answer_question") as mock_rag:
+        mock_rag.return_value = {"answer": "Câu trả lời", "sources": [], "evidence": []}
 
-        with patch('app.verifier.verify_poem_quotes') as mock_verify:
+        with patch("app.verifier.verify_poem_quotes") as mock_verify:
             mock_verify.return_value = {"quotes": []}
 
             answer_with_router("test query", k=5)
 
             # Kiểm tra set_cached được gọi
             mock_set_cache.assert_called()
+
+
+@pytest.mark.unit
+@patch("app.cache.set_cached")
+@patch("app.router.route_intent", return_value="plot")
+@patch("app.faq.lookup_faq", return_value=None)
+@patch("app.cache.get_cached", return_value=None)
+def test_orchestrator_repairs_incomplete_rag_answer_once(mock_cache, mock_faq, mock_route, mock_set_cache):
+    truncated = "Thúy Kiều bán mình vì ba lý do:\n\n1."
+    repaired = "1. Gia biến.\n2. Chữ hiếu.\n3. Sự hy sinh."
+    pack = {
+        "answer": truncated,
+        "prompt": "RAG prompt",
+        "sources": [],
+        "evidence": [{"text": "evidence"}],
+    }
+
+    with (
+        patch("app.rag_pipeline.answer_question", return_value=pack),
+        patch("app.orchestrator._safe_generate", return_value=(repaired, None)) as generate,
+    ):
+        result = answer_with_router("Vì sao Kiều bán mình? Trả lời đúng 3 ý", k=5)
+
+    assert result["answer"] == repaired
+    assert result["harness"]["quality"]["status"] == "verified"
+    generate.assert_called_once()
+    mock_set_cache.assert_called_once_with(ANY, repaired)
+
+
+@pytest.mark.unit
+@patch("app.cache.set_cached")
+@patch("app.router.route_intent", return_value="plot")
+@patch("app.faq.lookup_faq", return_value=None)
+@patch("app.cache.get_cached", return_value=None)
+def test_orchestrator_does_not_cache_still_incomplete_answer(mock_cache, mock_faq, mock_route, mock_set_cache):
+    truncated = "Thúy Kiều bán mình vì ba lý do:\n\n1."
+    pack = {
+        "answer": truncated,
+        "prompt": "RAG prompt",
+        "sources": [],
+        "evidence": [{"text": "evidence"}],
+    }
+
+    with (
+        patch("app.rag_pipeline.answer_question", return_value=pack),
+        patch("app.orchestrator._safe_generate", return_value=(truncated, None)),
+    ):
+        result = answer_with_router("Vì sao Kiều bán mình? Trả lời đúng 3 ý", k=5)
+
+    assert result["harness"]["quality"]["status"] == "incomplete"
+    mock_set_cache.assert_not_called()

@@ -17,3 +17,4 @@ STORAGES = {  # noqa: F405
 # The Django test client uses plain HTTP by default. HTTPS behavior is covered by
 # the production settings check instead of turning every test response into 301.
 SECURE_SSL_REDIRECT = False
+HEALTH_CHECK_CACHE_SECONDS = 0

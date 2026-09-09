@@ -238,6 +238,18 @@ def answer_with_router(
         decision = replace(decision, intent=intent, flow=intent, reason="intent-override")
     qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
 
+    def _verify_generated(candidate: str, *, require_exact_quotes: bool, has_evidence: bool):
+        return verify_generated_answer(
+            candidate,
+            require_exact_quotes=require_exact_quotes,
+            has_evidence=has_evidence,
+            query=query,
+        )
+
+    def _cache_verified(answer: str, quality) -> None:
+        if quality.status not in {"incomplete", "blocked-by-verifier"}:
+            set_cached(qkey, answer)
+
     def _finish_exact_poem_answer(base_answer: str, poem_text: str):
         quality = deterministic_quality("verified-poem-text")
         if decision.flow != "grounded-poem-analysis":
@@ -264,7 +276,7 @@ def answer_with_router(
         )
         if failure or not explanation:
             return base_answer, quality
-        checked, _verification, quality = verify_generated_answer(
+        checked, _verification, quality = _verify_generated(
             explanation,
             require_exact_quotes=False,
             has_evidence=True,
@@ -371,7 +383,7 @@ def answer_with_router(
                     f"**{n} câu đầu Truyện Kiều:**\n\n{txt}",
                     "\n".join(lines),
                 )
-                set_cached(qkey, ans)
+                _cache_verified(ans, quality)
                 return {
                     "intent": "poem",
                     "answer": ans,
@@ -389,7 +401,7 @@ def answer_with_router(
                     f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}",
                     "\n".join(lines),
                 )
-                set_cached(qkey, ans)
+                _cache_verified(ans, quality)
                 return {
                     "intent": "poem",
                     "answer": ans,
@@ -408,7 +420,7 @@ def answer_with_router(
                 else:
                     ans = f"Chưa tra được câu {n} (vượt ngoài số dòng hiện có)."
                     quality = deterministic_quality("not-found")
-                set_cached(qkey, ans)
+                _cache_verified(ans, quality)
                 return {
                     "intent": "poem",
                     "answer": ans,
@@ -444,10 +456,10 @@ def answer_with_router(
                 )
                 if failure:
                     return failure
-                checked, verification, quality = verify_generated_answer(
+                checked, verification, quality = _verify_generated(
                     ans or "", require_exact_quotes=True, has_evidence=True
                 )
-                set_cached(qkey, checked)
+                _cache_verified(checked, quality)
                 # nguồn luôn rỗng/ẩn
                 return {
                     "intent": "poem",
@@ -502,12 +514,39 @@ def answer_with_router(
     evidence = pack.get("evidence", [])
 
     if ans:
-        checked, verification, quality = verify_generated_answer(
+        checked, verification, quality = _verify_generated(
             ans,
             require_exact_quotes=decision.requires_exact_quotes,
             has_evidence=bool(evidence),
         )
-        set_cached(qkey, checked)
+        if quality.status == "incomplete":
+            repair_prompt = str(pack.get("prompt") or "").strip()
+            if repair_prompt:
+                repair_prompt += (
+                    "\n\n[KIỂM TRA HOÀN CHỈNH]\n"
+                    "Phản hồi trước đã kết thúc giữa chừng. Viết lại từ đầu, hoàn thành mọi ý được yêu cầu; "
+                    "không để tiêu đề, dấu hai chấm hoặc số thứ tự đứng một mình ở cuối."
+                )
+                repaired, repair_failure = _safe_generate(
+                    intent,
+                    repair_prompt,
+                    model=gemini_model,
+                    long_answer=long_answer,
+                    max_tokens=max(int(max_tokens), 640),
+                )
+                if not repair_failure and repaired:
+                    repaired_checked, repaired_verification, repaired_quality = _verify_generated(
+                        repaired,
+                        require_exact_quotes=decision.requires_exact_quotes,
+                        has_evidence=bool(evidence),
+                    )
+                    if repaired_quality.status != "incomplete":
+                        checked, verification, quality = (
+                            repaired_checked,
+                            repaired_verification,
+                            repaired_quality,
+                        )
+        _cache_verified(checked, quality)
         return {
             "intent": intent,
             "answer": checked,
@@ -526,12 +565,12 @@ def answer_with_router(
             "domain", prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens
         )
         if not failure2 and ans2:
-            checked, verification, quality = verify_generated_answer(
+            checked, verification, quality = _verify_generated(
                 ans2,
                 require_exact_quotes=False,
                 has_evidence=False,
             )
-            set_cached(qkey, checked)
+            _cache_verified(checked, quality)
             return {
                 "intent": intent,
                 "answer": checked,
@@ -553,12 +592,12 @@ def answer_with_router(
     )
     if failure:
         return failure
-    checked, verification, quality = verify_generated_answer(
+    checked, verification, quality = _verify_generated(
         ans or "",
         require_exact_quotes=decision.requires_exact_quotes,
         has_evidence=False,
     )
-    set_cached(qkey, checked)
+    _cache_verified(checked, quality)
     return {
         "intent": intent,
         "answer": checked,

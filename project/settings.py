@@ -84,10 +84,11 @@ TEMPLATES = [
 
 database_url = os.getenv("DATABASE_URL", "").strip()
 if database_url:
+    database_conn_max_age = int(os.getenv("DB_CONN_MAX_AGE", "60"))
     DATABASES = {
         "default": dj_database_url.config(
             default=database_url,
-            conn_max_age=0,
+            conn_max_age=database_conn_max_age,
             conn_health_checks=True,
         )
     }
@@ -127,7 +128,9 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STORAGES = {"staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"}}
 
-CSRF_TRUSTED_ORIGINS = _as_list("CSRF_TRUSTED_ORIGINS", ["http://127.0.0.1:8000", "http://localhost:8000"] if DEBUG else [])
+CSRF_TRUSTED_ORIGINS = _as_list(
+    "CSRF_TRUSTED_ORIGINS", ["http://127.0.0.1:8000", "http://localhost:8000"] if DEBUG else []
+)
 if vercel_url:
     CSRF_TRUSTED_ORIGINS.append(f"https://{vercel_url}")
 
@@ -142,6 +145,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = "DENY"
 
 DAILY_MESSAGE_LIMIT = int(os.getenv("DAILY_MESSAGE_LIMIT", "20"))
+HEALTH_CHECK_CACHE_SECONDS = float(os.getenv("HEALTH_CHECK_CACHE_SECONDS", "10"))
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
 GEMINI_MODELS = _as_list("GEMINI_MODELS", [GEMINI_MODEL])
 

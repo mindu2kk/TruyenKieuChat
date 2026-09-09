@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+import re
 from typing import Any, Dict, Optional, Tuple
 
 from .router import RouteDecision, normalize_query
@@ -87,16 +88,69 @@ def grounded_quality(*, has_evidence: bool) -> QualityReport:
     )
 
 
+_DANGLING_LIST_MARKER = re.compile(r"(?:^|\n)\s*(?:[-*+]\s*|(?:\*{0,2})\d{1,2}[.)](?:\*{0,2})\s*)$")
+_LIST_ITEM = re.compile(r"(?m)^\s*(?:[-*+]\s+\S|(?:\*{0,2})\d{1,2}[.)](?:\*{0,2})\s+\S)")
+_REQUESTED_ITEM_COUNT = re.compile(
+    r"\b(?:dung|du|gom|liet ke|neu|trinh bay)\s+(\d{1,2})\s+"
+    r"(?:y|ly do|nguyen nhan|pham chat|dac diem|luan diem|noi dung)\b"
+)
+
+
+def answer_completeness_issues(answer: str, query: str = "") -> Tuple[str, ...]:
+    """Detect obvious truncation without pretending to semantically grade prose."""
+    text = (answer or "").strip()
+    if not text:
+        return ("empty-answer",)
+
+    issues = []
+    if _DANGLING_LIST_MARKER.search(text):
+        issues.append("dangling-list-marker")
+    if text.endswith(":"):
+        issues.append("dangling-ending")
+
+    normalized_query = normalize_query(query)
+    count_match = _REQUESTED_ITEM_COUNT.search(normalized_query)
+    requested_items = int(count_match.group(1)) if count_match else 0
+    if requested_items:
+        detected_items = len(_LIST_ITEM.findall(text))
+        if detected_items < requested_items:
+            issues.append("requested-items-missing")
+
+    return tuple(dict.fromkeys(issues))
+
+
 def verify_generated_answer(
     answer: str,
     *,
     require_exact_quotes: bool,
     has_evidence: bool,
+    query: str = "",
 ) -> tuple[str, Dict[str, object], QualityReport]:
-    """Autocorrect near-exact poem quotes and fail closed on unverifiable quotes."""
+    """Fail closed on incomplete prose and unverifiable poem quotations."""
     from .verifier import verify_and_autocorrect
 
     corrected, verification = verify_and_autocorrect(answer or "", threshold=92.0, autocorrect=True)
+    completeness_issues = answer_completeness_issues(corrected, query)
+    verification["completeness"] = {
+        "status": "failed" if completeness_issues else "passed",
+        "issues": list(completeness_issues),
+    }
+    if completeness_issues:
+        safe_answer = (
+            "Phản hồi vừa tạo bị thiếu ý hoặc kết thúc giữa chừng nên tôi chưa thể xác nhận. "
+            "Bạn vui lòng thử lại để nhận câu trả lời hoàn chỉnh."
+        )
+        return (
+            safe_answer,
+            verification,
+            QualityReport(
+                status="incomplete",
+                grounded=has_evidence,
+                quote_check="not-checked",
+                issues=completeness_issues,
+            ),
+        )
+
     quotes = list(verification.get("quotes", []))
     accepted = list(verification.get("accepted", []))
     rejected = [q for q in quotes if float(q.get("score", 0.0) or 0.0) < 92.0]
@@ -131,6 +185,7 @@ def verify_generated_answer(
 
 __all__ = [
     "QualityReport",
+    "answer_completeness_issues",
     "curated_poem_explanation",
     "deterministic_quality",
     "grounded_quality",
