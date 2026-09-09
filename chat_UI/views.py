@@ -6,6 +6,7 @@ from django.views.decorators.http import require_POST, require_http_methods
 from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
 from django.conf import settings
+from django.db import connection
 from datetime import date
 
 from .models import UserProfile
@@ -146,6 +147,22 @@ def history_api(request: HttpRequest):
 @require_http_methods(["GET"])
 def health_api(request: HttpRequest):
     """Readiness probe safe for Vercel and container health checks."""
+    database_ok = False
+    database_status = "unavailable"
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+            result = cursor.fetchone()
+        if not result or result[0] != 1:
+            raise RuntimeError("SQL readiness query returned an unexpected result")
+        database_ok = True
+        database_status = "ready"
+    except Exception:
+        # Never expose driver errors, credentials, host names, or connection
+        # strings through this public readiness endpoint.
+        database_status = "query_failed"
+        logger.warning("health check: SQL database unavailable", exc_info=True)
+
     mongo_ok = False
     mongo_status = "unavailable"
     try:
@@ -163,12 +180,16 @@ def health_api(request: HttpRequest):
         mongo_status = "connection_failed"
         logger.warning("health check: MongoDB unavailable", exc_info=True)
 
+    gemini_ok = is_gemini_configured()
+    poem_ok = poem_ready()
     payload = {
-        "ok": mongo_ok and is_gemini_configured() and poem_ready(),
+        "ok": database_ok and mongo_ok and gemini_ok and poem_ok,
+        "database": database_ok,
+        "database_status": database_status,
         "mongo": mongo_ok,
         "mongo_status": mongo_status,
-        "gemini_configured": is_gemini_configured(),
-        "poem_ready": poem_ready(),
+        "gemini_configured": gemini_ok,
+        "poem_ready": poem_ok,
     }
     return JsonResponse(payload, status=200 if payload["ok"] else 503)
 

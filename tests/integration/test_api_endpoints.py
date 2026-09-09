@@ -251,10 +251,12 @@ def test_history_api_clear(mock_clear, authenticated_client):
 
 
 @pytest.mark.integration
+@patch("chat_UI.views.connection.cursor")
 @patch("chat_UI.views.get_mongo_client")
 @patch("chat_UI.views.poem_ready", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
-def test_health_api_ready(mock_gemini, mock_poem, mock_client, client):
+def test_health_api_ready(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+    mock_cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
     mock_client.return_value.admin.command.return_value = {"ok": 1}
 
     response = client.get("/api/health/")
@@ -262,18 +264,46 @@ def test_health_api_ready(mock_gemini, mock_poem, mock_client, client):
     assert response.status_code == 200
     assert response.json() == {
         "ok": True,
+        "database": True,
+        "database_status": "ready",
         "mongo": True,
         "mongo_status": "ready",
         "gemini_configured": True,
         "poem_ready": True,
     }
+    mock_cursor.return_value.__enter__.return_value.execute.assert_called_once_with("SELECT 1")
 
 
 @pytest.mark.integration
+@patch("chat_UI.views.connection.cursor", side_effect=Exception("sensitive database details"))
+@patch("chat_UI.views.get_mongo_client")
+@patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_gemini_configured", return_value=True)
+def test_health_api_reports_sql_database_failure(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+    mock_client.return_value.admin.command.return_value = {"ok": 1}
+
+    response = client.get("/api/health/")
+
+    assert response.status_code == 503
+    assert response.json() == {
+        "ok": False,
+        "database": False,
+        "database_status": "query_failed",
+        "mongo": True,
+        "mongo_status": "ready",
+        "gemini_configured": True,
+        "poem_ready": True,
+    }
+    assert "sensitive database details" not in response.content.decode("utf-8")
+
+
+@pytest.mark.integration
+@patch("chat_UI.views.connection.cursor")
 @patch("chat_UI.views.get_mongo_client", side_effect=ValueError("MONGO_URI missing"))
 @patch("chat_UI.views.poem_ready", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
-def test_health_api_reports_missing_mongo_configuration(mock_gemini, mock_poem, mock_client, client):
+def test_health_api_reports_missing_mongo_configuration(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+    mock_cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
     response = client.get("/api/health/")
 
     assert response.status_code == 503

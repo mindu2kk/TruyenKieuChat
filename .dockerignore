@@ -1,15 +1,27 @@
 .git
+.github
 .venv
 .hf_cache
 .pytest_cache
 __pycache__
 *.py[cod]
-.env
+.env*
 coverage.xml
 htmlcov
 db.sqlite3
 tests
 docs
+scripts
+deploy
 *.md
 .vscode
 outputs
+docker-compose*.yml
+
+# Only the canonical poem corpus is part of the runtime image. Retrieval
+# documents and generated datasets remain in MongoDB or outside the image.
+data/**
+!data/interim/
+data/interim/**
+!data/interim/poem/
+!data/interim/poem/**

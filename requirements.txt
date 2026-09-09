@@ -1,8 +1,9 @@
-# Minimal production runtime for Django on Vercel.
+# Minimal production runtime for Django on Vercel and in the container image.
 Django>=4.2,<5.1
 django-allauth>=0.63
 dj-database-url>=2.2
 whitenoise>=6.7
+gunicorn>=22,<24
 pymongo[srv]>=4.6
 psycopg[binary]>=3.2
 google-generativeai>=0.8,<0.9
