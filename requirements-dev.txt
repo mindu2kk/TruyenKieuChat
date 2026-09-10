@@ -8,7 +8,7 @@ sentence-transformers>=3.0
 rank-bm25>=0.2
 html2text>=2024.2.26
 beautifulsoup4>=4.12
-lxml>=5.2
+lxml>=6.1.3
 tqdm>=4.66
 chardet>=5.0.0
 
