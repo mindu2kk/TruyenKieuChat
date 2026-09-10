@@ -199,7 +199,7 @@ def test_default_rag_answer_does_not_force_a_quote():
 
 
 @pytest.mark.unit
-def test_short_mode_clamps_legacy_large_token_budget():
+def test_intent_planner_ignores_legacy_large_token_budget_for_standard_question():
     pack = {"answer": "Câu trả lời.", "sources": [], "evidence": [{"text": "x"}]}
     with (
         patch("app.faq.lookup_faq", return_value=None),
@@ -207,7 +207,7 @@ def test_short_mode_clamps_legacy_large_token_budget():
         patch("app.rag_pipeline.answer_question", return_value=pack) as rag,
     ):
         answer_with_router("Thúy Kiều là ai?", long_answer=False, max_tokens=8096)
-    assert rag.call_args.kwargs["max_tokens"] == 480
+    assert rag.call_args.kwargs["max_tokens"] == 600
 
 
 @pytest.mark.unit
@@ -217,6 +217,7 @@ def test_chat_template_metadata_has_no_broken_alpine_scope():
     assert 'x-text="metaElapsed"' not in template
     assert "$root.settings.debug_meta" not in template
     assert "data-meta-quality" in template
+    assert "data-meta-budget" in template
 
 
 @pytest.mark.unit

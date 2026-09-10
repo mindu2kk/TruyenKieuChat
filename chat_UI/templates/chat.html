@@ -143,8 +143,8 @@
             </div>
           </div>
 
-          <label class="block text-sm font-medium mt-2 mb-1.5">Giới hạn tokens</label>
-          <input type="range" min="256" max="8096" step="128" x-model.number="settings.max_tokens" class="w-full mb-1">
+          <label class="block text-sm font-medium mt-2 mb-1.5">Gợi ý tokens (hệ thống tự phân bổ)</label>
+          <input type="range" min="256" max="2400" step="128" x-model.number="settings.max_tokens" class="w-full mb-1">
           <div class="text-xs text-[var(--text-secondary)] mb-4"><span x-text="settings.max_tokens"></span> tokens</div>
 
           <div class="flex items-center justify-between mb-5">
@@ -234,6 +234,7 @@
       <div class="text-xs text-[var(--text-secondary)] space-x-2 pl-1" data-meta-summary hidden>
         <span class="chip" data-meta-intent></span>
         <span class="chip" data-meta-elapsed></span>
+        <span class="chip" data-meta-budget></span>
         <span class="chip" data-meta-quality></span>
       </div>
       <div class="mt-1 pl-1" data-meta-details hidden></div>
@@ -288,6 +289,7 @@ function ChatUI(){
           const summary = tpl.querySelector('[data-meta-summary]');
           const chipIntent = tpl.querySelector('[data-meta-intent]');
           const chipElapsed = tpl.querySelector('[data-meta-elapsed]');
+          const chipBudget = tpl.querySelector('[data-meta-budget]');
           const chipQuality = tpl.querySelector('[data-meta-quality]');
           const detail = tpl.querySelector('[data-meta-details]');
           const harness = meta.harness || {};
@@ -295,6 +297,12 @@ function ChatUI(){
           if (summary) summary.hidden = !this.settings.debug_meta;
           if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"} · ${harness.flow||"default"}`;
           if (chipElapsed) chipElapsed.textContent = `⏱️ ${Math.round(meta.elapsed_ms||0)} ms`;
+          if (chipBudget) {
+            const budget = harness.token_budget || {};
+            chipBudget.textContent = budget.max_output_tokens
+              ? `🧠 ${budget.max_output_tokens} tokens · ${budget.tier||"auto"}`
+              : "🧠 deterministic";
+          }
           if (chipQuality) chipQuality.textContent = `🛡️ ${quality.status||"unchecked"}`;
           if (detail) {
             detail.hidden = !this.settings.debug_meta;
@@ -314,6 +322,9 @@ function ChatUI(){
       if (harness.route_reason){
         const confidence = Math.round((harness.route_confidence||0)*100);
         html += `<div class="text-xs text-[var(--text-secondary)]">🧪 Route: ${this.escape(harness.route_reason)} · confidence ${confidence}%</div>`;
+      }
+      if (harness.token_budget && Array.isArray(harness.token_budget.reasons)){
+        html += `<div class="text-xs text-[var(--text-secondary)]">🧠 Token plan: ${this.escape(harness.token_budget.reasons.join(", "))}</div>`;
       }
       if (Array.isArray(quality.issues) && quality.issues.length){
         html += `<div class="text-xs text-amber-300">⚠️ ${this.escape(quality.issues.join(", "))}</div>`;

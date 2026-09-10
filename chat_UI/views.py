@@ -92,7 +92,9 @@ def chat_api(request):
     requested_model = str(payload.get("model") or "").strip()
     model = requested_model if requested_model in settings.GEMINI_MODELS else settings.GEMINI_MODEL
     long_answer = bool(payload.get("long_answer"))
-    max_tokens = _bounded_int(payload.get("max_tokens"), default=1024, minimum=256, maximum=8096)
+    # This is a user hint only. The intent-aware planner may raise or lower it
+    # to prevent truncation while keeping simple answers compact.
+    max_tokens = _bounded_int(payload.get("max_tokens"), default=640, minimum=256, maximum=2400)
     # ... (xử lý bullet mode)
 
     try:

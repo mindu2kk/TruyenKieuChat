@@ -211,6 +211,7 @@ def test_orchestrator_domain_rag(mock_cache, mock_faq, mock_route):
 
             assert result["intent"] == "domain"
             assert "Câu trả lời từ RAG" in result["answer"]
+            assert result["harness"]["token_budget"]["max_output_tokens"] == 600
             mock_rag.assert_called_once()
             mock_verify.assert_called_once()
 
@@ -254,6 +255,25 @@ def test_orchestrator_long_answer(mock_cache, mock_faq, mock_route):
             # Kiểm tra long_answer được truyền vào answer_question
             call_kwargs = mock_rag.call_args[1]
             assert call_kwargs["long_answer"] is True
+
+
+@pytest.mark.unit
+def test_orchestrator_infers_long_mode_and_budget_from_deep_analysis():
+    pack = {"answer": "Phân tích hoàn chỉnh.", "sources": [], "evidence": [{"text": "x"}]}
+    with (
+        patch("app.faq.lookup_faq", return_value=None),
+        patch("app.cache.get_cached", return_value=None),
+        patch("app.rag_pipeline.answer_question", return_value=pack) as rag,
+    ):
+        result = answer_with_router(
+            "So sánh và phân tích sâu chữ hiếu với tình yêu trong quyết định bán mình",
+            long_answer=False,
+            max_tokens=640,
+        )
+
+    assert rag.call_args.kwargs["long_answer"] is True
+    assert rag.call_args.kwargs["max_tokens"] == 1450
+    assert result["harness"]["token_budget"]["tier"] == "long"
 
 
 @pytest.mark.unit

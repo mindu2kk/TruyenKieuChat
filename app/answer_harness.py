@@ -23,13 +23,20 @@ class QualityReport:
         return payload
 
 
-def route_metadata(decision: RouteDecision, quality: QualityReport) -> Dict[str, Any]:
-    return {
+def route_metadata(
+    decision: RouteDecision,
+    quality: QualityReport,
+    token_budget: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    payload = {
         "flow": decision.flow,
         "route_confidence": decision.confidence,
         "route_reason": decision.reason,
         "quality": quality.as_dict(),
     }
+    if token_budget is not None:
+        payload["token_budget"] = token_budget
+    return payload
 
 
 def verified_core_answer(query: str) -> Optional[str]:

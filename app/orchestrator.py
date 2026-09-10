@@ -186,6 +186,23 @@ def answer_with_router(
     from .cache import get_cached, set_cached
     from .router import RouteDecision, route_intent, route_query
     from .answer_harness import deterministic_quality, route_metadata
+    from .token_budget import plan_token_budget
+
+    decision = route_query(query)
+    intent = route_intent(query)
+    if intent != decision.intent:
+        decision = replace(decision, intent=intent, flow=intent, reason="intent-override")
+    budget_plan = plan_token_budget(
+        query,
+        decision,
+        long_answer=long_answer,
+        requested_max_tokens=max_tokens,
+    )
+    max_tokens = budget_plan.max_output_tokens
+    long_answer = long_answer or budget_plan.long_form
+
+    def _route_meta(quality):
+        return route_metadata(decision, quality, budget_plan.as_dict())
 
     # 1) FAQ
     hit = lookup_faq(query)
@@ -195,19 +212,18 @@ def answer_with_router(
         qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
         set_cached(qkey, ans)
         decision = RouteDecision(intent, "verified-faq", 1.0, "faq-match")
+        budget_plan = plan_token_budget(query, decision)
         return {
             "intent": intent,
             "answer": ans,
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality()),
+            "harness": _route_meta(deterministic_quality()),
         }
 
     from .router import get_chitchat_response, parse_poem_request
     from .rag_pipeline import answer_question
     from .poem_tools import poem_ready, get_opening, get_range, get_single, compare_lines
     from .prompt_engineering import (
-        DEFAULT_LONG_TOKEN_BUDGET,
-        DEFAULT_SHORT_TOKEN_BUDGET,
         build_generic_prompt,
         build_grounded_poem_explanation_prompt,
         build_poem_disambiguation_prompt,
@@ -226,20 +242,10 @@ def answer_with_router(
     short_history = _history_to_text(history, max_turns=4)
     full_history = _history_to_text(history, max_turns=8)
 
-    if max_tokens is None:
-        max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
-    elif not long_answer:
-        # A short answer remains short even if an old UI setting sends a large budget.
-        max_tokens = min(int(max_tokens), DEFAULT_SHORT_TOKEN_BUDGET)
-
     gemini_model = (gemini_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
 
-    # 2) Route
-    decision = route_query(query)
-    intent = route_intent(query)
-    # Preserve compatibility with callers/tests that override route_intent.
-    if intent != decision.intent:
-        decision = replace(decision, intent=intent, flow=intent, reason="intent-override")
+    # 2) Route was resolved before loading the heavy RAG stack so the token
+    # planner can select a budget from the actual flow.
     qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
 
     def _verify_generated(candidate: str, *, require_exact_quotes: bool, has_evidence: bool):
@@ -284,7 +290,7 @@ def answer_with_router(
             prompt,
             model=gemini_model,
             long_answer=False,
-            max_tokens=min(int(max_tokens), DEFAULT_SHORT_TOKEN_BUDGET),
+            max_tokens=max_tokens,
         )
         if failure or not explanation:
             return base_answer, quality
@@ -303,7 +309,7 @@ def answer_with_router(
                 "intent": intent,
                 "answer": verified,
                 "sources": _maybe_sources([]),
-                "harness": route_metadata(decision, deterministic_quality()),
+                "harness": _route_meta(deterministic_quality()),
             }
 
     if intent == "out_of_scope":
@@ -313,7 +319,7 @@ def answer_with_router(
             "intent": intent,
             "answer": answer,
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality("safe-refusal")),
+            "harness": _route_meta(deterministic_quality("safe-refusal")),
         }
 
     # 0) Cache sau khi biết intent
@@ -323,7 +329,7 @@ def answer_with_router(
             "intent": "cache",
             "answer": cached,
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality("cached")),
+            "harness": _route_meta(deterministic_quality("cached")),
         }
 
     # ---- Small talk
@@ -336,7 +342,7 @@ def answer_with_router(
                 "intent": intent,
                 "answer": quick,
                 "sources": _maybe_sources([]),
-                "harness": route_metadata(decision, deterministic_quality()),
+                "harness": _route_meta(deterministic_quality()),
             }
         prompt = build_smalltalk_prompt(query, history_text=short_history)
         ans, failure = _safe_generate(
@@ -349,7 +355,7 @@ def answer_with_router(
             "intent": intent,
             "answer": ans or "",
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality("generated")),
+            "harness": _route_meta(deterministic_quality("generated")),
         }
 
     # ---- Generic factual
@@ -369,7 +375,7 @@ def answer_with_router(
             "intent": intent,
             "answer": ans or "",
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality("generated")),
+            "harness": _route_meta(deterministic_quality("generated")),
         }
 
     # ---- Poem mode
@@ -381,7 +387,7 @@ def answer_with_router(
                 "intent": "poem",
                 "answer": msg,
                 "sources": _maybe_sources([]),
-                "harness": route_metadata(decision, grounded_quality(has_evidence=False)),
+                "harness": _route_meta(grounded_quality(has_evidence=False)),
             }
 
         spec = parse_poem_request(query)
@@ -400,7 +406,7 @@ def answer_with_router(
                     "intent": "poem",
                     "answer": ans,
                     "sources": _maybe_sources([]),
-                    "harness": route_metadata(decision, quality),
+                    "harness": _route_meta(quality),
                 }
 
             if kind == "range":
@@ -419,7 +425,7 @@ def answer_with_router(
                         "intent": "poem",
                         "answer": ans,
                         "sources": _maybe_sources([]),
-                        "harness": route_metadata(decision, quality),
+                        "harness": _route_meta(quality),
                     }
                 txt = "\n".join(f"{a + i:>4}: {ln}" for i, ln in enumerate(lines))
                 ans, quality = _finish_exact_poem_answer(
@@ -431,7 +437,7 @@ def answer_with_router(
                     "intent": "poem",
                     "answer": ans,
                     "sources": _maybe_sources([]),
-                    "harness": route_metadata(decision, quality),
+                    "harness": _route_meta(quality),
                 }
 
             if kind == "single":
@@ -450,7 +456,7 @@ def answer_with_router(
                     "intent": "poem",
                     "answer": ans,
                     "sources": _maybe_sources([]),
-                    "harness": route_metadata(decision, quality),
+                    "harness": _route_meta(quality),
                 }
 
             if kind == "compare":
@@ -463,7 +469,7 @@ def answer_with_router(
                         "intent": "poem",
                         "answer": ans,
                         "sources": _maybe_sources([]),
-                        "harness": route_metadata(decision, grounded_quality(has_evidence=False)),
+                        "harness": _route_meta(grounded_quality(has_evidence=False)),
                     }
                 prompt = build_poem_compare_prompt(
                     query,
@@ -491,7 +497,7 @@ def answer_with_router(
                     "answer": checked,
                     "sources": _maybe_sources([f"câu {line_a.number}", f"câu {line_b.number}"]),
                     "verification": verification,
-                    "harness": route_metadata(decision, quality),
+                    "harness": _route_meta(quality),
                 }
 
         # Không parse được — nhờ model hỏi lại ngắn
@@ -506,7 +512,7 @@ def answer_with_router(
             "intent": "poem",
             "answer": ans or "",
             "sources": _maybe_sources([]),
-            "harness": route_metadata(decision, deterministic_quality("clarification")),
+            "harness": _route_meta(deterministic_quality("clarification")),
         }
 
     # ---- Domain → RAG
@@ -599,7 +605,7 @@ def answer_with_router(
             "sources": _maybe_sources(sources),  # sẽ là [] nếu không bật TKC_SHOW_SOURCES
             "verification": verification,
             "evidence": evidence,
-            "harness": route_metadata(decision, quality),
+            "harness": _route_meta(quality),
         }
 
     if not ans and is_char_who:
@@ -622,7 +628,7 @@ def answer_with_router(
                 "answer": checked,
                 "sources": _maybe_sources([]),  # vẫn ẩn nguồn như trước
                 "verification": verification,
-                "harness": route_metadata(decision, quality),
+                "harness": _route_meta(quality),
             }
 
     # Fallback — dùng prompt đã build (nếu có)
@@ -649,5 +655,5 @@ def answer_with_router(
         "answer": checked,
         "sources": _maybe_sources(pack.get("sources", [])),
         "verification": verification,
-        "harness": route_metadata(decision, quality),
+        "harness": _route_meta(quality),
     }
