@@ -74,8 +74,9 @@ _CLOSE_READING_TRIGGER = [
 
 
 def _needs_poem_only(q: str) -> bool:
-    ql = (q or "").lower()
-    return any(t.lower() in ql for t in _TRICH_DAN_TRIGGER)
+    from .router import requests_poem_evidence
+
+    return requests_poem_evidence(q)
 
 
 def _is_close_reading(q: str) -> bool:
@@ -179,41 +180,12 @@ def answer_with_router(
     """
     Hàm điều phối chính — được UI gọi.
     """
-    # Lazy import
-    from .router import RouteDecision, route_intent, route_query, parse_poem_request, get_chitchat_response
-    from .rag_pipeline import answer_question
+    # Keep the verified FAQ path genuinely cheap: do not import the RAG stack,
+    # reranker, Gemini SDK or poem corpus until the query actually needs them.
     from .faq import lookup_faq
     from .cache import get_cached, set_cached
-    from .poem_tools import poem_ready, get_opening, get_range, get_single, compare_lines
-    from .prompt_engineering import (
-        DEFAULT_LONG_TOKEN_BUDGET,
-        DEFAULT_SHORT_TOKEN_BUDGET,
-        build_generic_prompt,
-        build_grounded_poem_explanation_prompt,
-        build_poem_disambiguation_prompt,
-        build_smalltalk_prompt,
-        build_poem_compare_prompt,
-    )
-    from .answer_harness import (
-        curated_poem_explanation,
-        deterministic_quality,
-        grounded_quality,
-        out_of_scope_answer,
-        route_metadata,
-        verified_core_answer,
-        verify_generated_answer,
-    )
-
-    short_history = _history_to_text(history, max_turns=4)
-    full_history = _history_to_text(history, max_turns=8)
-
-    if max_tokens is None:
-        max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
-    elif not long_answer:
-        # A short answer remains short even if an old UI setting sends a large budget.
-        max_tokens = min(int(max_tokens), DEFAULT_SHORT_TOKEN_BUDGET)
-
-    gemini_model = (gemini_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
+    from .router import RouteDecision, route_intent, route_query
+    from .answer_harness import deterministic_quality, route_metadata
 
     # 1) FAQ
     hit = lookup_faq(query)
@@ -229,6 +201,38 @@ def answer_with_router(
             "sources": _maybe_sources([]),
             "harness": route_metadata(decision, deterministic_quality()),
         }
+
+    from .router import get_chitchat_response, parse_poem_request
+    from .rag_pipeline import answer_question
+    from .poem_tools import poem_ready, get_opening, get_range, get_single, compare_lines
+    from .prompt_engineering import (
+        DEFAULT_LONG_TOKEN_BUDGET,
+        DEFAULT_SHORT_TOKEN_BUDGET,
+        build_generic_prompt,
+        build_grounded_poem_explanation_prompt,
+        build_poem_disambiguation_prompt,
+        build_smalltalk_prompt,
+        build_poem_compare_prompt,
+    )
+    from .answer_harness import (
+        curated_poem_explanation,
+        grounded_quality,
+        is_refusal_answer,
+        out_of_scope_answer,
+        verified_core_answer,
+        verify_generated_answer,
+    )
+
+    short_history = _history_to_text(history, max_turns=4)
+    full_history = _history_to_text(history, max_turns=8)
+
+    if max_tokens is None:
+        max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
+    elif not long_answer:
+        # A short answer remains short even if an old UI setting sends a large budget.
+        max_tokens = min(int(max_tokens), DEFAULT_SHORT_TOKEN_BUDGET)
+
+    gemini_model = (gemini_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
 
     # 2) Route
     decision = route_query(query)
@@ -247,7 +251,15 @@ def answer_with_router(
         )
 
     def _cache_verified(answer: str, quality) -> None:
-        if quality.status not in {"incomplete", "blocked-by-verifier"}:
+        cacheable_statuses = {
+            "cached",
+            "generated",
+            "grounded",
+            "verified",
+            "verified-poem-analysis",
+            "verified-poem-text",
+        }
+        if quality.status in cacheable_statuses:
             set_cached(qkey, answer)
 
     def _finish_exact_poem_answer(base_answer: str, poem_text: str):
@@ -396,6 +408,19 @@ def answer_with_router(
                 if a > b:
                     a, b = b, a
                 lines = get_range(a, b)
+                expected_count = b - a + 1
+                if len(lines) != expected_count:
+                    ans = (
+                        f"Chưa tra đủ các câu {a}–{b} trong bản thơ hiện có "
+                        f"(tìm thấy {len(lines)}/{expected_count} câu)."
+                    )
+                    quality = deterministic_quality("not-found")
+                    return {
+                        "intent": "poem",
+                        "answer": ans,
+                        "sources": _maybe_sources([]),
+                        "harness": route_metadata(decision, quality),
+                    }
                 txt = "\n".join(f"{a + i:>4}: {ln}" for i, ln in enumerate(lines))
                 ans, quality = _finish_exact_poem_answer(
                     f"**Các câu {a}–{b} trong Truyện Kiều:**\n\n{txt}",
@@ -512,6 +537,27 @@ def answer_with_router(
     ans = pack.get("answer")
     sources = pack.get("sources", [])
     evidence = pack.get("evidence", [])
+
+    # Evidence was retrieved, so a generic refusal is often a generation
+    # failure rather than a real absence of information. Retry once with a
+    # direct evidence-first contract, but never bypass exact-poem safeguards.
+    if ans and evidence and not decision.requires_exact_quotes and is_refusal_answer(str(ans)):
+        retry_prompt = str(pack.get("prompt") or "").strip()
+        if retry_prompt:
+            retry_prompt += (
+                "\n\n[KHÔI PHỤC CÂU TRẢ LỜI CÓ EVIDENCE]\n"
+                "Các đoạn EVIDENCE đã được tìm thấy. Hãy đọc lại và trả lời trực tiếp câu hỏi bằng dữ kiện có trong đó. "
+                "Không nói về quá trình tìm kiếm, corpus hay việc xác minh. Không trích thơ nếu câu hỏi không yêu cầu."
+            )
+            retried, retry_failure = _safe_generate(
+                intent,
+                retry_prompt,
+                model=gemini_model,
+                long_answer=long_answer,
+                max_tokens=max_tokens,
+            )
+            if not retry_failure and retried and not is_refusal_answer(retried):
+                ans = retried
 
     if ans:
         checked, verification, quality = _verify_generated(

@@ -119,6 +119,23 @@ def answer_completeness_issues(answer: str, query: str = "") -> Tuple[str, ...]:
     return tuple(dict.fromkeys(issues))
 
 
+_REFUSAL_PATTERNS = (
+    "chua the xac minh",
+    "khong the xac minh",
+    "khong du bang chung",
+    "khong co bang chung",
+    "khong tim thay thong tin",
+    "corpus khong chua",
+    "du lieu khong chua",
+)
+
+
+def is_refusal_answer(answer: str) -> bool:
+    """Identify answers that decline to answer instead of stating a fact."""
+    normalized = normalize_query(answer)
+    return any(pattern in normalized for pattern in _REFUSAL_PATTERNS)
+
+
 def verify_generated_answer(
     answer: str,
     *,
@@ -189,6 +206,7 @@ __all__ = [
     "curated_poem_explanation",
     "deterministic_quality",
     "grounded_quality",
+    "is_refusal_answer",
     "out_of_scope_answer",
     "route_metadata",
     "verified_core_answer",

@@ -175,6 +175,26 @@ def test_orchestrator_poem_range(mock_poem_ready, mock_cache, mock_faq, mock_rou
 @patch("app.router.route_intent")
 @patch("app.faq.lookup_faq")
 @patch("app.cache.get_cached")
+@patch("app.poem_tools.poem_ready")
+def test_orchestrator_never_verifies_incomplete_poem_range(mock_poem_ready, mock_cache, mock_faq, mock_route):
+    mock_faq.return_value = None
+    mock_cache.return_value = None
+    mock_route.return_value = "poem"
+    mock_poem_ready.return_value = True
+
+    with patch("app.router.parse_poem_request", return_value=("range", 3251, 3254)):
+        with patch("app.poem_tools.get_range", return_value=[]):
+            result = answer_with_router("câu 3251-3254", k=5)
+
+    assert result["harness"]["quality"]["status"] == "not-found"
+    assert "0/4 câu" in result["answer"]
+    assert "verified" not in result["harness"]["quality"]["status"]
+
+
+@pytest.mark.unit
+@patch("app.router.route_intent")
+@patch("app.faq.lookup_faq")
+@patch("app.cache.get_cached")
 def test_orchestrator_domain_rag(mock_cache, mock_faq, mock_route):
     """Test orchestrator xử lý domain intent với RAG pipeline."""
     mock_faq.return_value = None
@@ -248,7 +268,7 @@ def test_orchestrator_cache_setting(mock_cache, mock_faq, mock_route, mock_set_c
     mock_route.return_value = "domain"
 
     with patch("app.rag_pipeline.answer_question") as mock_rag:
-        mock_rag.return_value = {"answer": "Câu trả lời", "sources": [], "evidence": []}
+        mock_rag.return_value = {"answer": "Câu trả lời", "sources": [], "evidence": [{"text": "chứng cứ"}]}
 
         with patch("app.verifier.verify_poem_quotes") as mock_verify:
             mock_verify.return_value = {"quotes": []}
@@ -257,6 +277,46 @@ def test_orchestrator_cache_setting(mock_cache, mock_faq, mock_route, mock_set_c
 
             # Kiểm tra set_cached được gọi
             mock_set_cache.assert_called()
+
+
+@pytest.mark.unit
+@patch("app.cache.set_cached")
+@patch("app.router.route_intent", return_value="domain")
+@patch("app.faq.lookup_faq", return_value=None)
+@patch("app.cache.get_cached", return_value=None)
+def test_orchestrator_retries_false_refusal_when_evidence_exists(mock_cache, mock_faq, mock_route, mock_set_cache):
+    pack = {
+        "answer": "Tôi chưa thể xác minh nhân vật này từ corpus.",
+        "prompt": "RAG prompt with evidence",
+        "sources": [],
+        "evidence": [{"text": "Thúy Vân là em gái Thúy Kiều."}],
+    }
+
+    with (
+        patch("app.rag_pipeline.answer_question", return_value=pack),
+        patch("app.orchestrator._safe_generate", return_value=("Thúy Vân là em gái của Thúy Kiều.", None)) as generate,
+    ):
+        result = answer_with_router("Thúy Vân là ai?", k=5)
+
+    assert result["answer"] == "Thúy Vân là em gái của Thúy Kiều."
+    assert result["harness"]["quality"]["status"] == "verified"
+    generate.assert_called_once()
+    mock_set_cache.assert_called_once()
+
+
+@pytest.mark.unit
+@patch("app.cache.set_cached")
+@patch("app.router.route_intent", return_value="domain")
+@patch("app.faq.lookup_faq", return_value=None)
+@patch("app.cache.get_cached", return_value=None)
+def test_orchestrator_does_not_cache_answer_without_evidence(mock_cache, mock_faq, mock_route, mock_set_cache):
+    pack = {"answer": "Không đủ bằng chứng từ corpus.", "sources": [], "evidence": []}
+
+    with patch("app.rag_pipeline.answer_question", return_value=pack):
+        result = answer_with_router("Một câu hỏi chưa có dữ liệu", k=5)
+
+    assert result["harness"]["quality"]["status"] == "insufficient-evidence"
+    mock_set_cache.assert_not_called()
 
 
 @pytest.mark.unit

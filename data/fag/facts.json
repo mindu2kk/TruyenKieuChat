@@ -38,5 +38,45 @@
   {
     "patterns": ["nguồn gốc cốt truyện", "kim vân kiều truyện", "nguon goc truyen kieu"],
     "answer": "Nguyễn Du phỏng theo tiểu thuyết chương hồi Trung Hoa 'Kim Vân Kiều truyện' của Thanh Tâm Tài Nhân để sáng tác Truyện Kiều."
+  },
+  {
+    "patterns": ["thúy vân là ai", "thuý vân là ai", "nhân vật thúy vân", "giới thiệu thúy vân"],
+    "answer": "Thúy Vân là em gái của Thúy Kiều và chị của Vương Quan. Nàng là người được Kiều nhờ thay mình nối duyên với Kim Trọng trong đoạn Trao duyên."
+  },
+  {
+    "patterns": ["kim trọng là ai", "nhân vật kim trọng", "giới thiệu kim trọng"],
+    "answer": "Kim Trọng là một nho sinh hào hoa, người yêu và đã đính ước với Thúy Kiều. Sau thời gian xa cách, chàng góp phần tìm kiếm và đoàn tụ với Kiều."
+  },
+  {
+    "patterns": ["từ hải là ai", "nhân vật từ hải", "giới thiệu từ hải"],
+    "answer": "Từ Hải là người anh hùng đã cứu Thúy Kiều khỏi lầu xanh, kết duyên với nàng và giúp nàng báo ân báo oán; về sau chàng mắc mưu Hồ Tôn Hiến và tử trận."
+  },
+  {
+    "patterns": ["hoạn thư là ai", "nhân vật hoạn thư", "giới thiệu hoạn thư"],
+    "answer": "Hoạn Thư là vợ cả của Thúc Sinh, nổi tiếng ghen tuông và nhiều mưu mẹo. Nàng bắt Kiều về làm người hầu nhưng cũng từng để Kiều ra Quan Âm Các chép kinh."
+  },
+  {
+    "patterns": ["thúc sinh là ai", "nhân vật thúc sinh", "giới thiệu thúc sinh"],
+    "answer": "Thúc Sinh là người chuộc Thúy Kiều khỏi lầu xanh và lấy nàng làm vợ lẽ. Vì nhu nhược trước Hoạn Thư, chàng không bảo vệ được Kiều khỏi cuộc đánh ghen."
+  },
+  {
+    "patterns": ["mã giám sinh là ai", "nhân vật mã giám sinh", "giới thiệu mã giám sinh"],
+    "answer": "Mã Giám Sinh là kẻ buôn người giả danh người đến hỏi cưới, mua Thúy Kiều rồi đưa nàng vào tay Tú Bà. Nhân vật tiêu biểu cho sự giả dối và đồng tiền chà đạp con người."
+  },
+  {
+    "patterns": ["sở khanh là ai", "nhân vật sở khanh", "giới thiệu sở khanh"],
+    "answer": "Sở Khanh là kẻ được Tú Bà dùng để lừa Thúy Kiều trốn khỏi lầu Ngưng Bích rồi phản bội nàng, khiến Kiều bị bắt lại và ép tiếp khách."
+  },
+  {
+    "patterns": ["tú bà là ai", "nhân vật tú bà", "giới thiệu tú bà"],
+    "answer": "Tú Bà là chủ lầu xanh, cấu kết với Mã Giám Sinh mua bán và ép Thúy Kiều tiếp khách. Bà ta đại diện cho thế lực tàn nhẫn biến con người thành món hàng."
+  },
+  {
+    "patterns": ["giác duyên là ai", "nhân vật giác duyên", "giới thiệu giác duyên"],
+    "answer": "Giác Duyên là một ni cô giàu lòng nhân ái, nhiều lần cưu mang Thúy Kiều và cứu nàng sau khi nàng gieo mình xuống sông Tiền Đường."
+  },
+  {
+    "patterns": ["đạm tiên là ai", "nhân vật đạm tiên", "giới thiệu đạm tiên"],
+    "answer": "Đạm Tiên là một ca nhi tài sắc nhưng bạc mệnh đã qua đời. Nấm mồ và hồn nàng xuất hiện đầu tác phẩm như một dự báo về số phận đoạn trường của Thúy Kiều."
   }
 ]

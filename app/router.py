@@ -141,14 +141,64 @@ def parse_poem_request(q: str):
     return None
 
 
+def requests_poem_explanation(q: str) -> bool:
+    """Return whether the user positively asks for literary explanation.
+
+    A negated phrase such as ``không giải thích thêm`` must not be treated as
+    an explanation request merely because it contains the words
+    ``giải thích``.
+    """
+    qs = normalize_query(q)
+    no_explanation = (
+        "khong giai thich",
+        "khong phan tich",
+        "khong binh",
+        "chi trich",
+        "chi chep",
+    )
+    if any(term in qs for term in no_explanation):
+        return False
+    return any(term in qs for term in ("giai thich", "y nghia", "phan tich", "cam nhan", "binh"))
+
+
+def requests_poem_evidence(q: str) -> bool:
+    """Detect poetry-specific requests without confusing character names.
+
+    In particular, ``Thúy Vân`` normalises to ``thuy van``; the isolated word
+    ``van`` therefore cannot safely mean poetic rhyme.
+    """
+    qs = normalize_query(q)
+    exact_or_form = (
+        "trich",
+        "nguyen van",
+        "cau tho",
+        "luc bat",
+        "the tho",
+        "nhip tho",
+        "nhip dieu",
+        "gieo van",
+        "van tho",
+        "van dieu",
+        "phep doi",
+        "doi xung",
+        "diep tu",
+        "diep ngu",
+    )
+    return parse_poem_request(q) is not None or any(term in qs for term in exact_or_form)
+
+
+def requests_exact_poem_quote(q: str) -> bool:
+    qs = normalize_query(q)
+    return parse_poem_request(q) is not None or any(term in qs for term in ("trich", "nguyen van", "cau tho"))
+
+
 def route_query(q: str) -> RouteDecision:
     qs = normalize_query(q)
     if not qs:
         return RouteDecision("chitchat", "smalltalk", 1.0, "empty-or-whitespace")
 
     if parse_poem_request(q) is not None:
-        explain_terms = ("giai thich", "y nghia", "phan tich", "cam nhan", "binh")
-        if any(term in qs for term in explain_terms):
+        if requests_poem_explanation(q):
             return RouteDecision(
                 "poem",
                 "grounded-poem-analysis",
@@ -180,9 +230,16 @@ def route_query(q: str) -> RouteDecision:
     if re.fullmatch(r"\s*\d+\s*[+\-*x]\s*\d+\s*=\s*\??\s*", (q or "").lower()):
         return RouteDecision("generic", "generic", 0.98, "arithmetic-pattern")
 
-    quote_terms = ("trich", "nguyen van", "cau tho", "luc bat", "nhip", "van", "diep", "doi")
-    if any(term in qs for term in quote_terms):
-        return RouteDecision("poem_analysis", "verified-poem-analysis", 0.9, "poem-analysis-pattern", True, True)
+    if requests_poem_evidence(q):
+        exact_quotes = requests_exact_poem_quote(q)
+        return RouteDecision(
+            "poem_analysis",
+            "verified-poem-analysis",
+            0.9,
+            "poem-analysis-pattern",
+            True,
+            exact_quotes,
+        )
 
     if any(term in qs for term in ("phan tich", "cam nhan", "binh giang", "nghe thuat", "an du", "diem nhin")):
         return RouteDecision("analysis", "literary-analysis", 0.9, "analysis-pattern")
@@ -227,6 +284,9 @@ __all__ = [
     "get_chitchat_response",
     "normalize_query",
     "parse_poem_request",
+    "requests_exact_poem_quote",
+    "requests_poem_evidence",
+    "requests_poem_explanation",
     "route_intent",
     "route_query",
 ]

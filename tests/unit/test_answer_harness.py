@@ -3,7 +3,12 @@ from pathlib import Path
 
 import pytest
 
-from app.answer_harness import answer_completeness_issues, verify_generated_answer, verified_core_answer
+from app.answer_harness import (
+    answer_completeness_issues,
+    is_refusal_answer,
+    verify_generated_answer,
+    verified_core_answer,
+)
 from app.orchestrator import answer_with_router
 from app.router import parse_poem_request, route_query
 
@@ -52,6 +57,19 @@ def test_verified_core_answer_resolves_ambiguous_origin_wording():
     assert "Đoạn trường tân thanh" in answer
     assert "Kim Vân Kiều truyện" in answer
     assert "chữ Nôm" in answer
+
+
+@pytest.mark.unit
+def test_clear_character_question_uses_curated_faq_before_rag():
+    from app.faq import _load_facts
+
+    _load_facts.cache_clear()
+    result = answer_with_router("Thúy Vân là ai?")
+
+    assert result["intent"] == "faq"
+    assert "em gái của Thúy Kiều" in result["answer"]
+    assert "xác minh nguyên văn" not in result["answer"]
+    assert result["harness"]["quality"]["status"] == "verified"
 
 
 @pytest.mark.unit
@@ -148,7 +166,24 @@ def test_incomplete_answer_is_not_marked_verified():
 
     assert quality.status == "incomplete"
     assert verification["completeness"]["status"] == "failed"
-    assert "chưa thể xác nhận" in answer
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize(
+    "answer",
+    (
+        "Tôi chưa thể xác minh thông tin này.",
+        "Không đủ bằng chứng từ corpus.",
+        "Dữ liệu không chứa câu trả lời.",
+    ),
+)
+def test_refusal_answer_detection(answer):
+    assert is_refusal_answer(answer)
+
+
+@pytest.mark.unit
+def test_normal_character_answer_is_not_a_refusal():
+    assert not is_refusal_answer("Thúy Vân là em gái của Thúy Kiều.")
 
 
 @pytest.mark.unit
