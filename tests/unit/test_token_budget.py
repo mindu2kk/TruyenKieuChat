@@ -50,8 +50,8 @@ def test_exact_poem_lookup_needs_no_generation_budget():
     ("response_length", "expected_tokens", "expected_tier"),
     (
         ("super_short", 600, "super-short"),
-        ("short", 800, "short"),
-        ("long", 1200, "long"),
+        ("short", 1200, "short"),
+        ("long", 1700, "long"),
     ),
 )
 def test_user_response_length_has_exact_budget(response_length, expected_tokens, expected_tier):

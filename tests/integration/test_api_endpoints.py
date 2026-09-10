@@ -151,7 +151,7 @@ def test_chat_api_post_success(mock_history, mock_save, mock_count, mock_router,
     assert "intent" in data
     mock_router.assert_called_once()
     assert mock_router.call_args.kwargs["response_length"] == "long"
-    assert mock_router.call_args.kwargs["max_tokens"] == 1200
+    assert mock_router.call_args.kwargs["max_tokens"] == 1700
     assert mock_router.call_args.kwargs["long_answer"] is True
     mock_save.assert_called()
 

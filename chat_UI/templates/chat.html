@@ -121,8 +121,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 4.5A3.5 3.5 0 0 0 6 8v.5a3 3 0 0 0-1 5.83V15a3 3 0 0 0 3 3h1.5m5-13.5A3.5 3.5 0 0 1 18 8v.5a3 3 0 0 1 1 5.83V15a3 3 0 0 1-3 3h-1.5M12 4v16m-3-9h3m3 3h-3"/></svg>
             <select aria-label="Mức độ suy nghĩ" x-model="settings.response_length" class="bg-transparent outline-none py-1 pl-2 text-sm" style="border:0">
               <option value="super_short">Siêu ngắn · 600 tokens</option>
-              <option value="short">Ngắn · 800 tokens</option>
-              <option value="long">Dài · 1200 tokens</option>
+              <option value="short">Ngắn · 1200 tokens</option>
+              <option value="long">Dài · 1700 tokens</option>
             </select>
           </label>
           <button :disabled="sending||!draft.trim()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-slate-900 font-semibold disabled:opacity-50 disabled:scale-100 transition-all transform hover:scale-105">
@@ -303,7 +303,7 @@ function ChatUI(){
         model: "{{ gemini_model }}",
         response_length: this.settings.response_length,
         long_answer: this.settings.response_length === "long",
-        max_tokens: ({super_short:600, short:800, long:1200})[this.settings.response_length] || 800
+        max_tokens: ({super_short:600, short:1200, long:1700})[this.settings.response_length] || 1200
       };
 
       try{

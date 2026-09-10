@@ -93,7 +93,7 @@ def chat_api(request):
     requested_model = str(payload.get("model") or "").strip()
     model = requested_model if requested_model in settings.GEMINI_MODELS else settings.GEMINI_MODEL
     response_length = str(payload.get("response_length") or "").strip().lower()
-    length_budgets = {"super_short": 600, "short": 800, "long": 1200}
+    length_budgets = {"super_short": 600, "short": 1200, "long": 1700}
     long_answer = response_length == "long" if response_length in length_budgets else bool(payload.get("long_answer"))
     # The three composer presets are exact budgets. Legacy clients without a
     # preset keep the intent-aware hint behavior.

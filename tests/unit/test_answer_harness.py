@@ -228,8 +228,8 @@ def test_chat_uses_compact_response_length_picker_instead_of_settings_panel():
     assert ">Thiết lập<" not in template
     assert 'aria-label="Mức độ suy nghĩ"' in template
     assert "Siêu ngắn · 600 tokens" in template
-    assert "Ngắn · 800 tokens" in template
-    assert "Dài · 1200 tokens" in template
+    assert "Ngắn · 1200 tokens" in template
+    assert "Dài · 1700 tokens" in template
     assert '<input type="range"' not in template
     assert "overflow-x: hidden" in template
     assert "overflow-wrap: anywhere" in template

@@ -36,8 +36,8 @@ _BASE_BUDGETS = {
 _DETERMINISTIC_INTENTS = {"faq", "core_fact", "out_of_scope"}
 _USER_LENGTH_BUDGETS = {
     "super_short": (600, "super-short"),
-    "short": (800, "short"),
-    "long": (1200, "long"),
+    "short": (1200, "short"),
+    "long": (1700, "long"),
 }
 _SHORT_SIGNALS = ("ngan gon", "tra loi ngan", "mot cau", "khong giai thich")
 _DEEP_SIGNALS = ("chi tiet", "phan tich sau", "day du", "lap luan", "chung minh", "binh giang")
