@@ -27,6 +27,10 @@ def test_make_cache_key():
     assert "test query" in key1.lower()
     assert "intent=domain" in key1
 
+    short_key = _make_cache_key("test query", long_answer=False, intent="domain", max_tokens=600)
+    normal_key = _make_cache_key("test query", long_answer=False, intent="domain", max_tokens=800)
+    assert short_key != normal_key
+
 
 @pytest.mark.unit
 def test_history_to_text():

@@ -134,7 +134,12 @@ def test_chat_api_post_success(mock_history, mock_save, mock_count, mock_router,
     mock_count.return_value = 0  # Chưa dùng quota
     mock_router.return_value = {"intent": "domain", "answer": "Câu trả lời test", "sources": []}
 
-    payload = {"message": "Thúy Kiều là ai?", "k": 5, "model": "gemini-2.0-flash", "long_answer": False}
+    payload = {
+        "message": "Thúy Kiều là ai?",
+        "k": 5,
+        "model": "gemini-2.0-flash",
+        "response_length": "long",
+    }
 
     response = authenticated_client.post("/api/chat", data=json.dumps(payload), content_type="application/json")
 
@@ -145,6 +150,9 @@ def test_chat_api_post_success(mock_history, mock_save, mock_count, mock_router,
     assert data["answer"] == "Câu trả lời test"
     assert "intent" in data
     mock_router.assert_called_once()
+    assert mock_router.call_args.kwargs["response_length"] == "long"
+    assert mock_router.call_args.kwargs["max_tokens"] == 1200
+    assert mock_router.call_args.kwargs["long_answer"] is True
     mock_save.assert_called()
 
 

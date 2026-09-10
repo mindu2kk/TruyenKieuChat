@@ -44,3 +44,20 @@ def test_exact_poem_lookup_needs_no_generation_budget():
     plan = plan_token_budget(query, route_query(query))
     assert plan.max_output_tokens == 0
     assert plan.tier == "deterministic"
+
+
+@pytest.mark.parametrize(
+    ("response_length", "expected_tokens", "expected_tier"),
+    (
+        ("super_short", 600, "super-short"),
+        ("short", 800, "short"),
+        ("long", 1200, "long"),
+    ),
+)
+def test_user_response_length_has_exact_budget(response_length, expected_tokens, expected_tier):
+    query = "Phân tích sâu tám luận điểm về Truyện Kiều"
+    plan = plan_token_budget(query, route_query(query), response_length=response_length)
+
+    assert plan.max_output_tokens == expected_tokens
+    assert plan.tier == expected_tier
+    assert plan.long_form is (response_length == "long")

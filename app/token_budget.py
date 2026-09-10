@@ -34,6 +34,11 @@ _BASE_BUDGETS = {
 }
 
 _DETERMINISTIC_INTENTS = {"faq", "core_fact", "out_of_scope"}
+_USER_LENGTH_BUDGETS = {
+    "super_short": (600, "super-short"),
+    "short": (800, "short"),
+    "long": (1200, "long"),
+}
 _SHORT_SIGNALS = ("ngan gon", "tra loi ngan", "mot cau", "khong giai thich")
 _DEEP_SIGNALS = ("chi tiet", "phan tich sau", "day du", "lap luan", "chung minh", "binh giang")
 _ESSAY_SIGNALS = ("bai van", "bai nghi luan", "mo bai", "than bai", "ket bai", "hoc sinh gioi")
@@ -57,6 +62,7 @@ def plan_token_budget(
     *,
     long_answer: bool = False,
     requested_max_tokens: Optional[int] = None,
+    response_length: Optional[str] = None,
 ) -> TokenBudgetPlan:
     """Choose a generous but bounded generation budget from observable signals.
 
@@ -65,6 +71,16 @@ def plan_token_budget(
     """
     if decision.intent in _DETERMINISTIC_INTENTS or decision.flow == "exact-poem-lookup":
         return TokenBudgetPlan(0, "deterministic", False, ("no-generation-needed",))
+
+    selected_length = (response_length or "").strip().lower()
+    if selected_length in _USER_LENGTH_BUDGETS:
+        budget, tier = _USER_LENGTH_BUDGETS[selected_length]
+        return TokenBudgetPlan(
+            budget,
+            tier,
+            selected_length == "long",
+            (f"user-length:{selected_length}",),
+        )
 
     q = normalize_query(query)
     budget = _BASE_BUDGETS.get(decision.intent, 600)

@@ -222,6 +222,18 @@ def test_chat_template_metadata_has_no_broken_alpine_scope():
 
 
 @pytest.mark.unit
+def test_chat_uses_compact_response_length_picker_instead_of_settings_panel():
+    template = (Path(__file__).resolve().parents[2] / "chat_UI" / "templates" / "chat.html").read_text(encoding="utf-8")
+
+    assert ">Thiết lập<" not in template
+    assert 'aria-label="Mức độ suy nghĩ"' in template
+    assert "Siêu ngắn · 600 tokens" in template
+    assert "Ngắn · 800 tokens" in template
+    assert "Dài · 1200 tokens" in template
+    assert '<input type="range"' not in template
+
+
+@pytest.mark.unit
 def test_ui_uses_compiled_tailwind_instead_of_production_cdn():
     root = Path(__file__).resolve().parents[2]
     templates = [

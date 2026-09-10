@@ -88,8 +88,8 @@ def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
 
 
-def _make_cache_key(q: str, *, long_answer: bool, intent: str) -> str:
-    return f"{_norm_key(q)}|la={int(bool(long_answer))}|intent={intent}"
+def _make_cache_key(q: str, *, long_answer: bool, intent: str, max_tokens: Optional[int] = None) -> str:
+    return f"{_norm_key(q)}|la={int(bool(long_answer))}|tokens={max_tokens or 0}|intent={intent}"
 
 
 def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 6) -> str:
@@ -176,6 +176,7 @@ def answer_with_router(
     history: Optional[List[Tuple[str, str]]] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
+    response_length: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Hàm điều phối chính — được UI gọi.
@@ -197,6 +198,7 @@ def answer_with_router(
         decision,
         long_answer=long_answer,
         requested_max_tokens=max_tokens,
+        response_length=response_length,
     )
     max_tokens = budget_plan.max_output_tokens
     long_answer = long_answer or budget_plan.long_form
@@ -209,7 +211,7 @@ def answer_with_router(
     if hit:
         ans = hit["answer"]
         intent = "faq"
-        qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
+        qkey = _make_cache_key(query, long_answer=long_answer, intent=intent, max_tokens=max_tokens)
         set_cached(qkey, ans)
         decision = RouteDecision(intent, "verified-faq", 1.0, "faq-match")
         budget_plan = plan_token_budget(query, decision)
@@ -246,7 +248,7 @@ def answer_with_router(
 
     # 2) Route was resolved before loading the heavy RAG stack so the token
     # planner can select a budget from the actual flow.
-    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent)
+    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent, max_tokens=max_tokens)
 
     def _verify_generated(candidate: str, *, require_exact_quotes: bool, has_evidence: bool):
         return verify_generated_answer(

@@ -92,10 +92,16 @@ def chat_api(request):
     k = _bounded_int(payload.get("k"), default=5, minimum=3, maximum=8)
     requested_model = str(payload.get("model") or "").strip()
     model = requested_model if requested_model in settings.GEMINI_MODELS else settings.GEMINI_MODEL
-    long_answer = bool(payload.get("long_answer"))
-    # This is a user hint only. The intent-aware planner may raise or lower it
-    # to prevent truncation while keeping simple answers compact.
-    max_tokens = _bounded_int(payload.get("max_tokens"), default=640, minimum=256, maximum=2400)
+    response_length = str(payload.get("response_length") or "").strip().lower()
+    length_budgets = {"super_short": 600, "short": 800, "long": 1200}
+    long_answer = response_length == "long" if response_length in length_budgets else bool(payload.get("long_answer"))
+    # The three composer presets are exact budgets. Legacy clients without a
+    # preset keep the intent-aware hint behavior.
+    max_tokens = (
+        length_budgets[response_length]
+        if response_length in length_budgets
+        else _bounded_int(payload.get("max_tokens"), default=640, minimum=256, maximum=2400)
+    )
     # ... (xử lý bullet mode)
 
     try:
@@ -112,6 +118,7 @@ def chat_api(request):
             history=chat_history,
             long_answer=long_answer,
             max_tokens=max_tokens,
+            response_length=response_length or None,
         )
         elapsed_ms = (now() - t0).total_seconds() * 1000.0
 

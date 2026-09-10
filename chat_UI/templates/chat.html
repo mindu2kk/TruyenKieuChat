@@ -45,38 +45,6 @@
     .chat-message { animation: fadeIn .5s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Custom Form Elements */
-    input[type="range"] {
-      -webkit-appearance: none; appearance: none;
-      width: 100%; height: 6px;
-      background: var(--surface); border-radius: 5px;
-      outline: none; transition: opacity .2s;
-    }
-    input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none; appearance: none;
-      width: 16px; height: 16px;
-      background: var(--primary); border-radius: 50%;
-      cursor: pointer; transition: background .3s;
-    }
-    input[type="range"]::-webkit-slider-thumb:hover { background: var(--primary-hover); }
-
-    input[type="checkbox"] {
-      -webkit-appearance: none; appearance: none;
-      width: 20px; height: 20px;
-      border: 2px solid var(--border); border-radius: 4px;
-      position: relative; cursor: pointer;
-      vertical-align: middle; transition: all .2s;
-    }
-    input[type="checkbox"]:checked {
-      background-color: var(--primary); border-color: var(--primary-hover);
-    }
-    input[type="checkbox"]:checked::after {
-      content: '✔';
-      color: black; font-size: 14px;
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
     select {
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
       background-position: right 0.5rem center;
@@ -90,12 +58,7 @@
 <body class="h-full text-[var(--text-main)]" x-data="ChatUI()" x-init="init()">
 
 <header class="border-b border-[var(--border)] sticky top-0 z-40 glass">
-  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-3">
-    <button @click="openSidebar=true" class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-      </svg>
-    </button>
+  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
     <div class="flex-1">
       <h1 class="text-xl font-semibold tracking-tight" style="font-family: var(--font-serif);">📜 Kiều Bot</h1>
       <p class="text-[var(--text-secondary)] text-sm -mt-0.5">Tra thơ chuẩn, phân tích mượt — không lộ nguồn.</p>
@@ -113,58 +76,7 @@
   </div>
 </header>
 
-<div class="mx-auto max-w-6xl grid md:grid-cols-[280px_1fr] gap-8 px-4 py-6">
-
-  <aside class="md:sticky md:top-20 md:h-[calc(100dvh-7rem)] md:overflow-y-auto">
-    <div class="md:block" :class="{'fixed inset-0 z-50 glass p-4 md:p-0 md:static md:glass-none': openSidebar}">
-      <div class="md:hidden absolute inset-0" @click="openSidebar=false"></div>
-      <div class="md:static relative max-w-sm w-full md:w-auto mx-auto md:mx-0" :class="{'mt-16': openSidebar}">
-        <div class="rounded-2xl border border-[var(--border)] bg-[var(--surface)]/60 p-5 shadow-lg">
-          <h2 class="font-semibold text-lg mb-4">Thiết lập</h2>
-
-          <label class="block text-sm font-medium mb-1.5">Top-k ngữ cảnh: <span class="text-[var(--text-secondary)]" x-text="settings.k"></span></label>
-          <input type="range" min="3" max="8" step="1" x-model.number="settings.k" class="w-full mb-4">
-
-          <label class="block text-sm font-medium mb-1.5">Model</label>
-          <select x-model="settings.model" class="w-full bg-zinc-900 border border-[var(--border)] rounded-md px-3 py-2 mb-4 focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] outline-none transition">
-            {% for model_name in gemini_models %}
-            <option value="{{ model_name }}">{{ model_name }}</option>
-            {% endfor %}
-          </select>
-
-          <div class="space-y-3 mb-4">
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-medium">Văn phong luận văn</span>
-              <input type="checkbox" x-model="settings.long_answer">
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-medium">Gạch đầu dòng</span>
-              <input type="checkbox" x-model="settings.bullet_mode">
-            </div>
-          </div>
-
-          <label class="block text-sm font-medium mt-2 mb-1.5">Gợi ý tokens (hệ thống tự phân bổ)</label>
-          <input type="range" min="256" max="2400" step="128" x-model.number="settings.max_tokens" class="w-full mb-1">
-          <div class="text-xs text-[var(--text-secondary)] mb-4"><span x-text="settings.max_tokens"></span> tokens</div>
-
-          <div class="flex items-center justify-between mb-5">
-            <span class="text-sm font-medium">Hiện kiểm chứng</span>
-            <input type="checkbox" x-model="settings.debug_meta">
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <button @click="clearChat()" class="px-3 py-2 text-sm rounded-lg border border-[var(--border)] hover:bg-rose-500/10 hover:border-rose-500/50 text-rose-300 transition-colors">
-                <span class="inline-block align-middle">🧹</span> Xóa
-            </button>
-            <button @click="reloadHistory()" class="px-3 py-2 text-sm rounded-lg border border-[var(--border)] bg-white/5 hover:bg-white/10 transition-colors">
-                <span class="inline-block align-middle">↻</span> Tải lại
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </aside>
-
+<div class="mx-auto max-w-3xl px-4 py-6">
   <main class="flex flex-col h-full">
     <template x-if="!isConfigured.gemini">
       <div class="rounded-xl border border-amber-600/40 bg-amber-950/40 px-4 py-3 text-amber-200 mb-4">
@@ -203,8 +115,15 @@
             @keydown="if($event.key==='Enter'){ if($event.shiftKey){ return; } $event.preventDefault(); send(); }"
         ></textarea>
 
-        <div class="flex items-center justify-between px-2 pb-1">
-          <div class="text-xs text-zinc-500">Shift+Enter: xuống dòng</div>
+        <div class="flex items-center justify-between gap-2 px-2 pb-1">
+          <label class="inline-flex items-center rounded-full border border-[var(--border)] bg-zinc-800 px-3 py-2 text-sm text-zinc-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 4.5A3.5 3.5 0 0 0 6 8v.5a3 3 0 0 0-1 5.83V15a3 3 0 0 0 3 3h1.5m5-13.5A3.5 3.5 0 0 1 18 8v.5a3 3 0 0 1 1 5.83V15a3 3 0 0 1-3 3h-1.5M12 4v16m-3-9h3m3 3h-3"/></svg>
+            <select aria-label="Mức độ suy nghĩ" x-model="settings.response_length" class="bg-transparent outline-none py-1 pl-2 text-sm" style="border:0">
+              <option value="super_short">Siêu ngắn · 600 tokens</option>
+              <option value="short">Ngắn · 800 tokens</option>
+              <option value="long">Dài · 1200 tokens</option>
+            </select>
+          </label>
           <button :disabled="sending||!draft.trim()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-slate-900 font-semibold disabled:opacity-50 disabled:scale-100 transition-all transform hover:scale-105">
             Gửi
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m21.426 11.095-17-8A1 1 0 0 0 3.001 4.058l.001 5.942a1 1 0 0 0 .736.97L15.53 12 3.738 13.03a1 1 0 0 0-.737.97l-.001 5.942a1 1 0 0 0 1.425.962l17-8a1 1 0 0 0 0-1.81z"/></svg>
@@ -243,21 +162,23 @@
 </template>
 
 <script>
-// ----- LOGIC JAVASCRIPT KHÔNG THAY ĐỔI -----
 function ChatUI(){
   return {
-    openSidebar:false,
     typing:false,
     sending:false,
     draft:"",
-    settings: JSON.parse(localStorage.getItem("kieu.settings.v2") || '{"k":5,"model":"{{ gemini_model }}","long_answer":false,"max_tokens":640,"bullet_mode":false,"debug_meta":true}'),
+    settings: JSON.parse(localStorage.getItem("kieu.chat-preferences.v1") || '{"response_length":"short","debug_meta":false}'),
     isConfigured: { gemini: {{ gemini_ok|yesno:"true,false" }}, poem: {{ poem_ok|yesno:"true,false" }} },
 
     init(){
+      if (!["super_short", "short", "long"].includes(this.settings.response_length)) {
+        this.settings.response_length = "short";
+      }
+      this.settings.debug_meta = false;
       this.reloadHistory();
       this.$watch('settings', () => this.saveSettings(), { deep: true });
     },
-    saveSettings(){ localStorage.setItem("kieu.settings.v2", JSON.stringify(this.settings)); },
+    saveSettings(){ localStorage.setItem("kieu.chat-preferences.v1", JSON.stringify(this.settings)); },
 
     async reloadHistory(){
       try{
@@ -376,12 +297,12 @@ function ChatUI(){
       this.typing = true; this.sending = true;
 
       const payload = {
-        message: (this.settings.bullet_mode && !/^(\s*liệt kê:|\s*liet ke:|\s*bullet:|\s*tldr:|\s*tóm tắt:|\s*tom tat:)/i.test(msg))
-                  ? `liệt kê: ${msg}` : msg,
-        k: this.settings.k,
-        model: this.settings.model,
-        long_answer: (this.settings.long_answer && !this.settings.bullet_mode),
-        max_tokens: this.settings.bullet_mode ? Math.min(this.settings.max_tokens,640) : this.settings.max_tokens
+        message: msg,
+        k: 5,
+        model: "{{ gemini_model }}",
+        response_length: this.settings.response_length,
+        long_answer: this.settings.response_length === "long",
+        max_tokens: ({super_short:600, short:800, long:1200})[this.settings.response_length] || 800
       };
 
       try{
