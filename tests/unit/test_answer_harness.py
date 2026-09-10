@@ -218,6 +218,7 @@ def test_chat_template_metadata_has_no_broken_alpine_scope():
     assert "$root.settings.debug_meta" not in template
     assert "data-meta-quality" in template
     assert "data-meta-budget" in template
+    assert '"🧠 legacy"' in template
 
 
 @pytest.mark.unit

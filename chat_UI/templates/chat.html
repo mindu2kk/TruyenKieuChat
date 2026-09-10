@@ -298,10 +298,12 @@ function ChatUI(){
           if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"} · ${harness.flow||"default"}`;
           if (chipElapsed) chipElapsed.textContent = `⏱️ ${Math.round(meta.elapsed_ms||0)} ms`;
           if (chipBudget) {
-            const budget = harness.token_budget || {};
-            chipBudget.textContent = budget.max_output_tokens
-              ? `🧠 ${budget.max_output_tokens} tokens · ${budget.tier||"auto"}`
-              : "🧠 deterministic";
+            const budget = harness.token_budget;
+            chipBudget.textContent = !budget
+              ? "🧠 legacy"
+              : budget.max_output_tokens
+                ? `🧠 ${budget.max_output_tokens} tokens · ${budget.tier||"auto"}`
+                : "🧠 deterministic";
           }
           if (chipQuality) chipQuality.textContent = `🛡️ ${quality.status||"unchecked"}`;
           if (detail) {
