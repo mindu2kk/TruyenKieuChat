@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+import logging
 import os
 import re
 import time
-import logging
+import unicodedata
 from functools import lru_cache
 from typing import Any, Dict, Optional
 
@@ -54,9 +55,9 @@ def _setup() -> genai.Client:
         raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
 
 
-@lru_cache(maxsize=1)
-def _groq_client_for_key(api_key: str) -> Groq:
-    return Groq(api_key=api_key)
+@lru_cache(maxsize=2)
+def _groq_client_for_key(api_key: str, timeout_seconds: float) -> Groq:
+    return Groq(api_key=api_key, timeout=timeout_seconds)
 
 
 def _setup_groq() -> Groq:
@@ -64,7 +65,10 @@ def _setup_groq() -> Groq:
     if not api_key:
         raise GenerationError("Chưa thiết lập GROQ_API_KEY nên không thể gọi Groq.")
     try:
-        return _groq_client_for_key(api_key)
+        timeout_seconds = float(os.getenv("GROQ_TIMEOUT_SECONDS", "25"))
+        if timeout_seconds <= 0:
+            raise ValueError("timeout phải lớn hơn 0")
+        return _groq_client_for_key(api_key, timeout_seconds)
     except Exception as exc:  # pragma: no cover - network/runtime error guard
         raise GenerationError(f"Không cấu hình được Groq client ({exc}).") from exc
 
@@ -110,6 +114,36 @@ def _with_long_answer_style(prompt: str, long_answer: bool) -> str:
 - Văn phong nghị luận mạch lạc (mở–thân–kết).
 - Luận điểm → dẫn chứng (trích 1–2 câu thơ khi phù hợp) → phân tích → tiểu kết.
 - Diễn đạt mềm mại, tránh liệt kê máy móc; ưu tiên sự sáng rõ và cô đọng.
+"""
+
+
+_REQUESTED_ITEM_COUNT = re.compile(
+    r"\b(?:dung|du|gom|liet ke|neu|trinh bay)\s+(\d{1,2})\s+"
+    r"(?:y|ly do|nguyen nhan|pham chat|dac diem|luan diem|noi dung)\b"
+)
+
+
+def _normalize_for_matching(text: str) -> str:
+    normalized = unicodedata.normalize("NFD", text.casefold())
+    return "".join(char for char in normalized if unicodedata.category(char) != "Mn").replace("đ", "d")
+
+
+def _with_response_contract(prompt: str) -> str:
+    """Make explicit item-count requests machine-verifiable by the answer harness."""
+    match = _REQUESTED_ITEM_COUNT.search(_normalize_for_matching(prompt))
+    if not match:
+        return prompt
+
+    requested_items = int(match.group(1))
+    if not 1 <= requested_items <= 12:
+        return prompt
+    markers = ", ".join(f"{index}." for index in range(1, requested_items + 1))
+    return f"""{prompt}
+
+[RÀNG BUỘC CẤU TRÚC BẮT BUỘC]
+- Trả lời đủ và đúng {requested_items} ý; không gộp hoặc bỏ sót ý.
+- Mỗi ý ở một dòng/đoạn riêng và bắt đầu lần lượt bằng: {markers}
+- Hoàn tất trọn câu ở từng ý. Chỉ viết kết luận sau khi đã đủ {requested_items} ý.
 """
 
 
@@ -160,7 +194,7 @@ def _generate_answer_gemini_primary(
         client = _setup()
         generation_config = _resolve_generation_config(long_answer, max_tokens)
 
-        prompt = _with_long_answer_style(prompt, long_answer)
+        prompt = _with_response_contract(_with_long_answer_style(prompt, long_answer))
 
         resolved_model = (model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
         thinking_config = None
@@ -237,7 +271,7 @@ def generate_answer_groq(
     try:
         client = _setup_groq()
         config = _resolve_generation_config(long_answer, max_tokens)
-        prompt = _with_long_answer_style(prompt, long_answer)
+        prompt = _with_response_contract(_with_long_answer_style(prompt, long_answer))
         resolved_model = (model or os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b").strip()
         response = client.chat.completions.create(
             model=resolved_model,

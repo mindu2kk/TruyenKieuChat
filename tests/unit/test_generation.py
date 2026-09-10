@@ -2,7 +2,12 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from app.generation import GenerationError, generate_answer_gemini, generate_answer_groq
+from app.generation import (
+    GenerationError,
+    _setup_groq,
+    generate_answer_gemini,
+    generate_answer_groq,
+)
 
 
 @pytest.mark.unit
@@ -76,3 +81,29 @@ def test_groq_uses_configured_model_and_token_budget(monkeypatch):
     assert kwargs["model"] == "openai/gpt-oss-120b"
     assert kwargs["max_tokens"] == 1450
     assert "[PHONG CÁCH]" in kwargs["messages"][0]["content"]
+
+
+@pytest.mark.unit
+def test_exact_item_request_adds_machine_verifiable_contract(monkeypatch):
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+    client = Mock()
+    client.chat.completions.create.return_value.choices = [Mock(message=Mock(content="1. A\n2. B\n3. C"))]
+
+    with patch("app.generation._setup_groq", return_value=client):
+        answer = generate_answer_groq("Nêu đúng 3 ý về kết thúc Truyện Kiều.", max_tokens=800)
+
+    assert answer == "1. A\n2. B\n3. C"
+    sent_prompt = client.chat.completions.create.call_args.kwargs["messages"][0]["content"]
+    assert "Trả lời đủ và đúng 3 ý" in sent_prompt
+    assert "1., 2., 3." in sent_prompt
+
+
+@pytest.mark.unit
+def test_groq_client_has_bounded_timeout(monkeypatch):
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+    monkeypatch.setenv("GROQ_TIMEOUT_SECONDS", "18")
+
+    with patch("app.generation._groq_client_for_key", return_value=Mock()) as build_client:
+        _setup_groq()
+
+    build_client.assert_called_once_with("groq-key", 18.0)
