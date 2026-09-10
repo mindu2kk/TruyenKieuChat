@@ -2,7 +2,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from app.generation import GenerationError, generate_answer_gemini
+from app.generation import GenerationError, generate_answer_gemini, generate_answer_groq
 
 
 @pytest.mark.unit
@@ -24,6 +24,55 @@ def test_gemini_25_flash_disables_thinking_for_short_rag_answers(monkeypatch):
 @pytest.mark.unit
 def test_generation_rejects_missing_api_key(monkeypatch):
     monkeypatch.delenv("GOOGLE_API_KEY", raising=False)
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
 
     with pytest.raises(GenerationError, match="GOOGLE_API_KEY"):
         generate_answer_gemini("prompt")
+
+
+@pytest.mark.unit
+def test_gemini_failure_falls_back_to_groq_without_retry_delay(monkeypatch):
+    monkeypatch.setenv("GOOGLE_API_KEY", "gemini-key")
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+    gemini_client = Mock()
+    gemini_client.models.generate_content.side_effect = RuntimeError("429 RESOURCE_EXHAUSTED")
+
+    with (
+        patch("app.generation._setup", return_value=gemini_client),
+        patch("app.generation.generate_answer_groq", return_value="Câu trả lời dự phòng.") as fallback,
+        patch("app.generation.time.sleep") as sleep,
+    ):
+        answer = generate_answer_gemini("prompt", max_tokens=1200)
+
+    assert answer == "Câu trả lời dự phòng."
+    fallback.assert_called_once_with("prompt", long_answer=False, max_tokens=1200)
+    sleep.assert_not_called()
+
+
+@pytest.mark.unit
+def test_missing_gemini_key_uses_groq(monkeypatch):
+    monkeypatch.delenv("GOOGLE_API_KEY", raising=False)
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+
+    with patch("app.generation.generate_answer_groq", return_value="Groq hoạt động.") as fallback:
+        answer = generate_answer_gemini("prompt")
+
+    assert answer == "Groq hoạt động."
+    fallback.assert_called_once()
+
+
+@pytest.mark.unit
+def test_groq_uses_configured_model_and_token_budget(monkeypatch):
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+    monkeypatch.setenv("GROQ_MODEL", "openai/gpt-oss-120b")
+    client = Mock()
+    client.chat.completions.create.return_value.choices = [Mock(message=Mock(content="Phản hồi từ Groq."))]
+
+    with patch("app.generation._setup_groq", return_value=client):
+        answer = generate_answer_groq("prompt", long_answer=True, max_tokens=1450)
+
+    assert answer == "Phản hồi từ Groq."
+    kwargs = client.chat.completions.create.call_args.kwargs
+    assert kwargs["model"] == "openai/gpt-oss-120b"
+    assert kwargs["max_tokens"] == 1450
+    assert "[PHONG CÁCH]" in kwargs["messages"][0]["content"]

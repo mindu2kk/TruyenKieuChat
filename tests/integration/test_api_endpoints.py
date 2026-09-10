@@ -254,8 +254,10 @@ def test_history_api_clear(mock_clear, authenticated_client):
 @patch("chat_UI.views.connection.cursor")
 @patch("chat_UI.views.get_mongo_client")
 @patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_generation_configured", return_value=True)
+@patch("chat_UI.views.is_groq_configured", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
-def test_health_api_ready(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+def test_health_api_ready(mock_gemini, mock_groq, mock_generation, mock_poem, mock_client, mock_cursor, client):
     mock_cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
     mock_client.return_value.admin.command.return_value = {"ok": 1}
 
@@ -269,6 +271,8 @@ def test_health_api_ready(mock_gemini, mock_poem, mock_client, mock_cursor, clie
         "mongo": True,
         "mongo_status": "ready",
         "gemini_configured": True,
+        "groq_configured": True,
+        "generation_configured": True,
         "poem_ready": True,
     }
     mock_cursor.return_value.__enter__.return_value.execute.assert_called_once_with("SELECT 1")
@@ -278,9 +282,11 @@ def test_health_api_ready(mock_gemini, mock_poem, mock_client, mock_cursor, clie
 @patch("chat_UI.views.connection.cursor")
 @patch("chat_UI.views.get_mongo_client")
 @patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_generation_configured", return_value=True)
+@patch("chat_UI.views.is_groq_configured", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
 def test_health_api_reuses_short_lived_success(
-    mock_gemini, mock_poem, mock_client, mock_cursor, client, monkeypatch, settings
+    mock_gemini, mock_groq, mock_generation, mock_poem, mock_client, mock_cursor, client, monkeypatch, settings
 ):
     import chat_UI.views as views
 
@@ -300,8 +306,12 @@ def test_health_api_reuses_short_lived_success(
 @patch("chat_UI.views.connection.cursor", side_effect=Exception("sensitive database details"))
 @patch("chat_UI.views.get_mongo_client")
 @patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_generation_configured", return_value=True)
+@patch("chat_UI.views.is_groq_configured", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
-def test_health_api_reports_sql_database_failure(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+def test_health_api_reports_sql_database_failure(
+    mock_gemini, mock_groq, mock_generation, mock_poem, mock_client, mock_cursor, client
+):
     mock_client.return_value.admin.command.return_value = {"ok": 1}
 
     response = client.get("/api/health/")
@@ -314,6 +324,8 @@ def test_health_api_reports_sql_database_failure(mock_gemini, mock_poem, mock_cl
         "mongo": True,
         "mongo_status": "ready",
         "gemini_configured": True,
+        "groq_configured": True,
+        "generation_configured": True,
         "poem_ready": True,
     }
     assert "sensitive database details" not in response.content.decode("utf-8")
@@ -323,8 +335,12 @@ def test_health_api_reports_sql_database_failure(mock_gemini, mock_poem, mock_cl
 @patch("chat_UI.views.connection.cursor")
 @patch("chat_UI.views.get_mongo_client", side_effect=ValueError("MONGO_URI missing"))
 @patch("chat_UI.views.poem_ready", return_value=True)
+@patch("chat_UI.views.is_generation_configured", return_value=True)
+@patch("chat_UI.views.is_groq_configured", return_value=True)
 @patch("chat_UI.views.is_gemini_configured", return_value=True)
-def test_health_api_reports_missing_mongo_configuration(mock_gemini, mock_poem, mock_client, mock_cursor, client):
+def test_health_api_reports_missing_mongo_configuration(
+    mock_gemini, mock_groq, mock_generation, mock_poem, mock_client, mock_cursor, client
+):
     mock_cursor.return_value.__enter__.return_value.fetchone.return_value = (1,)
     response = client.get("/api/health/")
 

@@ -2,11 +2,16 @@
 import os
 import re
 import time
+import logging
 from functools import lru_cache
 from typing import Any, Dict, Optional
 
 from google import genai
 from google.genai import types
+from groq import Groq
+
+
+logger = logging.getLogger(__name__)
 
 
 class GenerationError(RuntimeError):
@@ -16,6 +21,16 @@ class GenerationError(RuntimeError):
 def is_gemini_configured() -> bool:
     """Return True when a GOOGLE_API_KEY is available."""
     return bool(os.getenv("GOOGLE_API_KEY"))
+
+
+def is_groq_configured() -> bool:
+    """Return True when a GROQ_API_KEY is available for failover."""
+    return bool((os.getenv("GROQ_API_KEY") or "").strip())
+
+
+def is_generation_configured() -> bool:
+    """Return True when at least one text-generation provider is available."""
+    return is_gemini_configured() or is_groq_configured()
 
 
 try:  # pragma: no cover - support package/script usage
@@ -37,6 +52,21 @@ def _setup() -> genai.Client:
         return _client_for_key(api_key)
     except Exception as exc:  # pragma: no cover - network/runtime error guard
         raise GenerationError(f"Không cấu hình được Gemini client ({exc}).") from exc
+
+
+@lru_cache(maxsize=1)
+def _groq_client_for_key(api_key: str) -> Groq:
+    return Groq(api_key=api_key)
+
+
+def _setup_groq() -> Groq:
+    api_key = (os.getenv("GROQ_API_KEY") or "").strip()
+    if not api_key:
+        raise GenerationError("Chưa thiết lập GROQ_API_KEY nên không thể gọi Groq.")
+    try:
+        return _groq_client_for_key(api_key)
+    except Exception as exc:  # pragma: no cover - network/runtime error guard
+        raise GenerationError(f"Không cấu hình được Groq client ({exc}).") from exc
 
 
 def _postprocess(ans: Optional[str]) -> str:
@@ -69,6 +99,18 @@ def _resolve_generation_config(long_answer: bool, max_tokens: Optional[int]) -> 
         "top_k": 32,
         "max_output_tokens": resolved_max,
     }
+
+
+def _with_long_answer_style(prompt: str, long_answer: bool) -> str:
+    if not long_answer:
+        return prompt
+    return f"""{prompt}
+
+[PHONG CÁCH]
+- Văn phong nghị luận mạch lạc (mở–thân–kết).
+- Luận điểm → dẫn chứng (trích 1–2 câu thơ khi phù hợp) → phân tích → tiểu kết.
+- Diễn đạt mềm mại, tránh liệt kê máy móc; ưu tiên sự sáng rõ và cô đọng.
+"""
 
 
 def _extract_text(res: Any) -> str:
@@ -108,7 +150,7 @@ def _extract_text(res: Any) -> str:
         return ""
 
 
-def generate_answer_gemini(
+def _generate_answer_gemini_primary(
     prompt: str,
     model: Optional[str] = None,
     long_answer: bool = False,
@@ -118,15 +160,7 @@ def generate_answer_gemini(
         client = _setup()
         generation_config = _resolve_generation_config(long_answer, max_tokens)
 
-        # giữ nguyên phong cách khi long_answer
-        if long_answer:
-            prompt = f"""{prompt}
-
-[PHONG CÁCH]
-- Văn phong nghị luận mạch lạc (mở–thân–kết).
-- Luận điểm → dẫn chứng (trích 1–2 câu thơ khi phù hợp) → phân tích → tiểu kết.
-- Diễn đạt mềm mại, tránh liệt kê máy móc; ưu tiên sự sáng rõ và cô đọng.
-"""
+        prompt = _with_long_answer_style(prompt, long_answer)
 
         resolved_model = (model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
         thinking_config = None
@@ -137,10 +171,12 @@ def generate_answer_gemini(
             thinking_config=thinking_config,
         )
 
-        # ❗ Gọi với retry tự động khi bị 429
+        # Khi có Groq dự phòng, fail fast để tránh giữ request Vercel hàng phút.
+        # Nếu chưa cấu hình Groq, vẫn giữ retry Gemini có giới hạn.
+        retry_attempts = 1 if is_groq_configured() else 3
         res = None
         last_exc = None
-        for attempt in range(3):
+        for attempt in range(retry_attempts):
             try:
                 res = client.models.generate_content(
                     model=resolved_model,
@@ -156,7 +192,7 @@ def generate_answer_gemini(
                 ) from exc
             except Exception as exc:
                 err_str = str(exc)
-                if "429" in err_str and attempt < 2:
+                if "429" in err_str and attempt < retry_attempts - 1:
                     m = re.search(r"retry[^\d]*(\d+)s", err_str)
                     wait = int(m.group(1)) + 2 if m else 30
                     time.sleep(wait)
@@ -189,3 +225,64 @@ def generate_answer_gemini(
         if isinstance(exc, GenerationError):
             raise
         raise GenerationError(str(exc)) from exc
+
+
+def generate_answer_groq(
+    prompt: str,
+    model: Optional[str] = None,
+    long_answer: bool = False,
+    max_tokens: Optional[int] = None,
+) -> str:
+    """Generate with Groq using the same prompt and output budget as Gemini."""
+    try:
+        client = _setup_groq()
+        config = _resolve_generation_config(long_answer, max_tokens)
+        prompt = _with_long_answer_style(prompt, long_answer)
+        resolved_model = (model or os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b").strip()
+        response = client.chat.completions.create(
+            model=resolved_model,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=config["temperature"],
+            top_p=config["top_p"],
+            max_tokens=config["max_output_tokens"],
+        )
+        choices = getattr(response, "choices", None) or []
+        message = getattr(choices[0], "message", None) if choices else None
+        out = _postprocess(getattr(message, "content", None))
+        if not out:
+            raise GenerationError("Groq không trả nội dung (empty response).")
+        return out
+    except Exception as exc:
+        if isinstance(exc, GenerationError):
+            raise
+        raise GenerationError(f"Gọi Groq thất bại ({exc}).") from exc
+
+
+def generate_answer_gemini(
+    prompt: str,
+    model: Optional[str] = None,
+    long_answer: bool = False,
+    max_tokens: Optional[int] = None,
+) -> str:
+    """Use Gemini first, then transparently fail over to Groq when configured."""
+    try:
+        return _generate_answer_gemini_primary(
+            prompt,
+            model=model,
+            long_answer=long_answer,
+            max_tokens=max_tokens,
+        )
+    except GenerationError as gemini_error:
+        if not is_groq_configured():
+            raise
+        logger.warning("Gemini generation failed; switching to Groq: %s", gemini_error)
+        try:
+            return generate_answer_groq(
+                prompt,
+                long_answer=long_answer,
+                max_tokens=max_tokens,
+            )
+        except GenerationError as groq_error:
+            raise GenerationError(
+                f"Cả Gemini và Groq đều thất bại. Gemini: {gemini_error}; Groq: {groq_error}"
+            ) from groq_error

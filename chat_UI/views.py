@@ -1,22 +1,23 @@
 # chat_UI/views.py
 import json
+import logging
+import traceback
 from threading import Lock
 from time import monotonic
+
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.db import connection
 from django.http import JsonResponse, HttpRequest
 from django.shortcuts import render
-from django.views.decorators.http import require_POST, require_http_methods
-from django.contrib.auth.decorators import login_required
 from django.utils.timezone import now
-from django.conf import settings
-from django.db import connection
-from datetime import date
+from django.views.decorators.http import require_POST, require_http_methods
 
 from .models import UserProfile
 
 from app.orchestrator import answer_with_router
-from app.generation import is_gemini_configured
+from app.generation import is_gemini_configured, is_generation_configured, is_groq_configured
 from app.poem_tools import poem_ready
-import logging, traceback
 
 logger = logging.getLogger(__name__)
 
@@ -195,14 +196,18 @@ def health_api(request: HttpRequest):
         logger.warning("health check: MongoDB unavailable", exc_info=True)
 
     gemini_ok = is_gemini_configured()
+    groq_ok = is_groq_configured()
+    generation_ok = is_generation_configured()
     poem_ok = poem_ready()
     payload = {
-        "ok": database_ok and mongo_ok and gemini_ok and poem_ok,
+        "ok": database_ok and mongo_ok and generation_ok and poem_ok,
         "database": database_ok,
         "database_status": database_status,
         "mongo": mongo_ok,
         "mongo_status": mongo_status,
         "gemini_configured": gemini_ok,
+        "groq_configured": groq_ok,
+        "generation_configured": generation_ok,
         "poem_ready": poem_ok,
     }
     if payload["ok"] and cache_seconds:
