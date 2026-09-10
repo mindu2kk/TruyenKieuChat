@@ -231,6 +231,8 @@ def test_chat_uses_compact_response_length_picker_instead_of_settings_panel():
     assert "Ngắn · 800 tokens" in template
     assert "Dài · 1200 tokens" in template
     assert '<input type="range"' not in template
+    assert "overflow-x: hidden" in template
+    assert "overflow-wrap: anywhere" in template
 
 
 @pytest.mark.unit
