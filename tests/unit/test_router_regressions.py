@@ -79,3 +79,39 @@ def test_known_character_questions_always_have_direct_answers(query, expected):
     assert expected in hit["answer"]
     assert "xác minh" not in hit["answer"]
     assert "corpus" not in hit["answer"]
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize(
+    "query, expected",
+    (
+        ("Thuy vn la ai?", "em gái"),
+        ("Kim trọg là ai?", "nho sinh"),
+        ("Tu hai la aj?", "anh hùng"),
+        ("Hoan thu la aj?", "vợ cả"),
+        ("Nhân vật Giac duyn có vai trò gì?", "ni cô"),
+        ("Dam tien la aj?", "ca nhi"),
+    ),
+)
+def test_character_faq_tolerates_one_small_typo(query, expected):
+    hit = lookup_faq(query)
+
+    assert hit is not None
+    assert expected in hit["answer"]
+
+
+@pytest.mark.unit
+def test_specific_faq_pattern_outranks_generic_work_question():
+    hit = lookup_faq("Giá trị nội dung Truyện Kiều là gì?")
+
+    assert hit is not None
+    assert "nhân đạo" in hit["answer"]
+    assert "bất công" in hit["answer"]
+
+
+@pytest.mark.unit
+def test_relationship_question_answers_the_subject_character():
+    hit = lookup_faq("Thúy Vân là gì của Thúy Kiều?")
+
+    assert hit is not None
+    assert "em gái của Thúy Kiều" in hit["answer"]

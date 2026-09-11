@@ -40,6 +40,10 @@
     "answer": "Nguyễn Du phỏng theo tiểu thuyết chương hồi Trung Hoa 'Kim Vân Kiều truyện' của Thanh Tâm Tài Nhân để sáng tác Truyện Kiều."
   },
   {
+    "patterns": ["thúy kiều là ai", "thuý kiều là ai", "nhân vật thúy kiều", "giới thiệu thúy kiều"],
+    "answer": "Thúy Kiều là nhân vật trung tâm của Truyện Kiều, người con gái tài sắc, hiếu thảo và giàu tình nghĩa. Vì cứu cha, nàng bán mình và trải qua mười lăm năm lưu lạc trước khi đoàn tụ với gia đình."
+  },
+  {
     "patterns": ["thúy vân là ai", "thuý vân là ai", "nhân vật thúy vân", "giới thiệu thúy vân"],
     "answer": "Thúy Vân là em gái của Thúy Kiều và chị của Vương Quan. Nàng là người được Kiều nhờ thay mình nối duyên với Kim Trọng trong đoạn Trao duyên."
   },
