@@ -385,6 +385,76 @@ def test_chat_api_with_metadata(mock_history, mock_save, mock_count, mock_router
     assert "verification" in data
     assert "elapsed_ms" in data
     assert data["harness"]["flow"] == "domain-qa"
+    assert data["content_blocks"][0]["type"] == "summary"
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+@patch("chat_UI.views.list_conversations")
+def test_conversations_api_lists_user_threads(mock_list, authenticated_client):
+    mock_list.return_value = [{"id": "thread-1", "title": "Trao duyên"}]
+
+    response = authenticated_client.get("/api/conversations/")
+
+    assert response.status_code == 200
+    assert response.json()["conversations"][0]["id"] == "thread-1"
+    mock_list.assert_called_once()
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+@patch("chat_UI.views.create_conversation", return_value="a" * 32)
+def test_conversations_api_creates_thread(mock_create, authenticated_client):
+    response = authenticated_client.post(
+        "/api/conversations/",
+        data=json.dumps({"title": "Kiều ở lầu Ngưng Bích"}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == 201
+    assert response.json()["conversation"]["id"] == "a" * 32
+    assert response.json()["conversation"]["title"] == "Kiều ở lầu Ngưng Bích"
+    mock_create.assert_called_once()
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+@patch("chat_UI.views.rename_conversation", return_value=True)
+def test_conversation_detail_api_renames_thread(mock_rename, authenticated_client):
+    response = authenticated_client.patch(
+        "/api/conversations/thread-1/",
+        data=json.dumps({"title": "Từ Hải"}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == 200
+    assert response.json()["conversation"] == {"id": "thread-1", "title": "Từ Hải"}
+    mock_rename.assert_called_once()
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+@patch("chat_UI.views.delete_conversation", return_value=4)
+def test_conversation_detail_api_deletes_only_selected_thread(mock_delete, authenticated_client):
+    response = authenticated_client.delete("/api/conversations/thread-1/")
+
+    assert response.status_code == 200
+    mock_delete.assert_called_once()
+
+
+@pytest.mark.integration
+@pytest.mark.requires_db
+@patch("chat_UI.views.update_message_actions", return_value={"saved": True, "feedback": "up"})
+def test_message_actions_api_syncs_save_and_feedback(mock_update, authenticated_client):
+    response = authenticated_client.patch(
+        f"/api/messages/{'a' * 24}/actions/",
+        data=json.dumps({"saved": True, "feedback": "up"}),
+        content_type="application/json",
+    )
+
+    assert response.status_code == 200
+    assert response.json()["actions"] == {"saved": True, "feedback": "up"}
+    mock_update.assert_called_once()
 
 
 @pytest.mark.integration

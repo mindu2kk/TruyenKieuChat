@@ -1,342 +1,234 @@
-{% load static %}
 <!doctype html>
-<html lang="vi" class="h-full">
+<html lang="vi" data-theme="ink">
 <head>
+  <script type="application/json" id="django-template-loader">{% load static %}</script>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>📜 Kiều Bot - Hỏi Đáp Truyện Kiều</title>
-  <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAR5JREFUSEvtlt0RgjAUhL+LgBO4gk7gCu4g6AQu4Aqig06gjqAjcARX0FHcwR38v1/Ah7sguEG4/M3lcu9y98gik8l8pLXWIIqI45hSSgC2JO8lVRtJtgFQUr/3dZ332Q2ADIQQ6k4Fq3wS1zVN80YQBNOu6x4I/pe3sjyvChAiqmrBfW+j6HoYhj8L4d56qZT6SgGMMXKk5z3JPM/zC0L4y/a+qGqYstY2Nq/bLpum+VzV9Z+vB8iyLBNR3EeKOANgrXVvGLquY4xZALbneQcAW2sB2Hqe5/cAWPN+lXwKKL33M0Q8W2u3zHjO2L+tlNrW2l8AbOuqys531bV2S5KzLwA0TdOkKIp/DwB2RC+ZTOZ7/gJ1K27vUPv2AAAAAElFTkSuQmCC">
-
-  <link rel="stylesheet" href="{% static 'chat_UI/tailwind.css' %}">
-
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#09130f">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <title>Kiều Bot — Phòng đọc đối thoại</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='17' fill='%2314271f'/%3E%3Cpath d='M17 17c8-3 14-1 15 4 1-5 7-7 15-4v31c-8-3-14-1-15 4-1-5-7-7-15-4V17Z' fill='none' stroke='%23ddb665' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <meta name="csrf-token" content="{{ csrf_token }}">
-  <style>
-    :root {
-      --bg-start: #111827;
-      --bg-end: #1a1a2e;
-      --surface: #1f2937;
-      --primary: #5eead4; /* Teal */
-      --primary-hover: #2dd4bf;
-      --text-main: #e5e7eb;
-      --text-secondary: #9ca3af;
-      --border: #374151;
-      --font-sans: 'Inter', sans-serif;
-      --font-serif: 'Cormorant Garamond', serif;
-    }
-
-    html { color-scheme: dark; }
-
-    body {
-      font-family: var(--font-sans);
-      overflow-x: hidden;
-      background-color: var(--bg-start);
-      background-image: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%),
-                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%2327272a' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 677 440 599 237 522 0 478'/%3E%3Cpath d='M-17 422L265 717 380 554 532 417 724 404 840 219'/%3E%3Cpath d='M-24 682L4 616 76 600 132 550 181 480 207 410 215 362 216 299 209 256 189 208 154 153 107 108 49 76'/%3E%3Cpath d='M-47 905L13 817 36 727 75 628 115 525 139 423 149 322 151 220 139 129 120 42 91-38'/%3E%3Cpath d='M-49 873L-3 792 34 706 85 607 131 509 161 413 175 319 179 226 173 134 160 46 135-41'/%3E%3Cpath d='M-51 900L-18 821 28 726 89 618 140 514 171 412 184 313 186 215 178 120 160 29 131-60'/%3E%3Cpath d='M837 855L759 791 639 725 544 650 454 564 363 475 272 382 193 293 125 208 69 129 25 57'/%3E%3C/g%3E%3Cg fill='%234f46e5'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='1037' cy='260' r='5'/%3E%3Ccircle cx='927' cy='880' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='677' r='5'/%3E%3Ccircle cx='440' cy='599' r='5'/%3E%3Ccircle cx='237' cy='522' r='5'/%3E%3Ccircle cx='0' cy='478' r='5'/%3E%3Ccircle cx='-17' cy='422' r='5'/%3E%3Ccircle cx='265' cy='717' r='5'/%3E%3Ccircle cx='380' cy='554' r='5'/%3E%3Ccircle cx='532' cy='417' r='5'/%3E%3Ccircle cx='724' cy='404' r='5'/%3E%3Ccircle cx='840' cy='219' r='5'/%3E%3Ccircle cx='-24' cy='682' r='5'/%3E%3Ccircle cx='4' cy='616' r='5'/%3E%3Ccircle cx='76' cy='600' r='5'/%3E%3Ccircle cx='132' cy='550' r='5'/%3E%3Ccircle cx='181' cy='480' r='5'/%3E%3Ccircle cx='207' cy='410' r='5'/%3E%3Ccircle cx='215' cy='362' r='5'/%3E%3Ccircle cx='216' cy='299' r='5'/%3E%3Ccircle cx='209' cy='256' r='5'/%3E%3Ccircle cx='189' cy='208' r='5'/%3E%3Ccircle cx='154' cy='153' r='5'/%3E%3Ccircle cx='107' cy='108' r='5'/%3E%3Ccircle cx='49' cy='76' r='5'/%3E%3Ccircle cx='-47' cy='905' r='5'/%3E%3Ccircle cx='13' cy='817' r='5'/%3E%3Ccircle cx='36' cy='727' r='5'/%3E%3Ccircle cx='75' cy='628' r='5'/%3E%3Ccircle cx='115' cy='525' r='5'/%3E%3Ccircle cx='139' cy='423' r='5'/%3E%3Ccircle cx='149' cy='322' r='5'/%3E%3Ccircle cx='151' cy='220' r='5'/%3E%3Ccircle cx='139' cy='129' r='5'/%3E%3Ccircle cx='120' cy='42' r='5'/%3E%3Ccircle cx='91' cy='-38' r='5'/%3E%3Ccircle cx='-49' cy='873' r='5'/%3E%3Ccircle cx='-3' cy='792' r='5'/%3E%3Ccircle cx='34' cy='706' r='5'/%3E%3Ccircle cx='85' cy='607' r='5'/%3E%3Ccircle cx='131' cy='509' r='5'/%3E%3Ccircle cx='161' cy='413' r='5'/%3E%3Ccircle cx='175' cy='319' r='5'/%3E%3Ccircle cx='179' cy='226' r='5'/%3E%3Ccircle cx='173' cy='134' r='5'/%3E%3Ccircle cx='160' cy='46' r='5'/%3E%3Ccircle cx='135' cy='-41' r='5'/%3E%3Ccircle cx='-51' cy='900' r='5'/%3E%3Ccircle cx='-18' cy='821' r='5'/%3E%3Ccircle cx='28' cy='726' r='5'/%3E%3Ccircle cx='89' cy='618' r='5'/%3E%3Ccircle cx='140' cy='514' r='5'/%3E%3Ccircle cx='171' cy='412' r='5'/%3E%3Ccircle cx='184' cy='313' r='5'/%3E%3Ccircle cx='186' cy='215' r='5'/%3E%3Ccircle cx='178' cy='120' r='5'/%3E%3Ccircle cx='160' cy='29' r='5'/%3E%3Ccircle cx='131' cy='-60' r='5'/%3E%3Ccircle cx='837' cy='855' r='5'/%3E%3Ccircle cx='759' cy='791' r='5'/%3E%3Ccircle cx='639' cy='725' r='5'/%3E%3Ccircle cx='544' cy='650' r='5'/%3E%3Ccircle cx='454' cy='564' r='5'/%3E%3Ccircle cx='363' cy='475' r='5'/%3E%3Ccircle cx='272' cy='382' r='5'/%3E%3Ccircle cx='193' cy='293' r='5'/%3E%3Ccircle cx='125' cy='208' r='5'/%3E%3Ccircle cx='69' cy='129' r='5'/%3E%3Ccircle cx='25' cy='57' r='5'/%3E%3C/g%3E%3C/svg%3E");
-      background-blend-mode: overlay;
-    }
-
-    .prose p { margin:.4rem 0 }
-    .msg { max-width: 78ch; min-width: 0; overflow-wrap: anywhere; }
-    .chat-message { animation: fadeIn .5s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    select {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-      background-position: right 0.5rem center;
-      background-repeat: no-repeat;
-      background-size: 1.5em 1.5em;
-      padding-right: 2.5rem;
-      -webkit-appearance: none; appearance: none;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,600;0,700;1,600&display=swap&subset=vietnamese" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'chat_UI/tailwind.css' %}">
+  <link rel="stylesheet" href="../static/chat_UI/kieu-chat.css">
+  <style>body { overflow-x: hidden; } .msg { overflow-wrap: anywhere; }</style>
+  <script defer src="../static/chat_UI/kieu-chat.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="h-full text-[var(--text-main)]" x-data="ChatUI()" x-init="init()">
-
-<header class="border-b border-[var(--border)] sticky top-0 z-40 glass">
-  <div class="mx-auto max-w-3xl px-4 py-3 flex items-center gap-3">
-    <div class="flex-1">
-      <h1 class="text-xl font-semibold tracking-tight" style="font-family: var(--font-serif);">📜 Kiều Bot</h1>
-      <p class="text-[var(--text-secondary)] text-sm -mt-0.5">Tra thơ chuẩn, phân tích mượt — không lộ nguồn.</p>
-    </div>
-
-    {% if user.is_authenticated %}
-      <div class="hidden sm:block text-sm text-[var(--text-secondary)]">Xin chào, <span class="font-medium text-[var(--text-main)]">{{ user.first_name|default:user.username }}</span></div>
-      <form method="post" action="{% url 'account_logout' %}" class="inline">
-        {% csrf_token %}
-        <button type="submit" class="ml-3 text-sm px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 transition-colors">Đăng xuất</button>
-      </form>
-    {% else %}
-      <a href="{% url 'account_login' %}" class="text-sm px-4 py-2 rounded-lg bg-[var(--primary)] text-slate-900 font-semibold hover:bg-[var(--primary-hover)] transition-all transform hover:scale-105">Đăng nhập</a>
-    {% endif %}
-  </div>
-</header>
-
-<div class="mx-auto max-w-3xl px-4 py-6">
-  <main class="flex flex-col h-full">
-    <template x-if="!isConfigured.gemini">
-      <div class="rounded-xl border border-amber-600/40 bg-amber-950/40 px-4 py-3 text-amber-200 mb-4">
-        🔑 Chưa thấy <code>GOOGLE_API_KEY</code>. Một số câu sẽ lỗi khi gọi model.
-      </div>
-    </template>
-    <template x-if="!isConfigured.poem">
-      <div class="rounded-xl border border-sky-600/40 bg-sky-950/40 px-4 py-3 text-sky-200 mb-4">
-        📜 Kho thơ chưa sẵn sàng (thiếu <code>data/interim/poem</code>).
-      </div>
-    </template>
-
-    <div id="chat" class="flex-1 space-y-6"></div>
-
-    <div x-show="typing" class="flex gap-3 items-start chat-message">
-      <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--surface)] grid place-items-center text-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10c5.515 0 10-4.486 10-10S17.515 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM7 16H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM19 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/></svg>
-      </div>
-      <div class="rounded-2xl rounded-tl-none px-4 py-3 bg-[var(--surface)] border border-[var(--border)]">
-        <span class="inline-flex gap-1.5 items-center">
-          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce"></i>
-          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:.15s]"></i>
-          <i class="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:.3s]"></i>
+<body
+  id="kieu-app"
+  x-data="ChatUI()"
+  data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}"
+  data-user-name="{{ user.first_name|default:user.username|escape }}"
+  data-user-initial="{{ user.username|slice:':1'|upper|escape }}"
+  data-chat-url="{% url 'chat_api' %}"
+  data-history-url="{% url 'history_api' %}"
+  data-conversations-url="{% url 'conversations_api' %}"
+  data-conversation-detail-base="/api/conversations/"
+  data-message-actions-base="/api/messages/"
+  data-login-url="{% url 'account_login' %}"
+  data-logout-url="{% url 'account_logout' %}"
+  data-model="{{ gemini_model|escape }}"
+  data-gemini-ready="{{ gemini_ok|yesno:'true,false' }}"
+  data-poem-ready="{{ poem_ok|yesno:'true,false' }}"
+  @click="recentMenuOpen = false"
+>
+  <div class="app-shell">
+    <aside
+      class="sidebar"
+      :class="{ 'is-open': sidebarOpen, 'is-collapsed': sidebarCollapsed && !compactNav }"
+      aria-label="Điều hướng Kiều Bot"
+    >
+      <a class="brand" href="/" aria-label="Kiều Bot — Phòng đọc đối thoại">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4.7c3.2-1.4 5.9-.8 8 1.7 2.1-2.5 4.8-3.1 8-1.7v14.8c-3.2-1.4-5.9-.8-8 1.7-2.1-2.5-4.8-3.1-8-1.7V4.7Z"/><path d="M12 6.4v14.8"/></svg>
         </span>
-      </div>
-    </div>
+        <span class="brand-copy-wrap">
+          <span class="brand-name">Kiều Bot</span>
+          <span class="brand-tagline">Phòng đọc đối thoại</span>
+        </span>
+      </a>
 
-    <form @submit.prevent="send()" class="sticky bottom-4 mt-6">
-      <div class="rounded-2xl border border-[var(--border)] p-2 bg-zinc-900/60 shadow-xl glass transition-all focus-within:ring-2 focus-within:ring-[var(--primary)]">
-        <textarea
-            x-model="draft"
-            rows="1"
-            placeholder="Hỏi về Truyện Kiều…"
-            class="w-full bg-transparent outline-none resize-none px-3 py-2 placeholder:text-zinc-500"
-            @input="$event.target.style.height='auto'; $event.target.style.height=Math.min(200,$event.target.scrollHeight)+'px'"
-            @keydown="if($event.key==='Enter'){ if($event.shiftKey){ return; } $event.preventDefault(); send(); }"
-        ></textarea>
+      <button type="button" class="new-chat" @click="newConversation()" title="Bắt đầu cuộc trò chuyện mới">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        <span class="new-chat-label">Cuộc trò chuyện mới</span>
+      </button>
 
-        <div class="flex items-center justify-between gap-2 px-2 pb-1">
-          <label class="inline-flex items-center rounded-full border border-[var(--border)] bg-zinc-800 px-3 py-2 text-sm text-zinc-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 4.5A3.5 3.5 0 0 0 6 8v.5a3 3 0 0 0-1 5.83V15a3 3 0 0 0 3 3h1.5m5-13.5A3.5 3.5 0 0 1 18 8v.5a3 3 0 0 1 1 5.83V15a3 3 0 0 1-3 3h-1.5M12 4v16m-3-9h3m3 3h-3"/></svg>
-            <select aria-label="Mức độ suy nghĩ" x-model="settings.response_length" class="bg-transparent outline-none py-1 pl-2 text-sm" style="border:0">
-              <option value="super_short">Siêu ngắn · 600 tokens</option>
-              <option value="short">Ngắn · 1200 tokens</option>
-              <option value="long">Dài · 1700 tokens</option>
-            </select>
-          </label>
-          <button :disabled="sending||!draft.trim()" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-slate-900 font-semibold disabled:opacity-50 disabled:scale-100 transition-all transform hover:scale-105">
-            Gửi
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m21.426 11.095-17-8A1 1 0 0 0 3.001 4.058l.001 5.942a1 1 0 0 0 .736.97L15.53 12 3.738 13.03a1 1 0 0 0-.737.97l-.001 5.942a1 1 0 0 0 1.425.962l17-8a1 1 0 0 0 0-1.81z"/></svg>
-          </button>
+      <div class="sidebar-scroll">
+        <div class="nav-stack">
+          <nav class="side-section" aria-label="Khám phá">
+            <p class="side-kicker">Khám phá</p>
+            <button type="button" class="side-link is-active" @click="closeSidebar(false); $refs.composer.focus()">
+              <span class="side-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5h14v11H9l-4 4V5Z"/></svg></span>
+              <span class="side-copy"><span class="side-title">Trò chuyện cùng Kiều</span><span class="side-caption">Hỏi, đọc và bình giảng</span></span>
+            </button>
+            <button type="button" class="side-link" @click="ask('Tóm tắt dòng truyện Truyện Kiều theo các chặng chính.')">
+              <span class="side-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 5h12M6 12h12M6 19h12M9 5v14" stroke-linecap="round"/></svg></span>
+              <span class="side-copy"><span class="side-title">Dòng truyện</span><span class="side-caption">Theo từng chặng đời Kiều</span></span>
+            </button>
+            <button type="button" class="side-link" @click="ask('Gợi ý 5 câu thơ tiêu biểu trong Truyện Kiều và giải thích ngắn.')">
+              <span class="side-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16H6zM9 8h6M9 12h5"/></svg></span>
+              <span class="side-copy"><span class="side-title">Câu thơ hay</span><span class="side-caption">Tìm theo chủ đề và cảm xúc</span></span>
+            </button>
+            <button type="button" class="side-link" @click="ask('Giải thích một số điển tích quan trọng trong Truyện Kiều.')">
+              <span class="side-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4M8 11h6M11 8v6"/></svg></span>
+              <span class="side-copy"><span class="side-title">Tra cứu điển tích</span><span class="side-caption">Mở lớp nghĩa văn hóa</span></span>
+            </button>
+          </nav>
+
+          <nav class="side-section" aria-label="Thử hỏi">
+            <p class="side-kicker">Thử hỏi</p>
+            <button type="button" class="side-link" @click="ask('Bình giảng đoạn Trao duyên trong Truyện Kiều.')"><span class="side-icon">✦</span><span class="side-copy"><span class="side-title">Bình giảng một đoạn</span><span class="side-caption">Từ câu chữ đến tâm trạng</span></span></button>
+            <button type="button" class="side-link" @click="ask('Phân tích nhân vật Thúy Kiều qua những lựa chọn quan trọng.')"><span class="side-icon">人</span><span class="side-copy"><span class="side-title">Khám phá nhân vật</span><span class="side-caption">Tính cách và số phận</span></span></button>
+            <button type="button" class="side-link" @click="ask('Giải nghĩa các từ cổ trong đoạn Kiều ở lầu Ngưng Bích.')"><span class="side-icon">字</span><span class="side-copy"><span class="side-title">Giải nghĩa từ cổ</span><span class="side-caption">Hiểu đúng ngôn ngữ xưa</span></span></button>
+            <button type="button" class="side-link" @click="ask('Phân tích bút pháp tả cảnh ngụ tình trong Truyện Kiều.')"><span class="side-icon">✧</span><span class="side-copy"><span class="side-title">Phân tích nghệ thuật</span><span class="side-caption">Nhìn sâu vào bút pháp</span></span></button>
+          </nav>
+
+          <section class="side-section recent-section" x-show="conversations.length" aria-labelledby="recent-heading">
+            <p class="side-kicker" id="recent-heading">Gần đây</p>
+            <template x-for="conversation in conversations" :key="conversation.id">
+              <div class="recent-item">
+                <button type="button" class="side-link" :class="{ 'is-active': conversation.id === currentConversationId }" @click="selectConversation(conversation.id)">
+                  <span class="side-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5h14v14H5zM8 9h8M8 13h6"/></svg></span>
+                  <span class="side-copy"><span class="side-title" x-text="conversation.title"></span><span class="side-caption" x-text="conversation.id === currentConversationId ? 'Đang mở' : 'Mạch đọc đã lưu'"></span></span>
+                </button>
+                <button type="button" class="recent-menu-button" :aria-label="`Tùy chọn ${conversation.title}`" :aria-expanded="(recentMenuOpen === conversation.id).toString()" @click.stop="recentMenuOpen = recentMenuOpen === conversation.id ? false : conversation.id">•••</button>
+                <div class="recent-menu" x-cloak x-show="recentMenuOpen === conversation.id" @click.stop>
+                  <button type="button" @click="renameConversation(conversation)">Đổi tên</button>
+                  <button type="button" class="is-danger" @click="deleteConversationById(conversation.id)">Xóa mạch đọc</button>
+                </div>
+              </div>
+            </template>
+          </section>
         </div>
       </div>
-    </form>
-  </main>
-</div>
 
-<template id="tpl-user">
-  <div class="flex gap-3 items-start justify-end chat-message">
-    <div class="msg order-1 rounded-2xl rounded-br-none px-4 py-2 bg-[var(--primary)] text-slate-900"></div>
-    <div class="shrink-0 w-8 h-8 rounded-full bg-zinc-700 grid place-items-center order-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-zinc-300" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.181.75.75 0 0 1-1.498.07 7.5 7.5 0 0 0-14.992 0 .75.75 0 0 1-1.5-.07 9.005 9.005 0 0 1 5.9-8.181A5.5 5.5 0 0 1 12 2.5ZM8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"/></svg>
+      <footer class="sidebar-footer">
+        <span class="sidebar-avatar" x-text="config.userInitial">B</span>
+        <span class="sidebar-foot-copy">
+          <span class="sidebar-user" x-text="config.authenticated ? config.userName : 'Bạn đọc'">Bạn đọc</span>
+          <a class="sidebar-account-action" :href="config.authenticated ? config.logoutUrl : config.loginUrl" x-text="config.authenticated ? 'Đăng xuất' : 'Đăng nhập để lưu mạch đọc'">Đăng nhập</a>
+        </span>
+      </footer>
+    </aside>
+
+    <button type="button" class="sidebar-scrim" x-cloak x-show="compactNav && sidebarOpen" x-transition.opacity @click="closeSidebar(true)" aria-label="Đóng điều hướng"></button>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button type="button" x-ref="menu" class="icon-button mobile-menu" @click="toggleSidebar()" :aria-expanded="sidebarOpen.toString()" :aria-label="sidebarOpen ? 'Đóng điều hướng' : 'Mở điều hướng'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+        <button type="button" class="icon-button desktop-collapse" @click="toggleSidebar()" :aria-label="sidebarCollapsed ? 'Mở rộng thanh bên' : 'Thu gọn thanh bên'" :title="sidebarCollapsed ? 'Mở rộng thanh bên' : 'Thu gọn thanh bên'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM9 5v14M13 9l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="conversation-title">
+          <strong x-text="hasMessages ? recentTitle : 'Phòng đọc đối thoại'">Phòng đọc đối thoại</strong>
+          <span><i class="privacy-dot"></i>Mạch đọc riêng tư của tài khoản</span>
+        </div>
+        <div class="top-actions">
+          <button type="button" class="icon-button" @click="focusSearch()" aria-label="Tìm câu thơ" title="Tìm câu thơ · Ctrl K">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" class="icon-button" @click="toggleTheme()" :aria-label="theme === 'ink' ? 'Bật nền giấy dịu' : 'Bật nền mực'" :title="theme === 'ink' ? 'Nền giấy dịu' : 'Nền mực'">
+            <svg x-show="theme === 'ink'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 15.5A8 8 0 0 1 8.5 5 8 8 0 1 0 19 15.5Z"/></svg>
+            <svg x-cloak x-show="theme === 'paper'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          </button>
+          <a class="profile-button" :href="config.authenticated ? '#' : config.loginUrl" :aria-label="config.authenticated ? `Tài khoản ${config.userName}` : 'Đăng nhập'">
+            <span class="sidebar-avatar" x-text="config.userInitial">B</span>
+            <span class="profile-name" x-text="config.authenticated ? config.userName : 'Đăng nhập'">Đăng nhập</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="conversation">
+        <div class="config-alert" x-cloak x-show="historyLoaded && !config.geminiReady">Mô hình ngôn ngữ chưa được cấu hình; một số câu hỏi có thể chưa phản hồi.</div>
+        <div class="config-alert" x-cloak x-show="historyLoaded && !config.poemReady">Kho văn bản thơ chưa sẵn sàng; chức năng trích dẫn có thể bị giới hạn.</div>
+
+        <section class="stage" aria-live="polite">
+          <section class="welcome" x-cloak x-show="historyLoaded && !hasMessages" x-transition.opacity aria-labelledby="welcome-title">
+            <span class="welcome-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4.7c3.2-1.4 5.9-.8 8 1.7 2.1-2.5 4.8-3.1 8-1.7v14.8c-3.2-1.4-5.9-.8-8 1.7-2.1-2.5-4.8-3.1-8-1.7V4.7Z"/><path d="M12 6.4v14.8"/></svg></span>
+            <p class="welcome-kicker">Chào bạn đến với</p>
+            <h1 id="welcome-title">Kiều <span>Bot</span></h1>
+            <p class="welcome-lede">Đọc Kiều bằng đối thoại. Hỏi về một câu thơ, một nhân vật, một điển tích — hay cả một kiếp người.</p>
+
+            <p class="prompt-title">Bạn muốn bắt đầu từ đâu?</p>
+            <div class="prompt-grid">
+              <template x-for="item in suggestions" :key="item.title">
+                <button type="button" class="prompt-card" @click="ask(item.prompt)">
+                  <span class="prompt-card-icon" x-text="item.icon"></span>
+                  <strong x-text="item.title"></strong>
+                  <span x-text="item.prompt"></span>
+                </button>
+              </template>
+            </div>
+
+            <article class="daily-verse" aria-labelledby="daily-verse-title">
+              <p class="daily-label" id="daily-verse-title">Câu Kiều hôm nay</p>
+              <div class="daily-copy"><blockquote x-html="dailyVerse.lines.replace(/\n/g, '<br>')"></blockquote><cite>Nguyễn Du · Truyện Kiều</cite></div>
+              <button type="button" class="text-button" @click="ask(dailyVerse.prompt)">Bình câu thơ này →</button>
+            </article>
+          </section>
+
+          <div id="chat" aria-label="Nội dung cuộc trò chuyện"></div>
+
+          <div class="typing-row" x-cloak x-show="typing" x-transition.opacity role="status" aria-live="polite">
+            <span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19.5V5.4A2.4 2.4 0 0 1 7.4 3H19v14.1a2.4 2.4 0 0 0-2.4-2.4H5Z"/><path d="M9 7h6M9 10h5"/></svg></span>
+            <div class="typing-card"><div class="typing-status"><span class="typing-star">✦</span><span x-text="loadingLabel">Kiều Bot đang tra văn bản…</span></div><div class="skeleton" aria-hidden="true"><i></i><i></i></div></div>
+          </div>
+        </section>
+
+        <form class="composer-wrap" @submit.prevent="send()">
+          <div class="composer">
+            <textarea x-ref="composer" x-model="draft" rows="1" placeholder="Hỏi Kiều Bot về một câu thơ, nhân vật hay mạch truyện…" aria-label="Câu hỏi cho Kiều Bot" title="Enter để gửi · Shift + Enter để xuống dòng" @input="resizeComposer($event)" @keydown="if($event.key === 'Enter' && !$event.shiftKey){ $event.preventDefault(); send(); }"></textarea>
+            <div class="composer-footer">
+              <select aria-label="Mức độ suy nghĩ" x-model="settings.response_length" class="response-preset" title="Chọn độ dài câu trả lời">
+                <option value="super_short">Siêu ngắn · 600 tokens</option>
+                <option value="short">Ngắn · 1200 tokens</option>
+                <option value="long">Dài · 1700 tokens</option>
+              </select>
+              <button type="submit" class="send-button" :disabled="sending || !draft.trim()" aria-label="Gửi câu hỏi" title="Gửi câu hỏi">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 14-7-4 14-3.3-5.2L5 12Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <button type="button" class="jump-latest" x-cloak x-show="showJumpToLatest && hasMessages" x-transition.opacity @click="scrollBottom(false)" aria-label="Về cuối mạch đọc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>Về cuối</button>
+      </main>
     </div>
   </div>
-</template>
 
-<template id="tpl-bot">
-  <div class="flex gap-3 items-start chat-message">
-    <div class="shrink-0 w-8 h-8 rounded-full bg-[var(--surface)] grid place-items-center text-lg">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10c5.515 0 10-4.486 10-10S17.515 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM7 16H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1zM19 16h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/></svg>
-    </div>
-    <div class="flex-1 space-y-2">
-      <div class="msg prose prose-invert max-w-full prose-p:text-[var(--text-main)] prose-headings:text-white prose-strong:text-white prose-code:text-amber-300 prose-code:bg-black/20 prose-code:p-1 prose-code:rounded-sm rounded-2xl rounded-tl-none px-4 py-2 bg-[var(--surface)] border border-[var(--border)]"></div>
-      <div class="text-xs text-[var(--text-secondary)] space-x-2 pl-1" data-meta-summary hidden>
-        <span class="chip" data-meta-intent></span>
-        <span class="chip" data-meta-elapsed></span>
-        <span class="chip" data-meta-budget></span>
-        <span class="chip" data-meta-quality></span>
+  <template id="tpl-user">
+    <article class="chat-message message-row user">
+      <div class="message-stack"><div class="message-label">Bạn</div><div class="msg bubble"></div></div>
+      <span class="avatar user-avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></span>
+    </article>
+  </template>
+
+  <template id="tpl-bot" data-legacy-label="🧠 legacy">
+    <article class="chat-message message-row assistant">
+      <span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 19.5V5.4A2.4 2.4 0 0 1 7.4 3H19v14.1a2.4 2.4 0 0 0-2.4-2.4H5Z"/><path d="M9 7h6M9 10h5"/></svg></span>
+      <div class="message-stack">
+        <div class="message-label">Kiều Bot · Phòng đọc</div>
+        <div class="msg assistant-document"></div>
+        <div class="message-actions" aria-label="Thao tác với câu trả lời">
+          <button type="button" class="message-action" data-copy-answer title="Sao chép câu trả lời"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>Sao chép</button>
+          <button type="button" class="message-action" data-save-answer title="Lưu trên thiết bị này"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 4h12v16l-6-4-6 4V4Z"/></svg>Lưu</button>
+          <button type="button" class="message-action" data-feedback-up aria-label="Câu trả lời hữu ích" title="Hữu ích"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 11v9H4v-9h4Zm0 8h8.6a2 2 0 0 0 1.9-1.4l1.4-5A2 2 0 0 0 18 10h-4l.7-3.3A2.2 2.2 0 0 0 12.5 4L8 11Z"/></svg></button>
+          <button type="button" class="message-action" data-feedback-down aria-label="Câu trả lời chưa hữu ích" title="Chưa hữu ích"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 13V4H4v9h4Zm0-8h8.6a2 2 0 0 1 1.9 1.4l1.4 5A2 2 0 0 1 18 14h-4l.7 3.3a2.2 2.2 0 0 1-2.2 2.7L8 13Z"/></svg></button>
+          <button type="button" class="message-action" data-deepen title="Yêu cầu phân tích sâu hơn">Đào sâu thêm →</button>
+        </div>
+        <div class="followups" aria-label="Gợi ý hỏi tiếp"></div>
+        <div class="metadata" data-meta-summary hidden><span class="metadata-chip" data-meta-intent></span><span class="metadata-chip" data-meta-elapsed></span><span class="metadata-chip" data-meta-budget></span><span class="metadata-chip" data-meta-quality></span></div>
+        <div class="meta-details" data-meta-details hidden></div>
       </div>
-      <div class="mt-1 pl-1" data-meta-details hidden></div>
-    </div>
-  </div>
-</template>
+    </article>
+  </template>
 
-<script>
-function ChatUI(){
-  return {
-    typing:false,
-    sending:false,
-    draft:"",
-    settings: JSON.parse(localStorage.getItem("kieu.chat-preferences.v1") || '{"response_length":"short","debug_meta":false}'),
-    isConfigured: { gemini: {{ gemini_ok|yesno:"true,false" }}, poem: {{ poem_ok|yesno:"true,false" }} },
-
-    init(){
-      if (!["super_short", "short", "long"].includes(this.settings.response_length)) {
-        this.settings.response_length = "short";
-      }
-      this.settings.debug_meta = false;
-      this.reloadHistory();
-      this.$watch('settings', () => this.saveSettings(), { deep: true });
-    },
-    saveSettings(){ localStorage.setItem("kieu.chat-preferences.v1", JSON.stringify(this.settings)); },
-
-    async reloadHistory(){
-      try{
-        const r = await fetch("{% url 'history_api' %}", {credentials:"same-origin"});
-        const data = await r.json();
-        const box = document.getElementById("chat");
-        box.innerHTML = "";
-        (data.messages || []).forEach(m => this.render(m.role, m.content, m.meta||null));
-        this.scrollBottom(true); // no smooth scroll on initial load
-      }catch(e){ console.error(e); }
-    },
-
-    clearChat(){
-      fetch("{% url 'history_api' %}",{
-        method:"DELETE",
-        headers:{"X-CSRFToken": document.querySelector('meta[name="csrf-token"]').content},
-        credentials:"same-origin"
-      })
-        .then(()=>this.reloadHistory());
-    },
-
-    render(role, content, meta){
-      const box = document.getElementById("chat");
-      const tpl = document.getElementById(role==="user"?"tpl-user":"tpl-bot").content.cloneNode(true);
-      const msg = tpl.querySelector(".msg");
-      if (role==="assistant") {
-        msg.innerHTML = this.markdown(content);
-        if (meta){
-          const summary = tpl.querySelector('[data-meta-summary]');
-          const chipIntent = tpl.querySelector('[data-meta-intent]');
-          const chipElapsed = tpl.querySelector('[data-meta-elapsed]');
-          const chipBudget = tpl.querySelector('[data-meta-budget]');
-          const chipQuality = tpl.querySelector('[data-meta-quality]');
-          const detail = tpl.querySelector('[data-meta-details]');
-          const harness = meta.harness || {};
-          const quality = harness.quality || {};
-          if (summary) summary.hidden = !this.settings.debug_meta;
-          if (chipIntent) chipIntent.textContent = `🧭 ${meta.intent||"domain"} · ${harness.flow||"default"}`;
-          if (chipElapsed) chipElapsed.textContent = `⏱️ ${Math.round(meta.elapsed_ms||0)} ms`;
-          if (chipBudget) {
-            const budget = harness.token_budget;
-            chipBudget.textContent = !budget
-              ? "🧠 legacy"
-              : budget.max_output_tokens
-                ? `🧠 ${budget.max_output_tokens} tokens · ${budget.tier||"auto"}`
-                : "🧠 deterministic";
-          }
-          if (chipQuality) chipQuality.textContent = `🛡️ ${quality.status||"unchecked"}`;
-          if (detail) {
-            detail.hidden = !this.settings.debug_meta;
-            detail.innerHTML = this.renderMeta(meta);
-          }
-        }
-      } else {
-        msg.textContent = content;
-      }
-      box.appendChild(tpl);
-    },
-
-    renderMeta(meta){
-      let html = "";
-      const harness = meta.harness || {};
-      const quality = harness.quality || {};
-      if (harness.route_reason){
-        const confidence = Math.round((harness.route_confidence||0)*100);
-        html += `<div class="text-xs text-[var(--text-secondary)]">🧪 Route: ${this.escape(harness.route_reason)} · confidence ${confidence}%</div>`;
-      }
-      if (harness.token_budget && Array.isArray(harness.token_budget.reasons)){
-        html += `<div class="text-xs text-[var(--text-secondary)]">🧠 Token plan: ${this.escape(harness.token_budget.reasons.join(", "))}</div>`;
-      }
-      if (Array.isArray(quality.issues) && quality.issues.length){
-        html += `<div class="text-xs text-amber-300">⚠️ ${this.escape(quality.issues.join(", "))}</div>`;
-      }
-      if (meta.verification && meta.verification.coverage !== undefined){
-        const cv = Math.round((meta.verification.coverage||0)*100);
-        html += `<div class="text-xs text-[var(--text-secondary)]">🔍 Kiểm chứng trích dẫn: coverage ~${cv}%</div>`;
-        if (Array.isArray(meta.verification.quotes) && meta.verification.quotes.length){
-          html += `<details class="mt-1 text-xs text-zinc-300/90"><summary class="cursor-pointer">Chi tiết kiểm chứng</summary>`;
-          meta.verification.quotes.forEach(q=>{
-            const ok = (meta.verification.accepted||[]).some(a=>a.quote===q.quote && a.matched_line===q.matched_line);
-            const icon = ok ? "✅" : "⚠️";
-            const line = Number.isInteger(q.matched_line) ? `Câu ${q.matched_line}`:"Không rõ câu";
-            const score = (q.score||0).toFixed(1);
-            html += `<div class="mt-2 pl-2 border-l border-zinc-700"><b>${icon} ${line} · score=${score}</b>
-                        <div class="break-all">• Trích: <code class="text-amber-300">${this.escape(q.quote||"")}</code></div>
-                        <div class="break-all">• Khớp: <code class="text-amber-300">${this.escape(q.matched_text||"(không trùng khớp)")}</code></div>
-                        </div>`;
-          });
-          html += `</details>`;
-        }
-      }
-      return html;
-    },
-
-    escape(s){ return (s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m])) },
-    markdown(s){
-        let escaped = this.escape(s);
-        // Basic Markdown-like conversions
-        // Bold: **text** -> <strong>text</strong>
-        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        // Italic: *text* -> <em>text</em>
-        escaped = escaped.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        // Newlines to <br> and paragraph breaks
-        let html = escaped.split(/\n\s*\n/).map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
-        return html;
-    },
-    scrollBottom(instant = false){ requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight, behavior: instant ? "auto" : "smooth"})); },
-
-    async send(){
-      if (!this.draft.trim()) return;
-
-      const msg = this.draft.trim();
-      this.render("user", msg);
-      this.$nextTick(() => this.draft = ""); // Clear after rendering
-      this.scrollBottom();
-      this.typing = true; this.sending = true;
-
-      const payload = {
-        message: msg,
-        k: 5,
-        model: "{{ gemini_model }}",
-        response_length: this.settings.response_length,
-        long_answer: this.settings.response_length === "long",
-        max_tokens: ({super_short:600, short:1200, long:1700})[this.settings.response_length] || 1200
-      };
-
-      try{
-        const r = await fetch("{% url 'chat_api' %}", {
-          method:"POST",
-          headers:{
-            "Content-Type":"application/json",
-            "X-CSRFToken": document.querySelector('meta[name="csrf-token"]').content
-          },
-          body: JSON.stringify(payload),
-          credentials:"same-origin"
-        });
-        const data = await r.json();
-        this.typing = false;
-
-        const meta = {
-          intent: data.intent, verification: data.verification,
-          elapsed_ms: data.elapsed_ms, error: data.error,
-          harness: data.harness
-        };
-        const visibleAnswer = data.answer || data.message || "Xin lỗi, yêu cầu chưa được xử lý.";
-        this.render("assistant", visibleAnswer, meta);
-        this.scrollBottom();
-
-      }catch(e){
-        this.typing = false;
-        this.render("assistant", "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi.");
-      } finally {
-        this.sending = false;
-      }
-    }
-  }
-}
-</script>
+  <p class="sr-only" aria-live="polite" aria-atomic="true" x-text="liveStatus"></p>
+  <template x-if="notice"><div class="notice" role="status" aria-live="polite" x-text="notice" x-transition.opacity></div></template>
 </body>
 </html>

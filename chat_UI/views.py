@@ -13,25 +13,31 @@ from django.shortcuts import render
 from django.utils.timezone import now
 from django.views.decorators.http import require_POST, require_http_methods
 
-from .models import UserProfile
-
 from app.orchestrator import answer_with_router
 from app.generation import is_gemini_configured, is_generation_configured, is_groq_configured
 from app.poem_tools import poem_ready
 
-logger = logging.getLogger(__name__)
-
-_health_cache_lock = Lock()
-_health_cache = None
-
+from .content_blocks import build_content_blocks
 from .mongo_utils import (
     save_message_to_mongo,
     get_history_for_api,
     get_history_for_bot,
     clear_user_history,
     count_user_messages_today,
+    create_conversation,
+    delete_conversation,
     get_mongo_client,
+    list_conversations,
+    normalize_conversation_id,
+    rename_conversation,
+    update_message_actions,
 )
+from .models import UserProfile
+
+logger = logging.getLogger(__name__)
+
+_health_cache_lock = Lock()
+_health_cache = None
 
 
 def _bounded_int(value, *, default: int, minimum: int, maximum: int) -> int:
@@ -79,6 +85,11 @@ def chat_api(request):
     if not msg:
         return JsonResponse({"ok": False, "error": "empty message"}, status=400)
 
+    try:
+        conversation_id = normalize_conversation_id(payload.get("conversation_id"))
+    except ValueError:
+        return JsonResponse({"ok": False, "error": "invalid conversation id"}, status=400)
+
     # <<< THAY ĐỔI: Kiểm tra quota bằng hàm từ MongoDB >>>
     used_today = count_user_messages_today(user)
     daily_limit = settings.DAILY_MESSAGE_LIMIT
@@ -108,8 +119,8 @@ def chat_api(request):
         t0 = now()
         # Read the prior conversation before storing the current turn. This
         # prevents the active question from being duplicated in the model prompt.
-        chat_history = get_history_for_bot(user, limit=12)
-        save_message_to_mongo(user, "user", msg)
+        chat_history = get_history_for_bot(user, limit=12, conversation_id=conversation_id)
+        save_message_to_mongo(user, "user", msg, conversation_id=conversation_id)
 
         ret = answer_with_router(
             msg,
@@ -127,36 +138,129 @@ def chat_api(request):
         logger.exception("chat_api failed")
         error_content = "Xin lỗi, có lỗi kỹ thuật khi xử lý câu hỏi."
         # <<< THAY ĐỔI: Lưu lỗi vào MongoDB >>>
-        save_message_to_mongo(user, "assistant", error_content, meta={"error": str(exc), "trace": trace})
+        save_message_to_mongo(
+            user,
+            "assistant",
+            error_content,
+            meta={"error": str(exc), "trace": trace},
+            conversation_id=conversation_id,
+        )
         return JsonResponse({"ok": False, "error": "backend"}, status=500)
 
     answer = ret.get("answer") or "(không có câu trả lời)"
+    content_blocks = build_content_blocks(
+        answer,
+        query=msg,
+        intent=ret.get("intent") or "domain",
+        verification=ret.get("verification"),
+    )
     meta_data = {
         "intent": ret.get("intent"),
         "verification": ret.get("verification"),
         "elapsed_ms": elapsed_ms,
         "error": ret.get("error"),
         "harness": ret.get("harness"),
+        "content_blocks": content_blocks,
     }
 
     # <<< THAY ĐỔI: Lưu câu trả lời của bot vào MongoDB >>>
-    save_message_to_mongo(user, "assistant", answer, meta=meta_data)
+    assistant_message_id = save_message_to_mongo(
+        user,
+        "assistant",
+        answer,
+        meta=meta_data,
+        conversation_id=conversation_id,
+    )
 
-    return JsonResponse({"ok": True, "answer": answer, **meta_data})
+    return JsonResponse(
+        {
+            "ok": True,
+            "answer": answer,
+            "conversation_id": conversation_id,
+            "message_id": assistant_message_id if isinstance(assistant_message_id, str) else None,
+            **meta_data,
+        }
+    )
 
 
 # --- View history_api được viết lại hoàn toàn ---
 @require_http_methods(["GET", "DELETE"])
 @login_required
 def history_api(request: HttpRequest):
+    conversation_id = request.GET.get("conversation_id")
+    if conversation_id:
+        try:
+            conversation_id = normalize_conversation_id(conversation_id)
+        except ValueError:
+            return JsonResponse({"ok": False, "error": "invalid conversation id"}, status=400)
     if request.method == "DELETE":
         # <<< THAY ĐỔI: Xóa lịch sử trong MongoDB >>>
-        clear_user_history(request.user)
+        clear_user_history(request.user, conversation_id=conversation_id) if conversation_id else clear_user_history(request.user)
         return JsonResponse({"ok": True, "messages": []})
 
     # <<< THAY ĐỔI: Lấy lịch sử từ MongoDB >>>
-    messages = get_history_for_api(request.user)
-    return JsonResponse({"ok": True, "messages": messages})
+    messages = get_history_for_api(request.user, conversation_id=conversation_id) if conversation_id else get_history_for_api(request.user)
+    return JsonResponse({"ok": True, "conversation_id": conversation_id or "legacy", "messages": messages})
+
+
+@require_http_methods(["GET", "POST"])
+@login_required
+def conversations_api(request: HttpRequest):
+    if request.method == "GET":
+        return JsonResponse({"ok": True, "conversations": list_conversations(request.user)})
+    try:
+        payload = json.loads(request.body.decode("utf-8") or "{}")
+    except (UnicodeDecodeError, json.JSONDecodeError):
+        return JsonResponse({"ok": False, "error": "invalid json"}, status=400)
+    conversation_id = create_conversation(request.user, payload.get("title") or "Cuộc trò chuyện mới")
+    return JsonResponse(
+        {"ok": True, "conversation": {"id": conversation_id, "title": payload.get("title") or "Cuộc trò chuyện mới"}},
+        status=201,
+    )
+
+
+@require_http_methods(["PATCH", "DELETE"])
+@login_required
+def conversation_detail_api(request: HttpRequest, conversation_id: str):
+    try:
+        conversation_id = normalize_conversation_id(conversation_id)
+    except ValueError:
+        return JsonResponse({"ok": False, "error": "invalid conversation id"}, status=400)
+    if request.method == "DELETE":
+        delete_conversation(request.user, conversation_id)
+        return JsonResponse({"ok": True})
+    try:
+        payload = json.loads(request.body.decode("utf-8") or "{}")
+        renamed = rename_conversation(request.user, conversation_id, payload.get("title"))
+    except (UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
+        return JsonResponse({"ok": False, "error": str(exc)}, status=400)
+    if not renamed:
+        return JsonResponse({"ok": False, "error": "conversation not found"}, status=404)
+    return JsonResponse({"ok": True, "conversation": {"id": conversation_id, "title": payload["title"].strip()[:80]}})
+
+
+@require_http_methods(["PATCH"])
+@login_required
+def message_actions_api(request: HttpRequest, message_id: str):
+    try:
+        payload = json.loads(request.body.decode("utf-8") or "{}")
+        if "saved" in payload and not isinstance(payload["saved"], bool):
+            raise ValueError("invalid saved state")
+        if "feedback" in payload and payload["feedback"] not in {"up", "down", None}:
+            raise ValueError("invalid feedback")
+        updates = {}
+        if "saved" in payload:
+            updates["saved"] = payload["saved"]
+        if "feedback" in payload:
+            updates["feedback"] = payload["feedback"]
+        if not updates:
+            raise ValueError("no actions supplied")
+        state = update_message_actions(request.user, message_id, **updates)
+    except (UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
+        return JsonResponse({"ok": False, "error": str(exc)}, status=400)
+    if state is None:
+        return JsonResponse({"ok": False, "error": "message not found"}, status=404)
+    return JsonResponse({"ok": True, "actions": state})
 
 
 @require_http_methods(["GET"])
