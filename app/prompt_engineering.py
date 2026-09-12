@@ -67,7 +67,10 @@ def _cite_tag(meta: Dict[str, Any]) -> str:
     """
     Sinh nhãn trích dẫn gọn, ưu tiên info dòng thơ / offset.
     """
-    src = meta.get("source") or meta.get("title") or "unknown"
+    src = meta.get("title") or meta.get("source") or "unknown"
+    publisher = meta.get("publisher")
+    if publisher and publisher != "Chưa xác định" and str(publisher).casefold() not in str(src).casefold():
+        src = f"{src} — {publisher}"
     if meta.get("type") == "poem" and meta.get("line_start") and meta.get("line_end"):
         return f"[SOURCE: {src} L{meta['line_start']}-{meta['line_end']}]"
     if meta.get("char_start") is not None and meta.get("char_end") is not None:

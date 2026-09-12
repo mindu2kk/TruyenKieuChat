@@ -1,365 +1,294 @@
-# scripts/01_build_chunks.py
 # -*- coding: utf-8 -*-
-"""
-Build RAG chunks + vị trí:
-- Thơ: line_start/line_end (đếm từ 1)
-- Văn xuôi: char_start/char_end (tính theo bản đã normalize)
+"""Build a clean, traceable RAG corpus from ``data/interim``.
 
-Input:
-  data/interim/poem/*.txt     # thơ (mỗi câu 1 dòng)
-  data/interim/analysis/*.txt
-  data/interim/summary/*.txt
-  data/interim/bio/*.txt
-
-Output:
-  data/rag_chunks/*.txt  (dòng đầu: ###META### {json})
+Only ``data/interim/poem/poem.txt`` is treated as the canonical poem. The raw
+poem transcription remains available for comparison but is never indexed.
+Output is written to ``data/rag_chunks_clean`` by default, leaving the current
+production corpus untouched until it has been validated and promoted.
 """
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import sys
+import unicodedata
+from functools import lru_cache
 from pathlib import Path
-import re, json, unicodedata, hashlib
-from typing import List, Tuple, Dict, Optional
+from typing import Dict, Iterable, Iterator, List, Tuple
 
-SRC = Path("data/interim")
-DST = Path("data/rag_chunks"); DST.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
+from app.corpus_quality import enrich_metadata, safe_chunk_dir
+
+SRC = ROOT / "data" / "interim"
+DEFAULT_DST = ROOT / "data" / "rag_chunks_clean"
+CANONICAL_POEM = SRC / "poem" / "poem.txt"
+MOTIF_FILE = SRC / "poem" / "motifs.jsonl"
 PROSE_MAX_WORDS = 220
-POEM_LINES_PER_BLOCK = (2, 4)
+POEM_LINES_PER_BLOCK = 4
 POEM_OVERLAP_LINES = 1
 
 TYPE_BY_DIR = {
     "poem": "poem",
     "analysis": "analysis",
+    "ana": "analysis",
     "summary": "summary",
     "bio": "bio",
 }
 
-CHAR_PAT = {
-    "char:thuy_kieu":  [r"\bthúy?\s*kiều\b", r"\bvu(o|ơ)ng\s*thúy?\s*kiều\b"],
-    "char:thuy_van":   [r"\bthúy?\s*vân\b"],
-    "char:kim_trong":  [r"\bkim\s*trọng\b"],
-    "char:tu_hai":     [r"\bt(ừ|u)\s*h(ả|a)i\b"],
-    "char:hoan_thu":   [r"\bhoạn?\s*th(ư|u)\b"],
-    "char:ma_giam_sinh":[r"\bm(ã|a)\s*gi(á|a)m\s*sinh\b"],
-    "char:so_khanh":   [r"\bs(ở|o)\s*khanh\b"],
-    "char:tu_ba":      [r"\bt(ú|u)\s*b(à|a)\b"],
-    "char:giac_duyen": [r"\bgi(á|a)c\s*duy(ê|e)n\b"],
-    "char:dam_tien":   [r"\b(đ|d)ạm\s*ti(ê|e)n\b"],
-    "char:vuong_quan": [r"\bv(ư|u)o(ng)?\s*quan\b"],
-}
-DEVICE_PAT = {
-    "device:uoc_le":        [r"\bước\s*lệ\b", r"\b(ước\s*lệ|tượng\s*trưng)\b"],
-    "device:dien_co":       [r"\bđi(ể|e)n\s*c(ố|o)\b", r"\bđi(ể|e)n\s*t(ích|ich)\b"],
-    "device:an_du":         [r"\bẩn\s*d(ụ|u)\b"],
-    "device:nhan_hoa":      [r"\bnhân\s*h(ó|o)a\b"],
-    "device:ta_canh_ngu_tinh":[r"\bt(ả|a)\s*c(ả|a)nh\s*ng(ụ|u)\s*t(ì|i)nh\b"],
-    "device:phung_du":      [r"\bphúng\s*d(ụ|u)\b"],
-    "device:cuc_ta":        [r"\bc(ư|u)ờng\s*đi(ễ|e)m\b", r"\bph(ó|o)ng\s*đ(ạ|a)i\s*(ch(ử|u)|ph(á|a)p)\b"],
-}
-THEME_PAT = {
-    "theme:tai_menh":   [r"\bt(à|a)i\s*m(ệ|e)nh\b", r"\bt(à|a)i\s*v(ậ|a)n\b"],
-    "theme:chu_tam":    [r"\bch(ữ|u)\s*t(â|a)m\b"],
-    "theme:nhan_dao":   [r"\bnh(â|a)n\s*đ(ạ|a)o\b"],
-    "theme:tinh_yeu":   [r"\bt(ì|i)nh\s*y(ê|e)u\b", r"\bd(uy|uy)ên\b"],
-    "theme:so_phan":    [r"\bs(ố|o)\s*ph(ậ|a)n\b", r"\bb(ạ|a)c\s*m(ệ|e)nh\b"],
-    "theme:gia_bien":   [r"\bgia\s*bi(ế|e)n\b"],
-}
-SECTION_PAT = {
-    "section:trao_duyen":        [r"\btrao\s*duy(ê|e)n\b"],
-    "section:chi_khi_anh_hung":  [r"\bch(í|i)\s*kh(í|i)\s*anh\s*h(ù|u)ng\b"],
-    "section:bao_an_bao_oan":    [r"\bb(á|a)o\s*(â|a)n\b.*b(á|a)o\s*(o|ô)an\b", r"\bth(ú|u)y\s*ki(ề|e)u\s*b(á|a)o\s*(â|a)n\b"],
-    "section:gap_kim_trong":     [r"\bg(ặ|a)p\s*kim\s*tr(ọ|o)ng\b"],
-    "section:khoc_duong_truong": [r"\b(đ|d)o(à|a)n\s*tr(ư|u)ờng\s*t(â|a)n\s*th(à|a)nh\b"],
+TAG_PATTERNS = {
+    "char:thuy_kieu": (r"\bth[uú]y\s+ki[eề]u\b",),
+    "char:thuy_van": (r"\bth[uú]y\s+v[aâ]n\b",),
+    "char:kim_trong": (r"\bkim\s+tr[oọ]ng\b",),
+    "char:tu_hai": (r"\bt[ừu]\s+h[aả]i\b",),
+    "char:hoan_thu": (r"\bho[aạ]n\s+th[ưủu]\b",),
+    "char:thuc_sinh": (r"\bth[uú]c\s+sinh\b",),
+    "char:ma_giam_sinh": (r"\bm[aã]\s+gi[aá]m\s+sinh\b",),
+    "char:so_khanh": (r"\bs[ởo]\s+khanh\b",),
+    "char:tu_ba": (r"\bt[uú]\s+b[aà]\b",),
+    "char:giac_duyen": (r"\bgi[aá]c\s+duy[eê]n\b",),
+    "char:dam_tien": (r"\b[đd][aạ]m\s+ti[eê]n\b",),
+    "device:uoc_le": (r"\bước\s+lệ\b", r"\btượng\s+trưng\b"),
+    "device:dien_co": (r"\bđiển\s+(?:cố|tích)\b",),
+    "device:an_du": (r"\bẩn?\s*dụ\b",),
+    "device:nhan_hoa": (r"\bnhân\s+hóa\b",),
+    "device:ta_canh_ngu_tinh": (r"\btả\s+cảnh\s+ngụ\s+tình\b",),
+    "theme:tai_menh": (r"\btài\s+mệnh\b", r"\btài\s+vận\b"),
+    "theme:chu_tam": (r"\bchữ\s+tâm\b",),
+    "theme:nhan_dao": (r"\bnhân\s+đạo\b",),
+    "theme:tinh_yeu": (r"\btình\s+yêu\b", r"\bduyên\b"),
+    "theme:so_phan": (r"\bsố\s+phận\b", r"\bbạc\s+mệnh\b"),
+    "section:trao_duyen": (r"\btrao\s+duyên\b",),
+    "section:canh_ngay_xuan": (r"\bcảnh\s+ngày\s+xuân\b",),
+    "section:kieu_o_lau_ngung_bich": (r"\blầu\s+ngưng\s+bích\b",),
+    "section:bao_an_bao_oan": (r"\bbáo\s+ân\b.*\bbáo\s+oán\b",),
+    "event:gap_kim_trong": (r"\bgặp\s+kim\s+trọng\b",),
+    "event:ban_minh_chuoc_cha": (r"\bbán\s+mình\b", r"\bchuộc\s+cha\b"),
+    "event:doan_vien": (r"\bđoàn\s+viên\b",),
+    "allusion:quat_nong_ap_lanh": (r"\bquạt\s+nồng\b", r"\bấp\s+lạnh\b"),
+    "allusion:san_lai": (r"\bsân\s+lai\b",),
+    "archaic:phong_tinh": (r"\bphong\s+tình\b",),
+    "archaic:thanh_minh": (r"\bthanh\s+minh\b",),
 }
 
-import regex as re2  # thêm ở đầu file (đã có 're' nhưng ta dùng 'regex' cho \R và overlapped)
 
-def _relaxed_span(hay: str, needle: str, start_at: int = 0) -> tuple[int, int]:
-    """
-    Tìm needle trong hay, bỏ qua khác biệt khoảng trắng.
-    - Quy tắc: collapse mọi whitespace trong needle thành \\s+ rồi re2.search từ vị trí start_at.
-    - Trả (s, e) hoặc (-1, -1) nếu không thấy.
-    """
-    # escape toàn bộ, rồi thay cụm whitespace liên tiếp trong needle thành \\s+
-    esc = re2.escape(needle.strip())
-    esc = re2.sub(r"(\\\s)+", r"\\s+", esc)  # phòng TH needle đã có \s do escape
-    esc = re2.sub(r"\\\s+", r"\\s+", esc)    # chắc ăn
-    # đồng bộ chuẩn hoá khoảng trắng trong haystack vùng xét
-    m = re2.search(esc, hay[start_at:], flags=re2.IGNORECASE | re2.DOTALL | re2.MULTILINE)
-    if not m:
-        return -1, -1
-    s = start_at + m.start()
-    e = start_at + m.end()
-    return s, e
+def normalize_prose(text: str) -> str:
+    value = unicodedata.normalize("NFC", text).replace("\u00a0", " ")
+    value = re.sub(r"[ \t]+\n", "\n", value)
+    value = re.sub(r"\n{3,}", "\n\n", value)
+    return value.strip()
 
 
-def split_prose(text: str, max_words=PROSE_MAX_WORDS) -> list[dict]:
-    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
-    blocks, cur = [], ""
-    cursor = 0            # luôn tìm tiếp từ đây
-    cur_start = None
+def normalize_poem(text: str) -> str:
+    value = unicodedata.normalize("NFC", text).replace("\u00a0", " ")
+    return "\n".join(re.sub(r"[ \t]+$", "", line) for line in value.splitlines()).strip()
 
-    def append_block(buf: str, s: int | None, e: int | None):
-        blocks.append({
-            "text": buf.strip(),
-            "char_start": int(s) if (isinstance(s, int) and s >= 0) else None,
-            "char_end":   int(e) if (isinstance(e, int) and e is not None and e > 0) else None
-        })
 
-    for p in paras:
-        candidate = (cur + "\n\n" + p).strip() if cur else p
-        if len(candidate.split()) <= max_words:
-            if not cur:
-                s, e = _relaxed_span(text, p, cursor)
-                cur_start = s if s >= 0 else None
-            cur = candidate
+def _paragraph_spans(text: str) -> List[Tuple[int, int]]:
+    return [match.span() for match in re.finditer(r"\S(?:.*?\S)?(?=\n\s*\n|\Z)", text, flags=re.DOTALL)]
+
+
+def _sentence_spans(text: str, start: int, end: int) -> List[Tuple[int, int]]:
+    segment = text[start:end]
+    spans = []
+    for match in re.finditer(r"\S.*?(?:[.!?…:;](?=\s|\Z)|\Z)", segment, flags=re.DOTALL):
+        left, right = match.span()
+        spans.append((start + left, start + right))
+    return spans or [(start, end)]
+
+
+def _pack_spans(text: str, spans: Iterable[Tuple[int, int]], max_words: int) -> Iterator[Dict[str, object]]:
+    current_start = current_end = None
+    for start, end in spans:
+        proposed_start = start if current_start is None else current_start
+        proposed = text[proposed_start:end].strip()
+        if current_start is not None and len(proposed.split()) > max_words:
+            yield {
+                "text": text[current_start:current_end].strip(),
+                "char_start": current_start,
+                "char_end": current_end,
+            }
+            current_start, current_end = start, end
         else:
-            if cur:
-                if cur_start is None:
-                    s, e = _relaxed_span(text, cur, cursor)
-                else:
-                    s = cur_start
-                    e = s + len(cur) if s is not None and s >= 0 else None
-                    if (s is None) or (s < 0):
-                        s, e = _relaxed_span(text, cur, cursor)
-                append_block(cur, s, e)
-                cursor = e if e else cursor
-                cur = p
-                s, e = _relaxed_span(text, p, cursor)
-                cur_start = s if s >= 0 else None
-            else:
-                # cắt theo câu
-                sentences = re.split(r"(?<=[\.\?\!…:;])\s+", p)
-                buf, buf_start = "", None
-                for snt in sentences:
-                    cand2 = (buf + " " + snt).strip() if buf else snt
-                    if len(cand2.split()) <= max_words:
-                        if not buf:
-                            s0, _ = _relaxed_span(text, snt, cursor)
-                            buf_start = s0 if s0 >= 0 else None
-                        buf = cand2
-                    else:
-                        if buf:
-                            if buf_start is None:
-                                s1, e1 = _relaxed_span(text, buf, cursor)
-                            else:
-                                s1 = buf_start
-                                e1 = s1 + len(buf) if s1 is not None and s1 >= 0 else None
-                                if (s1 is None) or (s1 < 0):
-                                    s1, e1 = _relaxed_span(text, buf, cursor)
-                            append_block(buf, s1, e1)
-                            cursor = e1 if e1 else cursor
-                            buf = snt
-                            s2, _ = _relaxed_span(text, snt, cursor)
-                            buf_start = s2 if s2 >= 0 else None
-                        else:
-                            s3, e3 = _relaxed_span(text, snt, cursor)
-                            append_block(snt, s3, e3)
-                            cursor = e3 if e3 else cursor
-                if buf:
-                    if buf_start is None:
-                        s4, e4 = _relaxed_span(text, buf, cursor)
-                    else:
-                        s4 = buf_start
-                        e4 = s4 + len(buf) if s4 is not None and s4 >= 0 else None
-                        if (s4 is None) or (s4 < 0):
-                            s4, e4 = _relaxed_span(text, buf, cursor)
-                    append_block(buf, s4, e4)
-                    cursor = e4 if e4 else cursor
-                cur = ""
-    if cur:
-        if cur_start is None:
-            s, e = _relaxed_span(text, cur, cursor)
-        else:
-            s = cur_start
-            e = s + len(cur) if s is not None and s >= 0 else None
-            if (s is None) or (s < 0):
-                s, e = _relaxed_span(text, cur, cursor)
-        append_block(cur, s, e)
-    return blocks
-
-def write_chunks(blocks: list, meta_base: dict, base_name: str):
-    for idx, blk in enumerate(blocks):
-        meta = dict(meta_base)
-        meta["chunk_index"] = idx
-        if meta_base["type"] == "poem":
-            meta["line_start"] = blk["line_start"]
-            meta["line_end"]   = blk["line_end"]
-            content = blk["lines"].strip()
-            meta["id"] = f"{meta_base['source_id']}_L{meta['line_start']:04d}-{meta['line_end']:04d}_{make_id(content)[:6]}"
-        else:
-            meta["char_start"] = blk.get("char_start")
-            meta["char_end"]   = blk.get("char_end")
-            content = blk["text"].strip()
-            meta["id"] = f"{meta_base['source_id']}_{idx:04d}_{make_id(content)[:6]}"
-
-        tags = extract_tags(content, meta_base["type"])
-        if not isinstance(tags, list):   # failsafe
-            tags = list(tags) if isinstance(tags, set) else [str(tags)]
-        meta["tags"] = tags
-
-        hdr = "###META### " + json.dumps(meta, ensure_ascii=False)
-        outp = DST / f"{base_name}_{idx:04d}.txt"
-        outp.write_text(hdr + "\n" + content + "\n", encoding="utf-8")
-
-
-def normalize_text_prose(t: str) -> str:
-    t = unicodedata.normalize("NFC", t)
-    t = t.replace("\u00a0", " ")
-    t = re.sub(r"[ \t]+\n", "\n", t)
-    t = re.sub(r"\n{3,}", "\n\n", t)
-    return t.strip()
-
-def normalize_text_poem(t: str) -> str:
-    # không gom dòng, chỉ NFC + bỏ khoảng trắng cuối dòng
-    t = unicodedata.normalize("NFC", t).replace("\u00a0", " ")
-    lines = [re.sub(r"[ \t]+$", "", ln) for ln in t.splitlines()]
-    return "\n".join(lines).strip()
-
-def read_txt(fp: Path) -> str:
-    return fp.read_text(encoding="utf-8", errors="ignore")
-
-def file_type(fp: Path) -> str:
-    parts = list(fp.relative_to(SRC).parts)
-    return TYPE_BY_DIR.get(parts[0], "analysis")
-
-def make_id(s: str) -> str:
-    return hashlib.sha1(s.encode("utf-8")).hexdigest()[:12]
-
-def _find_any(patterns, text):
-    return any(re.search(p, text, flags=re.I) for p in patterns)
-
-def extract_tags(text: str, ftype: str) -> List[str]:
-    tags: set[str] = set()
-    for tag, pats in CHAR_PAT.items():
-        if _find_any(pats, text): tags.add(tag)
-    for tag, pats in DEVICE_PAT.items():
-        if _find_any(pats, text): tags.add(tag)
-    for tag, pats in THEME_PAT.items():
-        if _find_any(pats, text): tags.add(tag)
-    for tag, pats in SECTION_PAT.items():
-        if _find_any(pats, text): tags.add(tag)
-    if re.search(r"\bhoa\b", text, flags=re.I) and re.search(r"\bli(ễ|e)u\b", text, flags=re.I):
-        tags.add("device:uoc_le")
-    tags.add(f"type:{ftype}")
-    return sorted(tags)
-
-# ====== Chunkers ======
-def split_poem(text: str, min_lines=2, max_lines=4, overlap=1) -> List[Dict]:
-    lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
-    blocks: List[Dict] = []
-    i, n = 0, len(lines)
-    L = max_lines
-    while i < n:
-        j = min(i + L, n)
-        blk_text = "\n".join(lines[i:j])
-        blocks.append({"lines": blk_text, "line_start": i + 1, "line_end": j})
-        i += max(1, (L - overlap))
-    return blocks
-
-def split_prose(text: str, max_words=PROSE_MAX_WORDS) -> List[Dict]:
-    def find_span(hay: str, needle: str, start_at: int) -> Tuple[int, int]:
-        pos = hay.find(needle, start_at)
-        return (pos, pos + len(needle)) if pos >= 0 else (-1, -1)
-
-    paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
-    blocks: List[Dict] = []
-    cur, cur_start = "", -1
-    cursor = 0
-
-    for p in paras:
-        if len((cur + " " + p).split()) <= max_words:
-            if not cur:
-                cur_start, _ = find_span(text, p, cursor)
-            cur = (cur + "\n\n" + p).strip()
-        else:
-            if cur:
-                s = text.find(cur, cur_start if cur_start >= 0 else 0)
-                e = s + len(cur) if s >= 0 else -1
-                blocks.append({"text": cur, "char_start": s if s >= 0 else -1, "char_end": e if e >= 0 else -1})
-                cursor = e if e >= 0 else cursor
-                cur = p
-                cur_start, _ = find_span(text, p, cursor)
-            else:
-                sentences = re.split(r"(?<=[\.\?\!…:;])\s+", p)
-                buf, buf_start = "", -1
-                for snt in sentences:
-                    if len((buf + " " + snt).split()) <= max_words:
-                        if not buf:
-                            buf_start, _ = find_span(text, snt, cursor)
-                        buf = (buf + " " + snt).strip()
-                    else:
-                        if buf:
-                            s0 = buf_start
-                            e0 = s0 + len(buf) if s0 >= 0 else -1
-                            blocks.append({"text": buf, "char_start": s0 if s0 >= 0 else -1, "char_end": e0 if e0 >= 0 else -1})
-                            cursor = e0 if e0 >= 0 else cursor
-                            buf = snt; buf_start, _ = find_span(text, snt, cursor)
-                        else:
-                            s1, e1 = find_span(text, snt, cursor)
-                            blocks.append({"text": snt, "char_start": s1 if s1 >= 0 else -1, "char_end": e1 if e1 >= 0 else -1})
-                            cursor = e1 if e1 >= 0 else cursor
-                if buf:
-                    s2 = buf_start
-                    e2 = s2 + len(buf) if s2 >= 0 else -1
-                    blocks.append({"text": buf, "char_start": s2 if s2 >= 0 else -1, "char_end": e2 if e2 >= 0 else -1})
-                    cursor = e2 if e2 >= 0 else cursor
-                cur = ""
-    if cur:
-        s = cur_start
-        e = s + len(cur) if s >= 0 else -1
-        blocks.append({"text": cur, "char_start": s if s >= 0 else -1, "char_end": e if e >= 0 else -1})
-    return blocks
-
-def write_chunks(blocks: List[Dict], meta_base: Dict, base_name: str):
-    for idx, blk in enumerate(blocks):
-        meta = dict(meta_base)
-        meta["chunk_index"] = idx
-        if meta_base["type"] == "poem":
-            content = blk["lines"].strip()
-            meta["line_start"] = int(blk["line_start"])
-            meta["line_end"] = int(blk["line_end"])
-            meta["id"] = f"{meta_base['source_id']}_L{meta['line_start']:04d}-{meta['line_end']:04d}_{make_id(content)[:6]}"
-        else:
-            content = blk["text"].strip()
-            meta["char_start"] = int(blk.get("char_start", -1))
-            meta["char_end"] = int(blk.get("char_end", -1))
-            meta["id"] = f"{meta_base['source_id']}_{idx:04d}_{make_id(content)[:6]}"
-
-        meta["tags"] = extract_tags(content, meta_base["type"])
-        hdr = "###META### " + json.dumps(meta, ensure_ascii=False)
-        outp = DST / f"{base_name}_{idx:04d}.txt"
-        outp.write_text(hdr + "\n" + content + "\n", encoding="utf-8")
-
-def main():
-    files = list(SRC.rglob("*.txt"))
-    if not files:
-        raise SystemExit("❗ Không tìm thấy .txt trong data/interim/.")
-
-    total_files, total_chunks = 0, 0
-    for fp in files:
-        ftype = file_type(fp)
-        raw = read_txt(fp)
-        text = normalize_text_poem(raw) if ftype == "poem" else normalize_text_prose(raw)
-
-        rel = fp.relative_to(SRC)
-        base_name = fp.stem
-        meta_base = {
-            "source": str(rel).replace("\\", "/"),
-            "source_id": base_name,
-            "type": ftype,
-            "title": base_name,
+            current_start, current_end = proposed_start, end
+    if current_start is not None and current_end is not None:
+        yield {
+            "text": text[current_start:current_end].strip(),
+            "char_start": current_start,
+            "char_end": current_end,
         }
 
-        if ftype == "poem":
-            blocks = split_poem(text)
-        else:
-            blocks = split_prose(text)
 
-        write_chunks(blocks, meta_base, base_name)
-        total_files += 1
-        total_chunks += len(blocks)
+def split_prose(text: str, max_words: int = PROSE_MAX_WORDS) -> List[Dict[str, object]]:
+    blocks: List[Dict[str, object]] = []
+    short_spans: List[Tuple[int, int]] = []
 
-    print(f"✔ Done. {total_files} file -> {total_chunks} chunks.")
-    print(f"   Output: {DST.resolve()}")
+    def flush_short() -> None:
+        nonlocal short_spans
+        blocks.extend(_pack_spans(text, short_spans, max_words))
+        short_spans = []
+
+    for start, end in _paragraph_spans(text):
+        if len(text[start:end].split()) <= max_words:
+            short_spans.append((start, end))
+            continue
+        flush_short()
+        blocks.extend(_pack_spans(text, _sentence_spans(text, start, end), max_words))
+    flush_short()
+    return blocks
+
+
+def split_poem(text: str) -> List[Dict[str, object]]:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    blocks: List[Dict[str, object]] = []
+    step = max(1, POEM_LINES_PER_BLOCK - POEM_OVERLAP_LINES)
+    for index in range(0, len(lines), step):
+        selected = lines[index : index + POEM_LINES_PER_BLOCK]
+        if selected:
+            blocks.append(
+                {
+                    "text": "\n".join(selected),
+                    "line_start": index + 1,
+                    "line_end": index + len(selected),
+                }
+            )
+    return blocks
+
+
+@lru_cache(maxsize=1)
+def _motif_ranges() -> List[Tuple[int, int, str]]:
+    try:
+        payload = json.loads(MOTIF_FILE.read_text(encoding="utf-8"))
+    except (OSError, TypeError, ValueError):
+        return []
+    ranges = []
+    for item in payload:
+        bounds = item.get("range") or []
+        if len(bounds) == 2 and item.get("motif"):
+            ranges.append((int(bounds[0]), int(bounds[1]), str(item["motif"])))
+    return ranges
+
+
+def _section_for_lines(line_start: int, line_end: int) -> str:
+    for start, end, motif in _motif_ranges():
+        if line_start <= end and line_end >= start:
+            return motif
+    return ""
+
+
+def _slug(value: str) -> str:
+    ascii_value = unicodedata.normalize("NFD", value)
+    ascii_value = "".join(ch for ch in ascii_value if unicodedata.category(ch) != "Mn")
+    ascii_value = ascii_value.replace("đ", "d").replace("Đ", "D").lower()
+    return re.sub(r"[^a-z0-9]+", "_", ascii_value).strip("_")
+
+
+def extract_tags(text: str, doc_type: str) -> List[str]:
+    tags = {f"type:{doc_type}"}
+    for tag, patterns in TAG_PATTERNS.items():
+        if any(re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL) for pattern in patterns):
+            tags.add(tag)
+    return sorted(tags)
+
+
+def _source_url(text: str) -> str:
+    match = re.search(r"<!--\s*source:\s*(https?://[^\s>]+)\s*-->", text, flags=re.IGNORECASE)
+    return match.group(1) if match else ""
+
+
+def _document_title(raw: str, fallback: str) -> str:
+    for line in raw.splitlines()[:30]:
+        candidate = re.sub(r"^#{1,6}\s*", "", line).strip()
+        if candidate and not candidate.startswith("<!--") and 5 <= len(candidate) <= 180:
+            return candidate
+    return fallback
+
+
+def _source_files() -> Iterator[Path]:
+    for path in sorted(SRC.rglob("*.txt")):
+        relative = path.relative_to(SRC)
+        if not relative.parts or relative.parts[0] not in TYPE_BY_DIR:
+            continue
+        if relative.parts[0] == "poem" and path.resolve() != CANONICAL_POEM.resolve():
+            continue
+        yield path
+
+
+def _base_meta(path: Path, doc_type: str, raw: str) -> Dict[str, object]:
+    relative = path.relative_to(SRC)
+    is_poem = doc_type == "poem"
+    return {
+        "source": str(relative).replace("\\", "/"),
+        "source_id": "truyen-kieu-canonical" if is_poem else path.stem,
+        "title": "Truyện Kiều — văn bản chuẩn của dự án" if is_poem else _document_title(raw, path.stem),
+        "type": doc_type,
+        "source_url": _source_url(raw),
+        "author": "Nguyễn Du" if is_poem else "Chưa xác định",
+        "work": "Truyện Kiều" if is_poem else path.stem,
+        "edition": "project-canonical-v1" if is_poem else "",
+        "source_tier": "primary" if is_poem else "",
+    }
+
+
+def _chunk_id(source_id: str, index: int, text: str, meta: Dict[str, object]) -> str:
+    digest = hashlib.sha1(text.encode("utf-8")).hexdigest()[:8]
+    if meta.get("type") == "poem":
+        return f"{source_id}_L{int(meta['line_start']):04d}-{int(meta['line_end']):04d}_{digest}"
+    return f"{source_id}_{index:04d}_{digest}"
+
+
+def build(output: Path) -> Dict[str, int]:
+    output = safe_chunk_dir(output, ROOT)
+    output.mkdir(parents=True, exist_ok=True)
+    for stale in output.glob("*.txt"):
+        stale.unlink()
+
+    source_count = chunk_count = duplicate_count = 0
+    seen_hashes: set[str] = set()
+    for path in _source_files():
+        raw = path.read_text(encoding="utf-8", errors="ignore")
+        doc_type = TYPE_BY_DIR[path.relative_to(SRC).parts[0]]
+        text = normalize_poem(raw) if doc_type == "poem" else normalize_prose(raw)
+        blocks = split_poem(text) if doc_type == "poem" else split_prose(text)
+        base = _base_meta(path, doc_type, raw)
+        for index, block in enumerate(blocks):
+            body = str(block["text"]).strip()
+            meta = dict(base)
+            meta.update({key: value for key, value in block.items() if key != "text"})
+            meta["chunk_index"] = index
+            meta["tags"] = extract_tags(body, doc_type)
+            if doc_type == "poem":
+                section = _section_for_lines(int(meta["line_start"]), int(meta["line_end"]))
+                meta["section"] = section
+                if section:
+                    meta["tags"].append(f"section:{_slug(section)}")
+            meta = enrich_metadata(meta, body)
+            digest = str(meta["content_hash"])
+            if digest in seen_hashes:
+                duplicate_count += 1
+                continue
+            seen_hashes.add(digest)
+            meta["id"] = _chunk_id(str(meta["source_id"]), index, body, meta)
+            destination = output / f"{meta['id']}.txt"
+            header = "###META### " + json.dumps(meta, ensure_ascii=False, sort_keys=True)
+            destination.write_text(f"{header}\n{body}\n", encoding="utf-8")
+            chunk_count += 1
+        source_count += 1
+    return {"sources": source_count, "chunks": chunk_count, "duplicates_skipped": duplicate_count}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, default=DEFAULT_DST)
+    args = parser.parse_args()
+    result = build(args.output)
+    print(json.dumps({**result, "output": str(args.output.resolve())}, ensure_ascii=False, indent=2))
+
 
 if __name__ == "__main__":
     main()

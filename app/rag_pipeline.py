@@ -4,6 +4,7 @@ import os
 import unicodedata
 
 try:  # pragma: no cover - flexible import paths
+    from .corpus_quality import diversify_hits
     from .rerank import rerank
     from .generation import generate_answer_gemini
     from .prompt_engineering import (
@@ -12,7 +13,9 @@ try:  # pragma: no cover - flexible import paths
         build_rag_synthesis_prompt,
     )
     from .hybrid_retriever import HybridRetriever, RetrievalHit
+    from .retrieval_policy import select_retrieval_policy
 except ImportError:  # pragma: no cover
+    from corpus_quality import diversify_hits  # type: ignore
     from rerank import rerank  # type: ignore
     from generation import generate_answer_gemini  # type: ignore
     from prompt_engineering import (  # type: ignore
@@ -21,6 +24,7 @@ except ImportError:  # pragma: no cover
         build_rag_synthesis_prompt,
     )
     from hybrid_retriever import HybridRetriever, RetrievalHit  # type: ignore
+    from retrieval_policy import select_retrieval_policy  # type: ignore
 
 
 # ====== alias/biến thể tên nhân vật để tăng recall khi tạo query variants ======
@@ -192,7 +196,10 @@ def _boost_poem_hits(collected: List[Dict[str, Any]], bonus: float = 0.5) -> Non
 
 # ====== dựng SOURCES & EVIDENCE ======
 def _format_source_label(meta: Dict[str, Any]) -> str:
-    src = meta.get("source") or meta.get("src") or meta.get("title") or "unknown"
+    src = meta.get("title") or meta.get("source") or meta.get("src") or "unknown"
+    publisher = meta.get("publisher")
+    if publisher and publisher != "Chưa xác định" and str(publisher).casefold() not in str(src).casefold():
+        src = f"{src} — {publisher}"
     # thơ ưu tiên line_start/line_end
     if meta.get("type") == "poem" and meta.get("line_start") and meta.get("line_end"):
         return f"{src}:L{meta['line_start']}-{meta['line_end']}"
@@ -267,8 +274,10 @@ def answer_question(
 
     # -------- defaults --------
     gen_model = (gen_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
+    policy = select_retrieval_policy(query)
     if filters is None:
-        filters = {"meta.type": {"$in": ["analysis", "poem", "summary", "bio"]}}
+        filters = policy.mongo_filter()
+    prefer_poem_source = prefer_poem_source or policy.prefer_poem
 
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
@@ -279,6 +288,7 @@ def answer_question(
         query_variants = [_normalise_space(query) or "Truyện Kiều"]
 
     collected: List[Dict[str, Any]] = []
+    retrieval_errors: List[Dict[str, str]] = []
 
     # -------- local collector wrapper --------
     def _maybe_collect(
@@ -297,7 +307,13 @@ def answer_question(
                 filters=active_filters,
                 num_candidates=candidates,
             )
-        except Exception:
+        except Exception as exc:
+            retrieval_errors.append(
+                {
+                    "variant": variant,
+                    "error_type": type(exc).__name__,
+                }
+            )
             return
         if not hits_local:
             return
@@ -315,7 +331,7 @@ def answer_question(
         query_variants[0],
         0,
         relaxed=False,
-        limit=max(k, 10),
+        limit=max(4 * k, 20),
         candidates=num_candidates,
         active_filters=filters,
     )
@@ -327,7 +343,7 @@ def answer_question(
                 variant,
                 idx,
                 relaxed=False,
-                limit=max(k, 10),
+                limit=max(4 * k, 20),
                 candidates=num_candidates,
                 active_filters=filters,
             )
@@ -351,7 +367,14 @@ def answer_question(
 
     if not collected:
         prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
-        return {"query": query, "prompt": prompt, "contexts": []}
+        return {
+            "query": query,
+            "prompt": prompt,
+            "contexts": [],
+            "retrieval_lane": policy.lane,
+            "retrieval_status": "error" if retrieval_errors else "no-evidence",
+            "retrieval_errors": retrieval_errors,
+        }
 
     # ưu tiên thơ nếu cần
     if prefer_poem_source:
@@ -370,18 +393,26 @@ def answer_question(
 
     if not collected:
         prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
-        return {"query": query, "prompt": prompt, "contexts": []}
+        return {
+            "query": query,
+            "prompt": prompt,
+            "contexts": [],
+            "retrieval_lane": policy.lane,
+            "retrieval_status": "low-confidence",
+            "retrieval_errors": retrieval_errors,
+        }
 
     # Nếu vẫn muốn chặn cực thấp:
     if avg_score < LOW_CONF_THRESH and len(collected) < k:
         prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
-        return {"query": query, "prompt": prompt, "contexts": []}
+        return {"query": query, "prompt": prompt, "contexts": [], "retrieval_lane": policy.lane}
 
 
     # rerank sâu
     rerank_depth = min(len(collected), max(k * 2, 12))
     reranked = rerank(query, collected, top_k=rerank_depth)
-    contexts = reranked[: max(k, 6 if long_answer else k)]
+    context_limit = max(k, 6 if long_answer else k)
+    contexts = diversify_hits(reranked, limit=context_limit, max_per_source=policy.max_per_source)
 
     # dựng prompt synthesis
     prompt = build_rag_synthesis_prompt(query, contexts, history_text=history_text, long_answer=long_answer, essay_mode=essay_mode)
@@ -395,6 +426,9 @@ def answer_question(
         "contexts": contexts,
         "sources": sources,
         "evidence": evidence,
+        "retrieval_lane": policy.lane,
+        "retrieval_status": "ok",
+        "retrieval_errors": retrieval_errors,
     }
 
     # synthesize nếu được yêu cầu

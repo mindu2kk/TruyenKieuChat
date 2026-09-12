@@ -1,8 +1,9 @@
 # scripts/02_embed_and_index_mongo.py
 # -*- coding: utf-8 -*-
-import os, json
+import os
+import sys
 from pathlib import Path
-from typing import Iterator, List, Dict
+from typing import List
 from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
 from sentence_transformers import SentenceTransformer
@@ -14,12 +15,18 @@ except Exception:
 
 load_dotenv()
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from app.chunk_store import configured_chunk_dir, iter_chunks
+
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME   = os.getenv("MONGO_DB", "kieu_bot")
 COL_NAME  = os.getenv("MONGO_COL", "chunks")
 EMB_MODEL = os.getenv("EMBEDDING_MODEL", "intfloat/multilingual-e5-base")  # <-- base
 BATCH_SZ  = int(os.getenv("EMBED_BATCH_SIZE", "128"))
-CHUNKS_DIR = Path("data/rag_chunks")
+CHUNKS_DIR = configured_chunk_dir()
 
 assert MONGO_URI, "Thiếu MONGO_URI trong .env"
 
@@ -28,6 +35,9 @@ col = client[DB_NAME][COL_NAME]
 
 col.create_index("meta.type")
 col.create_index("meta.source")
+col.create_index("meta.source_id")
+col.create_index("meta.source_tier")
+col.create_index("meta.content_hash")
 col.create_index([("text", "text")]) 
 
 embedder = SentenceTransformer(EMB_MODEL)
@@ -46,22 +56,6 @@ def embed_query(q: str) -> List[float]:
     # E5: prefix "query: "
     return embedder.encode(["query: " + q], normalize_embeddings=True).tolist()[0]
 
-def iter_chunks() -> Iterator[Dict]:
-    for p in sorted(CHUNKS_DIR.glob("*.txt")):
-        raw = p.read_text(encoding="utf-8", errors="ignore")
-        if not raw.startswith("###META###"):
-            continue
-        meta_line, _, body = raw.partition("\n")
-        try:
-            meta = json.loads(meta_line.replace("###META###","").strip())
-        except Exception:
-            meta = {}
-        text = body.strip()
-        if not text or len(text.split()) < 5:
-            continue
-        _id = meta.get("id") or p.stem
-        yield {"_id": _id, "text": text, "meta": meta}
-
 def batched(iterable, n=128):
     buf = []
     for x in iterable:
@@ -78,7 +72,8 @@ def main():
     print(f"[INFO] EMBEDDING_MODEL={EMB_MODEL} | dim={dim} (e5-base=768) | batch={BATCH_SZ}")
 
     total = 0
-    for batch in tqdm(batched(iter_chunks(), n=BATCH_SZ), desc="Embedding & upserting"):
+    print(f"[INFO] chunk_dir={CHUNKS_DIR}")
+    for batch in tqdm(batched(iter_chunks(CHUNKS_DIR, min_words=5), n=BATCH_SZ), desc="Embedding & upserting"):
         texts = [d["text"] for d in batch]
         vecs  = embed_texts_passage(texts)
 

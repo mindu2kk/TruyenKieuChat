@@ -5,8 +5,10 @@ __pycache__/
 .vercel/
 outputs/
 data/rag_chunks/*
+data/rag_chunks_clean/*
 staticfiles/*
 !staticfiles/.gitkeep
 .coverage
 coverage.xml
 htmlcov/
+.cache/

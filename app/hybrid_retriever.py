@@ -4,6 +4,7 @@
 
 from __future__ import annotations
 import os
+import re
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from functools import lru_cache
@@ -12,6 +13,11 @@ from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
 from pymongo import MongoClient
+
+from .corpus_quality import POEM_SECTIONS
+from .embedding_cache import embedding_cache_key, get_query_embedding_cache
+from .retrieval_policy import extract_line_range
+from .router import normalize_query
 
 # load .env ở tầng app
 load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
@@ -88,13 +94,21 @@ class _GeminiProvider:
         raise RuntimeError("Không đọc được embedding từ phản hồi Gemini (query).")
 
     def encode_query(self, q: str) -> list[float]:
+        cache = get_query_embedding_cache()
+        key = embedding_cache_key(self.model_name, "RETRIEVAL_QUERY", 768, q)
+        cached = cache.get(key, 768) if cache else None
+        if cached is not None:
+            return cached
         res = self.genai.embed_content(
             model=self.model_name,
             content=q,
             task_type="RETRIEVAL_QUERY",
             output_dimensionality=768,  # khớp với Atlas index dim
         )
-        return self._parse_single(res)
+        vector = self._parse_single(res)
+        if cache:
+            cache.put(key, vector)
+        return vector
 
 
 @lru_cache(maxsize=1)
@@ -210,6 +224,96 @@ class HybridRetriever:
         if not (query or "").strip():
             return []
 
+        # An explicit line range is an exact lookup problem. Resolve it against
+        # canonical poem metadata before semantic retrieval.
+        requested_range = extract_line_range(query)
+        allowed_types = ((filters or {}).get("meta.type") or {}).get("$in", [])
+        if requested_range and (not allowed_types or "poem" in allowed_types):
+            start, end = requested_range
+            exact_filter: Dict[str, Any] = {
+                "meta.type": "poem",
+                "meta.line_start": {"$lte": end},
+                "meta.line_end": {"$gte": start},
+            }
+            docs = list(
+                self.col.find(exact_filter, {"text": 1, "meta": 1})
+                .sort([("meta.line_start", 1), ("_id", 1)])
+                .limit(int(top_k))
+            )
+            if docs:
+                return [
+                    RetrievalHit(
+                        text=doc.get("text", ""),
+                        score=1.0,
+                        metadata=doc.get("meta", {}),
+                        doc_id=str(doc.get("_id")),
+                        debug={"exact_line_range": [start, end]},
+                    )
+                    for doc in docs
+                ]
+
+        normalized_query = normalize_query(query)
+        requested_section = next(
+            (
+                (section_id, start, end)
+                for start, end, section_id, title in POEM_SECTIONS
+                if normalize_query(title) in normalized_query
+            ),
+            None,
+        )
+        if requested_section and (not allowed_types or "poem" in allowed_types):
+            section_id, start, end = requested_section
+            docs = list(
+                self.col.find({"meta.type": "poem", "meta.section": section_id}, {"text": 1, "meta": 1})
+                .sort([("meta.line_start", 1), ("_id", 1)])
+                .limit(int(top_k))
+            )
+            if docs:
+                return [
+                    RetrievalHit(
+                        text=doc.get("text", ""),
+                        score=1.0,
+                        metadata=doc.get("meta", {}),
+                        doc_id=str(doc.get("_id")),
+                        debug={"exact_section": section_id, "line_range": [start, end]},
+                    )
+                    for doc in docs
+                ]
+
+        quoted = re.search(r'["“]([^"”]{2,80})["”]', query)
+        if quoted:
+            term = quoted.group(1).strip()
+            docs = list(
+                self.col.find(
+                    {
+                        "$or": [
+                            {"meta.archaic_terms": term},
+                            {"meta.allusions": term},
+                        ]
+                    },
+                    {"text": 1, "meta": 1},
+                ).limit(int(top_k))
+            )
+            lookup_kind = "exact_glossary_term"
+            if not docs:
+                phrase_filter: Dict[str, Any] = {
+                    "text": {"$regex": re.escape(term), "$options": "i"}
+                }
+                phrase_filter.update(filters or {})
+                docs = list(self.col.find(phrase_filter, {"text": 1, "meta": 1}).limit(int(top_k)))
+                lookup_kind = "exact_quoted_phrase"
+            if docs:
+                return [
+                    RetrievalHit(
+                        text=doc.get("text", ""),
+                        score=1.0,
+                        metadata=doc.get("meta", {}),
+                        doc_id=str(doc.get("_id")),
+                        debug={lookup_kind: term},
+                    )
+                    for doc in docs
+                ]
+
         # MongoClient/Collection are thread-safe. Running the independent lexical
         # lookup beside embedding+vector search removes one network round trip
         # from the critical path.
@@ -217,8 +321,16 @@ class HybridRetriever:
         with ThreadPoolExecutor(max_workers=2, thread_name_prefix="kieu-retrieval") as executor:
             vector_future = executor.submit(self._vector_search, query, search_k, num_candidates, filters)
             text_future = executor.submit(self._text_search, query, search_k, filters)
-            vec_ranked = vector_future.result()
+            vector_error = None
+            try:
+                vec_ranked = vector_future.result()
+            except Exception as exc:
+                vector_error = exc
+                vec_ranked = []
             txt_ranked = text_future.result()
+
+        if not vec_ranked and not txt_ranked and vector_error is not None:
+            raise vector_error
 
         # Nếu có cả hai → RRF; nếu chỉ một → dùng một
         ranked = _rrf_fuse(vec_ranked, txt_ranked) if txt_ranked else vec_ranked

@@ -10,9 +10,10 @@ ENV cần:
 Atlas index: path="vector", dimensions=768, similarity=cosine.
 """
 
-import os, json, time, random, numbers
+import os, time, random, numbers, re
+import sys
 from pathlib import Path
-from typing import Iterator, Dict, List
+from typing import Dict, List
 
 from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
@@ -21,15 +22,22 @@ import google.generativeai as genai
 
 load_dotenv()
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from app.chunk_store import configured_chunk_dir, iter_chunks
+from app.corpus_quality import content_hash
+
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME   = os.getenv("MONGO_DB", "kieu_bot")
 COL_NAME  = os.getenv("MONGO_COL", "chunks")
-CHUNKS_DIR = Path("data/rag_chunks")
+CHUNKS_DIR = configured_chunk_dir()
 
 # Model tên chuẩn của Gemini Embeddings:
 EMB_MODEL = os.getenv("GEMINI_EMB_MODEL", "models/gemini-embedding-001")
-BATCH_SIZE = int(os.getenv("EMBED_BATCH", "64"))
+BATCH_SIZE = int(os.getenv("EMBED_BATCH", "32"))
 TASK_TYPE = os.getenv("EMB_TASK_TYPE", "RETRIEVAL_DOCUMENT")  # hoặc RETRIEVAL_QUERY
 
 assert GOOGLE_API_KEY, "GOOGLE_API_KEY chưa có"
@@ -83,6 +91,9 @@ def _parse_gemini_embed_batch(res):
     if isinstance(res, dict):
         if "error" in res:
             raise RuntimeError(f"Gemini error: {res.get('error')}")
+        direct = res.get("embedding")
+        if isinstance(direct, list) and direct and all(_looks_like_vector(item) for item in direct):
+            return [list(item) for item in direct]
         embs = res.get("embeddings")
         if isinstance(embs, list):
             out = []
@@ -111,22 +122,6 @@ def _parse_gemini_embed_batch(res):
         return [one]
     raise RuntimeError("Không đọc được embeddings từ phản hồi Gemini (batch).")
 
-def iter_chunks() -> Iterator[Dict]:
-    for p in sorted(CHUNKS_DIR.glob("*.txt")):
-        raw = p.read_text(encoding="utf-8", errors="ignore")
-        if not raw.startswith("###META###"):
-            continue
-        meta_line, _, body = raw.partition("\n")
-        try:
-            meta = json.loads(meta_line.replace("###META###","").strip())
-        except Exception:
-            meta = {}
-        text = body.strip()
-        if not text:
-            continue
-        _id = meta.get("id") or p.stem
-        yield {"_id": _id, "text": text, "meta": meta}
-
 def _embed_single(text: str) -> List[float]:
     # Thêm output_dimensionality cho chắc (một số bản hỗ trợ)
     res = genai.embed_content(
@@ -137,77 +132,161 @@ def _embed_single(text: str) -> List[float]:
     )
     try:
         return _parse_gemini_embed_response(res)
-    except Exception as e:
+    except Exception as exc:
         # In gọn 1 phần phản hồi để debug khi cần
         preview = str(res)
         if len(preview) > 300:
             preview = preview[:300] + "…"
-        raise RuntimeError(f"Parse single embed fail: {e}. Raw={preview}")
+        raise RuntimeError(f"Parse single embed fail: {exc}. Raw={preview}")
 
 def embed_batch(texts: List[str]) -> List[List[float]]:
     if not texts:
         return []
-    # Thử batch một phát:
-    try:
-        res = genai.embed_content(
-            model=EMB_MODEL,
-            content=texts,
-            task_type=TASK_TYPE,
-            output_dimensionality=768
-        )
-        return _parse_gemini_embed_batch(res)
-    except Exception:
-        # Fallback: loop single + retry/backoff
-        out = []
-        for i, t in enumerate(texts):
-            for attempt in range(4):
-                try:
-                    out.append(_embed_single(t))
-                    break
-                except Exception as e:
-                    if attempt == 3:
-                        raise
-                    time.sleep(0.6 * (attempt + 1) + random.random() * 0.3)
-        return out
+    last_error = None
+    for attempt in range(6):
+        try:
+            res = genai.embed_content(
+                model=EMB_MODEL,
+                content=texts,
+                task_type=TASK_TYPE,
+                output_dimensionality=768,
+                request_options={"timeout": 60},
+            )
+            return _parse_gemini_embed_batch(res)
+        except Exception as exc:
+            last_error = exc
+            if attempt == 5:
+                break
+            retry_match = re.search(r"retry in ([0-9.]+)s", str(exc), flags=re.IGNORECASE)
+            delay = (
+                float(retry_match.group(1)) + 1.0
+                if retry_match
+                else min(30.0, 2.0 ** attempt + random.random())
+            )
+            print(f"[RETRY] embedding batch attempt={attempt + 2} delay={delay:.1f}s", flush=True)
+            time.sleep(delay)
+    raise RuntimeError(f"Embedding batch failed after retries: {last_error}")
 
 # ---------- main ----------
 def main():
     col.create_index("meta.type")
     col.create_index("meta.source")
+    col.create_index("meta.source_id")
+    col.create_index("meta.source_tier")
+    col.create_index("meta.content_hash")
+
+    remote_vectors = {}
+    for remote in col.find(
+        {"vector.0": {"$exists": True}},
+        {"text": 1, "vector": 1, "meta.content_hash": 1},
+    ):
+        remote_meta = remote.get("meta") or {}
+        digest = remote_meta.get("content_hash") or content_hash(str(remote.get("text") or ""))
+        vector = remote.get("vector")
+        if digest and isinstance(vector, list) and vector:
+            remote_vectors.setdefault(str(digest), vector)
+    print(f"[INFO] reusable_vectors={len(remote_vectors)}", flush=True)
 
     total = 0
+    embedded_total = 0
+    reused_total = 0
     batch: List[Dict] = []
 
     def flush():
-        nonlocal batch, total
+        nonlocal total, embedded_total, reused_total
         if not batch:
             return
-        vecs = embed_batch([x["text"] for x in batch])
+        ids = [item["_id"] for item in batch]
+        existing = {
+            str(item["_id"]): item
+            for item in col.find(
+                {"_id": {"$in": ids}},
+                {"_id": 1, "meta.content_hash": 1, "vector": {"$slice": 1}},
+            )
+        }
+        pending = []
+        metadata_updates = []
+        for item in batch:
+            remote = existing.get(str(item["_id"])) or {}
+            remote_meta = remote.get("meta") or {}
+            if remote.get("vector") and remote_meta.get("content_hash") == item["meta"].get("content_hash"):
+                # Content vectors remain valid, but quality metadata may have
+                # changed (sections, source tier, repaired positions, etc.).
+                item["meta"]["embedding_model"] = EMB_MODEL
+                metadata_updates.append(
+                    UpdateOne(
+                        {"_id": item["_id"]},
+                        {"$set": {"text": item["text"], "meta": item["meta"]}},
+                    )
+                )
+                continue
+            pending.append(item)
+        if metadata_updates:
+            col.bulk_write(metadata_updates, ordered=False)
+        if not pending:
+            total += len(batch)
+            print(f"[META] {len(metadata_updates)} current docs refreshed (total {total})", flush=True)
+            batch.clear()
+            return
+        reused = []
+        needs_embedding = []
+        for item in pending:
+            digest = str(item["meta"].get("content_hash") or content_hash(item["text"]))
+            reusable = remote_vectors.get(digest)
+            if reusable:
+                item["vector"] = reusable
+                reused.append(item)
+            else:
+                needs_embedding.append(item)
+
+        embed_started = time.monotonic()
+        vecs = embed_batch([x["text"] for x in needs_embedding]) if needs_embedding else []
+        if len(vecs) != len(needs_embedding):
+            raise RuntimeError(
+                f"Embedding count mismatch: expected {len(needs_embedding)}, received {len(vecs)}"
+            )
         ops = []
-        for x, v in zip(batch, vecs):
+        for x in reused:
+            x["meta"]["embedding_model"] = EMB_MODEL
+            ops.append(UpdateOne({"_id": x["_id"]}, {"$set": x}, upsert=True))
+        for x, v in zip(needs_embedding, vecs):
             x["vector"] = v
+            x["meta"]["embedding_model"] = EMB_MODEL
             ops.append(UpdateOne({"_id": x["_id"]}, {"$set": x}, upsert=True))
         if ops:
             for attempt in range(3):
                 try:
                     col.bulk_write(ops, ordered=False)
                     break
-                except Exception as e:
+                except Exception:
                     if attempt == 2:
                         raise
                     time.sleep(1.0 * (attempt + 1))
         total += len(batch)
-        print(f"[OK] upsert {len(batch)} docs (total {total})")
+        embedded_total += len(needs_embedding)
+        reused_total += len(reused)
+        print(
+            f"[OK] upsert={len(pending)} reused={len(reused)} embedded={len(needs_embedding)} "
+            f"total={total} embedded_total={embedded_total} reused_total={reused_total}",
+            flush=True,
+        )
+        if needs_embedding:
+            minimum_interval = len(needs_embedding) * 60.0 / 95.0
+            remaining = minimum_interval - (time.monotonic() - embed_started)
+            if remaining > 0:
+                print(f"[THROTTLE] {remaining:.1f}s to respect free-tier quota", flush=True)
+                time.sleep(remaining)
         batch.clear()
 
-    for d in iter_chunks():
+    print(f"[INFO] chunk_dir={CHUNKS_DIR} batch={BATCH_SIZE}", flush=True)
+    for d in iter_chunks(CHUNKS_DIR):
         batch.append(d)
         if len(batch) >= BATCH_SIZE:
             flush()
     if batch:
         flush()
 
-    print(f"Done. Total docs: {total}. DB: {DB_NAME}.{COL_NAME}")
+    print(f"Done. Total docs: {total}. DB: {DB_NAME}.{COL_NAME}", flush=True)
 
 if __name__ == "__main__":
     main()

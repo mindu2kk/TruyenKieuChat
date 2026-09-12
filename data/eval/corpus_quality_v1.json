@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "legacy": {
+    "chunks": 3778,
+    "exact_duplicate_chunks": 745,
+    "invalid_positions": 117,
+    "poem_sources": [
+      "poem",
+      "poem.raw"
+    ]
+  },
+  "clean": {
+    "chunks": 2644,
+    "raw_poem_chunks_removed": 1083,
+    "exact_duplicates_removed": 52,
+    "positions_repaired": 117,
+    "invalid_chunks_dropped": 0,
+    "curated_glossary_entries": 1,
+    "invalid_positions": 0,
+    "canonical_poem_source": "data/interim/poem/poem.txt",
+    "canonical_poem_lines": 3254
+  },
+  "notes": [
+    "The recommended cleaner preserves valid legacy IDs and chunk boundaries so existing embeddings can be reused.",
+    "Generated chunk files stay local; the builder, validator and this reproducible report are versioned.",
+    "MongoDB production is not pruned until the dry-run sync report is reviewed and --apply is explicitly used."
+  ]
+}

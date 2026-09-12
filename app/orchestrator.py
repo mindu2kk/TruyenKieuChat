@@ -189,8 +189,9 @@ def answer_with_router(
     from .answer_harness import deterministic_quality, route_metadata
     from .token_budget import plan_token_budget
 
-    decision = route_query(query)
-    intent = route_intent(query)
+    has_history = bool(history)
+    decision = route_query(query, has_history=has_history)
+    intent = route_intent(query, has_history=has_history)
     if intent != decision.intent:
         decision = replace(decision, intent=intent, flow=intent, reason="intent-override")
     budget_plan = plan_token_budget(
@@ -302,6 +303,18 @@ def answer_with_router(
             has_evidence=True,
         )
         return f"{base_answer}\n\n**Giải thích ngắn:**\n\n{checked}", quality
+
+    if intent == "clarification":
+        answer = (
+            "Bạn đang nhắc tới câu thơ, đoạn trích hoặc nhân vật nào? "
+            "Hãy gửi tên nhân vật, số câu hoặc chép lại một phần câu thơ để tôi tra đúng văn bản."
+        )
+        return {
+            "intent": intent,
+            "answer": answer,
+            "sources": _maybe_sources([]),
+            "harness": _route_meta(deterministic_quality("clarification")),
+        }
 
     if intent == "core_fact":
         verified = verified_core_answer(query)
@@ -520,7 +533,6 @@ def answer_with_router(
     # ---- Domain → RAG
     poem_only = decision.requires_poem_evidence or _needs_poem_only(query)
     close_reading = _is_close_reading(query)
-    is_char_who = _who_is_character(query)
 
     pack = answer_question(
         query,
@@ -610,28 +622,31 @@ def answer_with_router(
             "harness": _route_meta(quality),
         }
 
-    if not ans and is_char_who:
-        from .prompt_engineering import build_generic_prompt
-
-        hint = "Giải thích ngắn gọn nhân vật trong Truyện Kiều (kiến thức phổ thông, không cần trích dẫn)."
-        prompt = build_generic_prompt(f"{query}\n\n{hint}", history_text=full_history, depth="balanced")
-        ans2, failure2 = _safe_generate(
-            "domain", prompt, model=gemini_model, long_answer=long_answer, max_tokens=max_tokens
-        )
-        if not failure2 and ans2:
-            checked, verification, quality = _verify_generated(
-                ans2,
-                require_exact_quotes=False,
-                has_evidence=False,
+    if not ans and not evidence:
+        retrieval_status = str(pack.get("retrieval_status") or "no-evidence")
+        if retrieval_status == "error":
+            safe_answer = (
+                "Kho tư liệu đang tạm thời không truy cập được nên tôi chưa thể trả lời có kiểm chứng. "
+                "Bạn vui lòng thử lại sau ít phút."
             )
-            _cache_verified(checked, quality)
-            return {
-                "intent": intent,
-                "answer": checked,
-                "sources": _maybe_sources([]),  # vẫn ẩn nguồn như trước
-                "verification": verification,
-                "harness": _route_meta(quality),
-            }
+        else:
+            safe_answer = (
+                "Tôi chưa tìm thấy đủ tư liệu đáng tin cậy để trả lời chắc chắn. "
+                "Bạn hãy gửi tên nhân vật, số câu hoặc chép một phần đoạn thơ cần tra."
+            )
+        checked, verification, quality = _verify_generated(
+            safe_answer,
+            require_exact_quotes=False,
+            has_evidence=False,
+        )
+        return {
+            "intent": intent,
+            "answer": checked,
+            "sources": _maybe_sources([]),
+            "verification": verification,
+            "retrieval_status": retrieval_status,
+            "harness": _route_meta(quality),
+        }
 
     # Fallback — dùng prompt đã build (nếu có)
     p = pack.get("prompt", "")

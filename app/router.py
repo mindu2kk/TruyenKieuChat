@@ -65,6 +65,12 @@ _OUT_OF_SCOPE_TERMS = (
     "javascript",
     "tri tue nhan tao",
     "chien tranh the gioi",
+    "dien thoai",
+    "choi game",
+    "phuong trinh",
+    "viet email",
+    "xin nghi phep",
+    "tieng anh",
 )
 
 
@@ -192,10 +198,29 @@ def requests_exact_poem_quote(q: str) -> bool:
     return parse_poem_request(q) is not None or any(term in qs for term in ("trich", "nguyen van", "cau tho"))
 
 
-def route_query(q: str) -> RouteDecision:
+def route_query(q: str, *, has_history: bool = False) -> RouteDecision:
     qs = normalize_query(q)
     if not qs:
         return RouteDecision("chitchat", "smalltalk", 1.0, "empty-or-whitespace")
+
+    deictic_without_subject = (
+        "doan nay",
+        "cau ay",
+        "nhan vat do",
+        "doan sau",
+        "vua nhac",
+        "nhu vay",
+        "dien tich ay",
+        "cau nay",
+        "sau do",
+        "hai nguoi ay",
+    )
+    if not has_history and any(term in qs for term in deictic_without_subject):
+        return RouteDecision("clarification", "clarification", 0.98, "missing-conversation-referent")
+
+    has_domain_term = any(term in qs for term in _DOMAIN_TERMS)
+    if not has_domain_term and any(term in qs for term in _OUT_OF_SCOPE_TERMS):
+        return RouteDecision("out_of_scope", "safe-refusal", 0.99, "explicit-out-of-scope-topic")
 
     if parse_poem_request(q) is not None:
         if requests_poem_explanation(q):
@@ -216,10 +241,6 @@ def route_query(q: str) -> RouteDecision:
     capability = any(term in qs for term in ("ban co the giup", "ban lam duoc gi", "giup toi hoc"))
     if greeting or capability:
         return RouteDecision("chitchat", "smalltalk", 0.98, "greeting-or-capability")
-
-    has_domain_term = any(term in qs for term in _DOMAIN_TERMS)
-    if not has_domain_term and any(term in qs for term in _OUT_OF_SCOPE_TERMS):
-        return RouteDecision("out_of_scope", "safe-refusal", 0.99, "explicit-out-of-scope-topic")
 
     if "tac gia" in qs and "truyen kieu" in qs:
         return RouteDecision("core_fact", "verified-core-fact", 1.0, "author-question")
@@ -253,8 +274,8 @@ def route_query(q: str) -> RouteDecision:
     return RouteDecision("domain", "domain-qa", 0.55, "domain-default")
 
 
-def route_intent(q: str) -> str:
-    return route_query(q).intent
+def route_intent(q: str, *, has_history: bool = False) -> str:
+    return route_query(q, has_history=has_history).intent
 
 
 _CHITCHAT_RESPONSES = {

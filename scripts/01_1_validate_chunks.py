@@ -15,15 +15,20 @@ Cách dùng:
 """
 
 from __future__ import annotations
+import argparse
 import json
+import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
 ROOT = Path(__file__).resolve().parents[1]
-CHUNK_DIR = ROOT / "data" / "rag_chunks"
+CLEAN_CHUNK_DIR = ROOT / "data" / "rag_chunks_clean"
+LEGACY_CHUNK_DIR = ROOT / "data" / "rag_chunks"
+DEFAULT_CHUNK_DIR = CLEAN_CHUNK_DIR if CLEAN_CHUNK_DIR.exists() else LEGACY_CHUNK_DIR
 
 VALID_TYPES = {"poem", "analysis", "summary", "bio"}
 
@@ -73,6 +78,23 @@ def _validate_basic(meta: Dict[str, Any]) -> List[str]:
     tags = meta.get("tags")
     if not isinstance(tags, list):
         errs.append("tags không phải list")
+    for field in (
+        "content_hash",
+        "source_tier",
+        "author",
+        "publisher",
+        "work",
+        "section",
+        "characters",
+        "events",
+        "allusions",
+        "archaic_terms",
+        "literary_devices",
+    ):
+        if field not in meta:
+            errs.append(f"thiếu metadata chuẩn: {field}")
+    if meta.get("source_tier") not in {"primary", "scholarly", "educational", "reference"}:
+        errs.append(f"source_tier không hợp lệ: {meta.get('source_tier')!r}")
     return errs
 
 def _validate_poem(meta: Dict[str, Any]) -> List[str]:
@@ -108,46 +130,41 @@ def _validate_prose(meta: Dict[str, Any]) -> List[str]:
         errs.append("char_end <= char_start")
     return errs
 
-def validate_chunks() -> Report:
-    files = sorted(CHUNK_DIR.glob("*.txt"))
+def _validate_file(path: Path) -> tuple[str, bool, Optional[ItemError]]:
+    meta = _load_meta_first_line(path)
+    if meta is None:
+        return "prose", False, ItemError(str(path), "không tìm thấy dòng ###META### hoặc JSON lỗi", {})
+    doc_type = str(meta.get("type") or "other")
+    problems = _validate_basic(meta)
+    if not problems:
+        if doc_type == "poem":
+            problems = _validate_poem(meta)
+        elif doc_type in {"analysis", "summary", "bio"}:
+            problems = _validate_prose(meta)
+    category = "poem" if doc_type == "poem" else ("prose" if doc_type in VALID_TYPES else "other")
+    error = ItemError(str(path), "; ".join(problems), meta) if problems else None
+    return category, not problems, error
+
+
+def validate_chunks(chunk_dir: Path = DEFAULT_CHUNK_DIR) -> Report:
+    files = sorted(chunk_dir.glob("*.txt"))
     poem_ok = poem_err = prose_ok = prose_err = other_type = 0
     errors: List[ItemError] = []
 
-    for p in files:
-        meta = _load_meta_first_line(p)
-        if meta is None:
-            errors.append(ItemError(str(p), "không tìm thấy dòng ###META### hoặc JSON lỗi", {}))
-            # Không biết type để tăng lỗi vào đâu → coi như prose_err
-            prose_err += 1
-            continue
-
-        basic_errs = _validate_basic(meta)
-        if basic_errs:
-            errors.append(ItemError(str(p), "; ".join(basic_errs), meta))
-            # phân loại tạm:
-            if meta.get("type") == "poem":
-                poem_err += 1
+    workers = min(32, max(4, (os.cpu_count() or 1) * 2))
+    with ThreadPoolExecutor(max_workers=workers, thread_name_prefix="chunk-validation") as executor:
+        results = executor.map(_validate_file, files)
+        for category, valid, error in results:
+            if error is not None:
+                errors.append(error)
+            if category == "poem":
+                poem_ok += int(valid)
+                poem_err += int(not valid)
+            elif category == "prose":
+                prose_ok += int(valid)
+                prose_err += int(not valid)
             else:
-                prose_err += 1
-            continue
-
-        t = meta.get("type")
-        if t == "poem":
-            e = _validate_poem(meta)
-            if e:
-                poem_err += 1
-                errors.append(ItemError(str(p), "; ".join(e), meta))
-            else:
-                poem_ok += 1
-        elif t in {"analysis", "summary", "bio"}:
-            e = _validate_prose(meta)
-            if e:
-                prose_err += 1
-                errors.append(ItemError(str(p), "; ".join(e), meta))
-            else:
-                prose_ok += 1
-        else:
-            other_type += 1
+                other_type += 1
 
     return Report(
         total_files=len(files),
@@ -160,8 +177,12 @@ def validate_chunks() -> Report:
     )
 
 def main():
-    json_mode = "--json" in sys.argv
-    rpt = validate_chunks()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--json", action="store_true")
+    parser.add_argument("--chunk-dir", type=Path, default=DEFAULT_CHUNK_DIR)
+    args = parser.parse_args()
+    json_mode = args.json
+    rpt = validate_chunks(args.chunk_dir)
 
     if json_mode:
         out = asdict(rpt)
@@ -176,11 +197,11 @@ def main():
             print(f"Other types       : {rpt.other_type}")
         print()
         if rpt.errors:
-            print(f"❗ Found {len(rpt.errors)} errors. Showing up to 40:")
+            print(f"ERROR: Found {len(rpt.errors)} errors. Showing up to 40:")
             for e in rpt.errors[:40]:
                 print(f"- {e.file}: {e.reason}")
         else:
-            print("✅ No errors detected.")
+            print("OK: No errors detected.")
 
     # Exit code: 1 if any errors
     sys.exit(1 if rpt.errors else 0)

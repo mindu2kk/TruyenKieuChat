@@ -10,7 +10,7 @@ from typing import Dict, Iterable, List, Sequence, Tuple
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 POEM_TXT = PROJECT_ROOT / "data" / "interim" / "poem" / "poem.txt"
-MOTIF_JSON = PROJECT_ROOT / "data" / "interim" / "poem" / "motifs.json"
+MOTIF_JSON = PROJECT_ROOT / "data" / "interim" / "poem" / "motifs.jsonl"
 CHUNK_DIR = PROJECT_ROOT / "data" / "rag_chunks"
 
 

@@ -1,0 +1,47 @@
+{
+  "corpus": {
+    "clean_local": 2644,
+    "embedded_clean": 2644,
+    "remote": 2644,
+    "stale": 0,
+    "duplicates": 0
+  },
+  "offline_benchmark": {
+    "cases_total": 260,
+    "automatically_evaluated": 160,
+    "pass_rate": 1.0
+  },
+  "live_retrieval_final": {
+    "evaluated": 40,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "mrr": 1.0,
+    "ndcg_at_10": 1.0,
+    "failed_case_ids": []
+  },
+  "targeted_post_fix_checks": {
+    "term-04": {
+      "relevant": true,
+      "retrieval_path": "exact_glossary_term"
+    }
+  },
+  "verification_note": "The full 40-case post-fix retrieval run completed through deterministic range/glossary lookup and lexical fallback, so it remained verifiable while the Gemini embedding daily quota was exhausted.",
+  "provider_failover": {
+    "groq_configured": true,
+    "model": "openai/gpt-oss-120b",
+    "direct_smoke": "ok",
+    "gemini_to_groq_smoke": "ok",
+    "query_embedding_cache": "enabled; stores only SHA-256 keys and numeric vectors"
+  },
+  "mongo_backup": {
+    "collection": "chunks_backup_quality_20260912T035516Z",
+    "documents": 1812
+  },
+  "tests": {
+    "pytest": "175 passed",
+    "coverage_percent": 57.9,
+    "django_check": "ok",
+    "flake8_fatal_rules": "ok",
+    "py_compile": "ok"
+  }
+}
