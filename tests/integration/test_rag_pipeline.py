@@ -143,6 +143,78 @@ def test_rag_pipeline_no_results(mock_retriever):
 
 
 @pytest.mark.integration
+def test_shadow_query_expansion_runs_even_when_primary_has_enough_hits():
+    import app.rag_pipeline as rag_module
+
+    original_retriever = rag_module._HYBRID_RETRIEVER
+    primary_hits = [
+        {"text": f"Primary {index}", "meta": {"id": f"p-{index}", "type": "analysis"}, "score": 0.8}
+        for index in range(20)
+    ]
+    hyde_hits = [
+        {"text": "HyDE relevant", "meta": {"id": "hyde-1", "type": "analysis"}, "score": 0.95}
+    ]
+    mock_retriever = Mock()
+    mock_retriever.search.side_effect = [primary_hits, hyde_hits]
+    rag_module._HYBRID_RETRIEVER = mock_retriever
+
+    try:
+        result = answer_question(
+            "Phân tích tâm trạng Thúc Sinh",
+            k=5,
+            synthesize=False,
+            query_expansions=["Thúc Sinh ở Lâm Truy nhớ thương Kiều"],
+        )
+    finally:
+        rag_module._HYBRID_RETRIEVER = original_retriever
+
+    queried = [call.args[0] for call in mock_retriever.search.call_args_list]
+    assert "Thúc Sinh ở Lâm Truy nhớ thương Kiều" in queried
+    assert any(item.get("meta", {}).get("id") == "hyde-1" for item in result["contexts"])
+
+
+@pytest.mark.integration
+def test_promoted_hyde_is_applied_and_observable_without_replacing_baseline():
+    import app.rag_pipeline as rag_module
+
+    original_retriever = rag_module._HYBRID_RETRIEVER
+    primary_hits = [
+        {"text": f"Primary {index}", "meta": {"id": f"p-{index}", "type": "analysis"}, "score": 0.8}
+        for index in range(20)
+    ]
+    hyde_hits = [{"text": "HyDE relevant", "meta": {"id": "hyde-1", "type": "analysis"}, "score": 0.95}]
+    mock_retriever = Mock()
+    mock_retriever.search.side_effect = [primary_hits, hyde_hits]
+    rag_module._HYBRID_RETRIEVER = mock_retriever
+
+    try:
+        with (
+            patch("app.rag_pipeline.is_groq_configured", return_value=True),
+            patch("app.advanced_retrieval.is_strategy_promoted", return_value=True),
+            patch("app.advanced_retrieval.should_use_hyde", return_value=True),
+            patch("app.advanced_retrieval.strategy_promotion", return_value={"model": "openai/gpt-oss-120b"}),
+            patch("app.advanced_retrieval.generate_hypothetical_document", return_value=("HyDE expansion", 24.0)),
+        ):
+            result = answer_question(
+                "Phân tích tâm trạng Thúc Sinh",
+                k=5,
+                synthesize=False,
+                use_promoted_hyde=True,
+            )
+    finally:
+        rag_module._HYBRID_RETRIEVER = original_retriever
+
+    queried = [call.args[0] for call in mock_retriever.search.call_args_list]
+    assert queried[:2] == ["Phân tích tâm trạng Thúc Sinh", "HyDE expansion"]
+    assert result["advanced_retrieval"]["hyde"] == {
+        "eligible": True,
+        "applied": True,
+        "promoted": True,
+        "generation_latency_ms": 24.0,
+    }
+
+
+@pytest.mark.integration
 @pytest.mark.requires_api
 @pytest.mark.requires_mongo
 @patch("app.rag_pipeline.generate_answer_gemini")

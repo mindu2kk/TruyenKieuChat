@@ -151,6 +151,7 @@ def verify_generated_answer(
     require_exact_quotes: bool,
     has_evidence: bool,
     query: str = "",
+    allowed_quote_range: tuple[int, int] | None = None,
 ) -> tuple[str, Dict[str, object], QualityReport]:
     """Fail closed on incomplete prose and unverifiable poem quotations."""
     from .verifier import verify_and_autocorrect
@@ -180,6 +181,32 @@ def verify_generated_answer(
     quotes = list(verification.get("quotes", []))
     accepted = list(verification.get("accepted", []))
     rejected = [q for q in quotes if float(q.get("score", 0.0) or 0.0) < 92.0]
+    irrelevant_quotes = []
+    if allowed_quote_range:
+        start, end = allowed_quote_range
+        irrelevant_quotes = [
+            item
+            for item in accepted
+            if item.get("matched_line") is not None
+            and not (start <= int(item["matched_line"]) <= end)
+        ]
+        verification["quote_scope"] = {
+            "allowed_line_start": start,
+            "allowed_line_end": end,
+            "irrelevant": irrelevant_quotes,
+        }
+
+    if irrelevant_quotes:
+        return (
+            "Phản hồi vừa tạo dùng câu thơ ngoài đoạn đang phân tích nên tôi chưa thể xác nhận.",
+            verification,
+            QualityReport(
+                status="irrelevant-quote",
+                grounded=has_evidence,
+                quote_check="failed",
+                issues=("quote-outside-requested-passage",),
+            ),
+        )
 
     if require_exact_quotes and (not quotes or rejected):
         issues = []

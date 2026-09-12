@@ -79,8 +79,27 @@ def test_groq_uses_configured_model_and_token_budget(monkeypatch):
     assert answer == "Phản hồi từ Groq."
     kwargs = client.chat.completions.create.call_args.kwargs
     assert kwargs["model"] == "openai/gpt-oss-120b"
-    assert kwargs["max_tokens"] == 1450
+    assert kwargs["max_completion_tokens"] == 1450
     assert "[PHONG CÁCH]" in kwargs["messages"][0]["content"]
+
+
+@pytest.mark.unit
+def test_groq_supports_low_reasoning_for_shadow_hyde(monkeypatch):
+    monkeypatch.setenv("GROQ_API_KEY", "groq-key")
+    client = Mock()
+    client.chat.completions.create.return_value.choices = [Mock(message=Mock(content="Tài liệu giả định."))]
+
+    with patch("app.generation._setup_groq", return_value=client):
+        answer = generate_answer_groq(
+            "prompt",
+            model="openai/gpt-oss-120b",
+            reasoning_effort="low",
+        )
+
+    assert answer == "Tài liệu giả định."
+    kwargs = client.chat.completions.create.call_args.kwargs
+    assert kwargs["reasoning_effort"] == "low"
+    assert kwargs["include_reasoning"] is False
 
 
 @pytest.mark.unit

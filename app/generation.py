@@ -266,6 +266,7 @@ def generate_answer_groq(
     model: Optional[str] = None,
     long_answer: bool = False,
     max_tokens: Optional[int] = None,
+    reasoning_effort: Optional[str] = None,
 ) -> str:
     """Generate with Groq using the same prompt and output budget as Gemini."""
     try:
@@ -273,13 +274,17 @@ def generate_answer_groq(
         config = _resolve_generation_config(long_answer, max_tokens)
         prompt = _with_response_contract(_with_long_answer_style(prompt, long_answer))
         resolved_model = (model or os.getenv("GROQ_MODEL") or "openai/gpt-oss-120b").strip()
-        response = client.chat.completions.create(
-            model=resolved_model,
-            messages=[{"role": "user", "content": prompt}],
-            temperature=config["temperature"],
-            top_p=config["top_p"],
-            max_tokens=config["max_output_tokens"],
-        )
+        request_kwargs = {
+            "model": resolved_model,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": config["temperature"],
+            "top_p": config["top_p"],
+            "max_completion_tokens": config["max_output_tokens"],
+        }
+        if reasoning_effort and resolved_model.startswith("openai/gpt-oss-"):
+            request_kwargs["reasoning_effort"] = reasoning_effort
+            request_kwargs["include_reasoning"] = False
+        response = client.chat.completions.create(**request_kwargs)
         choices = getattr(response, "choices", None) or []
         message = getattr(choices[0], "message", None) if choices else None
         out = _postprocess(getattr(message, "content", None))

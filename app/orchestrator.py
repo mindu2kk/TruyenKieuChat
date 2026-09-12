@@ -1,6 +1,7 @@
 # app/orchestrator.py
 # -*- coding: utf-8 -*-
 from typing import Dict, Any, List, Tuple, Optional
+import hashlib
 import os
 from dataclasses import replace
 
@@ -88,8 +89,22 @@ def _norm_key(q: str) -> str:
     return (q or "").strip().lower()
 
 
-def _make_cache_key(q: str, *, long_answer: bool, intent: str, max_tokens: Optional[int] = None) -> str:
-    return f"{_norm_key(q)}|la={int(bool(long_answer))}|tokens={max_tokens or 0}|intent={intent}"
+def _make_cache_key(
+    q: str,
+    *,
+    long_answer: bool,
+    intent: str,
+    max_tokens: Optional[int] = None,
+    context_text: str = "",
+) -> str:
+    context_suffix = ""
+    if context_text.strip():
+        fingerprint = hashlib.sha256(context_text.strip().encode("utf-8")).hexdigest()[:16]
+        context_suffix = f"|ctx={fingerprint}"
+    return (
+        f"{_norm_key(q)}|la={int(bool(long_answer))}|tokens={max_tokens or 0}"
+        f"|intent={intent}{context_suffix}"
+    )
 
 
 def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 6) -> str:
@@ -101,6 +116,120 @@ def _history_to_text(history: Optional[List[Tuple[str, str]]], max_turns: int = 
         role = "USER" if role == "user" else "ASSISTANT"
         lines.append(f"[{role}]\n{txt}")
     return "\n\n".join(lines)
+
+
+_CONTEXTUAL_FOLLOWUP_TERMS = (
+    "vừa rồi",
+    "vua roi",
+    "dựa trên câu trả lời",
+    "dua tren cau tra loi",
+    "đào sâu thêm",
+    "dao sau them",
+    "nói rõ hơn",
+    "noi ro hon",
+    "phân tích thêm",
+    "phan tich them",
+    "giải thích thêm",
+    "giai thich them",
+    "đoạn này",
+    "doan nay",
+    "câu này",
+    "cau nay",
+    "câu ấy",
+    "cau ay",
+    "nhân vật đó",
+    "nhan vat do",
+    "điển tích ấy",
+    "dien tich ay",
+)
+
+
+def _is_contextual_followup(query: str) -> bool:
+    normalized = _norm_key(query)
+    if any(term in normalized for term in _CONTEXTUAL_FOLLOWUP_TERMS):
+        return True
+    return bool(re.match(r"^(?:còn|con|thế còn|the con|vậy còn|vay con|tiếp tục|tiep tuc)\b", normalized))
+
+
+def _contextualize_followup_query(
+    query: str,
+    history: Optional[List[Tuple[str, str]]],
+) -> Tuple[str, str]:
+    """Resolve a deictic follow-up to the latest concrete user topic.
+
+    Mongo history is still passed to generation verbatim. This resolved query
+    is used for retrieval so a request such as "đào sâu thêm" cannot drift to
+    an unrelated passage. Repeated follow-ups skip earlier generic follow-up
+    messages and keep the original literary subject as their anchor.
+    """
+    if not history or not _is_contextual_followup(query):
+        return query, ""
+
+    anchor = ""
+    for role, content in reversed(history):
+        candidate = (content or "").strip()
+        if role == "user" and candidate and not _is_contextual_followup(candidate):
+            anchor = candidate
+            break
+    if not anchor:
+        return query, ""
+
+    resolved = f"Chủ đề của lượt trước: {anchor}\nYêu cầu tiếp nối: {query.strip()}"
+    cache_context = _history_to_text(history, max_turns=4)
+    return resolved, cache_context
+
+
+def _ground_followup_in_poem(
+    resolved_query: str,
+    *,
+    parse_poem_request,
+    get_range,
+    get_single,
+) -> Tuple[str, Optional[Tuple[int, int]]]:
+    """Attach a small canonical poem window to a resolved follow-up query."""
+    from .poem_passages import context_for_range
+
+    spec = parse_poem_request(resolved_query)
+    if not spec:
+        return resolved_query, None
+
+    kind = spec[0]
+    if kind == "single":
+        start = end = int(spec[1])
+    elif kind in {"range", "compare"}:
+        start, end = sorted((int(spec[1]), int(spec[2])))
+    else:
+        return resolved_query, None
+    if end - start > 12:
+        return resolved_query, None
+
+    target_lines = get_range(start, end) if start != end else [get_single(start)]
+    target_lines = [line for line in target_lines if line]
+    if not target_lines:
+        return resolved_query, None
+
+    context_start = max(1, start - 6)
+    context_end = end + 6
+    nearby_lines = get_range(context_start, context_end)
+    reviewed_context = context_for_range(start, end)
+    target = "\n".join(f"{start + index}: {line}" for index, line in enumerate(target_lines))
+    nearby = "\n".join(f"{context_start + index}: {line}" for index, line in enumerate(nearby_lines))
+    narrative = (
+        f"\n\n[BỐI CẢNH CỐT TRUYỆN ĐÃ ĐỐI CHIẾU]\n{reviewed_context.summary}"
+        if reviewed_context
+        else ""
+    )
+    grounded_query = (
+        f"{resolved_query}\n\n[VĂN BẢN ĐÍCH ĐÃ KIỂM CHỨNG]\n{target}"
+        f"\n\n[BỐI CẢNH THƠ LÂN CẬN]\n{nearby}"
+        f"{narrative}"
+        "\n\n[RÀNG BUỘC TIẾP NỐI] Chỉ đào sâu đúng văn bản đích và yêu cầu lượt này; "
+        "không thay bằng câu thơ hay ví dụ ở đoạn khác. Phân tích các câu đích như một cặp chỉnh thể. "
+        "Phải có hai mục rõ ràng **Bối cảnh** và **Nghệ thuật**. Ở mục Bối cảnh, xác định chủ thể tâm trạng "
+        "từ các câu thơ lân cận; không mặc định mọi nỗi buồn đều thuộc về Thúy Kiều. Ở mục Nghệ thuật, "
+        "giải thích tác dụng của hình ảnh, nhịp, phép đối và quan hệ giữa thời gian thiên nhiên với thời gian tâm lý."
+    )
+    return grounded_query, (context_start, context_end)
 
 
 def _generation_failure_response(
@@ -228,6 +357,7 @@ def answer_with_router(
     from .poem_tools import poem_ready, get_opening, get_range, get_single, compare_lines
     from .prompt_engineering import (
         build_generic_prompt,
+        build_contextual_poem_followup_prompt,
         build_grounded_poem_explanation_prompt,
         build_poem_disambiguation_prompt,
         build_smalltalk_prompt,
@@ -244,19 +374,35 @@ def answer_with_router(
 
     short_history = _history_to_text(history, max_turns=4)
     full_history = _history_to_text(history, max_turns=8)
+    retrieval_query, cache_context = _contextualize_followup_query(query, history)
+    allowed_quote_range = None
+    if cache_context:
+        retrieval_query, allowed_quote_range = _ground_followup_in_poem(
+            retrieval_query,
+            parse_poem_request=parse_poem_request,
+            get_range=get_range,
+            get_single=get_single,
+        )
 
     gemini_model = (gemini_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
 
     # 2) Route was resolved before loading the heavy RAG stack so the token
     # planner can select a budget from the actual flow.
-    qkey = _make_cache_key(query, long_answer=long_answer, intent=intent, max_tokens=max_tokens)
+    qkey = _make_cache_key(
+        retrieval_query,
+        long_answer=long_answer,
+        intent=intent,
+        max_tokens=max_tokens,
+        context_text=cache_context,
+    )
 
     def _verify_generated(candidate: str, *, require_exact_quotes: bool, has_evidence: bool):
         return verify_generated_answer(
             candidate,
             require_exact_quotes=require_exact_quotes,
             has_evidence=has_evidence,
-            query=query,
+            query=retrieval_query,
+            allowed_quote_range=allowed_quote_range,
         )
 
     def _cache_verified(answer: str, quality) -> None:
@@ -391,6 +537,84 @@ def answer_with_router(
             "answer": ans or "",
             "sources": _maybe_sources([]),
             "harness": _route_meta(deterministic_quality("generated")),
+        }
+
+    # A numbered-passage follow-up already has stronger evidence than a broad
+    # semantic search: canonical target lines, nearby verse and (when known) a
+    # reviewed narrative anchor. Keep this close-reading path closed so an
+    # otherwise relevant RAG chunk cannot inject a real but unrelated quote.
+    if cache_context and allowed_quote_range:
+        from .poem_passages import context_for_range
+
+        spec = parse_poem_request(retrieval_query)
+        reviewed_answer = None
+        if spec and spec[0] in {"range", "compare"}:
+            start, end = sorted((int(spec[1]), int(spec[2])))
+            reviewed = context_for_range(start, end)
+            if reviewed and any(
+                term in _norm_key(query)
+                for term in ("bối cảnh", "boi canh", "nghệ thuật", "nghe thuat")
+            ):
+                reviewed_answer = reviewed.close_reading
+        if reviewed_answer:
+            checked, verification, quality = _verify_generated(
+                reviewed_answer,
+                require_exact_quotes=False,
+                has_evidence=True,
+            )
+            _cache_verified(checked, quality)
+            return {
+                "intent": intent,
+                "answer": checked,
+                "sources": _maybe_sources([]),
+                "verification": verification,
+                "harness": _route_meta(quality),
+            }
+
+        prompt = build_contextual_poem_followup_prompt(
+            retrieval_query,
+            history_text=full_history,
+        )
+        ans, failure = _safe_generate(
+            intent,
+            prompt,
+            model=gemini_model,
+            long_answer=long_answer,
+            max_tokens=max_tokens,
+        )
+        if failure:
+            return failure
+        checked, verification, quality = _verify_generated(
+            ans or "",
+            require_exact_quotes=False,
+            has_evidence=True,
+        )
+        if quality.status == "irrelevant-quote":
+            no_extra_quotes_prompt = (
+                f"{prompt}\n\n[SỬA PHẢN HỒI]\n"
+                "Viết lại mà không trích thêm bất kỳ câu thơ nào ngoài đúng hai câu đích. "
+                "Không dùng ví dụ minh họa ở nơi khác trong tác phẩm."
+            )
+            retried, retry_failure = _safe_generate(
+                intent,
+                no_extra_quotes_prompt,
+                model=gemini_model,
+                long_answer=long_answer,
+                max_tokens=max_tokens,
+            )
+            if not retry_failure and retried:
+                checked, verification, quality = _verify_generated(
+                    retried,
+                    require_exact_quotes=False,
+                    has_evidence=True,
+                )
+        _cache_verified(checked, quality)
+        return {
+            "intent": intent,
+            "answer": checked,
+            "sources": _maybe_sources([]),
+            "verification": verification,
+            "harness": _route_meta(quality),
         }
 
     # ---- Poem mode
@@ -531,11 +755,11 @@ def answer_with_router(
         }
 
     # ---- Domain → RAG
-    poem_only = decision.requires_poem_evidence or _needs_poem_only(query)
-    close_reading = _is_close_reading(query)
+    poem_only = decision.requires_poem_evidence or _needs_poem_only(retrieval_query)
+    close_reading = _is_close_reading(retrieval_query)
 
     pack = answer_question(
-        query,
+        retrieval_query,
         k=k,
         synthesize="single",
         gen_model=gemini_model,
@@ -549,6 +773,8 @@ def answer_with_router(
         prefer_poem_source=poem_only,
         top_evidence=6,
         essay_mode=("hsg" if close_reading and long_answer else None),
+        policy_query=query,
+        use_promoted_hyde=True,
     )
 
     if pack.get("generation_error"):
@@ -585,6 +811,31 @@ def answer_with_router(
             require_exact_quotes=decision.requires_exact_quotes,
             has_evidence=bool(evidence),
         )
+        if quality.status == "irrelevant-quote" and allowed_quote_range:
+            retry_prompt = str(pack.get("prompt") or "").strip()
+            if retry_prompt:
+                start, end = allowed_quote_range
+                retry_prompt += (
+                    "\n\n[KIỂM TRA PHẠM VI TRÍCH DẪN]\n"
+                    f"Phản hồi trước đã dẫn thơ ngoài phạm vi liên quan. Chỉ được trích các câu {start}-{end}; "
+                    "ưu tiên hai câu đích và tuyệt đối không đưa ví dụ từ đoạn khác. Viết lại để trả lời đủ bối cảnh "
+                    "và nghệ thuật của đúng đoạn đang được hỏi."
+                )
+                retried, retry_failure = _safe_generate(
+                    intent,
+                    retry_prompt,
+                    model=gemini_model,
+                    long_answer=long_answer,
+                    max_tokens=max_tokens,
+                )
+                if not retry_failure and retried:
+                    retry_checked, retry_verification, retry_quality = _verify_generated(
+                        retried,
+                        require_exact_quotes=decision.requires_exact_quotes,
+                        has_evidence=bool(evidence),
+                    )
+                    if retry_quality.status != "irrelevant-quote":
+                        checked, verification, quality = retry_checked, retry_verification, retry_quality
         if quality.status == "incomplete":
             repair_prompt = str(pack.get("prompt") or "").strip()
             if repair_prompt:
@@ -619,6 +870,7 @@ def answer_with_router(
             "sources": _maybe_sources(sources),  # sẽ là [] nếu không bật TKC_SHOW_SOURCES
             "verification": verification,
             "evidence": evidence,
+            "advanced_retrieval": pack.get("advanced_retrieval", {}),
             "harness": _route_meta(quality),
         }
 
@@ -645,6 +897,7 @@ def answer_with_router(
             "sources": _maybe_sources([]),
             "verification": verification,
             "retrieval_status": retrieval_status,
+            "advanced_retrieval": pack.get("advanced_retrieval", {}),
             "harness": _route_meta(quality),
         }
 
@@ -672,5 +925,6 @@ def answer_with_router(
         "answer": checked,
         "sources": _maybe_sources(pack.get("sources", [])),
         "verification": verification,
+        "advanced_retrieval": pack.get("advanced_retrieval", {}),
         "harness": _route_meta(quality),
     }

@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "evaluated_at": "2026-09-12",
+  "dataset": "data/eval/advanced_retrieval.jsonl",
+  "case_count": 20,
+  "latency_limit_ms": 8000,
+  "strategies": {
+    "hyde": {
+      "enabled": true,
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "recall_at_5": 0.4,
+      "recall_at_5_gain": 0.2,
+      "ndcg_at_5": 0.2673,
+      "ndcg_at_5_gain": 0.1414,
+      "latency_p95_ms": 4766.5
+    },
+    "crag_adaptive": {
+      "enabled": false,
+      "reason": "latency_gate_failed",
+      "recall_at_5": 0.4,
+      "recall_at_5_gain": 0.2,
+      "ndcg_at_5": 0.2638,
+      "ndcg_at_5_gain": 0.1379,
+      "latency_p95_ms": 13324.5
+    }
+  }
+}

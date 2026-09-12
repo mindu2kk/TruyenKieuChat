@@ -254,6 +254,27 @@ def build_rag_synthesis_prompt(
     return prompt
 
 
+def build_contextual_poem_followup_prompt(
+    grounded_request: str,
+    *,
+    history_text: Optional[str] = None,
+) -> str:
+    """Build a closed-context prompt for a numbered-passage follow-up."""
+    history_section = f"\n[HỘI THOẠI TRƯỚC]\n{history_text.strip()}" if history_text else ""
+    return (
+        "Bạn là nhà nghiên cứu Truyện Kiều. Đây là tác vụ close reading có phạm vi đóng.\n\n"
+        "QUY TẮC BẮT BUỘC:\n"
+        "1) Chỉ dùng văn bản đích, thơ lân cận và bối cảnh đã đối chiếu trong [DỮ LIỆU].\n"
+        "2) Không thêm nhân vật, địa điểm, sự kiện hoặc câu thơ từ đoạn khác.\n"
+        "3) Nếu trích thơ, chỉ trích nguyên văn câu nằm trong phạm vi được cung cấp; không cần tìm ví dụ khác.\n"
+        "4) Phân tích cả cặp câu, không chỉ câu đầu.\n"
+        "5) Viết hai mục **Bối cảnh** và **Nghệ thuật**; trả lời rõ chủ thể của nỗi sầu.\n"
+        "6) Không nhắc đến corpus, retrieval, dữ liệu hay quá trình kiểm chứng trong đáp án.\n\n"
+        f"[DỮ LIỆU]\n{grounded_request.strip()}"
+        f"{history_section}\n\n[BẮT ĐẦU TRẢ LỜI]\n"
+    )
+
+
 # =========================================================
 # Literature Review (citations required)
 # =========================================================

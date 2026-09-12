@@ -134,6 +134,26 @@ def test_quote_verifier_blocks_unverifiable_poem(mock_lines):
     assert "không đưa ra câu thơ có thể sai" in answer
 
 
+@pytest.mark.unit
+@patch("app.verifier.all_poem_lines")
+def test_quote_verifier_rejects_real_but_irrelevant_poem_line(mock_lines):
+    mock_lines.return_value = [
+        Mock(text="Sen tàn, cúc lại nở hoa,", number=1795),
+        Mock(text="Bên cầu tơ liễu bóng chiều thướt tha.", number=170),
+    ]
+    answer, verification, quality = verify_generated_answer(
+        'Đoạn này có câu "Bên cầu tơ liễu bóng chiều thướt tha.".',
+        require_exact_quotes=False,
+        has_evidence=True,
+        allowed_quote_range=(1789, 1802),
+    )
+
+    assert quality.status == "irrelevant-quote"
+    assert quality.quote_check == "failed"
+    assert verification["quote_scope"]["irrelevant"][0]["matched_line"] == 170
+    assert "ngoài đoạn đang phân tích" in answer
+
+
 @pytest.mark.parametrize(
     ("answer", "query", "expected_issue"),
     [

@@ -15,7 +15,15 @@ def test_ranking_metrics_cover_recall_mrr_and_ndcg():
     assert metrics.recall_at_5 == pytest.approx(2 / 3)
     assert metrics.recall_at_10 == pytest.approx(2 / 3)
     assert metrics.mrr == pytest.approx(0.5)
+    assert 0 < metrics.ndcg_at_5 < 1
     assert 0 < metrics.ndcg_at_10 < 1
+
+
+def test_hit_relevance_supports_legacy_gold_context_ids():
+    case = {"gold_ctx_ids": ["chunk-1795"]}
+    hit = {"text": "Sen tàn", "meta": {"id": "chunk-1795"}}
+
+    assert hit_relevance(case, hit) is True
 
 
 @pytest.mark.unit

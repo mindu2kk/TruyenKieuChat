@@ -12,7 +12,12 @@ Test các tính năng:
 
 import pytest
 from unittest.mock import ANY, Mock, patch, MagicMock
-from app.orchestrator import answer_with_router, _make_cache_key, _history_to_text
+from app.orchestrator import (
+    answer_with_router,
+    _contextualize_followup_query,
+    _make_cache_key,
+    _history_to_text,
+)
 
 
 @pytest.mark.unit
@@ -30,6 +35,50 @@ def test_make_cache_key():
     short_key = _make_cache_key("test query", long_answer=False, intent="domain", max_tokens=600)
     normal_key = _make_cache_key("test query", long_answer=False, intent="domain", max_tokens=800)
     assert short_key != normal_key
+
+    first_context = _make_cache_key(
+        "Đào sâu thêm",
+        long_answer=False,
+        intent="analysis",
+        context_text="Câu 1795-1796",
+    )
+    second_context = _make_cache_key(
+        "Đào sâu thêm",
+        long_answer=False,
+        intent="analysis",
+        context_text="Đoạn Trao duyên",
+    )
+    assert first_context != second_context
+
+
+@pytest.mark.unit
+def test_contextualize_followup_uses_latest_concrete_user_topic():
+    history = [
+        ("user", "Bình giảng hai câu 1795-1796, tập trung vào cảm thức thời gian."),
+        ("assistant", "Hai câu diễn tả sự tuần hoàn của thời gian."),
+        ("user", "Hãy đào sâu thêm câu trả lời vừa rồi."),
+        ("assistant", "Một câu trả lời còn chung chung."),
+    ]
+
+    resolved, cache_context = _contextualize_followup_query(
+        "Hãy đào sâu thêm câu trả lời vừa rồi, tập trung vào bối cảnh và nghệ thuật.",
+        history,
+    )
+
+    assert "1795-1796" in resolved
+    assert "bối cảnh và nghệ thuật" in resolved
+    assert "Một câu trả lời còn chung chung" in cache_context
+
+
+@pytest.mark.unit
+def test_contextualize_standalone_query_does_not_inherit_history():
+    resolved, cache_context = _contextualize_followup_query(
+        "Phân tích nhân vật Từ Hải",
+        [("user", "Bình giảng đoạn Trao duyên")],
+    )
+
+    assert resolved == "Phân tích nhân vật Từ Hải"
+    assert cache_context == ""
 
 
 @pytest.mark.unit
@@ -218,6 +267,36 @@ def test_orchestrator_domain_rag(mock_cache, mock_faq, mock_route):
             assert result["harness"]["token_budget"]["max_output_tokens"] == 600
             mock_rag.assert_called_once()
             mock_verify.assert_called_once()
+
+
+@pytest.mark.unit
+def test_orchestrator_retrieves_followup_with_original_poem_topic():
+    history = [
+        ("user", "Bình giảng hai câu 1795-1796 trong Truyện Kiều, tập trung vào cảm thức thời gian."),
+        ("assistant", "Sen tàn, cúc lại nở hoa; sầu dài, ngày ngắn, đông đà sang xuân."),
+    ]
+    with (
+        patch("app.faq.lookup_faq", return_value=None),
+        patch("app.cache.get_cached", return_value=None),
+        patch("app.rag_pipeline.answer_question") as rag,
+        patch(
+            "app.orchestrator._safe_generate",
+            return_value=("**Bối cảnh:** Thúc Sinh nhớ Kiều.\n\n**Nghệ thuật:** Thời gian đối lập.", None),
+        ) as generate,
+    ):
+        result = answer_with_router(
+            "Hãy đào sâu thêm câu trả lời vừa rồi, tập trung vào bối cảnh và nghệ thuật của Nguyễn Du.",
+            history=history,
+        )
+
+    assert "**Bối cảnh:**" in result["answer"]
+    assert "Thúc Sinh ở Lâm Truy" in result["answer"]
+    assert "không phải tâm trạng của Kiều" in result["answer"]
+    assert "**Nghệ thuật:**" in result["answer"]
+    assert "**sầu dài – ngày ngắn**" in result["answer"]
+    assert result["harness"]["quality"]["status"] == "verified"
+    rag.assert_not_called()
+    generate.assert_not_called()
 
 
 @pytest.mark.unit

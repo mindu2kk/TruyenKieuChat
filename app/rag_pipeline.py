@@ -2,11 +2,12 @@
 from typing import Dict, Any, Iterable, List, Optional, Sequence, Tuple
 import os
 import unicodedata
+from functools import partial
 
 try:  # pragma: no cover - flexible import paths
     from .corpus_quality import diversify_hits
     from .rerank import rerank
-    from .generation import generate_answer_gemini
+    from .generation import generate_answer_gemini, generate_answer_groq, is_groq_configured
     from .prompt_engineering import (
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
@@ -17,7 +18,7 @@ try:  # pragma: no cover - flexible import paths
 except ImportError:  # pragma: no cover
     from corpus_quality import diversify_hits  # type: ignore
     from rerank import rerank  # type: ignore
-    from generation import generate_answer_gemini  # type: ignore
+    from generation import generate_answer_gemini, generate_answer_groq, is_groq_configured  # type: ignore
     from prompt_engineering import (  # type: ignore
         DEFAULT_LONG_TOKEN_BUDGET,
         DEFAULT_SHORT_TOKEN_BUDGET,
@@ -259,6 +260,9 @@ def answer_question(
     prefer_poem_source: bool = False,
     top_evidence: int = 6,
     essay_mode: Optional[str] = None,
+    policy_query: Optional[str] = None,
+    query_expansions: Optional[Sequence[str]] = None,
+    use_promoted_hyde: bool = False,
 ) -> Dict[str, Any]:
     """
     Trả về tối thiểu:
@@ -274,10 +278,47 @@ def answer_question(
 
     # -------- defaults --------
     gen_model = (gen_model or os.getenv("GEMINI_MODEL") or "gemini-2.5-flash").strip()
-    policy = select_retrieval_policy(query)
+    # A contextual follow-up can use an expanded retrieval query while its
+    # current-turn wording still determines the retrieval lane.  Otherwise a
+    # remembered line number would incorrectly force every literary follow-up
+    # into the poem-only lane and discard useful analysis sources.
+    policy = select_retrieval_policy(policy_query or query)
     if filters is None:
         filters = policy.mongo_filter()
     prefer_poem_source = prefer_poem_source or policy.prefer_poem
+
+    advanced_status: Dict[str, Any] = {
+        "hyde": {"eligible": False, "applied": False, "promoted": False}
+    }
+    if use_promoted_hyde and not query_expansions:
+        try:
+            from .advanced_retrieval import (
+                generate_hypothetical_document,
+                is_strategy_promoted,
+                should_use_hyde,
+                strategy_promotion,
+            )
+
+            promoted = is_strategy_promoted("hyde")
+            eligible = promoted and should_use_hyde(query)
+            advanced_status["hyde"].update({"promoted": promoted, "eligible": eligible})
+            if eligible and is_groq_configured():
+                hypothetical, generation_ms = generate_hypothetical_document(
+                    query,
+                    generator=partial(generate_answer_groq, reasoning_effort="low"),
+                    model=str(strategy_promotion("hyde").get("model") or "") or None,
+                )
+                if hypothetical:
+                    query_expansions = [hypothetical]
+                    advanced_status["hyde"].update(
+                        {"applied": True, "generation_latency_ms": round(generation_ms, 1)}
+                    )
+            elif eligible:
+                advanced_status["hyde"]["fallback_reason"] = "groq_not_configured"
+        except Exception as exc:
+            # Promotion is fail-open: a provider/config failure must preserve the
+            # baseline retrieval path instead of breaking the chat request.
+            advanced_status["hyde"]["fallback_reason"] = type(exc).__name__
 
     if max_tokens is None:
         max_tokens = DEFAULT_LONG_TOKEN_BUDGET if long_answer else DEFAULT_SHORT_TOKEN_BUDGET
@@ -286,6 +327,15 @@ def answer_question(
     query_variants = _build_query_variants(query)
     if not query_variants:
         query_variants = [_normalise_space(query) or "Truyện Kiều"]
+    mandatory_expansions: List[str] = []
+    seen_variants = {item.casefold() for item in query_variants}
+    for expansion in query_expansions or ():
+        normalized = _normalise_space(expansion)
+        if normalized and normalized.casefold() not in seen_variants:
+            mandatory_expansions.append(normalized)
+            seen_variants.add(normalized.casefold())
+    if mandatory_expansions:
+        query_variants = [query_variants[0], *mandatory_expansions, *query_variants[1:]]
 
     collected: List[Dict[str, Any]] = []
     retrieval_errors: List[Dict[str, str]] = []
@@ -337,8 +387,11 @@ def answer_question(
     )
 
     # 2) Variants
-    if len(collected) < max(2, k):
+    if mandatory_expansions or len(collected) < max(2, k):
         for idx, variant in enumerate(query_variants[1:], start=1):
+            mandatory = idx <= len(mandatory_expansions)
+            if not mandatory and len(collected) >= max(2, k):
+                break
             _maybe_collect(
                 variant,
                 idx,
@@ -347,7 +400,7 @@ def answer_question(
                 candidates=num_candidates,
                 active_filters=filters,
             )
-            if len(collected) >= max(3 * k, 25):
+            if not mandatory and len(collected) >= max(3 * k, 25):
                 break
 
     # 3) Relax filters
@@ -374,6 +427,7 @@ def answer_question(
             "retrieval_lane": policy.lane,
             "retrieval_status": "error" if retrieval_errors else "no-evidence",
             "retrieval_errors": retrieval_errors,
+            "advanced_retrieval": advanced_status,
         }
 
     # ưu tiên thơ nếu cần
@@ -405,7 +459,13 @@ def answer_question(
     # Nếu vẫn muốn chặn cực thấp:
     if avg_score < LOW_CONF_THRESH and len(collected) < k:
         prompt = build_rag_synthesis_prompt(query, [], history_text=history_text, long_answer=long_answer)
-        return {"query": query, "prompt": prompt, "contexts": [], "retrieval_lane": policy.lane}
+        return {
+            "query": query,
+            "prompt": prompt,
+            "contexts": [],
+            "retrieval_lane": policy.lane,
+            "advanced_retrieval": advanced_status,
+        }
 
 
     # rerank sâu
@@ -429,6 +489,7 @@ def answer_question(
         "retrieval_lane": policy.lane,
         "retrieval_status": "ok",
         "retrieval_errors": retrieval_errors,
+        "advanced_retrieval": advanced_status,
     }
 
     # synthesize nếu được yêu cầu

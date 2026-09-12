@@ -40,6 +40,9 @@ def hit_relevance(case: Mapping[str, object], hit: Mapping[str, object]) -> bool
     gold_ids = {str(item) for item in case.get("gold_source_ids", []) or []}
     if gold_ids and str(meta.get("source_id") or "") in gold_ids:
         return True
+    gold_context_ids = {str(item) for item in case.get("gold_ctx_ids", []) or []}
+    if gold_context_ids and str(meta.get("id") or "") in gold_context_ids:
+        return True
 
     expected = normalize(str(case.get("gold_contains") or ""))
     if expected and expected in normalize(str(hit.get("text") or "")):
@@ -59,18 +62,20 @@ class RankingMetrics:
     recall_at_5: float
     recall_at_10: float
     mrr: float
+    ndcg_at_5: float
     ndcg_at_10: float
 
 
 def ranking_metrics(relevance_rows: Iterable[Sequence[bool]]) -> RankingMetrics:
     rows = list(relevance_rows)
     if not rows:
-        return RankingMetrics(0.0, 0.0, 0.0, 0.0)
+        return RankingMetrics(0.0, 0.0, 0.0, 0.0, 0.0)
     size = len(rows)
     return RankingMetrics(
         recall_at_5=sum(recall_at_k(row, 5) for row in rows) / size,
         recall_at_10=sum(recall_at_k(row, 10) for row in rows) / size,
         mrr=sum(reciprocal_rank(row) for row in rows) / size,
+        ndcg_at_5=sum(ndcg_at_k(row, 5) for row in rows) / size,
         ndcg_at_10=sum(ndcg_at_k(row, 10) for row in rows) / size,
     )
 
