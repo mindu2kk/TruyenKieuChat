@@ -129,6 +129,8 @@ def answer_completeness_issues(answer: str, query: str = "") -> Tuple[str, ...]:
 _REFUSAL_PATTERNS = (
     "chua the xac minh",
     "khong the xac minh",
+    "ngoai pham vi",
+    "khong tra loi",
     "khong du bang chung",
     "khong co bang chung",
     "khong tim thay thong tin",

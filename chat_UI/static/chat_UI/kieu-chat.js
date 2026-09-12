@@ -27,11 +27,11 @@
   ];
 
   const DAILY_VERSES = [
-    { lines: "Cảnh nào cảnh chẳng đeo sầu,\nNgười buồn cảnh có vui đâu bao giờ.", prompt: "Bình giảng hai câu “Cảnh nào cảnh chẳng đeo sầu, Người buồn cảnh có vui đâu bao giờ”." },
-    { lines: "Thiện căn ở tại lòng ta,\nChữ tâm kia mới bằng ba chữ tài.", prompt: "Bình giảng hai câu kết nói về chữ tâm trong Truyện Kiều." },
-    { lines: "Trăm năm trong cõi người ta,\nChữ tài chữ mệnh khéo là ghét nhau.", prompt: "Bình giảng hai câu mở đầu Truyện Kiều." },
-    { lines: "Sen tàn cúc lại nở hoa,\nSầu dài ngày ngắn đông đà sang xuân.", prompt: "Phân tích cảm thức thời gian trong hai câu “Sen tàn cúc lại nở hoa...”." },
-    { lines: "Người quốc sắc, kẻ thiên tài,\nTình trong như đã, mặt ngoài còn e.", prompt: "Bình giảng hai câu thơ về cuộc gặp Thúy Kiều và Kim Trọng." }
+    { "lineStart": 1243, "lineEnd": 1244, "lines": "Cảnh nào cảnh chẳng đeo sầu?\nNgười buồn, cảnh có vui đâu bao giờ!", "prompt": "Bình giảng hai câu 1243-1244 trong Truyện Kiều, tập trung vào bút pháp tả cảnh ngụ tình." },
+    { "lineStart": 3251, "lineEnd": 3252, "lines": "Thiện căn ở tại lòng ta,\nChữ tâm kia mới bằng ba chữ tài!", "prompt": "Bình giảng hai câu 3251-3252 trong Truyện Kiều, tập trung vào quan niệm về chữ tâm." },
+    { "lineStart": 1, "lineEnd": 2, "lines": "Trăm năm, trong cõi người ta,\nChữ tài, chữ mệnh, khéo là ghét nhau.", "prompt": "Bình giảng hai câu 1-2 mở đầu Truyện Kiều." },
+    { "lineStart": 1795, "lineEnd": 1796, "lines": "Sen tàn, cúc lại nở hoa,\nSầu dài, ngày ngắn, đông đà sang xuân.", "prompt": "Bình giảng hai câu 1795-1796 trong Truyện Kiều, tập trung vào cảm thức thời gian." },
+    { "lineStart": 163, "lineEnd": 164, "lines": "Người quốc sắc, kẻ thiên tài,\nTình trong như đã, mặt ngoài còn e.", "prompt": "Bình giảng hai câu 163-164 trong Truyện Kiều về cuộc gặp Thúy Kiều và Kim Trọng." }
   ];
 
   const LOADING_MESSAGES = [

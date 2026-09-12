@@ -167,7 +167,7 @@
 
             <article class="daily-verse" aria-labelledby="daily-verse-title">
               <p class="daily-label" id="daily-verse-title">Câu Kiều hôm nay</p>
-              <div class="daily-copy"><blockquote x-html="dailyVerse.lines.replace(/\n/g, '<br>')"></blockquote><cite>Nguyễn Du · Truyện Kiều</cite></div>
+              <div class="daily-copy"><blockquote x-html="dailyVerse.lines.replace(/\n/g, '<br>')"></blockquote><cite>Nguyễn Du · Truyện Kiều · Câu <span x-text="`${dailyVerse.lineStart}–${dailyVerse.lineEnd}`"></span></cite></div>
               <button type="button" class="text-button" @click="ask(dailyVerse.prompt)">Bình câu thơ này →</button>
             </article>
           </section>
